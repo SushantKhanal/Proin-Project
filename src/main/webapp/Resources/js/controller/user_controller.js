@@ -45,5 +45,17 @@
                         }
                     )
             }
+
+            function deleteUser(id) {
+                UserService.deleteUser(id)
+                    .then(
+                        fetchAllUsers(),
+                        function(errResponse) {
+                            console.log("error while deleting user");
+                        }
+                    )
+            }
+
+
         }])
 })();
