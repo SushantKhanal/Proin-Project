@@ -20,7 +20,7 @@ public class ClientRESTController {
 
     //-------------------Retrieve All Users--------------------------------------------------------
 
-    @RequestMapping(value = "/users/", method = RequestMethod.GET)
+    @GetMapping("/users/")
     public ResponseEntity<List<User>> listAllUsers() {
         List<User> users = userService.findAllUsers();
         if(users.isEmpty()){
@@ -36,7 +36,7 @@ public class ClientRESTController {
     //-------------------Create a User--------------------------------------------------------
 
 
-    @RequestMapping(value = "/users/", method = RequestMethod.POST)
+    @PostMapping("/users/")
     public ResponseEntity<Void> createUser(@RequestBody User user) {
         System.out.println("Creating User " + user.getUsername());
 
