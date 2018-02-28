@@ -1,45 +1,77 @@
-<div class="generic-container" ng-controller="FirstPageCtrl as xxx">
-    <div class="panel panel-default">
+<!-- Top content -->
+<div class="top-content" ng-controller="FirstPageCtrl as xxx">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
 
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-4 control-label">Client SignIn</label>
-                <br>
-            <%--<form>--%>
-                    Username:<input type="text" id="usernameClient" required><br>
-                    Password:<input type="password"  id="passwordClient" required><br>
-                    <button type="button">Log in</button>
-                <%--</form>--%>
-            </div>
-        </div>
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Login for our clients</h3>
+                                <p>Enter username and password to log on:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form">
+                                <div class="form-group">
+                                    <label class="sr-only">Username</label>
+                                    <input type="text" placeholder="Username..." class="form-username form-control" id="usernameClient">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Password</label>
+                                    <input type="password" placeholder="Password..." class="form-password form-control" id="passwordClient">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in!</button>
+                            </form>
+                            <div class="social-login">
+                                <button class="btn btn-warning" ng-click="xxx.clientSignUp()">SignUp for Clients</button>
+                            </div>
+                        </div>
+                    </div>
 
 
-        <div class="row">
-            <div class="col-md-12">
-                <label class="col-md-4 control-label">Client SignUp</label>
-                <br>
-                <button ng-click="xxx.clientSignUp()">Client SignUp</button>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-4 control-label">Admin SignIn</label>
-                <br>
-                <%--<form>--%>
-                Username:<input type="text" id="usernameAdmin" required><br>
-                Password:<input type="password"  id="passwordAdmin" required><br>
-                <button type="button">Log in</button>
-                <%--</form>--%>
-            </div>
-        </div>
+                </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <label class="col-md-4 control-label">Admin SignUp</label>
-                <br>
-                <button>Admin SignUp</button>
-            </div>
+                <div class="col-sm-1 middle-border"></div>
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-5">
+
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Login for our Admins</h3>
+                                <p>Enter username and password to log on:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form">
+                                <div class="form-group">
+                                    <label class="sr-only">Username</label>
+                                    <input type="text" placeholder="Username..." class="form-username form-control" id="usernameAdmin">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Password</label>
+                                    <input type="password" placeholder="Password..." class="form-password form-control" id="passwordAdmin">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in!</button>
+                            </form>
+                            <div class="social-login">
+                                <button class="btn btn-warning">SignUp for Admins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
         </div>
-        </div>
+    </div>
 </div>
