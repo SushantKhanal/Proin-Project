@@ -1,4 +1,5 @@
 <!-- Top content -->
+<h3 class="heading">Welcome to PROIN app. If you don't have an account, please sign up.</h3>
 <div class="top-content" ng-controller="FirstPageCtrl as xxx">
     <div class="inner-bg">
         <div class="container">
