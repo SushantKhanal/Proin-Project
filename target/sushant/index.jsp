@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-<%--If the client is of personal type, the following divs get displayed--%>
+                <%--If the client is of personal type, the following divs get displayed--%>
                 <div ng-show="ctrl.personal" class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Academics</label>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-<%--If the client is of corporate type, the following div gets displayed--%>
+                <%--If the client is of corporate type, the following div gets displayed--%>
                 <div ng-show="ctrl.corporate" class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Market Domain</label>
@@ -125,7 +125,7 @@
 </div>
 
 <script src="<c:url value='/Static/js/app.js' />"></script>
-<%--<script src="<c:url value='/Static/js/service/client_signup_service.js' />"></script>--%>
+<script src="<c:url value='/Static/js/service/client_signup_service.js' />"></script>
 <script src="<c:url value='/Static/js/controller/client_signup_controller.js' />"></script>
 </body>
 </html>

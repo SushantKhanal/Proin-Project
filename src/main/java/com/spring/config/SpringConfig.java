@@ -14,14 +14,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan("com.spring")
 public class SpringConfig extends WebMvcConfigurerAdapter{
 
-    @Bean
-    public InternalResourceViewResolver viewResolver() {//@Configuration
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        //viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/view/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
+//    @Bean
+//    public InternalResourceViewResolver viewResolver() {//@Configuration
+//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//        //viewResolver.setViewClass(JstlView.class);
+//        viewResolver.setPrefix("/WEB-INF/view/");
+//        viewResolver.setSuffix(".jsp");
+//        return viewResolver;
+//    }
     //this is necessary to enable the browser to find files in the Resources
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

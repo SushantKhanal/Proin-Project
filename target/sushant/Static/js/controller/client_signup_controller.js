@@ -2,8 +2,8 @@
 
 angular
     .module('myApp')
-    //.controller('ClientSignupController', ['$scope', 'ClientSignupService', function($scope, ClientSignupService) {
-    .controller('ClientSignupController', ['$scope', function($scope) {
+    .controller('ClientSignupController', ['$scope', 'ClientSignupService', function($scope, ClientSignupService) {
+    //.controller('ClientSignupController', ['$scope', function($scope) {
         var vm = this;
         vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
         vm.users=[];
@@ -52,7 +52,7 @@ angular
 
         function submit() {
             console.log(vm.user);
-            //createUser(vm.user);
+            createUser(vm.user);
             vm.reset();
         }
 
@@ -63,26 +63,27 @@ angular
         }
 
 
-        // function createUser(user){
-        //     ClientSignupService.createUser(user)
-        //         .then(
-        //             fetchAllUsers,
-        //             function(errResponse){
-        //                 console.error('Error while creating User');
-        //             }
-        //         );
-        // }
+        function createUser(user){
+            ClientSignupService.createUser(user)
+                .then(
+                    fetchAllUsers,
+                    function(errResponse){
+                        console.error('Error while creating User');
+                    }
+                );
+        }
 
-        // function fetchAllUsers(){
-        //     ClientSignupService.fetchAllUsers()
-        //         .then(
-        //             function(d) {
-        //                 vm.users = d;
-        //             },
-        //             function(errResponse){
-        //                 console.error('Error while fetching Users');
-        //             }
-        //         );
-        // }
+        function fetchAllUsers(){
+            ClientSignupService.fetchAllUsers()
+                .then(
+                    function(d) {
+                        vm.users = d;
+                        console.log(vm.users);
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching Users');
+                    }
+                );
+        }
 
 }]);
