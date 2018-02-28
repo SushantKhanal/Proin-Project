@@ -13,6 +13,7 @@ angular
 
         vm.submit = submit;
         vm.reset = reset;
+        vm.none = none;
 
         function ifPersonal() {
             vm.element = $("#personalButton");
@@ -50,10 +51,24 @@ angular
             }
         }
 
+        function none() {
+            vm.corporate = false;
+            vm.personal = false;
+            vm.requirePersonal = true;
+            vm.requireCorporate = true;
+            if ($("#corporateButton").hasClass("btn-warning")) {
+                $("#corporateButton").toggleClass("btn-warning");
+            }
+            if($("#personalButton").hasClass("btn-warning")) {
+                $("#personalButton").toggleClass("btn-warning");
+            }
+        }
+
         function submit() {
             console.log(vm.user);
             createUser(vm.user);
             vm.reset();
+            vm.none();
         }
 
 
