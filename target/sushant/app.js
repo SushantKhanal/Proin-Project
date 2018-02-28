@@ -1,5 +1,4 @@
-
-     var App = angular
+ var App = angular
          .module('myApp',['ngRoute','ngTouch','ngAnimate','ui.bootstrap']);
 
 

@@ -2,7 +2,7 @@
 
 angular
     .module('myApp')
-    .controller('ClientSignupController', ['$scope', 'ClientSignupService', function($scope, ClientSignupService) {
+    .controller('ClientSignupController', ['$scope', 'ClientSignupService', '$location', function($scope, ClientSignupService, $location) {
     //.controller('ClientSignupController', ['$scope', function($scope) {
         var vm = this;
         vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
@@ -14,6 +14,7 @@ angular
         vm.submit = submit;
         vm.reset = reset;
         vm.none = none;
+        vm.close = close;
 
         function ifPersonal() {
             vm.element = $("#personalButton");
@@ -65,7 +66,7 @@ angular
         }
 
         function submit() {
-            console.log(vm.user);
+            //console.log(vm.user);
             createUser(vm.user);
             vm.reset();
             vm.none();
@@ -81,24 +82,38 @@ angular
         function createUser(user){
             ClientSignupService.createUser(user)
                 .then(
-                    fetchAllUsers,
+                    function(response){
+                        return fetchAllUsers();
+                    },
                     function(errResponse){
                         console.error('Error while creating User');
                     }
-                );
+                )
+                .then(
+                    function(d){
+                        alert("Your Sign Up is successful, " + vm.users[(d.length -1)].username);
+                    });
         }
 
         function fetchAllUsers(){
-            ClientSignupService.fetchAllUsers()
+            return ClientSignupService.fetchAllUsers()
                 .then(
                     function(d) {
                         vm.users = d;
+                        vm.index = (vm.users.length - 1);
                         console.log(vm.users);
+                        return d;
                     },
                     function(errResponse){
                         console.error('Error while fetching Users');
                     }
                 );
+        }
+
+        function close() {
+            vm.reset();
+            vm.none();
+            $location.path('/');
         }
 
 }]);

@@ -1,5 +1,8 @@
 <div class="generic-container" ng-controller="ClientSignupController as ctrl">
     <div class="panel panel-default">
+        <button type="button" class="close pull-right" aria-label="Close" ng-click="ctrl.close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <div class="panel-heading"><span class="lead">SignUp Form </span></div>
         <div class="formcontainer">
             <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
