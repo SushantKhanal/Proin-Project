@@ -23,6 +23,20 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
+                        <label class="col-md-2 control-label">Password</label>
+                        <div class="col-md-7">
+                            <input type="password" ng-model="ctrl.user.password" name="uname" class="password form-control input-sm" required ng-minlength="3"/>
+                            <div class="has-error" ng-show="myForm.$dirty">
+                                <span ng-show="myForm.uname.$error.required">This is a required field</span>
+                                <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
+                                <span ng-show="myForm.uname.$invalid">This field is invalid </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Address</label>
                         <div class="col-md-7">
                             <input type="text" ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>

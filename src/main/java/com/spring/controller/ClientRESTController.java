@@ -30,9 +30,6 @@ public class ClientRESTController {
     }
 
 
-
-
-
     //-------------------Create a User--------------------------------------------------------
 
 

@@ -5,7 +5,7 @@ angular
     .controller('ClientSignupController', ['$scope', 'ClientSignupService', '$location', function($scope, ClientSignupService, $location) {
     //.controller('ClientSignupController', ['$scope', function($scope) {
         var vm = this;
-        vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+        vm.user={id: null, clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
         vm.users=[];
 
         vm.ifPersonal = ifPersonal;
@@ -71,7 +71,6 @@ angular
             vm.reset();
             vm.none();
         }
-
 
         function reset(){
             vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};

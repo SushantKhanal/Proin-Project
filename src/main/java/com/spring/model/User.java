@@ -1,6 +1,5 @@
 package com.spring.model;
 
-
 public class User {
 //        vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
     private long id;
@@ -8,6 +7,8 @@ public class User {
     private String clientType;
 
     private String username;
+
+    private String password;
 
     private String address;
 
@@ -27,10 +28,11 @@ public class User {
     }
 
 
-    public User(long id, String clientType, String username, String address, String email, String agenda, String academics, String experience, String marketDomain) {
+    public User(long id, String clientType, String username, String password, String address, String email, String agenda, String academics, String experience, String marketDomain) {
         this.id = id;
         this.clientType = clientType;
         this.username = username;
+        this.password = password;
         this.address = address;
         this.email = email;
         this.agenda = agenda;
@@ -53,6 +55,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAddress() {
@@ -136,7 +146,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "[id=" + id + ", clientType=" + clientType + ", username=" + username + ", address=" + address
+        return "[id=" + id + ", clientType=" + clientType + ", username=" + username + ", password=" + password + ", address=" + address
                 + ", email=" + email + ", agenda=" + agenda + ", academics=" + academics + ", experience=" + experience
                 + ", marketDomain=" + marketDomain + "]";
     }
