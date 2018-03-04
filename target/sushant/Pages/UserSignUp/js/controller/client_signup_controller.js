@@ -1,3 +1,4 @@
+//THIS IS THE CONTROLLER FOR CLIENT SIGN UP PAGE
 'use strict';
 
 angular
@@ -54,7 +55,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
             vm.user.clientType = 'Corporate';
         }
     }
-
+//THE FOLLOWING FUNCTION IS RESPONSIBLE FOR UN-CLICKING BOTH 'PERSONAL' AND 'CORPORATE' BUTTONS ON RESET OR SUBMISSION
     function none() {
         vm.corporate = false;
         vm.personal = false;
@@ -80,7 +81,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
         $scope.myForm.$setPristine();
     }
 
-
+//THE FOLLOWING FUNCTION IS CLICKED ON FORM SUBMISSION
     function createUser(user){
         ClientSignupService.createUser(user)
             .then(
@@ -112,7 +113,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
                 }
             );
     }
-
+//THE FOLLOWING FUNCTION IS FOR CLOSING THE SIGN UP PAGE
     function close() {
         vm.reset();
         vm.none();

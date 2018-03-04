@@ -1,3 +1,5 @@
+<%--THIS IS THE FIRST PAGE FROM WHERE USER OR ADMIN CAN SIGN-IN OR SIGN-UP--%>
+
 <!-- Top content -->
 <h3 class="heading">Welcome to PROIN app. If you don't have an account, please sign up.</h3>
 <div class="top-content" ng-controller="FirstPageCtrl as xxx">
@@ -5,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-5">
-
+<%--SignIn/SignUp for clients--%>
                     <div class="form-box">
                         <div class="form-top">
                             <div class="form-top-left">
@@ -30,16 +32,14 @@
                             </div>
                         </div>
                     </div>
-
-
-
+<%--********************************************************************--%>
                 </div>
 
                 <div class="col-sm-1 middle-border"></div>
                 <div class="col-sm-1"></div>
 
                 <div class="col-sm-5">
-
+<%--SignIn and SignUp for admins--%>
                     <div class="form-box">
                         <div class="form-top">
                             <div class="form-top-left">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-
+<%--*************************************************************--%>
                 </div>
                 </div>
         </div>

@@ -1,12 +1,16 @@
+<%--WHEN THE CLIENT-SIGN-UP BUTTON ON THE FIRSTPAGE.JSP IS CLICKED, THE FOLLOWING PAGE IS DISPLAYED--%>
 <div class="generic-container" ng-controller="ClientSignupController as ctrl">
     <div class="panel panel-default">
+<%--RESPONSIBLE FOR CLOSE SYMBOL ON TOP RIGHT--%>
         <button type="button" class="close pull-right" aria-label="Close" ng-click="ctrl.close()">
             <span aria-hidden="true">&times;</span>
         </button>
+    <%--**************************************--%>
         <div class="panel-heading"><span class="lead">SignUp Form </span></div>
         <div class="formcontainer">
             <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
                 <input type="hidden" ng-model="ctrl.user.id" />
+                <%--FOR USERNAME ROW--%>
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Name</label>
@@ -21,6 +25,8 @@
                     </div>
                 </div>
 
+                <%--FOR PASSWORD ROW--%>
+
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Password</label>
@@ -34,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-
+                <%--FOR ADDRESS ROW--%>
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Address</label>
@@ -43,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-
+<%-- FOR EMAIL ROW--%>
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Email</label>
@@ -56,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-
+<%--FOR AGENDA ROW--%>
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Agenda</label>
@@ -68,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-
+<%--DISPLAYS 'CORPORATE' OR 'PERSONAL' BUTTON--%>
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">Client Type</label>

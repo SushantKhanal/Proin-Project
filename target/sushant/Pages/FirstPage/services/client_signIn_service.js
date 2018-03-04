@@ -1,3 +1,6 @@
+//THIS IS THE SERVICE THAT TAKES THE CLIENT'S USERNAME AND PASSWORD TO BACKEND, AND SENDS BACK TO
+//THE CONTROLLER WHATEVER IS RETURNED FROM BACKEND
+
 'use strict';
 
 angular
@@ -11,7 +14,7 @@ function clientSignInService(HttpService) {
 
     var factory = {
         checkLogIn: checkLogIn,
-        response: {},
+        response: {}, //IN THIS VARIABLE THE SIGNED IN USER PROFILE IS STORED
         setResponse: setResponse,
         getResponse: getResponse,
     };

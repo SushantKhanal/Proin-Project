@@ -8,7 +8,7 @@
 
         $routeProvider
             .when('/', {templateUrl: 'Pages/FirstPage/firstPage.jsp'})
-            .when('/userSignUp', {templateUrl: 'Pages/UserSignUp/SignUp.jsp'})
-            .when('/userAccount', {templateUrl: 'Pages/UserAccount/userAccount.jsp'})
+            .when('/userSignUp', {templateUrl: 'Pages/UserSignUp/ClientSignUp.jsp'})
+            .when('/userAccount', {templateUrl: 'Pages/UserAccount/userAccount.jsp'}) //takes to individual user account on sign in
     }
 })();
