@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
 
-    <link href="/Pages/UserSignUp/css/app.css" rel="stylesheet"/>
+    <link href="/Common/css/app.css" rel="stylesheet"/>
 </head>
 <body ng-app="myApp" class="ng-cloak">
 
