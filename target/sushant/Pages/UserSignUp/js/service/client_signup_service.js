@@ -2,45 +2,49 @@
 
 angular
     .module('myApp')
-    .factory('ClientSignupService', ['$http', '$q', function($http, $q){
+    .factory('ClientSignupService', clientSignupService);
 
-        var REST_SERVICE_URI = 'http://localhost:8080/users/';
+clientSignupService.$inject = ['$http', '$q'];
 
-        var factory = {
-            fetchAllUsers: fetchAllUsers,
-            createUser: createUser,
-        };
+function clientSignupService($http, $q){
 
-        return factory;
+    var REST_SERVICE_URI = 'http://localhost:8080/users/';
 
-        function fetchAllUsers() {
-            var deferred = $q.defer();
-            $http.get(REST_SERVICE_URI)
-                .then(
-                    function (response) {
-                        deferred.resolve(response.data);
-                    },
-                    function(errResponse){
-                        console.error('Error while fetching Users');
-                        deferred.reject(errResponse);
-                    }
-                );
-            return deferred.promise;
-        }
+    var factory = {
+        fetchAllUsers: fetchAllUsers,
+        createUser: createUser,
+    };
 
-        function createUser(user) {
-            var deferred = $q.defer();
-            $http.post(REST_SERVICE_URI, user)
-                .then(
-                    function (response) {
-                        deferred.resolve(response.data);
-                    },
-                    function(errResponse){
-                        console.error('Error while creating User');
-                        deferred.reject(errResponse);
-                    }
-                );
-            return deferred.promise;
-        }
-}]);
+    return factory;
+
+    function fetchAllUsers() {
+        var deferred = $q.defer();
+        $http.get(REST_SERVICE_URI)
+            .then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function(errResponse){
+                    console.error('Error while fetching Users');
+                    deferred.reject(errResponse);
+                }
+            );
+        return deferred.promise;
+    }
+
+    function createUser(user) {
+        var deferred = $q.defer();
+        $http.post(REST_SERVICE_URI, user)
+            .then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function(errResponse){
+                    console.error('Error while creating User');
+                    deferred.reject(errResponse);
+                }
+            );
+        return deferred.promise;
+    }
+}
 

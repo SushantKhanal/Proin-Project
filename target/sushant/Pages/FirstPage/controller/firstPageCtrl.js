@@ -1,39 +1,41 @@
 angular
     .module('myApp')
-    .controller('FirstPageCtrl', ['$scope', 'SignInService', '$location', function($scope, SignInService, $location) {
-   //.controller('ClientSignupController', ['$scope', 'ClientSignupService', '$location', function($scope, ClientSignupService, $location) {
+    .controller('FirstPageCtrl', firstPageController);
 
-        var vm = this;
-        vm.clientSignUp =  clientSignUp;
-        vm.userSignIn = userSignIn;
-        vm.username;
-        vm.password;
-        //vm.userMatched;
-        function clientSignUp(){
-            $location.path('/clientSignUp');
-        }
+firstPageController.$inject = ['$scope', 'ClientSignInService', '$location'];
 
-        function userSignIn() {
-            checkLogIn(vm.username, vm.password);
-            vm.username = '';
-            vm.password = '';
-        }
+function firstPageController($scope, ClientSignInService, $location) {
 
+    var vm = this;
+    vm.userSignUp =  userSignUp;
+    vm.userSignIn = userSignIn;
+    vm.username;
+    vm.password;
+    //vm.userMatched;
 
-        function checkLogIn(uname,pword){
-            SignInService.checkLogIn(uname,pword)
-                .then(
-                    function(response){
-                        //return matchedUser();
-                        console.log(response);
-                        alert("user matched");
-                    },
-                    function(errResponse){
-                        alert('Error while matching username and password');
-                    }
-                );
+    function userSignUp(){
+        $location.path('/userSignUp');
+    }
 
-        }
+    function userSignIn() {
+        checkLogIn(vm.username, vm.password);
+        vm.username = '';
+        vm.password = '';
+    }
 
-    }]);
+    function checkLogIn(uname,pword){
+        ClientSignInService.checkLogIn(uname,pword)
+            .then(
+                function(response){
+                    console.log(response);
+                    //alert("user matched");
+                    ClientSignInService.setResponse(response);
+                    $location.path('/userAccount');
+                },
+                function(errResponse){
+                    alert('Error while matching username and password');
+                }
+            );
+    }
 
+}

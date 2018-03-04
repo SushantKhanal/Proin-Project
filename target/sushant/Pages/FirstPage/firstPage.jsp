@@ -26,7 +26,7 @@
                                 <button type="button" ng-click="xxx.userSignIn()" class="btn btn-primary">Sign in!</button>
                             </form>
                             <div class="social-login">
-                                <button class="btn btn-warning" ng-click="xxx.clientSignUp()">SignUp for Clients</button>
+                                <button class="btn btn-warning" ng-click="xxx.userSignUp()">SignUp for Clients</button>
                             </div>
                         </div>
                     </div>

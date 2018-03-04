@@ -22,7 +22,7 @@ public class LogInController {
     //DTO -> Data transfer object
     //RequestDTO
     //ResponseDTO
-    //
+
 
     @PostMapping("/userLogIn/")
     public ResponseEntity<User> createUser(@RequestBody LoginRequestDTO loginRequestDTO) {
@@ -40,3 +40,4 @@ public class LogInController {
     }
 
 }
+
