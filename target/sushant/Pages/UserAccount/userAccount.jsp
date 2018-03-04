@@ -34,39 +34,41 @@
                                 <hr style="margin:5px 0 5px 0;">
 
 
-                                <div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 ">{{xxx.user.username}}</div>
+                                <div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 ">{{xxx.user.firstName}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Middle Name:</div><div class="col-sm-7"> {{xxx.user.username}}</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7"> {{xxx.user.lastName}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7"> {{xxx.user.username}}</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Bio:</div><div class="col-sm-7"> {{xxx.user.bio}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                                <div class="col-sm-5 col-xs-6 tital " >Client Type:</div><div class="col-sm-7"> {{xxx.user.clientType}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7">15 Jun 2016</div>
-
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><div class="col-sm-7">11 Jun 1998</div>
-
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital " >Place Of Birth:</div><div class="col-sm-7">{{xxx.user.address}}</div>
-
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Nationality:</div><div class="col-sm-7">Indian</div>
-
+                                <div class="col-sm-5 col-xs-6 tital " >Nationality:</div><div class="col-sm-7">{{xxx.user.nation}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Religion:</div><div class="col-sm-7">Hindu</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Agenda:</div><div class="col-sm-7"> {{xxx.user.agenda}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
 
                                 <!-- /.box-body -->
                             </div>

@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService{
         user.setId(counter.incrementAndGet());
         users.add(user);
     }
+
     public User findByName(String name) {
         if (users != null && !users.isEmpty()) {
             for (User user : users) {

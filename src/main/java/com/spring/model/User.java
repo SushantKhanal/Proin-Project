@@ -8,8 +8,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class User {
-    //        vm.user={id: null, clientType:'', username:'',address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+//    vm.user={id: null, firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+
     private Long id;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String bio;
+
+    private String nation;
 
     private String clientType;
 
@@ -37,6 +46,10 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", bio='" + bio + '\'' +
+                ", nation='" + nation + '\'' +
                 ", clientType='" + clientType + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -49,3 +62,4 @@ public class User {
                 '}';
     }
 }
+

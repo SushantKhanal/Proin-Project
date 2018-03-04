@@ -45,6 +45,7 @@ public class ClientRESTController {
         userService.saveUser(user);
 
         return new ResponseEntity<Void>(HttpStatus.CREATED);
+
     }
 
 
