@@ -4,9 +4,9 @@ angular
     .module('myApp')
     .factory('ClientSignupService', clientSignupService);
 
-clientSignupService.$inject = ['$http', '$q'];
+clientSignupService.$inject = ['$http', '$q', 'HttpService'];
 
-function clientSignupService($http, $q){
+function clientSignupService($http, $q, HttpService){
 
     var REST_SERVICE_URI = 'http://localhost:8080/users/';
 
@@ -18,33 +18,11 @@ function clientSignupService($http, $q){
     return factory;
 
     function fetchAllUsers() {
-        var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI)
-            .then(
-                function (response) {
-                    deferred.resolve(response.data);
-                },
-                function(errResponse){
-                    console.error('Error while fetching Users');
-                    deferred.reject(errResponse);
-                }
-            );
-        return deferred.promise;
+        return HttpService.get(REST_SERVICE_URI);
     }
 
     function createUser(user) {
-        var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI, user)
-            .then(
-                function (response) {
-                    deferred.resolve(response.data);
-                },
-                function(errResponse){
-                    console.error('Error while creating User');
-                    deferred.reject(errResponse);
-                }
-            );
-        return deferred.promise;
+        return HttpService.post(REST_SERVICE_URI, user);
     }
 }
 

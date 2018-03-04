@@ -19,6 +19,7 @@
     <div ng-view></div>
 
     <script src = "app.js"></script>
+    <script src= "/Common/HttpService.js"></script>
     <script src="/Pages/FirstPage/controller/firstPageCtrl.js"></script>
     <script src="/Pages/FirstPage/services/client_signIn_service.js"></script>
     <script src="/Pages/UserSignUp/js/service/client_signup_service.js"></script>

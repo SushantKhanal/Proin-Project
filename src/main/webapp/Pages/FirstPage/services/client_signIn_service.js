@@ -4,8 +4,8 @@ angular
     .module('myApp')
     .factory('ClientSignInService', clientSignInService);
 
-clientSignInService.$inject = ['$http', '$q'];
-function clientSignInService($http, $q) {
+clientSignInService.$inject = ['HttpService'];
+function clientSignInService(HttpService) {
 
     var REST_SERVICE_URI = 'http://localhost:8080/userLogIn/';
 
@@ -33,19 +33,22 @@ function clientSignInService($http, $q) {
             password: upass
         };
 
-        var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI, userNamePassword)
-            .then(
-                function (response) {
+        // var deferred = $q.defer();
+        // $http.post(REST_SERVICE_URI, userNamePassword)
+        //     .then(
+        //         function (response) {
+        //
+        //             deferred.resolve(response.data);
+        //         },
+        //         function(errResponse){
+        //             console.error('Error while creating User');
+        //             deferred.reject(errResponse);
+        //         }
+        //     );
+        // return deferred.promise;
 
-                    deferred.resolve(response.data);
-                },
-                function(errResponse){
-                    console.error('Error while creating User');
-                    deferred.reject(errResponse);
-                }
-            );
-        return deferred.promise;
+        return HttpService.post(REST_SERVICE_URI, userNamePassword);
     }
 
 }
+
