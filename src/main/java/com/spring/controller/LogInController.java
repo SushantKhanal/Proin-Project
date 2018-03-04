@@ -16,8 +16,7 @@ import java.util.List;
 @RestController
 public class LogInController {
     @Autowired
-    LogInService logInService;
-    User matchedUser;
+    private LogInService logInService;
 
     //DTO -> Data transfer object
     //RequestDTO
@@ -25,15 +24,15 @@ public class LogInController {
 
 
     @PostMapping("/userLogIn/")
-    public ResponseEntity<User> createUser(@RequestBody LoginRequestDTO loginRequestDTO) {
+    public ResponseEntity<User> matchUser(@RequestBody LoginRequestDTO loginRequestDTO) {
+
         List<User> users = logInService.findAllUsers();
         String username = loginRequestDTO.getUsername();
         String password = loginRequestDTO.getPassword();
         User returnedUser = logInService.matchUser(username, password);
 
-        if(users.contains(returnedUser)) {
-            matchedUser = returnedUser;
-            return new ResponseEntity<User>(matchedUser, HttpStatus.OK);
+        if (users.contains(returnedUser)) {
+            return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
         }
 
         return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);

@@ -14,8 +14,8 @@ import java.util.List;
 @RestController
 public class ClientRESTController {
 
-        @Autowired
-        UserService userService;  //Service which will do all data retrieval/manipulation work
+    @Autowired
+    private UserService userService;  //Service which will do all data retrieval/manipulation work
 
 
     //-------------------Retrieve All Users--------------------------------------------------------
@@ -46,7 +46,6 @@ public class ClientRESTController {
 
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
-
 
 
 }

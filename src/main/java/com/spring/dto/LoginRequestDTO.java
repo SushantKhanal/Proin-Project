@@ -1,29 +1,19 @@
 package com.spring.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
 /**
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
  */
-
-public class LoginRequestDTO {
+@Getter
+@Setter
+public class LoginRequestDTO{
 
     private String username;
 
     private String password;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
