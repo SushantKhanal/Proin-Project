@@ -25,6 +25,7 @@
     <script src="/Pages/UserSignUp/js/service/client_signup_service.js"></script>
     <script src="/Pages/UserSignUp/js/controller/client_signup_controller.js"></script>
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
+    <script src="/Pages/UserAccount/services/user_account_service.js"></script>
     <script src="/Common/RouteProvider/routeProvider.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

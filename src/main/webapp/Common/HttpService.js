@@ -33,8 +33,19 @@ function HttpService($http, $q, $location) {
                         return $q.reject(err);
                     }
                 );
-        }
+        },
 
+        put: function (resourceURI, user, id) {
+            return $http.put(resourceURI+id, user)
+                .then(
+                    function (resp) {
+                        return resp.data;
+                    },
+                    function (err) {
+                        return $q.reject(err);
+                    }
+                );
+        }
     }
 
 }

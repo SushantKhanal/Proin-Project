@@ -18,9 +18,23 @@ public class UserServiceImpl implements UserService{
 
     private List<User> users = new ArrayList<User>();
 
+    public User findById(long id) {
+        for(User user : users){
+            if(user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
+
     public void saveUser(User user) {
         user.setId(counter.incrementAndGet());
         users.add(user);
+    }
+
+    public void updateUser(User user) {
+        int index = users.indexOf(user);
+        users.set(index, user);
     }
 
     public User findByName(String name) {
