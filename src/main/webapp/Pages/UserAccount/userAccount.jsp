@@ -23,7 +23,8 @@
                                     </div>
 
                                     <br>
-
+<%--    vm.user={academics:'', experience: '', marketDomain: ''};
+--%>
                                     <!-- /input-group -->
                                 </div>
                                 <div class="col-sm-6">
@@ -50,9 +51,10 @@
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Client Type:</div><div class="col-sm-7"> {{xxx.user.clientType}}</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Email:</div><div class="col-sm-7"> {{xxx.user.email}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
+
 
                                 <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7">{{xxx.user.joinDate | date}}</div>
                                 <div class="clearfix"></div>
@@ -62,13 +64,35 @@
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Nationality:</div><div class="col-sm-7">{{xxx.user.nation}}</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Country:</div><div class="col-sm-7">{{xxx.user.nation}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital " >Agenda:</div><div class="col-sm-7"> {{xxx.user.agenda}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
+
+                                <div class="col-sm-5 col-xs-6 tital " >Client Type:</div><div class="col-sm-7"> {{xxx.user.clientType}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                                <div ng-if="xxx.user.clientType == 'Personal'">
+                                    <div class="col-sm-5 col-xs-6 tital " >Academics:</div><div class="col-sm-7"> {{xxx.user.academics}}</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
+
+                                <div ng-if="xxx.user.clientType == 'Personal'">
+                                    <div class="col-sm-5 col-xs-6 tital " >Experience:</div><div class="col-sm-7"> {{xxx.user.experience}}</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
+
+                                <div ng-if="xxx.user.clientType == 'Corporate'">
+                                    <div class="col-sm-5 col-xs-6 tital " >marketDomain:</div><div class="col-sm-7"> {{xxx.user.marketDomain}}</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
 
                                 <!-- /.box-body -->
                             </div>
