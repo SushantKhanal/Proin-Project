@@ -8,4 +8,9 @@ userAccountController.$inject = ['ClientSignInService'];
 function userAccountController(ClientSignInService) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
+    vm.editProfile = editProfile;
+
+    function editProfile() {
+        console.log("you decided to edit your profile");
+    }
 }

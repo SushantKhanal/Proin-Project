@@ -23,13 +23,13 @@
                                     </div>
 
                                     <br>
-<%--    vm.user={academics:'', experience: '', marketDomain: ''};
---%>
+
                                     <!-- /input-group -->
                                 </div>
                                 <div class="col-sm-6">
-                                    <h4 style="color:#00b1b1;">{{xxx.user.username}} </h4></span>
+                                    <h4 style="color:#00b1b1;">{{xxx.user.firstName}} </h4></span>
                                     <span><p>Aspirant</p></span>
+                                    <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit Profile</button>
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">
