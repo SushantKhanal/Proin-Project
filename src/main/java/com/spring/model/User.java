@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,6 +17,8 @@ public class User {
     private String firstName;
 
     private String lastName;
+
+    private Date dob;
 
     private String bio;
 
@@ -32,6 +36,8 @@ public class User {
 
     private String agenda;
 
+    private Date joinDate;
+
     private String academics;
 
     private String experience;
@@ -48,6 +54,7 @@ public class User {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", dob=" + dob +
                 ", bio='" + bio + '\'' +
                 ", nation='" + nation + '\'' +
                 ", clientType='" + clientType + '\'' +
@@ -56,6 +63,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", agenda='" + agenda + '\'' +
+                ", joinDate=" + joinDate +
                 ", academics='" + academics + '\'' +
                 ", experience='" + experience + '\'' +
                 ", marketDomain='" + marketDomain + '\'' +

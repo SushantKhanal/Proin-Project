@@ -9,7 +9,7 @@ clientSignUpController.$inject = ['$scope', 'ClientSignupService', '$location'];
 
 function clientSignUpController($scope, ClientSignupService, $location) {
     var vm = this;
-    vm.user={id: null, firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+    vm.user={id: null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
     vm.users=[];
 
     vm.ifPersonal = ifPersonal;
@@ -55,6 +55,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
             vm.user.clientType = 'Corporate';
         }
     }
+
 //THE FOLLOWING FUNCTION IS RESPONSIBLE FOR UN-CLICKING BOTH 'PERSONAL' AND 'CORPORATE' BUTTONS ON RESET OR SUBMISSION
     function none() {
         vm.corporate = false;
@@ -70,14 +71,15 @@ function clientSignUpController($scope, ClientSignupService, $location) {
     }
 
     function submit() {
-        //console.log(vm.user);
+        vm.user.joinDate = new Date();
+        console.log(vm.user);
         createUser(vm.user);
         vm.reset();
         vm.none();
     }
 
     function reset(){
-        vm.user={id: null, firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+        vm.user={id: null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
         $scope.myForm.$setPristine();
     }
 
@@ -113,6 +115,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
                 }
             );
     }
+
 //THE FOLLOWING FUNCTION IS FOR CLOSING THE SIGN UP PAGE
     function close() {
         vm.reset();

@@ -42,6 +42,10 @@
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
+                                <div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><div class="col-sm-7"> {{xxx.user.dob | date}}</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
                                 <div class="col-sm-5 col-xs-6 tital " >Bio:</div><div class="col-sm-7"> {{xxx.user.bio}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
@@ -50,11 +54,7 @@
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7">15 Jun 2016</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-
-                                <div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><div class="col-sm-7">11 Jun 1998</div>
+                                <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7">{{xxx.user.joinDate | date}}</div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
