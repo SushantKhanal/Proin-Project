@@ -15,11 +15,13 @@ function userAccountController(ClientSignInService) {
     function editProfile() {
         vm.editContent = true;
         $(".userDetail").attr('readonly', false);
+        $(".userDetail").removeClass("updateDetail");
         console.log("you decided to edit your profile");
     }
 
     function updateProfile() {
         $(".userDetail").attr('readonly', true);
+        $(".userDetail").addClass("updateDetail");
         console.log("update this user", vm.user);
     }
 }

@@ -182,7 +182,7 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 .tital{ font-size:16px; font-weight:500;}
 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}
 
-.userDetail {
+.updateDetail {
     border: none;
     display: inline;
     font-family: inherit;
