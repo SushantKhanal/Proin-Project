@@ -10,10 +10,16 @@ function userAccountController(ClientSignInService) {
     vm.user = ClientSignInService.getResponse();
     vm.editProfile = editProfile;
     vm.editContent = false;
+    vm.updateProfile = updateProfile;
 
     function editProfile() {
         vm.editContent = true;
-        $(".userDetail").attr('contenteditable', true);
+        $(".userDetail").attr('readonly', false);
         console.log("you decided to edit your profile");
+    }
+
+    function updateProfile() {
+        $(".userDetail").attr('readonly', true);
+        console.log("update this user", vm.user);
     }
 }
