@@ -20,5 +20,16 @@
                 templateUrl: 'Pages/UserAccount/userAccount.jsp'
 
             })
+            .when('/userAccount/searchResults', {
+                resolve: {
+                    "check": function($location){
+                        if(localStorage['ifloggedin']!=='true') {
+                            $location.path('/')
+                        }
+                    }
+                },
+                templateUrl: 'Pages/SearchResults/SearchResults.jsp'
+
+            })
     }
 })();

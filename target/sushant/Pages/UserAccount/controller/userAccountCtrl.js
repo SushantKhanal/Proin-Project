@@ -13,6 +13,7 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     vm.updateProfile = updateProfile;
     vm.users = [];
     vm.logOut = logOut;
+    vm.searchResults =  searchResults;
 
     var userData = localStorage['userInfo'];
 
@@ -30,6 +31,7 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     }
 
     function updateProfile() {
+        vm.editContent = false;
         $(".userDetail").attr('readonly', true);
         $(".userDetail").addClass("updateDetail");
         console.log("update this user", vm.user);
@@ -65,5 +67,9 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     function logOut() {
         localStorage['ifloggedin'] = undefined;
         $location.path('/');
+    }
+
+    function searchResults() {
+        $location.path('/userAccount/searchResults')
     }
 }

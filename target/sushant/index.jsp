@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/Common/css/app.css" rel="stylesheet"/>
 </head>
 <body ng-app="myApp" class="ng-cloak">
@@ -26,6 +26,8 @@
     <script src="/Pages/UserSignUp/js/controller/client_signup_controller.js"></script>
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
+    <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
+
     <script src="/Common/RouteProvider/routeProvider.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

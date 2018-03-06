@@ -135,6 +135,11 @@
                                 </div>
                                 <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
                                 <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()" class="btn btn-danger pull-right">Save</button>
+
+                                <a class="btn btn-info btn-lg pull-right" ng-if="xxx.editContent == false" ng-click="xxx.searchResults()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+
                                 <!-- /.box-body -->
                             </div>
                             <!-- /.box -->
