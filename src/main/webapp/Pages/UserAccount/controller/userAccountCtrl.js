@@ -63,6 +63,7 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     }
 
     function logOut() {
+        localStorage['ifloggedin'] = undefined;
         $location.path('/');
     }
 }

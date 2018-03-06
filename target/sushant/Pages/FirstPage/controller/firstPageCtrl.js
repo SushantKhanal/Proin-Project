@@ -41,7 +41,11 @@ function firstPageController($scope, ClientSignInService, $location) {
                     vm.user.joinDate = vm.user.joinDate.getFullYear()+'-'+(vm.user.joinDate.getMonth()+1)+'-'+vm.user.joinDate.getDate();
 
                     localStorage['userInfo'] = JSON.stringify(vm.user);
+
+                    localStorage['ifloggedin'] = JSON.stringify(true);
+
                     $location.path('/userAccount'); //THE PARTICULAR USER ACCOUNT IS SHOWN
+
                 },
                 function(errResponse){
                     alert('Error while matching username and password');
