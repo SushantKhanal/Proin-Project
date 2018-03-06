@@ -3,17 +3,25 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ClientSignupService'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ClientSignupService', '$location'];
 
-function userAccountController(ClientSignInService, UserAccountService, ClientSignupService) {
+function userAccountController(ClientSignInService, UserAccountService, ClientSignupService, $location) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
-    vm.user.dob = new Date(vm.user.dob);
-    vm.user.joinDate = new Date(vm.user.joinDate);
     vm.editProfile = editProfile;
     vm.editContent = false;
     vm.updateProfile = updateProfile;
     vm.users = [];
+    vm.logOut = logOut;
+
+    var userData = localStorage['userInfo'];
+
+    if(userData !== undefined) {
+        vm.user = JSON.parse(userData);
+    }
+
+    window.onload = console.log("###***###", userData);
+
     function editProfile() {
         vm.editContent = true;
         $(".userDetail").attr('readonly', false);
@@ -26,12 +34,13 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
         $(".userDetail").addClass("updateDetail");
         console.log("update this user", vm.user);
         updateUser(vm.user, vm.user.id);
+        //localStorage['userInfo'] = JSON.stringify(vm.user);
     }
 
     function updateUser(user, id){
         UserAccountService.updateUser(user, id)
             .then(
-                fetchAllUsers,
+                fetchAllUsers(),
                 function(errResponse){
                     console.error('Error while updating User');
                 }
@@ -51,5 +60,9 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
                     console.error('Error while fetching Users');
                 }
             );
+    }
+
+    function logOut() {
+        $location.path('/');
     }
 }

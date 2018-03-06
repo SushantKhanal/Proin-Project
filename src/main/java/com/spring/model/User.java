@@ -18,7 +18,7 @@ public class User {
 
     private String lastName;
 
-    private Date dob;
+    private String dob;
 
     private String bio;
 
@@ -36,7 +36,7 @@ public class User {
 
     private String agenda;
 
-    private Date joinDate;
+    private String joinDate;
 
     private String academics;
 
@@ -68,12 +68,20 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    public String getJoinDate() {
+        return joinDate;
     }
 
     public String getBio() {
@@ -140,13 +148,6 @@ public class User {
         this.agenda = agenda;
     }
 
-    public Date getJoinDate() {
-        return joinDate;
-    }
-
-    public void setJoinDate(Date joinDate) {
-        this.joinDate = joinDate;
-    }
 
     public String getAcademics() {
         return academics;

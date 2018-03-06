@@ -7,7 +7,11 @@
             <div class="col-md-10 ">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4>User Profile</h4></div>
+                    <div class="panel-heading">
+                        <h4>User Profile</h4>
+                    </div>
+
+
                     <div class="panel-body">
 
                         <div class="box box-info">
@@ -129,6 +133,7 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
+                                <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
                                 <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()" class="btn btn-danger pull-right">Save</button>
                                 <!-- /.box-body -->
                             </div>
