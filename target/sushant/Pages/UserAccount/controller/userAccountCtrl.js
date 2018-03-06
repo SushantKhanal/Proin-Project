@@ -34,7 +34,7 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
         $(".userDetail").addClass("updateDetail");
         console.log("update this user", vm.user);
         updateUser(vm.user, vm.user.id);
-        //localStorage['userInfo'] = JSON.stringify(vm.user);
+        localStorage['userInfo'] = JSON.stringify(vm.user);
     }
 
     function updateUser(user, id){

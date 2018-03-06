@@ -60,8 +60,7 @@ public class ClientRESTController {
             System.out.println("User with id " + id + " not found");
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
-//    vm.user={id: null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'',
-// address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
+
         currentUser.setId(user.getId());
         currentUser.setFirstName(user.getFirstName());
         currentUser.setLastName(user.getLastName());

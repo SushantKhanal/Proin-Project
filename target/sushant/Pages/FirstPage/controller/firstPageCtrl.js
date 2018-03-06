@@ -36,11 +36,11 @@ function firstPageController($scope, ClientSignInService, $location) {
                     ClientSignInService.setResponse(response);
                     vm.user = ClientSignInService.getResponse();
                     vm.user.dob = new Date(vm.user.dob);
-                    // vm.user.dob = vm.user.dob.getFullYear()+'-'+(vm.user.dob.getMonth()+1)+'-'+vm.user.dob.getDate();
+                    vm.user.dob = vm.user.dob.getFullYear()+'-'+(vm.user.dob.getMonth()+1)+'-'+vm.user.dob.getDate();
                     vm.user.joinDate = new Date(vm.user.joinDate);
-                    // vm.user.joinDate = vm.user.joinDate.getFullYear()+'-'+(vm.user.joinDate.getMonth()+1)+'-'+vm.user.joinDate.getDate();
+                    vm.user.joinDate = vm.user.joinDate.getFullYear()+'-'+(vm.user.joinDate.getMonth()+1)+'-'+vm.user.joinDate.getDate();
 
-                    // localStorage['userInfo'] = JSON.stringify(vm.user);
+                    localStorage['userInfo'] = JSON.stringify(vm.user);
                     $location.path('/userAccount'); //THE PARTICULAR USER ACCOUNT IS SHOWN
                 },
                 function(errResponse){
