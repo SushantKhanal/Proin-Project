@@ -4,9 +4,9 @@ angular
     .module('myApp')
     .factory('UserAccountService', userAccountService);
 
-userAccountService.$inject = ['$http', '$q', 'HttpService'];
+userAccountService.$inject = ['HttpService'];
 
-function userAccountService($http, $q, HttpService, ClientSignupService){
+function userAccountService(HttpService){
 
     var REST_SERVICE_URI = 'http://localhost:8080/user/';
 

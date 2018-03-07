@@ -27,6 +27,7 @@
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
     <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
+    <script src="/Pages/SearchResults/services/search_results_service.js"></script>
 
     <script src="/Common/RouteProvider/routeProvider.js"></script>
 
