@@ -34,7 +34,7 @@ function HttpService($http, $q, $location) {
                     }
                 );
         },
-
+        //FUNCTION THAT HANDLES THE UPDATE OPERATION
         put: function (resourceURI, user, id) {
             return $http.put(resourceURI+id, user)
                 .then(
@@ -45,7 +45,20 @@ function HttpService($http, $q, $location) {
                         return $q.reject(err);
                     }
                 );
-        }
+        },
+
+        //FUNCTION THAT HANDLES THE GET REQUEST FOR SEARCHRESULTS SERVICE
+        getSearchResults: function (resourceURI, searchTxt, country) {
+            return $http.get(resourceURI+country+ '/' +searchTxt)
+                .then(
+                    function (resp) {
+                        return resp.data;
+                    },
+                    function (err) {
+                        return $q.reject(err);
+                    }
+                );
+        },
     }
 
 }

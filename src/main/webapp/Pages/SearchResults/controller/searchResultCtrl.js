@@ -2,13 +2,16 @@ angular
     .module('myApp')
     .controller('SearchResultCtrl', searchResultController);
 
-searchResultController.$inject = ['$location', 'SearchResultsService'];
+searchResultController.$inject = ['$location', 'SearchResultsService', '$scope'];
 
-function searchResultController($location, SearchResultsService) {
+function searchResultController($location, SearchResultsService, $scope) {
     var vm = this;
     vm.goBack = goBack;
-    vm.searchProfiles = searchProfiles;
+    vm.searchResults = searchResults;
+    vm.users = [];
+    vm.countries;
     vm.searchThis;
+    $scope.country;
 
     getCountries();
 
@@ -16,8 +19,18 @@ function searchResultController($location, SearchResultsService) {
         $location.path('/userAccount');
     }
 
-    function searchProfiles() {
-       console.log(vm.searchThis);
+    function searchResults() {
+        console.log(vm.searchThis, $scope.country);
+        SearchResultsService.getMatchedUsers(vm.searchThis, $scope.country)
+            .then(
+                function(u) {
+                    vm.users = u;
+                    console.log(vm.users);
+                },
+                function(errResponse){
+                    console.error('Error while fetching Users');
+                }
+            );
     }
 
     function getCountries() {

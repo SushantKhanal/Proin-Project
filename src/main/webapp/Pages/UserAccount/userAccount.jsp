@@ -104,12 +104,6 @@
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
-                                <div class="col-sm-5 col-xs-6 tital ">Client Type:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.clientType}}</div>--%>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.clientType" readonly/>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-
                                 <div ng-if="xxx.user.clientType == 'Personal'">
                                     <div class="col-sm-5 col-xs-6 tital ">Academics:</div>
                                     <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.academics}}</div>--%>
