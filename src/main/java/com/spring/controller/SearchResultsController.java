@@ -3,7 +3,6 @@ package com.spring.controller;
 import com.spring.dto.Countries;
 import com.spring.model.User;
 import com.spring.services.SearchUsersService;
-import com.spring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

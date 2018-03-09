@@ -4,14 +4,18 @@ import lombok.AllArgsConstructor;
 //import lombok.Getter;
 //import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
-//@Getter
-//@Setter
+@Entity
+@Table(name="users_table")
 @AllArgsConstructor
 public class User {
 //    vm.user={id: null, firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
 
+    @Id
     private Long id;
 
     private String firstName;
