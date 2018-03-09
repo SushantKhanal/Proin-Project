@@ -26,13 +26,13 @@ import java.util.Properties;
 
 //###########//
 @Configuration
+@EnableJpaRepositories(basePackages = {"com.spring.repository"},
+        entityManagerFactoryRef = "entityManagerFactoryBean")
 @EnableTransactionManagement
-@ComponentScan("com.spring")
+//@ComponentScan("com.spring")
 @PropertySource(value = {
         "classpath:database.properties"
 })
-@EnableJpaRepositories(basePackages = "com.spring.repository",
-        entityManagerFactoryRef = "entityManagerFactoryBean")
 @EnableSpringDataWebSupport
 public class HibernateConfiguration {
     @Resource
@@ -66,7 +66,15 @@ public class HibernateConfiguration {
 
         return entityManagerFactoryBean;
     }
-
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
+//        LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
+//        emfb.setDataSource(dataSource());
+//        emfb.setPackagesToScan(new String[]{"com.f1soft.admin.model"});
+//        emfb.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+//        emfb.setJpaProperties(hibernateProperties());
+//        return emfb;
+//    }
     private Properties getHibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));

@@ -12,17 +12,20 @@ public class WebServlet extends AbstractAnnotationConfigDispatcherServletInitial
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { SpringConfig.class };
+        return new Class<?>[] {
+                SpringConfig.class
+        };
     }
 
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+
     }
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class<?>[]{RootConfig.class};
     }
 
 }
