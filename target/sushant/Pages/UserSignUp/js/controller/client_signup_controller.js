@@ -10,6 +10,7 @@ clientSignUpController.$inject = ['$scope', 'ClientSignupService', '$location'];
 function clientSignUpController($scope, ClientSignupService, $location) {
     var vm = this;
     vm.user={id: null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
+
     vm.users=[];
 
     vm.ifPersonal = ifPersonal;
@@ -79,7 +80,7 @@ function clientSignUpController($scope, ClientSignupService, $location) {
     }
 
     function reset(){
-        vm.user={id: null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
+        vm.user={id:null, firstName:'', lastName:'', dob:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'', email:'', agenda:'', joinDate:'', academics:'', experience: '', marketDomain: ''};
         $scope.myForm.$setPristine();
     }
 

@@ -8,7 +8,7 @@ clientSignupService.$inject = ['$http', '$q', 'HttpService'];
 
 function clientSignupService($http, $q, HttpService){
 
-    var REST_SERVICE_URI = 'http://localhost:8080/users/';
+    var REST_SERVICE_URI = 'http://localhost:8080/users';
 
     var factory = {
         fetchAllUsers: fetchAllUsers,

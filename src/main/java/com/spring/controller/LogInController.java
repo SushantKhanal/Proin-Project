@@ -2,11 +2,10 @@ package com.spring.controller;
 
 import com.spring.dto.LoginRequestDTO;
 import com.spring.model.User;
-import com.spring.services.LogInService;
+import com.spring.services.UserDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +14,10 @@ import java.util.List;
 
 @RestController
 public class LogInController {
+
+
     @Autowired
-    private LogInService logInService;
+    private UserDatabaseService userDatabaseService; //data manipulation in the database
 
     //DTO -> Data transfer object
     //RequestDTO
@@ -26,12 +27,13 @@ public class LogInController {
     @PostMapping("/userLogIn/")
     public ResponseEntity<User> matchUser(@RequestBody LoginRequestDTO loginRequestDTO) {
 
-        List<User> users = logInService.findAllUsers();
+        List<User> users = userDatabaseService.listUsers();
         String username = loginRequestDTO.getUsername();
         String password = loginRequestDTO.getPassword();
-        User returnedUser = logInService.matchUser(username, password);
+        User returnedUser = userDatabaseService.getUserByUsername(username);
 
-        if (users.contains(returnedUser)) {
+
+        if (users.contains(returnedUser) && returnedUser.getPassword()==password) {
             return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
         }
 
