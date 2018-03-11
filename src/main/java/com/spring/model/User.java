@@ -49,8 +49,9 @@ public class User {
 
     private String marketDomain;
 
-
-
+    User() {
+        id=1L;
+    }
     @Override
     public String toString() {
         return "User{" +

@@ -47,7 +47,7 @@ public class ClientRESTController {
 
         userDatabaseService.addUser(user); //added to the database
 
-        return new ResponseEntity<Void>(HttpStatus.CREATED);
+        return new ResponseEntity<Void>(HttpStatus.OK);
 
     }
 
