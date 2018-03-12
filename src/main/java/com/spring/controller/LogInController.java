@@ -31,9 +31,9 @@ public class LogInController {
         String username = loginRequestDTO.getUsername();
         String password = loginRequestDTO.getPassword();
         User returnedUser = userDatabaseService.getUserByUsername(username);
+        String returnedPassword = returnedUser.getPassword();
 
-
-        if (users.contains(returnedUser) && returnedUser.getPassword()==password) {
+        if (returnedPassword.equals(password)) {
             return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
         }
 
