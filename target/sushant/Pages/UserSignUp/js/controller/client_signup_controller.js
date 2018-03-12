@@ -89,33 +89,16 @@ function clientSignUpController($scope, ClientSignupService, $location) {
         ClientSignupService.createUser(user)
             .then(
                 function(response){
-                    return fetchAllUsers();
+                    alert("Your Sign Up is successful, " + response.username);
+                    vm.close();
                 },
                 function(errResponse){
                     console.error('Error while creating User');
                 }
-            )
-            .then(
-                function(d){
-                    alert("Your Sign Up is successful, " + vm.users[(d.length -1)].username);
-                    vm.close();
-                });
+            );
+
     }
 
-    function fetchAllUsers(){
-        return ClientSignupService.fetchAllUsers()
-            .then(
-                function(d) {
-                    vm.users = d;
-                    vm.index = (vm.users.length - 1);
-                    console.log(vm.users);
-                    return d;
-                },
-                function(errResponse){
-                    console.error('Error while fetching Users');
-                }
-            );
-    }
 
 //THE FOLLOWING FUNCTION IS FOR CLOSING THE SIGN UP PAGE
     function close() {
