@@ -43,7 +43,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-label">DOB</label>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.user.dob" name="DOB" class="DOB form-control input-sm" placeholder="YY-MM-DD" required ng-minlength="6"/>
+                            <input type="date" ng-model="ctrl.user.dob" name="DOB" class="DOB form-control input-sm" placeholder="YY-MM-DD" required ng-minlength="6"/>
                             <div class="has-error" ng-show="myForm.$dirty">
                                 <span ng-show="myForm.DOB.$error.required">This is a required field</span>
                                 <span ng-show="myForm.DOB.$error.minlength">Minimum length required is 6</span>

@@ -2,7 +2,6 @@ package com.spring.services.Impl;
 
 import com.spring.model.User;
 import com.spring.services.SearchUsersService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -15,6 +14,7 @@ import java.util.List;
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
  */
+
 @Service("searchUsersService")
 @Transactional
 public class SearchUsersServiceImpl implements SearchUsersService {

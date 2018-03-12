@@ -7,5 +7,10 @@
         <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
     </select>
     <button class="btn-primary" ng-click="xxx.searchResults()">Search</button>
+
+    <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
+        <span class="listOfResult" ng-click="xxx.displayProfile(profile)">{{profile.firstName}} {{profile.lastName}}</span>
+    </div>
+
 </div>
 
