@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @RestController
@@ -17,6 +19,7 @@ public class SearchResultsController {
 
     @Autowired
     private SearchUsersService searchUsersService;
+
     //-------------------Retrieve Country names--------------------------------------------------------
 
     @GetMapping("/searchResults/getCountries/")
@@ -28,9 +31,12 @@ public class SearchResultsController {
 
     @GetMapping("/searchResults/{country}/{searchTxt}")
     public ResponseEntity<List<User>> listAllUsers(@PathVariable("country") String country, @PathVariable("searchTxt") String searchTxt) {
-        //List<User> users = userService.findAllUsers();
 
-        return new ResponseEntity<List<User>>(HttpStatus.BAD_REQUEST);
+        List<User> results = searchUsersService.findResults(country, searchTxt);
+        if(results.isEmpty()){
+            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<User>>(results, HttpStatus.OK);
 
     }
 

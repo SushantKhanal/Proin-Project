@@ -2,23 +2,21 @@ package com.spring.controller;
 
 import com.spring.model.User;
 import com.spring.services.UserDatabaseService;
-import com.spring.services.UserService;
+import com.spring.services.UserSignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.EntityManager;
 import java.util.List;
 
-import static jdk.nashorn.internal.objects.Global.undefined;
 
 @RestController
 public class ClientRESTController {
 
     @Autowired
     private UserDatabaseService userDatabaseService; //data manipulation in the database
+    @Autowired
+    private UserSignUpService userSignUpService;
 
 
     //-------------------Retrieve All Users--------------------------------------------------------
@@ -40,12 +38,7 @@ public class ClientRESTController {
     public ResponseEntity<Void> createUser(@RequestBody User user) {
         System.out.println("Creating User " + user.getUsername());
 
-//        if (user.getUsername() != null) {
-//            System.out.println("A User with name " + user.getUsername() + " already exist");
-//            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-//        }
-
-        userDatabaseService.addUser(user); //added to the database
+        userSignUpService.addUser(user); //added to the database
 
         return new ResponseEntity<Void>(HttpStatus.OK);
 
