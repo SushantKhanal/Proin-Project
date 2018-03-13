@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ClientSignupService', '$location'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ProfilePicModalFactory', '$location'];
 
-function userAccountController(ClientSignInService, UserAccountService, ClientSignupService, $location) {
+function userAccountController(ClientSignInService, UserAccountService, ProfilePicModalFactory, $location) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.editProfile = editProfile;
@@ -14,6 +14,7 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     vm.users = [];
     vm.logOut = logOut;
     vm.searchResults =  searchResults;
+    vm.changePicModal = changePicModal;
 
     var userData = localStorage['userInfo'];
 
@@ -21,7 +22,9 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
         vm.user = JSON.parse(userData);
     }
 
-    window.onload = console.log("###***###", userData);
+    function changePicModal () {
+        ProfilePicModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'lg', '$ctrl');
+    }
 
     function editProfile() {
         vm.editContent = true;
@@ -42,27 +45,15 @@ function userAccountController(ClientSignInService, UserAccountService, ClientSi
     function updateUser(user, id){
         UserAccountService.updateUser(user, id)
             .then(
-                fetchAllUsers(),
+                function(d) {
+                    vm.user =d;
+                },
                 function(errResponse){
                     console.error('Error while updating User');
                 }
             );
     }
 
-    function fetchAllUsers() {
-        ClientSignupService.fetchAllUsers()
-            .then(
-                function(d) {
-                    vm.users = d;
-                    //vm.index = (vm.users.length - 1);
-                    console.log(vm.users);
-                    //return d;
-                },
-                function(errResponse){
-                    console.error('Error while fetching Users');
-                }
-            );
-    }
 
     function logOut() {
         localStorage['ifloggedin'] = undefined;

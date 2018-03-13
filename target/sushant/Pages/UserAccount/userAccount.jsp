@@ -11,7 +11,6 @@
                         <h4>User Profile</h4>
                     </div>
 
-
                     <div class="panel-body">
 
                         <div class="box box-info">
@@ -20,11 +19,12 @@
                                 <div class="col-sm-6">
                                     <div align="center"><img alt="User Pic"
                                                              src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-                                                             id="profile-image1" class="img-circle img-responsive">
+                                                             id="profile-image1" class="img-circle img-responsive"
+                                                             onerror = "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                                             ng-click="xxx.changePicModal()">
 
                                         <input id="profile-image-upload" class="hidden" type="file">
                                         <div style="color:#999;">click here to change profile image</div>
-                                        <!--Upload Image Js And Css-->
 
                                     </div>
 
@@ -33,7 +33,7 @@
                                     <!-- /input-group -->
                                 </div>
                                 <div class="col-sm-6">
-                                    <h4 style="color:#00b1b1;">{{xxx.user.firstName}} </h4></span>
+                                    <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}} </h4></span>
                                     <span><p>Aspirant</p></span>
                                     <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
                                         Profile

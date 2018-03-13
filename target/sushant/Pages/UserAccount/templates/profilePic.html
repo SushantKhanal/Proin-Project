@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h1>Upload Profile Pic</h1>
+</div>
+
+<div class="modal-body">
+    <div id="uploadPhoto">
+        <input class="uploadPhoto btn" type="file" ng-model="$ctrl.fileSelected" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-primary pull-left">Upload</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>

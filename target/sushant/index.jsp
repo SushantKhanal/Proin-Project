@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular-base64-upload@0.1.23/dist/angular-base64-upload.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/Common/css/app.css" rel="stylesheet"/>
 </head>
@@ -25,7 +26,9 @@
     <script src="/Pages/UserSignUp/js/service/client_signup_service.js"></script>
     <script src="/Pages/UserSignUp/js/controller/client_signup_controller.js"></script>
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
+    <script src="/Pages/UserAccount/controller/profilePicCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
+    <script src="/Pages/UserAccount/factory/changeProfilePicModalFactory.js"></script>
     <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
     <script src="/Pages/SearchResults/services/search_results_service.js"></script>
 
