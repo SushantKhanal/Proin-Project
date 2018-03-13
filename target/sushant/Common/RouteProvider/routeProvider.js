@@ -31,6 +31,5 @@
                 templateUrl: 'Pages/SearchResults/SearchResults.jsp'
 
             })
-            .when('/otherUserAccount', {templateUrl: 'Pages/SearchResults/OtherAccount.jsp'})
     }
 })();

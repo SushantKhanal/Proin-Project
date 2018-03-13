@@ -9,7 +9,10 @@ function searchResultController($location, SearchResultsService, $scope) {
     vm.goBack = goBack;
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
+    vm.backToSearch = backToSearch;
     vm.showList = false;
+    vm.showAccount = false;
+    vm.showResult = true;
     vm.users = [];
     vm.user;
     vm.countries;
@@ -18,10 +21,17 @@ function searchResultController($location, SearchResultsService, $scope) {
 
     getCountries();
 
+    function backToSearch() {
+        vm.showAccount = false;
+        vm.showResult = true;
+    }
+
     function displayProfile(profile) {
-        $location.path('/otherUserAccount');
+        //$location.path('/otherUserAccount');
         vm.user = profile;
-        $scope.$apply();
+        //$scope.$apply();
+        vm.showResult = false;
+        vm.showAccount = true;
     }
 
     function goBack(){
