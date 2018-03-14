@@ -1,10 +1,8 @@
 package com.spring.services;
 
-import java.util.List;
-
 import com.spring.model.User;
 
-public interface UserAccountService {
+public interface AccountService {
 
 
     void updateUser(User p); //useraccount

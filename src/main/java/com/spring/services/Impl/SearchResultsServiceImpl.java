@@ -1,7 +1,7 @@
 package com.spring.services.Impl;
 
 import com.spring.model.User;
-import com.spring.services.SearchUsersService;
+import com.spring.services.SearchResultsService;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service("searchUsersService")
 @Transactional
-public class SearchUsersServiceImpl implements SearchUsersService {
+public class SearchResultsServiceImpl implements SearchResultsService {
 
     @PersistenceContext
     EntityManager em;

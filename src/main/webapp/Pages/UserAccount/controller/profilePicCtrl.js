@@ -6,6 +6,7 @@
     profilePicController.$inject = ['$uibModalInstance', '$scope'];
 
     function profilePicController($uibModalInstance, $scope){
+
         var vm = this;
         var userData, username;
         vm.cancelModal = cancelModal;
@@ -37,5 +38,6 @@
                     }
                 );
         }
+
     };
 })();

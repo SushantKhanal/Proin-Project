@@ -2,11 +2,10 @@ package com.spring.services.Impl;
 
 import com.spring.model.User;
 import com.spring.repository.UserRepository;
-import com.spring.services.UserSignUpService;
+import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author : Suraj Gautam
@@ -15,17 +14,12 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class UserSignUpServiceImpl implements UserSignUpService {
+public class SignInServiceImpl implements SignInService {
     @Autowired
     private UserRepository userRepository;
-
     @Override
-    public void addUser(User p) {
-        try {
-
-            userRepository.saveAndFlush(p);
-        }catch (Exception e){
-            System.out.println("Exception "+e);
-        }
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
     }
+
 }
