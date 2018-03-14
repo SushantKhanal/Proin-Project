@@ -22,12 +22,12 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         vm.user = JSON.parse(userData);
     }
 
-    //responsible for modal window popup
+    //RESPONSIBLE FOR MODAL WINDOW POPUP
     function changePicModal () {
         ProfilePicModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
     }
 
-    //makes the profile editable
+    //MAKES THE PROFILE EDITABLE
     function editProfile() {
         vm.editContent = true;
         $(".userDetail").attr('readonly', false);
@@ -35,7 +35,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         console.log("you decided to edit your profile");
     }
 
-    //turns the profile back to uneditable, calls updateUser(user,id)
+    //TURNS THE PROFILE BACK TO UNEDITABLE, CALLS UPDATEUSER(USER,ID)
     function updateProfile() {
         vm.editContent = false;
         $(".userDetail").attr('readonly', true);
@@ -44,7 +44,8 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         updateUser(vm.user, vm.user.id);
         localStorage['userInfo'] = JSON.stringify(vm.user);
     }
-    //takes the changes to backend, and updates vm.user
+
+    //TAKES THE CHANGES TO BACKEND, AND UPDATES VM.USER
     function updateUser(user, id){
         UserAccountService.updateUser(user, id)
             .then(
@@ -57,13 +58,13 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
             );
     }
 
-
+    //TO LOG OUT
     function logOut() {
         localStorage['ifloggedin'] = undefined;
         $location.path('/');
     }
 
-    //when clicked at the plus button at the bottom right
+    //WHEN CLICKED AT THE PLUS BUTTON AT THE BOTTOM RIGHT
     function searchResults() {
         $location.path('/userAccount/searchResults')
     }

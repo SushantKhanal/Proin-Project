@@ -28,6 +28,7 @@
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/profilePicCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
+    <script src="/Pages/UserAccount/services/profile_pic_service.js"></script>
     <script src="/Pages/UserAccount/factory/changeProfilePicModalFactory.js"></script>
     <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
     <script src="/Pages/SearchResults/services/search_results_service.js"></script>
