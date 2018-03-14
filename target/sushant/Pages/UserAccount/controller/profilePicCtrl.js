@@ -2,15 +2,23 @@
     'use strict';
     angular
         .module("myApp")
-        .controller("ProfilePicController",['$uibModalInstance', profilePicController])
+        .controller("ProfilePicController", profilePicController);
+    profilePicController.$inject = ['$uibModalInstance', '$scope'];
 
-    function profilePicController($uibModalInstance){
+    function profilePicController($uibModalInstance, $scope){
         var vm = this;
         vm.cancelModal = cancelModal;
-        vm.fileSelected;
+        vm.uploadImage = uploadImage;
+        vm.imageSelected = '';
+        vm.showUploadImage = false;
         function cancelModal(){
-            console.log("cancelmodal");
-            $uibModalInstance.dismiss('close');
+            $uibModalInstance.close('save');
+        }
+        function uploadImage() {
+            vm.showUploadImage = true;
+            var userData = localStorage['userInfo'];
+            userData = JSON.parse(userData);
+            console.log(userData.username);
         }
 
     };

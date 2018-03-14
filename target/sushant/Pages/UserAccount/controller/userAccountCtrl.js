@@ -22,10 +22,12 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         vm.user = JSON.parse(userData);
     }
 
+    //responsible for modal window popup
     function changePicModal () {
-        ProfilePicModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'lg', '$ctrl');
+        ProfilePicModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
     }
 
+    //makes the profile editable
     function editProfile() {
         vm.editContent = true;
         $(".userDetail").attr('readonly', false);
@@ -33,6 +35,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         console.log("you decided to edit your profile");
     }
 
+    //turns the profile back to uneditable, calls updateUser(user,id)
     function updateProfile() {
         vm.editContent = false;
         $(".userDetail").attr('readonly', true);
@@ -41,7 +44,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         updateUser(vm.user, vm.user.id);
         localStorage['userInfo'] = JSON.stringify(vm.user);
     }
-
+    //takes the changes to backend, and updates vm.user
     function updateUser(user, id){
         UserAccountService.updateUser(user, id)
             .then(
@@ -60,6 +63,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         $location.path('/');
     }
 
+    //when clicked at the plus button at the bottom right
     function searchResults() {
         $location.path('/userAccount/searchResults')
     }
