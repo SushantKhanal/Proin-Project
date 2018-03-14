@@ -12,10 +12,9 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    //AccountController
     //------------------- Update a User, by the same user --------------------------------------------------------
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+    @PutMapping("/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
         System.out.println("Updating User " + id);
 
@@ -23,4 +22,16 @@ public class AccountController {
         User currentUser = accountService.getUserById(user.getId());
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
+
+    //----------------When user posts profile picture-----------------------------------------------------//
+
+    @PostMapping("/user/profilePic/{username}")
+    public ResponseEntity<User> postProfilePic(@PathVariable("username") String username, @RequestBody String image) {
+        System.out.println("Posting Profile Pic of " + username);
+        System.out.println("Posting Profile Pic .." + image);
+
+        return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+
+    }
+
 }

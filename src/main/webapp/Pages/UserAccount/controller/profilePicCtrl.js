@@ -3,9 +3,9 @@
     angular
         .module("myApp")
         .controller("ProfilePicController", profilePicController);
-    profilePicController.$inject = ['$uibModalInstance', '$scope'];
+    profilePicController.$inject = ['ProfilePicService','$uibModalInstance', '$scope'];
 
-    function profilePicController($uibModalInstance, $scope){
+    function profilePicController(ProfilePicService, $uibModalInstance, $scope){
 
         var vm = this;
         var userData, username;
@@ -22,7 +22,7 @@
             vm.showUploadImage = true;
             userData = JSON.parse(localStorage['userInfo']);
             username = userData.username;
-            //postProfilePic(username, vm.imageSelected)
+            postProfilePic(username, vm.imageSelected.base64)
         }
 
         //TAKES IMAGE TO BACKEND, POSTS PROFILE PIC
