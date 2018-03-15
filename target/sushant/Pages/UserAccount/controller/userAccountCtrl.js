@@ -15,6 +15,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
     vm.logOut = logOut;
     vm.searchResults =  searchResults;
     vm.changePicModal = changePicModal;
+    //vm.imgSrc = "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
 
     var userData = localStorage['userInfo'];
 

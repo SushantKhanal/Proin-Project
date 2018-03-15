@@ -35,7 +35,7 @@ public class AccountController {
     //----------------When user posts profile picture-----------------------------------------------------//
 
     @PostMapping("/user/profilePic/{username}/{fileType}")
-    public ResponseEntity<User> postProfilePic(@PathVariable("username") String username,@PathVariable("fileType") String fileType, @RequestBody String image)
+    public ResponseEntity<UserProfilePic> postProfilePic(@PathVariable("username") String username,@PathVariable("fileType") String fileType, @RequestBody String image)
             throws IOException {
         UserProfilePic userProfilePic1;
         User returnedUser = signInService.getUserByUsername(username);
@@ -55,7 +55,6 @@ public class AccountController {
             System.out.println("error");
         }
 
-//        UserProfilePic userProfilePic1 = new UserProfilePic(username, picPath, returnedUser);
 
         //if isExists == true
         UserProfilePic userProfilePic = accountService.getUserPpByUsername(username);
@@ -69,7 +68,10 @@ public class AccountController {
         //
         accountService.addProfilePic(userProfilePic1);
 
-        return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+        UserProfilePic userProfilePic2 = accountService.getUserPpByUsername(username);
+
+
+        return new ResponseEntity<UserProfilePic>(userProfilePic2, HttpStatus.ACCEPTED);
 
     }
 
