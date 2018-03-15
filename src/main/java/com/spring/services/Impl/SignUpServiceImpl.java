@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- */
 
 @Service
 @Transactional

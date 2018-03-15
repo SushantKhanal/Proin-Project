@@ -8,7 +8,7 @@
     function profilePicController(ProfilePicService, $uibModalInstance, $scope){
 
         var vm = this;
-        var userData, username;
+        var userData, fileType, username;
         vm.cancelModal = cancelModal;
         vm.uploadImage = uploadImage;
         vm.imageSelected = '';
@@ -22,12 +22,13 @@
             vm.showUploadImage = true;
             userData = JSON.parse(localStorage['userInfo']);
             username = userData.username;
-            postProfilePic(username, vm.imageSelected.base64)
+            fileType= vm.imageSelected.filetype.split("/",3)[1];
+            postProfilePic(username, fileType, vm.imageSelected.base64)
         }
 
         //TAKES IMAGE TO BACKEND, POSTS PROFILE PIC
-        function postProfilePic(username, image){
-            ProfilePicService.postProfilePic(username, image)
+        function postProfilePic(username, fileType, image){
+            ProfilePicService.postProfilePic(username, fileType, image)
                 .then(
                     function(d) {
                         //now update the actual profilePic

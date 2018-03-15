@@ -16,8 +16,8 @@ function profilePicService(HttpService){
 
     return factory;
 
-    function postProfilePic(username, image) {
-        return HttpService.postProfilePic(REST_SERVICE_URI, username, image);
+    function postProfilePic(username, fileType, image) {
+        return HttpService.postProfilePic(REST_SERVICE_URI, username, fileType, image);
     }
 }
 
