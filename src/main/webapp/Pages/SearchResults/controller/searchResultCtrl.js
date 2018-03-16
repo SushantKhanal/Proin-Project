@@ -10,11 +10,11 @@ function searchResultController($location, SearchResultsService, UserAccountServ
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
     vm.backToSearch = backToSearch;
-    vm.showList = false;
+    vm.showList = false; //make this persist on refresh
     vm.showAccount = false;
     vm.showResult = true;
     vm.picPath1 = '';
-    vm.users = [];
+    vm.users = []; //make this persist on refresh
     vm.user;
     vm.countries;
     vm.searchThis;
@@ -22,34 +22,28 @@ function searchResultController($location, SearchResultsService, UserAccountServ
 
     getCountries();
 
-    function backToSearch() {
-        vm.showAccount = false;
-        vm.showResult = true;
-    }
+    //TO MAKE THE RESULTS LIST PERSIST ON REFRESH
+    // var localUserData = localStorage['localOtherUser'];
+    //
+    // if(localUserData !== undefined) {
+    //     vm.user = JSON.parse(localUserData);
+    // }
+    //
+    // var localShowList1 = localStorage['localShowList'];
+    //
+    // if(localShowList1 !== undefined) {
+    //     vm.users = JSON.parse(localShowList1);
+    // }
+    //*********************************************//
+
 
     function displayProfile(profile) {
         vm.user = profile;
-        vm.showResult = false;
-        vm.showAccount = true;
-
-        getProfilePic(vm.user.username);
+        localStorage['localOtherUser'] = JSON.stringify(vm.user);
+        $location.path('/searchResults/otherAccount')
 
     }
 
-    function getProfilePic(username){
-        UserAccountService.getProfilePic(username)
-            .then(
-                function(d) {
-                    vm.userProfilePic =d;
-                    //var profilePicElement = document.getElementById('profile-image1');
-                    vm.picPath1 = '/user'+d.picPath;
-                    //profilePicElement.setAttribute('src', '/user' + d.picPath);
-                },
-                function(errResponse){
-                    console.error('Error while getting profilePic');
-                }
-            );
-    }
 
     function goBack(){
         $location.path('/userAccount');
@@ -61,9 +55,12 @@ function searchResultController($location, SearchResultsService, UserAccountServ
             .then(
                 function(u) {
                     vm.users = u;
+                    // localStorage['localUsers'] = JSON.stringify(vm.users);
+
                     console.log(vm.users);
                     if (vm.users !== []) {
                         vm.showList = true;
+                        //localStorage['localShowList'] = JSON.stringify(true);
                     }
                 },
                 function(errResponse){
