@@ -2,6 +2,8 @@ package com.spring.controller;
 
 import com.spring.dto.LoginRequestDTO;
 import com.spring.model.User;
+import com.spring.model.UserProfilePic;
+import com.spring.services.AccountService;
 import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,9 @@ public class SignInController {
     @Autowired
     private SignInService signInService; //data manipulation in the database
 
+    @Autowired
+    private AccountService accountService;
+
     //DTO -> Data transfer object
     //RequestDTO
     //ResponseDTO
@@ -30,6 +35,7 @@ public class SignInController {
         String password = loginRequestDTO.getPassword();
         User returnedUser = signInService.getUserByUsername(username);
         String returnedPassword = returnedUser.getPassword();
+        //UserProfilePic userProfilePic = accountService.getUserPpByUsername(username);
 
         if (returnedPassword.equals(password)) {
             return new ResponseEntity<User>(returnedUser, HttpStatus.OK);

@@ -12,12 +12,17 @@ function userAccountService(HttpService){
 
     var factory = {
         updateUser: updateUser,
+        getProfilePic: getProfilePic,
     };
 
     return factory;
 
     function updateUser(user, id) {
         return HttpService.put(REST_SERVICE_URI, user, id);
+    }
+
+    function getProfilePic(username) {
+        return HttpService.getProfilePic(REST_SERVICE_URI, username);
     }
 }
 

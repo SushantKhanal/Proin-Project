@@ -8,6 +8,7 @@ userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'P
 function userAccountController(ClientSignInService, UserAccountService, ProfilePicModalFactory, $location) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
+    vm.picPath1='';
     vm.editProfile = editProfile;
     vm.editContent = false;
     vm.updateProfile = updateProfile;
@@ -21,6 +22,26 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
 
     if(userData !== undefined) {
         vm.user = JSON.parse(userData);
+    }
+
+    // window.onload = function() {
+    //     getProfilePic(vm.user.username);
+    // };
+    getProfilePic(vm.user.username);
+
+    function getProfilePic(username){
+        UserAccountService.getProfilePic(username)
+            .then(
+                function(d) {
+                    vm.userProfilePic =d;
+                    var profilePicElement = document.getElementById('profile-image1');
+                    vm.picPath1 = '/user'+d.picPath;
+                    //profilePicElement.setAttribute('src', '/user' + d.picPath);
+                },
+                function(errResponse){
+                    console.error('Error while getting profilePic');
+                }
+            );
     }
 
     //RESPONSIBLE FOR MODAL WINDOW POPUP

@@ -75,4 +75,16 @@ public class AccountController {
 
     }
 
+    @PostMapping("/user/getProfilePic/")
+    public ResponseEntity<UserProfilePic> getProfilePic(@RequestBody String username) {
+
+        UserProfilePic returnedProfilePic = accountService.getUserPpByUsername(username);
+
+        if (returnedProfilePic != null) {
+            return new ResponseEntity<UserProfilePic>(returnedProfilePic, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<UserProfilePic>(HttpStatus.BAD_REQUEST);
+    }
+
 }

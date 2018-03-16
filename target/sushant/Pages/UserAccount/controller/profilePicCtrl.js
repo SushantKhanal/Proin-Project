@@ -35,7 +35,6 @@
                         console.log(d.picPath);
                         var profilePicElement = document.getElementById('profile-image1');
                         profilePicElement.setAttribute('src', '/user' + d.picPath);
-                        //profilePicElement.setAttribute('src', 'https://images.unsplash.com/photo-1507984211203-76701d7bb120?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=eacbf50fac29a13afba26ad7499cedee&auto=format&fit=crop&w=1352&q=80');
                         vm.cancelModal();
                     },
                     function(errResponse){
