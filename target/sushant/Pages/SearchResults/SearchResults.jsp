@@ -18,7 +18,7 @@
     </div>
 
 
-    <div class="UserAccount" ng-show="xxx.showAccount"">
+    <div class="UserAccount" ng-show="xxx.showAccount">
 
         <%--#########--%>
         <div class="container">
@@ -39,7 +39,7 @@
                                 <div class="box-body">
                                     <div class="col-sm-6">
                                         <div align="center"><img alt="User Pic"
-                                                                 src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                                                 ng-src="{{xxx.picPath1==='' ? 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg':xxx.picPath1}}"
                                                                  id="profile-image1" class="img-circle img-responsive">
 
                                             <input id="profile-image-upload" class="hidden" type="file">
@@ -53,7 +53,7 @@
                                         <!-- /input-group -->
                                     </div>
                                     <div class="col-sm-6">
-                                        <h4 style="color:#00b1b1;">{{xxx.user.firstName}} </h4></span>
+                                        <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}}</h4></span>
                                         <span><p>Aspirant</p></span>
 
                                     </div>

@@ -20,7 +20,6 @@
                                     <div align="center"><img alt="User Pic"
                                                              ng-src="{{xxx.picPath1==='' ? 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg':xxx.picPath1}}"
                                                              id="profile-image1" class="img-circle img-responsive"
-                                                             onerror = "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
                                                              ng-click="xxx.changePicModal()">
 
                                         <input id="profile-image-upload" class="hidden" type="file">

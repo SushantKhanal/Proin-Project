@@ -34,7 +34,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
             .then(
                 function(d) {
                     vm.userProfilePic =d;
-                    var profilePicElement = document.getElementById('profile-image1');
+                    //var profilePicElement = document.getElementById('profile-image1');
                     vm.picPath1 = '/user'+d.picPath;
                     //profilePicElement.setAttribute('src', '/user' + d.picPath);
                 },
