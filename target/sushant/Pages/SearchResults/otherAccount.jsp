@@ -23,7 +23,7 @@
                                                              id="profile-image1" class="img-circle img-responsive">
 
                                         <input id="profile-image-upload" class="hidden" type="file">
-                                        <div style="color:#999;">click here to change profile image</div>
+                                        <%--<div style="color:#999;">click here to change profile image</div>--%>
                                         <!--Upload Image Js And Css-->
 
                                     </div>
@@ -35,6 +35,7 @@
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}}</h4></span>
                                     <span><p>Aspirant</p></span>
+                                    <span class="glyphicon glyphicon-heart pull-right makeFav" ng-click="xxx.addToFav()"></span>
 
                                 </div>
                                 <div class="clearfix"></div>

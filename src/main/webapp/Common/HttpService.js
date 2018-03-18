@@ -85,7 +85,20 @@ function HttpService($http, $q, $location) {
                         return $q.reject(err);
                     }
                 );
-        }
+        },
+
+        //FUNCTION THAT HANDLES THE POST FAV USER OPERATION
+        postFavUser: function (resourceURI, loggedInUser, selectedUser) {
+            return $http.post(resourceURI, loggedInUser, selectedUser)
+                .then(
+                    function (resp) {
+                        return resp.data;
+                    },
+                    function (err) {
+                        return $q.reject(err);
+                    }
+                );
+        },
     }
 
 }

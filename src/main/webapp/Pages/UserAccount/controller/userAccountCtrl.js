@@ -16,7 +16,6 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
     vm.logOut = logOut;
     vm.searchResults =  searchResults;
     vm.changePicModal = changePicModal;
-    //vm.imgSrc = "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
 
     var userData = localStorage['userInfo'];
 
@@ -24,9 +23,6 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
         vm.user = JSON.parse(userData);
     }
 
-    // window.onload = function() {
-    //     getProfilePic(vm.user.username);
-    // };
     getProfilePic(vm.user.username);
 
     function getProfilePic(username){
@@ -34,9 +30,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
             .then(
                 function(d) {
                     vm.userProfilePic =d;
-                    //var profilePicElement = document.getElementById('profile-image1');
                     vm.picPath1 = '/user'+d.picPath;
-                    //profilePicElement.setAttribute('src', '/user' + d.picPath);
                 },
                 function(errResponse){
                     console.error('Error while getting profilePic');

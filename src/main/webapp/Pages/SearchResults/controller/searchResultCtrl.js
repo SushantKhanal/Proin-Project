@@ -9,9 +9,7 @@ function searchResultController($location, SearchResultsService, UserAccountServ
     vm.goBack = goBack;
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
-    // vm.showList = false; //make this persist on refresh
-    // vm.showAccount = false;
-    // vm.showResult = true;
+
     vm.picPath1 = '';
     vm.users = []; //make this persist on refresh
     vm.user;
@@ -39,12 +37,9 @@ function searchResultController($location, SearchResultsService, UserAccountServ
             .then(
                 function(u) {
                     vm.users = u;
-                    // localStorage['localUsers'] = JSON.stringify(vm.users);
-
                     console.log(vm.users);
                     if (vm.users !== []) {
                         vm.showList = true;
-                        //localStorage['localShowList'] = JSON.stringify(true);
                     }
                 },
                 function(errResponse){

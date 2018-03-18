@@ -31,10 +31,7 @@ function firstPageController($scope, ClientSignInService, $location) {
         ClientSignInService.checkLogIn(uname,pword)
             .then(
                 function(response){
-                    //console.log(response);
-                    //THE RETURNED USER DATA IS SAVED ON A VARIABLE IN ClientSignIn SERVICE, SO THAT IT CAN BE ACCESSED THROUGH OTHER CONTROLLERS AS WELL
-                    //ClientSignInService.setResponse(response);
-                    //vm.user = ClientSignInService.getResponse();
+
                     vm.user = response;
                     vm.user.dob = new Date(vm.user.dob);
                     vm.user.dob = vm.user.dob.getFullYear()+'-'+(vm.user.dob.getMonth()+1)+'-'+vm.user.dob.getDate();

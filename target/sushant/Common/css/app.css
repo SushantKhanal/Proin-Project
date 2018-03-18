@@ -164,14 +164,6 @@ button.btn:focus { outline: 0; opacity: 0.6; background: #19b9e7; color: #fff; }
 button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #19b9e7; color: #fff; }
 
 
-/*CSS for UserAccount.jsp */
-
-/*###########################################################*/
-
-/*input.hidden {*/
-    /*position: absolute;*/
-    /*left: -9999px;*/
-/*}*/
 
 #profile-image1 {
     cursor: pointer;
@@ -199,4 +191,14 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 
 #selectedCountry {
     width: 150px;
+}
+
+/*OTHER ACCOUNT HEART ICON*/
+.makeFav {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.redBackground {
+    color: red;
 }
