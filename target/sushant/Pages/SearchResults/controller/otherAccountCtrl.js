@@ -30,8 +30,8 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     function sendFav() {
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
-        var selectedFavUser = JSON.parse(localUserData);
-        OtherAccountService.sendFavUser(loggedInUser, selectedFavUser);
+        var favUser = JSON.parse(localUserData);
+        OtherAccountService.sendFavUser(loggedInUser, favUser);
     }
 
     function backToSearch() {

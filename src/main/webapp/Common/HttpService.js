@@ -88,8 +88,8 @@ function HttpService($http, $q, $location) {
         },
 
         //FUNCTION THAT HANDLES THE POST FAV USER OPERATION
-        postFavUser: function (resourceURI, loggedInUser, selectedUser) {
-            return $http.post(resourceURI, loggedInUser, selectedUser)
+        postFavUser: function (resourceURI, loggedInUser, favUser) {
+            return $http.post(resourceURI, loggedInUser, favUser)
                 .then(
                     function (resp) {
                         return resp.data;
