@@ -12,6 +12,7 @@ function otherAccountService(HttpService) {
 
     var factory = {
         sendFavUser: sendFavUser,
+        //checkIfFav: checkIfFav,
     };
 
     return factory;
@@ -24,5 +25,9 @@ function otherAccountService(HttpService) {
         };
         return HttpService.postFavUser(REST_SERVICE_URI, loggedFavUsers);
     }
+    //
+    // function checkIfFav(otherUsername) {
+    //     return HttpService.postOtherUserName(REST_SERVICE_URI, otherUsername);
+    // }
 
 }

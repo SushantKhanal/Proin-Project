@@ -99,6 +99,18 @@ function HttpService($http, $q, $location) {
                     }
                 );
         },
+        //
+        // postOtherUsername: function (resourceURI, otherUsername) {
+        //     return $http.post(resourceURI+otherUsername)
+        //         .then(
+        //             function (resp) {
+        //                 return resp.data;
+        //             },
+        //             function (err) {
+        //                 return $q.reject(err);
+        //             }
+        //         );
+        // }
     }
 
 }
