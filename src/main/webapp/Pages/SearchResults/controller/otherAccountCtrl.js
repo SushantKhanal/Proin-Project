@@ -11,6 +11,8 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.picPath1 = '';
 
+    vm.favUsername = '';
+
     vm.addToFav = addToFav;
 
     var localUserData = localStorage['localOtherUser'];
@@ -31,7 +33,18 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         var favUser = JSON.parse(localUserData);
-        OtherAccountService.sendFavUser(loggedInUser, favUser);
+        sendFavUser(loggedInUser.username, favUser.username);
+    }
+
+    function sendFavUser(lUsername, fUsername){
+        OtherAccountService.sendFavUser(lUsername, fUsername)
+            .then(
+                function() {
+                    console.log("Fav user added to database");
+                },
+                function(errResponse){
+                    console.error('Error while getting favUsername');
+                });
     }
 
     function backToSearch() {

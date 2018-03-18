@@ -17,7 +17,12 @@ function otherAccountService(HttpService) {
     return factory;
 
     function sendFavUser(loggedInUser, favUser) {
-        return HttpService.postFavUser(REST_SERVICE_URI, loggedInUser, favUser);
+
+        var loggedFavUsers = {
+            loggedInUser: loggedInUser,
+            favUser: favUser
+        };
+        return HttpService.postFavUser(REST_SERVICE_URI, loggedFavUsers);
     }
 
 }

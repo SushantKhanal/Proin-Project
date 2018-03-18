@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class User {
+//    vm.user={firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
