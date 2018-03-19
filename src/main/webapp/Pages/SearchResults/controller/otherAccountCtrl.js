@@ -20,21 +20,24 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     if(localUserData !== undefined) {
         vm.user = JSON.parse(localUserData);
         getProfilePic(vm.user.username);
-        //checkIfFav(vm.user.username);
+        var userData = localStorage['userInfo'];
+        var loggedInUser = JSON.parse(userData);
+        checkIfFav(loggedInUser.username, vm.user.username);
     }
 
-    // //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
-    // function checkIfFav(otherUsername) {
-    //     //OtherAccountService.checkIfFav()
-    //     OtherAccountService.checkIfFav(otherUsername)
-    //         .then(
-    //             function() {
-    //                 console.log("this user is tagged fav");
-    //             },
-    //             function(errResponse){
-    //                 console.error('this user is not tagged fav');
-    //             });
-    // }
+    //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
+    function checkIfFav(loggedInUsername, otherUsername) {
+        //OtherAccountService.checkIfFav()
+        OtherAccountService.checkIfFav(loggedInUsername, otherUsername)
+            .then(
+                function() {
+                    console.log("this user is tagged fav");
+                    $('.makeFav').toggleClass('redBackground');
+                },
+                function(errResponse){
+                    console.error('this user is not tagged fav');
+                });
+    }
 
     //RESPONSIBLE FOR THE RED COLOR ON HEART ICON
     function addToFav() {

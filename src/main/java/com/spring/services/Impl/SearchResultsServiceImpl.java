@@ -10,10 +10,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- */
 
 @Service("searchUsersService")
 @Transactional

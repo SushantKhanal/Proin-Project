@@ -98,10 +98,10 @@ function HttpService($http, $q, $location) {
                         return $q.reject(err);
                     }
                 );
-        },
-        //
-        // postOtherUsername: function (resourceURI, otherUsername) {
-        //     return $http.post(resourceURI+otherUsername)
+        }
+        // //FUNCTION THAT HANDLES THE CHECK IF FAV OPERATION
+        // postOtherUsername: function (resourceURI, loggedFavUsers) {
+        //     return $http.post(resourceURI+'checkIfFav/', loggedFavUsers)
         //         .then(
         //             function (resp) {
         //                 return resp.data;

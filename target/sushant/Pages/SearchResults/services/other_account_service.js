@@ -12,7 +12,7 @@ function otherAccountService(HttpService) {
 
     var factory = {
         sendFavUser: sendFavUser,
-        //checkIfFav: checkIfFav,
+        checkIfFav: checkIfFav,
     };
 
     return factory;
@@ -25,9 +25,13 @@ function otherAccountService(HttpService) {
         };
         return HttpService.postFavUser(REST_SERVICE_URI, loggedFavUsers);
     }
-    //
-    // function checkIfFav(otherUsername) {
-    //     return HttpService.postOtherUserName(REST_SERVICE_URI, otherUsername);
-    // }
+
+    function checkIfFav(loggedInUser, favUser) {
+        var loggedFavUsers = {
+            loggedInUser: loggedInUser,
+            favUser: favUser
+        };
+        return HttpService.postFavUser(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
+    }
 
 }
