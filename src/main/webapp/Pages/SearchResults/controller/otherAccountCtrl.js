@@ -49,8 +49,6 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         }
     }
 
-
-
     //DELETES THE FAV USER
     function deleteFav() {
         var userData = localStorage['userInfo'];

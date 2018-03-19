@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -48,9 +49,6 @@ public class OtherAccountController {
         String loggedInUsername = favUserDTO1.getLoggedInUser();
         String favUsername = favUserDTO1.getFavUser();
 
-//        System.out.println("loggedInUsername = " + loggedInUsername);
-//        System.out.println("favUsername = " + favUsername);
-
         List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
 
         for (FavUsers element : favUsers) {
@@ -70,20 +68,19 @@ public class OtherAccountController {
         String loggedInUsername = favUserDTO2.getLoggedInUser();
         String favUsername = favUserDTO2.getFavUser();
 
-        System.out.println("loggedInUsername = " + loggedInUsername);
-        System.out.println("favUsername = " + favUsername);
 
         List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
 
         for (FavUsers element : favUsers) {
             if (element.getFavUsername().equals(favUsername)) {
                 Long favId = element.getId();
-                System.out.println(favId);
                 otherAccountService.deleteFav(favId);
             }
         }
 
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
+
+
 
 }

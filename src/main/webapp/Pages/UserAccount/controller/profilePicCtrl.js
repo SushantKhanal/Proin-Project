@@ -3,9 +3,9 @@
     angular
         .module("myApp")
         .controller("ProfilePicController", profilePicController);
-    profilePicController.$inject = ['ProfilePicService','$uibModalInstance'];
+    profilePicController.$inject = ['ProfilePicService','$uibModalInstance','$scope'];
 
-    function profilePicController(ProfilePicService, $uibModalInstance){
+    function profilePicController(ProfilePicService, $uibModalInstance, $scope){
 
         var vm = this;
         var userData, fileType, username;
@@ -34,7 +34,8 @@
                         //now update the actual profilePic
                         console.log(d.picPath);
                         var profilePicElement = document.getElementById('profile-image1');
-                        profilePicElement.setAttribute('src', '/user' + d.picPath);
+                        profilePicElement.setAttribute('ng-src', '/user' + d.picPath);
+                        //$scope.$apply();
                         vm.cancelModal();
                     },
                     function(errResponse){

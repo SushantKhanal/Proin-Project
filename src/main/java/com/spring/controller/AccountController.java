@@ -1,8 +1,10 @@
 package com.spring.controller;
 
+import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.model.UserProfilePic;
 import com.spring.services.AccountService;
+import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @RestController
 public class AccountController {
@@ -21,6 +25,9 @@ public class AccountController {
 
     @Autowired
     private SignInService signInService;
+
+    @Autowired
+    private OtherAccountService otherAccountService;
     //------------------- Update a User, by the same user --------------------------------------------------------
 
     @PutMapping("/user/{id}")
@@ -85,6 +92,20 @@ public class AccountController {
         }
 
         return new ResponseEntity<UserProfilePic>(HttpStatus.BAD_REQUEST);
+    }
+
+    //FETCHES THE LIST OF FAVOURITE ACCOUNTS
+    @PostMapping("/user/getFavUsers/")
+    public ResponseEntity<List<String>> getFavUsers(@RequestBody String loggedInUsername) {
+
+        List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
+        List<String> listOfFavUsers = new ArrayList<String>();
+        for (FavUsers element : favUsers) {
+            String favUsername = element.getFavUsername();
+            listOfFavUsers.add(favUsername);
+        }
+
+        return new ResponseEntity<>(listOfFavUsers, HttpStatus.OK);
     }
 
 }

@@ -26,14 +26,16 @@
                                         <div style="color:#999;">click here to change profile image</div>
 
                                     </div>
-
                                     <br>
 
                                     <!-- /input-group -->
                                 </div>
+
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}} </h4></span>
                                     <span><p>Aspirant</p></span>
+                                    <span style="color:#008000; font-size:12px; cursor: pointer;" ng-click="xxx.showFavourites()">Show Favourites</span>
+
                                     <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
                                         Profile
                                     </button>

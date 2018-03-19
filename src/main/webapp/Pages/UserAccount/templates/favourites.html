@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h1>List of Fav Users</h1>
+</div>
+
+<div class="modal-body">
+    <div>
+        <div ng-repeat="profile in $ctrl.users">
+            <span>{{profile}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>

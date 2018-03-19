@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ProfilePicModalFactory', '$location'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location'];
 
-function userAccountController(ClientSignInService, UserAccountService, ProfilePicModalFactory, $location) {
+function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
@@ -16,6 +16,7 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
     vm.logOut = logOut;
     vm.searchResults =  searchResults;
     vm.changePicModal = changePicModal;
+    vm.showFavourites = showFavourites;
 
     var userData = localStorage['userInfo'];
 
@@ -25,12 +26,16 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
 
     getProfilePic(vm.user.username);
 
+    function showFavourites() {
+        ModalFactory.open('Pages/UserAccount/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')
+    }
+
     function getProfilePic(username){
         UserAccountService.getProfilePic(username)
             .then(
                 function(d) {
                     vm.userProfilePic =d;
-                    vm.picPath1 = '/user'+d.picPath;
+                    vm.picPath1 = '/user'+d.picPath+"?"+ new Date().getTime();
                 },
                 function(errResponse){
                     console.error('Error while getting profilePic');
@@ -40,7 +45,14 @@ function userAccountController(ClientSignInService, UserAccountService, ProfileP
 
     //RESPONSIBLE FOR MODAL WINDOW POPUP
     function changePicModal () {
-        ProfilePicModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
+        var modalInstance = ModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
+        modalInstance.result.then(
+            function(response){
+                getProfilePic(vm.user.username);
+            },function(errResponse){
+
+            }
+        )
     }
 
     //MAKES THE PROFILE EDITABLE

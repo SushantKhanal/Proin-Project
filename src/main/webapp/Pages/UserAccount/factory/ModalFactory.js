@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("myApp")
-        .factory('ProfilePicModalFactory',['$uibModal', modalFactory])
+        .factory('ModalFactory',['$uibModal', modalFactory])
     function modalFactory($uibModal){
         return {
             open: function(template, controller, size, controllerAs) {
