@@ -7,4 +7,5 @@ import java.util.List;
 public interface OtherAccountService {
     void addFavouriteUser(FavUsers favUsers1);
     List<FavUsers> getResults(String loggedInUsername);
+    void deleteFav(Long favId);
 }

@@ -22,7 +22,7 @@ public class OtherAccountController {
     @Autowired
     private SignInService signInService;
 
-    //-------------------Retrieve loggedIn User and favourite User------------------//
+    //-------------------CREATE FAVOURITE USER RECORD IN DATABASE------------------//
 
     @PostMapping("/searchResults/otherAccount/")
     public ResponseEntity<Void> addFavUsers(@RequestBody FavUserDTO favUserDTO) {
@@ -35,33 +35,55 @@ public class OtherAccountController {
         try {
             otherAccountService.addFavouriteUser(favUsers1);
             return new ResponseEntity<Void>(HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
 
     }
 
-    //checks if the other username is already a fav of the loggedIn username
+    //CHECKS IF THE OTHER ACCOUNT IS ALREADY A FAV OF THE LOGGED IN ACCOUNT
     @PostMapping("/searchResults/otherAccount/checkIfFav/")
-    public ResponseEntity<Void> updateUser(@RequestBody FavUserDTO favUserDTO1) {
+    public ResponseEntity<Void> checkIfFav(@RequestBody FavUserDTO favUserDTO1) {
 
         String loggedInUsername = favUserDTO1.getLoggedInUser();
         String favUsername = favUserDTO1.getFavUser();
 
-        System.out.println("loggedInUsername = " + loggedInUsername);
-        System.out.println("favUsername = " + favUsername);
+//        System.out.println("loggedInUsername = " + loggedInUsername);
+//        System.out.println("favUsername = " + favUsername);
 
-        List<FavUsers> favUserss= otherAccountService.getResults(loggedInUsername);
+        List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
 
-        for (FavUsers element: favUserss) {
-            if(element.getFavUsername().equals(favUsername)) {
+        for (FavUsers element : favUsers) {
+            if (element.getFavUsername().equals(favUsername)) {
                 return new ResponseEntity<Void>(HttpStatus.OK);
             }
         }
 
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 
+    }
+
+    //DELETES THE FAV PERSON FROM THE LOGGED IN ACCOUNT
+    @PostMapping("/searchResults/otherAccount/deleteFav/")
+    public ResponseEntity<Void> deleteFav(@RequestBody FavUserDTO favUserDTO2) {
+
+        String loggedInUsername = favUserDTO2.getLoggedInUser();
+        String favUsername = favUserDTO2.getFavUser();
+
+        System.out.println("loggedInUsername = " + loggedInUsername);
+        System.out.println("favUsername = " + favUsername);
+
+        List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
+
+        for (FavUsers element : favUsers) {
+            if (element.getFavUsername().equals(favUsername)) {
+                Long favId = element.getId();
+                System.out.println(favId);
+                otherAccountService.deleteFav(favId);
+            }
+        }
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 }

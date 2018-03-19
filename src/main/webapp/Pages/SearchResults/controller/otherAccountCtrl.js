@@ -44,7 +44,31 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         $('.makeFav').toggleClass('redBackground');
         if ($(".makeFav").hasClass("redBackground")){
             sendFav();
+        }else {
+            deleteFav();
         }
+    }
+
+
+
+    //DELETES THE FAV USER
+    function deleteFav() {
+        var userData = localStorage['userInfo'];
+        var loggedInUser = JSON.parse(userData);
+        var favUser = JSON.parse(localUserData);
+        deleteFavUser(loggedInUser.username, favUser.username);
+    }
+
+    //TAKES THE RECORD TO BE DELETED TO BACKEND
+    function deleteFavUser(lUsername, fUsername){
+        OtherAccountService.deleteFav(lUsername, fUsername)
+            .then(
+                function() {
+                    console.log("Fav user deleted from databse");
+                },
+                function(errResponse){
+                    console.error('Error while deleting fav user');
+                });
     }
 
     //GETS DATA TO SEND TO SEND_FAV_USER

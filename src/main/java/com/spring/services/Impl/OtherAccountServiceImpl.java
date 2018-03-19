@@ -37,6 +37,10 @@ public class OtherAccountServiceImpl implements OtherAccountService {
         Query query = em.createQuery("SELECT p from FavUsers p where p.loggedInUsername like '%"+loggedInUsername+"%'");
         List<FavUsers> results = query.getResultList();
         return results;
+    }
 
+    @Override
+    public void deleteFav(Long favId) {
+        favUsersRepository.delete(favId);
     }
 }

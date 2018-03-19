@@ -13,6 +13,7 @@ function otherAccountService(HttpService) {
     var factory = {
         sendFavUser: sendFavUser,
         checkIfFav: checkIfFav,
+        deleteFav: deleteFav,
     };
 
     return factory;
@@ -32,6 +33,15 @@ function otherAccountService(HttpService) {
             favUser: favUser
         };
         return HttpService.postFavUser(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
+    }
+
+    function deleteFav(loggedInUser, favUser) {
+
+        var loggedFavUsers = {
+            loggedInUser: loggedInUser,
+            favUser: favUser
+        };
+        return HttpService.postFavUser(REST_SERVICE_URI+'deleteFav/', loggedFavUsers);
     }
 
 }
