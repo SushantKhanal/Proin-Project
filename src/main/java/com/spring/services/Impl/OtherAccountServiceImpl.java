@@ -1,7 +1,9 @@
 package com.spring.services.Impl;
 
 import com.spring.model.FavUsers;
+import com.spring.model.UserReviews;
 import com.spring.repository.FavUsersRepository;
+import com.spring.repository.ReviewsRepository;
 import com.spring.services.OtherAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,9 @@ public class OtherAccountServiceImpl implements OtherAccountService {
 
     @PersistenceContext
     EntityManager em;
+
+    @Autowired
+    private ReviewsRepository ReviewsRepository;
 
     @Override
     public void addFavouriteUser(FavUsers favUsers1) {
@@ -42,5 +47,15 @@ public class OtherAccountServiceImpl implements OtherAccountService {
     @Override
     public void deleteFav(Long favId) {
         favUsersRepository.delete(favId);
+    }
+
+    @Override
+    public void addReview(UserReviews UserReviews1) {
+        try{
+            ReviewsRepository.saveAndFlush(UserReviews1);
+        }
+        catch(Exception e){
+            System.out.println("error");
+        }
     }
 }

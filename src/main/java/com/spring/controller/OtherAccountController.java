@@ -4,6 +4,7 @@ import com.spring.dto.FavUserDTO;
 import com.spring.dto.ReviewDTO;
 import com.spring.model.FavUsers;
 import com.spring.model.User;
+import com.spring.model.UserReviews;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +91,16 @@ public class OtherAccountController {
         String otherUsername = reviewDTO1.getOtherUsername();
         String review = reviewDTO1.getReview();
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        User loggedInUser = signInService.getUserByUsername(loggedInUsername);
+
+        UserReviews UserReviews1 = new UserReviews(loggedInUsername, otherUsername, review, loggedInUser);
+
+        try {
+            otherAccountService.addReview(UserReviews1);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+        }
 
     }
 
