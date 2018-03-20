@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.dto.FavUserDTO;
+import com.spring.dto.ReviewDTO;
 import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.services.OtherAccountService;
@@ -81,6 +82,16 @@ public class OtherAccountController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    //ADDS REVIEW TO DATABASE
+    @PostMapping("/searchResults/otherAccount/review/")
+    public ResponseEntity<Void> postReview(@RequestBody ReviewDTO reviewDTO1) {
 
+        String loggedInUsername = reviewDTO1.getLoggedInUsername();
+        String otherUsername = reviewDTO1.getOtherUsername();
+        String review = reviewDTO1.getReview();
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+
+    }
 
 }
