@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('FirstPageCtrl', firstPageController);
 
-firstPageController.$inject = ['$scope', 'ClientSignInService', '$location'];
+firstPageController.$inject = ['ClientSignInService', '$location'];
 
-function firstPageController($scope, ClientSignInService, $location) {
+function firstPageController(ClientSignInService, $location) {
 
     var vm = this;
     vm.userSignUp =  userSignUp;

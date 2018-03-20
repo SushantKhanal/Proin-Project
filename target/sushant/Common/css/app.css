@@ -202,3 +202,13 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
 .redBackground {
     color: red;
 }
+
+#writeReviewBox {
+    height:60px;
+}
+
+.writeReviewBox {
+    border: none;
+}
+
+

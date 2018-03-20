@@ -126,9 +126,20 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
-
-                                <button ng-click="xxx.backToSearch()" class="btn btn-danger pull-right">Go Back</button>
-
+                                <div>
+                                    <button ng-click="xxx.backToSearch()" class="btn btn-danger pull-right">Go Back</button>
+                                    <button ng-click="xxx.writeReview()" class="btn btn-danger pull-left">Write Review</button>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
+                                <div ng-show="xxx.allowReview">
+                                    <textarea class="col-sm-12 writeReviewBox" id="writeReviewBox"></textarea>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
+                                <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button ng-click="xxx.editReview()" ng-show="xxx.allowReview" class="btn btn-primary ">Edit Review</button>
                                 <!-- /.box-body -->
                             </div>
                             <!-- /.box -->

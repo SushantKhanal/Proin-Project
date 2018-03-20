@@ -15,6 +15,16 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.addToFav = addToFav;
 
+    vm.allowReview = false;
+
+    vm.writeReview = writeReview;
+
+    vm.saveReview = saveReview;
+
+    vm.editReview = editReview;
+
+
+
     var localUserData = localStorage['localOtherUser'];
 
     if(localUserData !== undefined) {
@@ -23,6 +33,23 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
+    }
+
+    //ALLOW USER TO WRITE A REVIEW
+    function writeReview() {
+        $("#writeReviewBox").attr('readonly', false);
+        $("#writeReviewBox").removeClass("writeReviewBox");
+        vm.allowReview = !vm.allowReview;
+    }
+
+    // ALLOWS USER TO SAVE REVIEW
+    function saveReview() {
+        $("#writeReviewBox").attr('readonly', true);
+        $("#writeReviewBox").addClass("writeReviewBox");
+    }
+
+    function editReview() {
+        $("#writeReviewBox").attr('readonly', false);
     }
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
