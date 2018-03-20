@@ -14,9 +14,19 @@ function otherAccountService(HttpService) {
         sendFavUser: sendFavUser,
         checkIfFav: checkIfFav,
         deleteFav: deleteFav,
+        sendReview: sendReview,
     };
 
     return factory;
+
+    function sendReview (loggedInUsername, otherUsername, review) {
+        var loggedReview = {
+            loggedInUsername: loggedInUsername,
+            otherUsername: otherUsername,
+            review: review
+        };
+        return HttpService.postObject(REST_SERVICE_URI+'review/', loggedReview);
+    }
 
     function sendFavUser(loggedInUser, favUser) {
 
@@ -24,7 +34,7 @@ function otherAccountService(HttpService) {
             loggedInUser: loggedInUser,
             favUser: favUser
         };
-        return HttpService.postFavUser(REST_SERVICE_URI, loggedFavUsers);
+        return HttpService.postObject(REST_SERVICE_URI, loggedFavUsers);
     }
 
     function checkIfFav(loggedInUser, favUser) {
@@ -32,7 +42,7 @@ function otherAccountService(HttpService) {
             loggedInUser: loggedInUser,
             favUser: favUser
         };
-        return HttpService.postFavUser(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
+        return HttpService.postObject(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
     }
 
     function deleteFav(loggedInUser, favUser) {

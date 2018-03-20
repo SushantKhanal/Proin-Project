@@ -180,7 +180,7 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
     font-family: inherit;
     font-size: inherit;
     padding: none;
-    width: auto;
+    /*width: auto;*/
 }
 
 /*SEARCHRESULTS PAGES*/

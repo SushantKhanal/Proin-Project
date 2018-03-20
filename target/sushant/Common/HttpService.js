@@ -87,9 +87,9 @@ function HttpService($http, $q, $location) {
                 );
         },
 
-        //FUNCTION THAT HANDLES THE POST FAV USER OPERATION
-        postFavUser: function (resourceURI, loggedFavUsers) {
-            return $http.post(resourceURI, loggedFavUsers)
+        //FUNCTION THAT HANDLES THE POSTS OBJECT
+        postObject: function (resourceURI, object) {
+            return $http.post(resourceURI, object)
                 .then(
                     function (resp) {
                         return resp.data;
@@ -99,18 +99,7 @@ function HttpService($http, $q, $location) {
                     }
                 );
         }
-        // //FUNCTION THAT HANDLES THE CHECK IF FAV OPERATION
-        // postOtherUsername: function (resourceURI, loggedFavUsers) {
-        //     return $http.post(resourceURI+'checkIfFav/', loggedFavUsers)
-        //         .then(
-        //             function (resp) {
-        //                 return resp.data;
-        //             },
-        //             function (err) {
-        //                 return $q.reject(err);
-        //             }
-        //         );
-        // }
+
     }
 
 }

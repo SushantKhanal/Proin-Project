@@ -23,6 +23,8 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.editReview = editReview;
 
+    vm.review;
+
 
 
     var localUserData = localStorage['localOtherUser'];
@@ -46,10 +48,28 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     function saveReview() {
         $("#writeReviewBox").attr('readonly', true);
         $("#writeReviewBox").addClass("writeReviewBox");
+        console.log(vm.review);
+
+        vm.user = JSON.parse(localUserData);
+        var userData = localStorage['userInfo'];
+        var loggedInUser = JSON.parse(userData);
+        sendReview(loggedInUser.username, vm.user.username, vm.review);
+    }
+
+    function sendReview(loggedInUsername, otherUsername, review){
+        OtherAccountService.sendReview(loggedInUsername, otherUsername, review)
+            .then(
+                function(r) {
+                    console.log(r);
+                },
+                function(errResponse){
+                    console.error('this review could not be saved');
+                });
     }
 
     function editReview() {
         $("#writeReviewBox").attr('readonly', false);
+        $("#writeReviewBox").removeClass("writeReviewBox");
     }
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE

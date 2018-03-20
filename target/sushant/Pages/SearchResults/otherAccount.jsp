@@ -133,7 +133,7 @@
                                     <div class="bot-border"></div>
                                 </div>
                                 <div ng-show="xxx.allowReview">
-                                    <textarea class="col-sm-12 writeReviewBox" id="writeReviewBox"></textarea>
+                                    <textarea class="col-sm-12 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
