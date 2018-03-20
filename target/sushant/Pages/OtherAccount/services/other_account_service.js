@@ -51,7 +51,7 @@ function otherAccountService(HttpService) {
             loggedInUser: loggedInUser,
             favUser: favUser
         };
-        return HttpService.postFavUser(REST_SERVICE_URI+'deleteFav/', loggedFavUsers);
+        return HttpService.postObject(REST_SERVICE_URI+'deleteFav/', loggedFavUsers);
     }
 
 }
