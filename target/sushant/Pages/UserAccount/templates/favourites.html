@@ -3,11 +3,17 @@
 </div>
 
 <div class="modal-body">
-    <div>
-        <div ng-repeat="profile in $ctrl.users">
-            <span>{{profile}}</span>
-        </div>
+    <div ng-show="$ctrl.users.length !== 0">
+        <ol>
+            <li ng-repeat="username in $ctrl.users">
+                <span ng-click="$ctrl.showProfile(username)">{{username}}</span>
+            </li>
+        </ol>
     </div>
+    <div ng-show="$ctrl.users.length === 0">
+        <h4>Sorry, no favourites to show</h4>
+    </div>
+
 </div>
 
 <div class="modal-footer">

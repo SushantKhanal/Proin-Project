@@ -108,4 +108,11 @@ public class AccountController {
         return new ResponseEntity<>(listOfFavUsers, HttpStatus.OK);
     }
 
+    @PostMapping("/user/getUserProfile/")
+    public ResponseEntity<User> getUserProfile(@RequestBody String otherAccountUsername) {
+
+        User otherUser = signInService.getUserByUsername(otherAccountUsername);
+
+        return new ResponseEntity<>(otherUser, HttpStatus.OK);
+    }
 }

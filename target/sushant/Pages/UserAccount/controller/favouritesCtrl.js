@@ -3,18 +3,37 @@
     angular
         .module("myApp")
         .controller("FavouritesController", favouritesController);
-    favouritesController.$inject = ['$uibModalInstance','$scope','FavouritesService'];
+    favouritesController.$inject = ['$uibModalInstance','$location','FavouritesService'];
 
-    function favouritesController($uibModalInstance, $scope, FavouritesService){
+    function favouritesController($uibModalInstance, $location, FavouritesService){
 
         var vm = this;
         var userData = '';
         vm.cancelModal = cancelModal;
+        vm.showProfile = showProfile;
         vm.users;
         loadFavUsers();
+
+        function showProfile(username) {
+            console.log(username);
+            FavouritesService.getUserProfile(username)
+                .then(
+                    function(d) {
+                        vm.user = d;
+                        localStorage['localOtherUser'] = JSON.stringify(vm.user);
+                        vm.cancelModal();
+                        $location.path('/searchResults/otherAccount');
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching fav user names');
+                    }
+                );
+        }
+
         function cancelModal(){
             $uibModalInstance.close('save');
         }
+
         function loadFavUsers() {
             var userData = localStorage['userInfo'];
 
@@ -28,6 +47,7 @@
                 .then(
                     function(d) {
                         vm.users = d;
+                        console.log(vm.users);
                     },
                     function(errResponse){
                         console.error('Error while fetching fav user names');
