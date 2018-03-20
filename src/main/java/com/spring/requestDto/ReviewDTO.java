@@ -1,4 +1,4 @@
-package com.spring.dto;
+package com.spring.requestDto;
 
         import lombok.Getter;
         import lombok.Setter;

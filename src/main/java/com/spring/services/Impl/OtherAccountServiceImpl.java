@@ -58,4 +58,14 @@ public class OtherAccountServiceImpl implements OtherAccountService {
             System.out.println("error");
         }
     }
+
+    @Override
+    public List<UserReviews> getReviewRecords(String otherUsername) {
+        Query query = em.createQuery("SELECT p from UserReviews p where p.otherUsername like :otherUsername");
+        query.setParameter("otherUsername","%"+otherUsername+"%");
+
+        System.out.println(query.toString());
+        List<UserReviews> results = query.getResultList();
+        return results;
+    }
 }

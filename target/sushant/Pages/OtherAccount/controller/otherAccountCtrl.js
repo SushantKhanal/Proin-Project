@@ -23,6 +23,8 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.editReview = editReview;
 
+    vm.getReviews = getReviews;
+
     vm.review;
 
 
@@ -35,6 +37,19 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
+    }
+
+    //GETS AVAILABLE REVIEWS
+    function getReviews() {
+        vm.user = JSON.parse(localUserData);
+        OtherAccountService.getReviews(vm.user.username)
+            .then(
+                function(r) {
+                    console.log(r);
+                },
+                function(errResponse){
+                    console.error('Error while getting reviews');
+                });
     }
 
     //ALLOW USER TO WRITE A REVIEW

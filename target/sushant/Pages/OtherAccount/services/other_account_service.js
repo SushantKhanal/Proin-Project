@@ -15,9 +15,14 @@ function otherAccountService(HttpService) {
         checkIfFav: checkIfFav,
         deleteFav: deleteFav,
         sendReview: sendReview,
+        getReviews: getReviews,
     };
 
     return factory;
+
+    function getReviews (otherUsername) {
+        return HttpService.post(REST_SERVICE_URI+'getReviews/', otherUsername);
+    }
 
     function sendReview (loggedInUsername, otherUsername, review) {
         var loggedReview = {

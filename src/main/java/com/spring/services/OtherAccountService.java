@@ -10,4 +10,5 @@ public interface OtherAccountService {
     List<FavUsers> getResults(String loggedInUsername);
     void deleteFav(Long favId);
     void addReview(UserReviews UserReviews1);
+    List<UserReviews> getReviewRecords(String otherUsername);
 }

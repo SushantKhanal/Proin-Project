@@ -1,8 +1,7 @@
 package com.spring.controller;
 
-import com.spring.dto.LoginRequestDTO;
+import com.spring.requestDto.LoginRequestDTO;
 import com.spring.model.User;
-import com.spring.model.UserProfilePic;
 import com.spring.services.AccountService;
 import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;

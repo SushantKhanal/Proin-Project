@@ -1,10 +1,11 @@
 package com.spring.controller;
 
-import com.spring.dto.FavUserDTO;
-import com.spring.dto.ReviewDTO;
+import com.spring.requestDto.FavUserDTO;
+import com.spring.requestDto.ReviewDTO;
 import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.model.UserReviews;
+import com.spring.responseDto.ReviewInfo;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +103,24 @@ public class OtherAccountController {
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    //GETS REVIEW FROM DATABASE
+    @PostMapping("/searchResults/otherAccount/getReviews/")
+    public ResponseEntity<List<ReviewInfo>> getReviews(@RequestBody String otherUsername) {
+
+        List<UserReviews> userReviews2 = otherAccountService.getReviewRecords(otherUsername);
+
+        List<ReviewInfo> reviewInfoList= new ArrayList<ReviewInfo>();
+
+        for (UserReviews element : userReviews2) {
+            String loggedInUsername = element.getLoggedInUsername();
+            String review = element.getReview();
+            ReviewInfo reviewInfo1 = new ReviewInfo(loggedInUsername, otherUsername, review);
+            reviewInfoList.add(reviewInfo1);
+        }
+
+        return new ResponseEntity<List<ReviewInfo>>(reviewInfoList, HttpStatus.OK);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.spring.controller;
 
-import com.spring.dto.Countries;
+import com.spring.requestDto.Countries;
 import com.spring.model.User;
 import com.spring.services.SearchResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
