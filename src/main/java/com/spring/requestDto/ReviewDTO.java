@@ -9,4 +9,5 @@ public class ReviewDTO {
     private String loggedInUsername;
     private String otherUsername;
     private String review;
+    private Integer rating;
 }

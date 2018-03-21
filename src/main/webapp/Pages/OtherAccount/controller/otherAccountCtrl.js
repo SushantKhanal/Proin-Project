@@ -21,7 +21,7 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.saveReview = saveReview;
 
-    vm.editReview = editReview;
+    // vm.editReview = editReview;
 
     vm.getReviews = getReviews;
 
@@ -116,31 +116,31 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     // ALLOWS USER TO SAVE REVIEW
     function saveReview() {
         console.log(vm.numOfStars);
-        $("#writeReviewBox").attr('readonly', true);
+        //$("#writeReviewBox").attr('readonly', true);
         $("#writeReviewBox").addClass("writeReviewBox");
         console.log(vm.review);
 
         vm.user = JSON.parse(localUserData);
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
-        sendReview(loggedInUser.username, vm.user.username, vm.review);
+        sendReview(loggedInUser.username, vm.user.username, vm.review, vm.numOfStars);
     }
 
-    function sendReview(loggedInUsername, otherUsername, review){
-        OtherAccountService.sendReview(loggedInUsername, otherUsername, review)
+    function sendReview(loggedInUsername, otherUsername, review, rating){
+        OtherAccountService.sendReview(loggedInUsername, otherUsername, review, rating)
             .then(
-                function(r) {
-                    console.log(r);
+                function() {
+                    vm.review = '';
                 },
                 function(errResponse){
                     console.error('this review could not be saved');
                 });
     }
 
-    function editReview() {
-        $("#writeReviewBox").attr('readonly', false);
-        $("#writeReviewBox").removeClass("writeReviewBox");
-    }
+    // function editReview() {
+    //     $("#writeReviewBox").attr('readonly', false);
+    //     $("#writeReviewBox").removeClass("writeReviewBox");
+    // }
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
     function checkIfFav(loggedInUsername, otherUsername) {

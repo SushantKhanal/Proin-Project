@@ -92,6 +92,7 @@ public class OtherAccountController {
         String loggedInUsername = reviewDTO1.getLoggedInUsername();
         String otherUsername = reviewDTO1.getOtherUsername();
         String review = reviewDTO1.getReview();
+        Integer rating = reviewDTO1.getRating();
 
         User loggedInUser = signInService.getUserByUsername(loggedInUsername);
 
@@ -101,7 +102,7 @@ public class OtherAccountController {
             String usernameOther = element.getOtherUsername();
             if (usernameOther.equals(otherUsername)) {
                 Long id = element.getId();
-                UserReviews userReviews11 = new UserReviews(id, loggedInUsername, otherUsername, review, loggedInUser);
+                UserReviews userReviews11 = new UserReviews(id, loggedInUsername, otherUsername, review, rating, loggedInUser);
                 try {
                     otherAccountService.addReview(userReviews11);
                     return new ResponseEntity<Void>(HttpStatus.OK);
@@ -112,7 +113,7 @@ public class OtherAccountController {
 
         }
 
-        UserReviews userReviews1 = new UserReviews(loggedInUsername, otherUsername, review, loggedInUser);
+        UserReviews userReviews1 = new UserReviews(loggedInUsername, otherUsername, review, rating, loggedInUser);
 
         try {
             otherAccountService.addReview(userReviews1);
@@ -134,7 +135,8 @@ public class OtherAccountController {
         for (UserReviews element : userReviews2) {
             String loggedInUsername = element.getLoggedInUsername();
             String review = element.getReview();
-            ReviewInfo reviewInfo1 = new ReviewInfo(loggedInUsername, otherUsername, review);
+            Integer rating = element.getRating();
+            ReviewInfo reviewInfo1 = new ReviewInfo(loggedInUsername, otherUsername, review, rating);
             reviewInfoList.add(reviewInfo1);
         }
 

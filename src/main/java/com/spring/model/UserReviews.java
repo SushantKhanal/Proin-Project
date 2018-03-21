@@ -20,22 +20,26 @@ public class UserReviews {
 
     private String review;
 
+    private Integer rating;
+
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id")
     private User loggedInUser;
 
-    public UserReviews(String loggedInUsername,String otherUsername, String review, User user) {
+    public UserReviews(String loggedInUsername,String otherUsername, String review, Integer rating, User user) {
         this.loggedInUsername = loggedInUsername;
         this.otherUsername = otherUsername;
         this.review = review;
+        this.rating = rating;
         this.loggedInUser = user;
     }
 
-    public UserReviews(Long id, String loggedInUsername,String otherUsername, String review, User user) {
+    public UserReviews(Long id, String loggedInUsername,String otherUsername, String review, Integer rating, User user) {
         this.id = id;
         this.loggedInUsername = loggedInUsername;
         this.otherUsername = otherUsername;
         this.review = review;
+        this.rating = rating;
         this.loggedInUser = user;
     }
 
@@ -50,6 +54,7 @@ public class UserReviews {
                 ", otherUsername='" + otherUsername + '\'' +
                 ", loggedInUsername='" + loggedInUsername + '\'' +
                 ", review='" + review + '\'' +
+                ", rating=" + rating +
                 ", loggedInUser=" + loggedInUser +
                 '}';
     }

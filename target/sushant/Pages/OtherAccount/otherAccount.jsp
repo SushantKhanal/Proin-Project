@@ -129,7 +129,7 @@
                                 <div>
                                     <button ng-click="xxx.backToSearch()" class="btn btn-danger pull-right">Go Back</button>
                                     &nbsp;
-                                    <button class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>
+                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>
                                     <button ng-click="xxx.writeReview()" class="btn btn-danger pull-left">Write Review</button>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
@@ -137,7 +137,9 @@
                                 <div ng-show="xxx.showReviews">
                                     <ol>
                                         <li ng-repeat="userReview in xxx.userAndReviews">
-                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}:  </span> <h4>{{userReview.review}}</h4>
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span>{{userReview.rating}} Star Rating</span>
+                                            <h4>{{userReview.review}}</h4>
                                             <div class="clearfix"></div>
                                             <div class="bot-border"></div>
                                         </li>
@@ -162,8 +164,8 @@
 
                                 </div>
                                 <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
-                                &nbsp;
-                                <button ng-click="xxx.editReview()" ng-show="xxx.allowReview" class="btn btn-primary ">Edit Review</button>
+                                <%--&nbsp;--%>
+                                <%--<button ng-click="xxx.editReview()" ng-show="xxx.allowReview" class="btn btn-primary ">Edit Review</button>--%>
                                 <!-- /.box-body -->
                             </div>
                             <!-- /.box -->

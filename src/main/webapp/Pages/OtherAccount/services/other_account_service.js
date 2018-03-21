@@ -24,11 +24,12 @@ function otherAccountService(HttpService) {
         return HttpService.post(REST_SERVICE_URI+'getReviews/', otherUsername);
     }
 
-    function sendReview (loggedInUsername, otherUsername, review) {
+    function sendReview (loggedInUsername, otherUsername, review, rating) {
         var loggedReview = {
             loggedInUsername: loggedInUsername,
             otherUsername: otherUsername,
-            review: review
+            review: review,
+            rating: rating
         };
         return HttpService.postObject(REST_SERVICE_URI+'review/', loggedReview);
     }

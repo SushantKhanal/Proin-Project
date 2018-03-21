@@ -21,7 +21,7 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.saveReview = saveReview;
 
-    vm.editReview = editReview;
+    // vm.editReview = editReview;
 
     vm.getReviews = getReviews;
 
@@ -44,15 +44,12 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     }
 
     function takeToAccount(username){
-        //console.log(username);
         FavouritesService.getUserProfile(username)
             .then(
                 function(d) {
                     vm.user = d;
                     localStorage['localOtherUser'] = JSON.stringify(vm.user);
-                    // var url = 'http://localhost:8080/#!/searchResults/otherAccount';
-                    // window.open(url, '_blank');
-                    // //win.focus();
+
                     $location.path('/searchResults/otherUser');
                 },
                 function(errResponse){
@@ -69,7 +66,6 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         if (vm.userAndReviews !== ''){
             vm.showReviews = false;
             vm.userAndReviews = '';
-            //$scope.$apply();
             return;
         }
         OtherAccountService.getReviews(vm.user.username)
@@ -94,10 +90,8 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
             var ratingValue = parseInt($star_rating.siblings('input.rating-value').val());
              $star_rating.each(function() {
                 if (ratingValue >= parseInt($(this).data('rating'))) {
-                    //var x = parseInt($(this).data('rating'));
                     $(this).removeClass('fa-star-o').addClass('fa-star');
                 } else {
-                    //var x = parseInt($(this).data('rating'));
                     $(this).removeClass('fa-star').addClass('fa-star-o');
                 }
             });
@@ -108,7 +102,6 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
             $star_rating.siblings('input.rating-value').val(ratingValue);
             SetRatingStar();
             vm.numOfStars = $('.fa-star').length;
-            console.log(vm.numOfStars);
         });
 
 
@@ -123,35 +116,34 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
     // ALLOWS USER TO SAVE REVIEW
     function saveReview() {
         console.log(vm.numOfStars);
-        $("#writeReviewBox").attr('readonly', true);
+        //$("#writeReviewBox").attr('readonly', true);
         $("#writeReviewBox").addClass("writeReviewBox");
         console.log(vm.review);
 
         vm.user = JSON.parse(localUserData);
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
-        sendReview(loggedInUser.username, vm.user.username, vm.review);
+        sendReview(loggedInUser.username, vm.user.username, vm.review, vm.numOfStars);
     }
 
-    function sendReview(loggedInUsername, otherUsername, review){
-        OtherAccountService.sendReview(loggedInUsername, otherUsername, review)
+    function sendReview(loggedInUsername, otherUsername, review, rating){
+        OtherAccountService.sendReview(loggedInUsername, otherUsername, review, rating)
             .then(
-                function(r) {
-                    console.log(r);
+                function() {
+                    vm.review = '';
                 },
                 function(errResponse){
                     console.error('this review could not be saved');
                 });
     }
 
-    function editReview() {
-        $("#writeReviewBox").attr('readonly', false);
-        $("#writeReviewBox").removeClass("writeReviewBox");
-    }
+    // function editReview() {
+    //     $("#writeReviewBox").attr('readonly', false);
+    //     $("#writeReviewBox").removeClass("writeReviewBox");
+    // }
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
     function checkIfFav(loggedInUsername, otherUsername) {
-        //OtherAccountService.checkIfFav()
         OtherAccountService.checkIfFav(loggedInUsername, otherUsername)
             .then(
                 function() {

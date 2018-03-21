@@ -15,9 +15,11 @@ public class ReviewInfo {
     private String loggedInUsername;
     private String reviewedUsername;
     private String review;
-    public ReviewInfo(String loggedInUsername, String reviewedUsername, String review) {
+    private Integer rating;
+    public ReviewInfo(String loggedInUsername, String reviewedUsername, String review, Integer rating) {
         this.loggedInUsername = loggedInUsername;
         this.reviewedUsername = reviewedUsername;
         this.review = review;
+        this.rating = rating;
     }
 }
