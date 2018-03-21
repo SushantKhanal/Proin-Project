@@ -134,10 +134,32 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
+                                <div ng-show="xxx.showReviews">
+                                    <ol>
+                                        <li ng-repeat="userReview in xxx.userAndReviews">
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}:  </span> <h4>{{userReview.review}}</h4>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                        </li>
+                                    </ol>
+                                </div>
                                 <div ng-show="xxx.allowReview">
-                                    <textarea class="col-sm-12 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
+                                    <div>
+                                        <textarea class="col-sm-8 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
+                                        <div class="col-sm-4">
+                                            <div class="star-rating">
+                                                <span class="fa fa-star-o" data-rating="1"></span>
+                                                <span class="fa fa-star-o" data-rating="2"></span>
+                                                <span class="fa fa-star-o" data-rating="3"></span>
+                                                <span class="fa fa-star-o" data-rating="4"></span>
+                                                <span class="fa fa-star-o" data-rating="5"></span>
+                                                <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+                                    </div>
+
                                 </div>
                                 <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
                                 &nbsp;

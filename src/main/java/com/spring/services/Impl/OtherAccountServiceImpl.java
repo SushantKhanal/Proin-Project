@@ -68,4 +68,14 @@ public class OtherAccountServiceImpl implements OtherAccountService {
         List<UserReviews> results = query.getResultList();
         return results;
     }
+
+    @Override
+    public List<UserReviews> getAllReviews(String loggedInUsername) {
+        Query query = em.createQuery("SELECT p from UserReviews p where p.loggedInUsername like :loggedInUsername");
+        query.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+
+        System.out.println(query.toString());
+        List<UserReviews> results = query.getResultList();
+        return results;
+    }
 }

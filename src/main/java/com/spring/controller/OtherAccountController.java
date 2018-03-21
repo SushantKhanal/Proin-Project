@@ -34,6 +34,7 @@ public class OtherAccountController {
         String loggedInUsername = favUserDTO.getLoggedInUser();
         String favUsername = favUserDTO.getFavUser();
         User loggedInUser = signInService.getUserByUsername(loggedInUsername);
+
         FavUsers favUsers1 = new FavUsers(loggedInUsername, favUsername, loggedInUser);
 
         try {
@@ -94,10 +95,27 @@ public class OtherAccountController {
 
         User loggedInUser = signInService.getUserByUsername(loggedInUsername);
 
-        UserReviews UserReviews1 = new UserReviews(loggedInUsername, otherUsername, review, loggedInUser);
+        List<UserReviews> userReviews = otherAccountService.getAllReviews(loggedInUsername);
+        //checking if the user has already reviewed this account, if true, update, instead of create
+        for (UserReviews element : userReviews) {
+            String usernameOther = element.getOtherUsername();
+            if (usernameOther.equals(otherUsername)) {
+                Long id = element.getId();
+                UserReviews userReviews11 = new UserReviews(id, loggedInUsername, otherUsername, review, loggedInUser);
+                try {
+                    otherAccountService.addReview(userReviews11);
+                    return new ResponseEntity<Void>(HttpStatus.OK);
+                } catch (Exception e) {
+                    return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+                }
+            }
+
+        }
+
+        UserReviews userReviews1 = new UserReviews(loggedInUsername, otherUsername, review, loggedInUser);
 
         try {
-            otherAccountService.addReview(UserReviews1);
+            otherAccountService.addReview(userReviews1);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);

@@ -31,6 +31,14 @@ public class UserReviews {
         this.loggedInUser = user;
     }
 
+    public UserReviews(Long id, String loggedInUsername,String otherUsername, String review, User user) {
+        this.id = id;
+        this.loggedInUsername = loggedInUsername;
+        this.otherUsername = otherUsername;
+        this.review = review;
+        this.loggedInUser = user;
+    }
+
     public UserReviews() {
         super();
     }

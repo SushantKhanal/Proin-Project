@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('OtherAccountCtrl', otherAccountController);
 
-otherAccountController.$inject = ['$location','UserAccountService', 'OtherAccountService'];
+otherAccountController.$inject = ['$location','UserAccountService', 'OtherAccountService', 'FavouritesService'];
 
-function otherAccountController($location, UserAccountService, OtherAccountService) {
+function otherAccountController($location, UserAccountService, OtherAccountService, FavouritesService) {
     var vm = this;
 
     vm.backToSearch = backToSearch;
@@ -25,8 +25,12 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.getReviews = getReviews;
 
-    vm.review;
+    vm.takeToAccount = takeToAccount;
 
+    vm.userAndReviews = '';
+    vm.showReviews = false;
+
+    vm.review;
 
 
     var localUserData = localStorage['localOtherUser'];
@@ -39,13 +43,40 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         checkIfFav(loggedInUser.username, vm.user.username);
     }
 
+    function takeToAccount(username){
+        //console.log(username);
+        FavouritesService.getUserProfile(username)
+            .then(
+                function(d) {
+                    vm.user = d;
+                    localStorage['localOtherUser'] = JSON.stringify(vm.user);
+                    // var url = 'http://localhost:8080/#!/searchResults/otherAccount';
+                    // window.open(url, '_blank');
+                    // //win.focus();
+                    $location.path('/searchResults/otherUser');
+                },
+                function(errResponse){
+                    console.error('Error while fetching fav user names');
+                }
+            );
+    }
+
     //GETS AVAILABLE REVIEWS
     function getReviews() {
+        vm.allowReview = false;
+        vm.showReviews = true;
         vm.user = JSON.parse(localUserData);
+        if (vm.userAndReviews !== ''){
+            vm.showReviews = false;
+            vm.userAndReviews = '';
+            //$scope.$apply();
+            return;
+        }
         OtherAccountService.getReviews(vm.user.username)
             .then(
                 function(r) {
                     console.log(r);
+                    vm.userAndReviews = r;
                 },
                 function(errResponse){
                     console.error('Error while getting reviews');
@@ -54,6 +85,36 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     //ALLOW USER TO WRITE A REVIEW
     function writeReview() {
+
+        //#######################################//
+        //CODE FOR RATING
+        var $star_rating = $('.star-rating .fa');
+
+        var SetRatingStar = function() {
+            var ratingValue = parseInt($star_rating.siblings('input.rating-value').val());
+             $star_rating.each(function() {
+                if (ratingValue >= parseInt($(this).data('rating'))) {
+                    //var x = parseInt($(this).data('rating'));
+                    $(this).removeClass('fa-star-o').addClass('fa-star');
+                } else {
+                    //var x = parseInt($(this).data('rating'));
+                    $(this).removeClass('fa-star').addClass('fa-star-o');
+                }
+            });
+        };
+
+        $star_rating.on('click', function() {
+            var ratingValue = $(this).data('rating');
+            $star_rating.siblings('input.rating-value').val(ratingValue);
+            SetRatingStar();
+            vm.numOfStars = $('.fa-star').length;
+            console.log(vm.numOfStars);
+        });
+
+
+        //#######################################//
+
+        vm.showReviews = false;
         $("#writeReviewBox").attr('readonly', false);
         $("#writeReviewBox").removeClass("writeReviewBox");
         vm.allowReview = !vm.allowReview;
@@ -61,6 +122,7 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     // ALLOWS USER TO SAVE REVIEW
     function saveReview() {
+        console.log(vm.numOfStars);
         $("#writeReviewBox").attr('readonly', true);
         $("#writeReviewBox").addClass("writeReviewBox");
         console.log(vm.review);
@@ -169,5 +231,6 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
                 }
             );
     }
+
 
 }
