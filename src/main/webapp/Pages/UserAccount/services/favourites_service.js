@@ -24,5 +24,6 @@ function favouritesService(HttpService){
     function getUserProfile(otherAccountUsername) {
         return HttpService.post(REST_SERVICE_URI+'getUserProfile/', otherAccountUsername);
     }
+
 }
 

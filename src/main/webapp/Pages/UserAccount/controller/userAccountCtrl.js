@@ -17,6 +17,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.searchResults =  searchResults;
     vm.changePicModal = changePicModal;
     vm.showFavourites = showFavourites;
+    vm.addTags = addTags;
 
     var userData = localStorage['userInfo'];
 
@@ -25,6 +26,10 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     }
 
     getProfilePic(vm.user.username);
+
+    function addTags() {
+        ModalFactory.open('Pages/UserAccount/templates/addTags.html', 'AddTagsController', 'md', '$ctrl')
+    }
 
     function showFavourites() {
         ModalFactory.open('Pages/UserAccount/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')

@@ -28,8 +28,10 @@
     <script src="/Pages/UserAccount/controller/userAccountCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/profilePicCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/favouritesCtrl.js"></script>
+    <script src="/Pages/UserAccount/controller/addTagsCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
     <script src="/Pages/UserAccount/services/profile_pic_service.js"></script>
+    <script src="/Pages/UserAccount/services/add_tags_service.js"></script>
     <script src="/Pages/UserAccount/factory/ModalFactory.js"></script>
     <script src="/Pages/UserAccount/services/favourites_service.js"></script>
     <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
