@@ -3,6 +3,7 @@ package com.spring.controller;
 import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.model.UserProfilePic;
+import com.spring.model.UserTags;
 import com.spring.requestDto.UserTagsDTO;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
@@ -83,6 +84,7 @@ public class AccountController {
 
     }
 
+    //returns profile pic based on username
     @PostMapping("/user/getProfilePic/")
     public ResponseEntity<UserProfilePic> getProfilePic(@RequestBody String username) {
 
@@ -121,8 +123,27 @@ public class AccountController {
     //saves tags
     @PostMapping("/user/sendTags/")
     public ResponseEntity<Void> savesTags(@RequestBody UserTagsDTO usertagsdto) {
+        String loggedInUsername = usertagsdto.getUsername();
+        String tags = usertagsdto.getTags();
+        User returnedUser = signInService.getUserByUsername(loggedInUsername);
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        UserTags userTags = accountService.getUserTagsByUsername(loggedInUsername);
+
+        //check if userTags is null
+
+        if (userTags != null) {
+            Long trueId = userTags.getId();
+            UserTags userTags2 = new UserTags(trueId, loggedInUsername, tags, returnedUser);
+            accountService.addUserTags(userTags2);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+        UserTags userTags1 = new UserTags(loggedInUsername, tags, returnedUser);
+
+        accountService.addUserTags(userTags1);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
 

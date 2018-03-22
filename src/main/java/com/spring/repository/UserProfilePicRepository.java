@@ -12,5 +12,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserProfilePicRepository extends JpaRepository<UserProfilePic, Long> {
     @Query("SELECT p from UserProfilePic p where p.username=:username")
-    UserProfilePic getUserProfilePicByusername (@Param("username") String username); //getUserProfilePicByusername
+    UserProfilePic getUserProfilePicByusername (@Param("username") String username); //getUserProfilePicByUsername
 }

@@ -2,6 +2,7 @@ package com.spring.services;
 
 import com.spring.model.User;
 import com.spring.model.UserProfilePic;
+import com.spring.model.UserTags;
 
 public interface AccountService {
 
@@ -13,5 +14,10 @@ public interface AccountService {
     void addProfilePic(UserProfilePic u_p);
 
     UserProfilePic getUserPpByUsername(String username);
+
+    void addUserTags(UserTags userTags1);
+
+    UserTags getUserTagsByUsername(String username);
+
 
 }
