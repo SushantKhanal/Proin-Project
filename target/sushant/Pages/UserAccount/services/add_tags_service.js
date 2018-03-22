@@ -17,7 +17,13 @@ function addTagsService(HttpService){
     return factory;
 
     function sendTags(tags) {
-        return HttpService.post(REST_SERVICE_URI+'sendTags/', tags);
+        var userData = localStorage['userInfo'];
+        var user = JSON.parse(userData);
+        var userTags = {
+          username: user.username,
+          tags: tags
+        };
+        return HttpService.post(REST_SERVICE_URI+'sendTags/', userTags);
     }
 
 

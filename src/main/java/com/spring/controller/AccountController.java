@@ -3,6 +3,7 @@ package com.spring.controller;
 import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.model.UserProfilePic;
+import com.spring.requestDto.UserTagsDTO;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
@@ -108,6 +109,7 @@ public class AccountController {
         return new ResponseEntity<>(listOfFavUsers, HttpStatus.OK);
     }
 
+    //sends other user profile based on username
     @PostMapping("/user/getUserProfile/")
     public ResponseEntity<User> getUserProfile(@RequestBody String otherAccountUsername) {
 
@@ -115,4 +117,13 @@ public class AccountController {
 
         return new ResponseEntity<>(otherUser, HttpStatus.OK);
     }
+
+    //saves tags
+    @PostMapping("/user/sendTags/")
+    public ResponseEntity<Void> savesTags(@RequestBody UserTagsDTO usertagsdto) {
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+
 }
