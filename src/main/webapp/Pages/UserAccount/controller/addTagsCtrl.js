@@ -11,6 +11,18 @@
         vm.tags = '';
         vm.saveTags = saveTags;
         vm.cancelModal = cancelModal;
+        getTags();
+
+        function getTags() {
+            AddTagsService.receiveTags()
+                .then(
+                    function(r) {
+                        vm.tags = r.tags;
+                    },
+                    function(errResponse){
+                        console.error('this review could not be saved');
+                    });
+        }
 
         function cancelModal(){
             $uibModalInstance.close('save');

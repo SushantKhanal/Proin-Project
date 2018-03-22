@@ -1,11 +1,9 @@
 package com.spring.repository;
 
-        import com.spring.model.UserProfilePic;
         import com.spring.model.UserTags;
         import org.springframework.data.jpa.repository.JpaRepository;
         import org.springframework.data.jpa.repository.Query;
         import org.springframework.data.repository.query.Param;
-
 
 /**
  * @author : Suraj Gautam

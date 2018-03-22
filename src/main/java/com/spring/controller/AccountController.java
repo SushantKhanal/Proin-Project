@@ -5,6 +5,7 @@ import com.spring.model.User;
 import com.spring.model.UserProfilePic;
 import com.spring.model.UserTags;
 import com.spring.requestDto.UserTagsDTO;
+import com.spring.responseDto.TagsInfo;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
@@ -146,5 +147,17 @@ public class AccountController {
 
     }
 
+    //sends tags based on username
+    @PostMapping("/user/receiveTags/")
+    public ResponseEntity<TagsInfo> receiveTags(@RequestBody String loggedInUsername) {
+
+        UserTags userTags = accountService.getUserTagsByUsername(loggedInUsername);
+
+        String tags = userTags.getTags();
+
+        TagsInfo tagsInfo = new TagsInfo(tags);
+
+        return new ResponseEntity<>(tagsInfo, HttpStatus.OK);
+    }
 
 }
