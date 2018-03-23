@@ -25,5 +25,6 @@ function searchResultsService(HttpService){
         return HttpService.getSearchResults(REST_SERVICE_URI, searchTxt, country);
     }
 
+
 }
 

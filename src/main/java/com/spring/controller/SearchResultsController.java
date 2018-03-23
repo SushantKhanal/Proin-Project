@@ -6,9 +6,7 @@ import com.spring.services.SearchResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,14 +26,17 @@ public class SearchResultsController {
     }
 
     @GetMapping("/searchResults/{country}/{searchTxt}")
-    public ResponseEntity<List<User>> listAllUsers(@PathVariable("country") String country, @PathVariable("searchTxt") String searchTxt) {
-
-        List<User> results = searchResultsService.findResults(country, searchTxt);
-        if(results.isEmpty()){
-            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<List<String>> listAllUsers(@PathVariable("country") String country, @PathVariable("searchTxt") String searchTxt) {
+        String undefined = "undefined";
+        if (country.equals(undefined)){
+            List<String> results = searchResultsService.getResults(searchTxt);
+            return new ResponseEntity<>(results, HttpStatus.OK);
         }
-        return new ResponseEntity<List<User>>(results, HttpStatus.OK);
+        List<String> results = searchResultsService.findResults(country, searchTxt);
+
+        return new ResponseEntity<>(results, HttpStatus.OK);
 
     }
+
 
 }

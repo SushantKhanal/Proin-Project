@@ -2,9 +2,10 @@ angular
     .module('myApp')
     .controller('SearchResultCtrl', searchResultController);
 
-searchResultController.$inject = ['$location', 'SearchResultsService', 'UserAccountService','$scope'];
+searchResultController.$inject = ['$location', 'SearchResultsService', 'FavouritesService','$scope'];
 
-function searchResultController($location, SearchResultsService, UserAccountService, $scope) {
+function searchResultController($location, SearchResultsService, FavouritesService, $scope) {
+
     var vm = this;
     vm.goBack = goBack;
     vm.searchResults = searchResults;
@@ -19,13 +20,22 @@ function searchResultController($location, SearchResultsService, UserAccountServ
 
     getCountries();
 
+
     function displayProfile(profile) {
-        vm.user = profile;
-        localStorage['localOtherUser'] = JSON.stringify(vm.user);
-        $location.path('/searchResults/otherAccount')
+        vm.username = profile;
+        FavouritesService.getUserProfile(vm.username)
+            .then(
+                function(d) {
+                    vm.user = d;
+                    localStorage['localOtherUser'] = JSON.stringify(vm.user);
+                    $location.path('/searchResults/otherAccount');
+                },
+                function(errResponse){
+                    console.error('Error while fetching fav user names');
+                }
+            );
 
     }
-
 
     function goBack(){
         $location.path('/userAccount');
@@ -37,7 +47,6 @@ function searchResultController($location, SearchResultsService, UserAccountServ
             .then(
                 function(u) {
                     vm.users = u;
-                    console.log(vm.users);
                     if (vm.users !== []) {
                         vm.showList = true;
                     }
@@ -53,7 +62,6 @@ function searchResultController($location, SearchResultsService, UserAccountServ
             .then(
                 function(c) {
                     vm.countries = c;
-                    console.log(vm.countries);
                 },
                 function(errResponse){
                     console.error('Error while fetching Users');

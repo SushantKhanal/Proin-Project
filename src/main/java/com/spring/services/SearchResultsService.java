@@ -9,5 +9,6 @@ import java.util.List;
  *         <suraj.gautam@f1soft.com>
  */
 public interface SearchResultsService {
-    List<User> findResults(String country, String searchTxt);
+    List<String> findResults(String country, String searchTxt);
+    List<String> getResults(String searchTxt);
 }
