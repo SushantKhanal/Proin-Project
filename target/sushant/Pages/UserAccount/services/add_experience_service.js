@@ -12,9 +12,14 @@ function addExperienceService(HttpService){
 
     var factory = {
         sendExperience: sendExperience,
+        getExperience: getExperience,
     };
 
     return factory;
+
+    function getExperience(username) {
+        return HttpService.post(REST_SERVICE_URI+'getExperience/', username);
+    }
 
     function sendExperience(userExperience) {
 

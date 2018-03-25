@@ -186,4 +186,16 @@ public class AccountController {
 
     }
 
+    //send user his experience
+    @PostMapping("/user/getExperience/")
+    public ResponseEntity<UserExperienceDTO> receiveExperience(@RequestBody String username) {
+
+        UserExperience userExp = accountService.getUserExperienceByUsername(username);
+        UserExperienceDTO userExperienceDTO = new UserExperienceDTO(userExp.getId(), userExp.getUsername(),
+                userExp.getTitle(), userExp.getCompany(), userExp.getLocation(), userExp.getStartDate(),
+                userExp.getEndDate(), userExp.getDescription());
+
+        return new ResponseEntity<>(userExperienceDTO, HttpStatus.OK);
+    }
+
 }

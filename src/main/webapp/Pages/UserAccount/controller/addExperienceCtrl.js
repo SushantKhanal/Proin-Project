@@ -8,17 +8,40 @@
     function addTagsController($uibModalInstance, AddExperienceService){
 
         var vm = this;
-        vm.experience={username:'', title:'', company:'', location:'', startDate:'', endDate:'', description:''};
+        vm.experience={id: null, username:'', title:'', company:'', location:'', startDate:'', endDate:'', description:''};
 
         vm.saveExperience = saveExperience;
         vm.cancelModal = cancelModal;
         var userData = localStorage['userInfo'];
         var user = JSON.parse(userData);
+        getExperience();
+
+        function getExperience() {
+            AddExperienceService.getExperience(user.username)
+                .then(
+                    function(r) {
+                        r.startDate = new Date(r.startDate);
+                        r.endDate = new Date(r.endDate);
+                        vm.experience = r;
+                    },
+                    function(errResponse){
+                        alert('experience could not be retrieved');
+                    });
+        }
 
         function saveExperience() {
             vm.experience.username = user.username;
-            AddExperienceService.sendExperience(vm.experience);
-            cancelModal();
+            //vm.experience.startDate = vm.experience.startDate.getTime();
+            //vm.experience.endDate = vm.experience.endDate.getTime();
+            console.log(vm.experience);
+            AddExperienceService.sendExperience(vm.experience)
+                .then(
+                    function() {
+                        cancelModal();
+                    },
+                    function(errResponse){
+                        alert('this experience could not be saved');
+                    });
         }
 
         function cancelModal(){

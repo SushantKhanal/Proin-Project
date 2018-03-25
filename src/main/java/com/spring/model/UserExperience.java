@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author : Suraj Gautam
@@ -28,9 +29,9 @@ public class UserExperience {
 
     private String location;
 
-    private String startDate;
+    private Date startDate;
 
-    private String endDate;
+    private Date endDate;
 
     private String description;
 
@@ -38,9 +39,7 @@ public class UserExperience {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public UserExperience(String username, String title, String company,
-                          String location, String startDate, String endDate,
-                          String description, User user) {
+    public UserExperience(String username, String title, String company, String location, Date startDate, Date endDate, String description, User user) {
         this.username = username;
         this.title = title;
         this.company = company;
@@ -50,6 +49,7 @@ public class UserExperience {
         this.description = description;
         this.user = user;
     }
+
 
     public UserExperience() {super();}
 
