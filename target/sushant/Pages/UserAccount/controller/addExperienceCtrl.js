@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module("myApp")
-        .controller("AddExperienceController", addTagsController);
-    addTagsController.$inject = ['$uibModalInstance','AddExperienceService'];
+        .controller("AddExperienceController", addExperienceController);
+    addExperienceController.$inject = ['$uibModalInstance','AddExperienceService'];
 
-    function addTagsController($uibModalInstance, AddExperienceService){
+    function addExperienceController($uibModalInstance, AddExperienceService){
 
         var vm = this;
         vm.experience={id: null, username:'', title:'', company:'', location:'', startDate:'', endDate:'', description:''};

@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('OtherAccountCtrl', otherAccountController);
 
-otherAccountController.$inject = ['$location', 'AddTagsService', 'UserAccountService', 'OtherAccountService', 'FavouritesService'];
+otherAccountController.$inject = ['$location', 'ModalFactory', 'AddTagsService', 'UserAccountService', 'OtherAccountService', 'FavouritesService'];
 
-function otherAccountController($location, AddTagsService, UserAccountService, OtherAccountService, FavouritesService) {
+function otherAccountController($location, ModalFactory, AddTagsService, UserAccountService, OtherAccountService, FavouritesService) {
     var vm = this;
 
     vm.backToSearch = backToSearch;
@@ -28,6 +28,7 @@ function otherAccountController($location, AddTagsService, UserAccountService, O
     vm.userAndReviews = '';
     vm.tags = '';
     vm.showReviews = false;
+    vm.addExperience = addExperience;
 
     vm.review;
 
@@ -42,6 +43,10 @@ function otherAccountController($location, AddTagsService, UserAccountService, O
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
+    }
+
+    function addExperience() {
+        ModalFactory.open('Pages/OtherAccount/templates/experience.html', 'ShowExperienceController', 'md', '$ctrl')
     }
 
     function getTags() {
