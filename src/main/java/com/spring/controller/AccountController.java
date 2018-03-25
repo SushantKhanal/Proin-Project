@@ -4,6 +4,7 @@ import com.spring.model.FavUsers;
 import com.spring.model.User;
 import com.spring.model.UserProfilePic;
 import com.spring.model.UserTags;
+import com.spring.requestDto.UserExperienceDTO;
 import com.spring.requestDto.UserTagsDTO;
 import com.spring.responseDto.TagsInfo;
 import com.spring.services.AccountService;
@@ -158,6 +159,14 @@ public class AccountController {
         TagsInfo tagsInfo = new TagsInfo(tags);
 
         return new ResponseEntity<>(tagsInfo, HttpStatus.OK);
+    }
+
+    //WHEN USER SENDS EXPERIENCE
+    @PostMapping("/user/userExperience/")
+    public ResponseEntity<Void> receiveExperience(@RequestBody UserExperienceDTO exp) {
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
 }
