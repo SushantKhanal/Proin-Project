@@ -1,9 +1,6 @@
 package com.spring.services;
 
-import com.spring.model.User;
-import com.spring.model.UserExperience;
-import com.spring.model.UserProfilePic;
-import com.spring.model.UserTags;
+import com.spring.model.*;
 
 public interface AccountService {
 
@@ -23,5 +20,9 @@ public interface AccountService {
     void addUserExperience(UserExperience userExperience1);
 
     UserExperience getUserExperienceByUsername(String username);
+
+    UserAcademics getUserAcademicsByUsername(String username);
+
+    void addUserAcademics(UserAcademics userAcademics);
 
 }

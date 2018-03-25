@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.*;
+import com.spring.requestDto.UserAcademicsDTO;
 import com.spring.requestDto.UserExperienceDTO;
 import com.spring.requestDto.UserTagsDTO;
 import com.spring.responseDto.TagsInfo;
@@ -196,6 +197,34 @@ public class AccountController {
                 userExp.getEndDate(), userExp.getDescription());
 
         return new ResponseEntity<>(userExperienceDTO, HttpStatus.OK);
+    }
+
+    //WHEN USER SENDS ACADEMICS
+    @PostMapping("/user/userAcademics/")
+    public ResponseEntity<Void> receiveAcademics(@RequestBody UserAcademicsDTO acd) {
+
+        String loggedInUsername = acd.getUsername();
+
+        User returnedUser = signInService.getUserByUsername(loggedInUsername);
+
+        UserAcademics userAcd = accountService.getUserAcademicsByUsername(loggedInUsername);
+
+        UserAcademics acd1;
+
+        if (userAcd != null) {
+            acd1 = new UserAcademics(userAcd.getId(), acd.getUsername(), acd.getDegree(),
+                    acd.getSchool(), acd.getLocation(), acd.getStartDate(), acd.getEndDate(),
+                    acd.getDescription(), returnedUser);
+        } else {
+            acd1 = new UserAcademics(acd.getUsername(), acd.getDegree(),
+                    acd.getSchool(), acd.getLocation(), acd.getStartDate(), acd.getEndDate(),
+                    acd.getDescription(), returnedUser);
+        }
+
+        accountService.addUserAcademics(acd1);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
 }

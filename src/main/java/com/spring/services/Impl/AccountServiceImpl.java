@@ -1,18 +1,11 @@
 package com.spring.services.Impl;
 
-import com.spring.model.UserExperience;
-import com.spring.model.UserProfilePic;
-import com.spring.model.UserTags;
-import com.spring.repository.UserProfilePicRepository;
-import com.spring.repository.UserRepository;
-import com.spring.repository.UserTagsRepository;
-import com.spring.repository.UserExperienceRepository;
+import com.spring.model.*;
+import com.spring.repository.*;
 import com.spring.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.spring.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,6 +27,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private UserExperienceRepository userExperienceRepository;
+
+    @Autowired
+    private UserAcademicsRepository userAcademicsRepository;
 
     @Override
     public void updateUser(User p) {
@@ -90,6 +86,21 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public UserExperience getUserExperienceByUsername(String username){
         return userExperienceRepository.getUserExperienceByUsername(username);
+    }
+
+    @Override
+    public UserAcademics getUserAcademicsByUsername(String username){
+      return userAcademicsRepository.getUserAcademicsByUsername(username);
+    }
+
+    @Override
+    public void addUserAcademics(UserAcademics userAcademics) {
+        try{
+            userAcademicsRepository.saveAndFlush(userAcademics);
+        }
+        catch(Exception e){
+            System.out.println("error");
+        }
     }
 
 }

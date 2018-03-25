@@ -31,8 +31,6 @@
 
         function saveAcademics() {
             vm.academics.username = user.username;
-            //vm.Academics.startDate = vm.Academics.startDate.getTime();
-            //vm.Academics.endDate = vm.Academics.endDate.getTime();
             console.log(vm.academics);
             AddAcademicsService.sendAcademics(vm.academics)
                 .then(
