@@ -42,6 +42,14 @@
                                 <hr style="margin:5px 0 5px 0;">
 
 
+                                <div class="col-sm-5 col-xs-6 tital ">Tags:</div>
+                                <%--<div class="col-sm-7 col-xs-6 userDetail updateDetail">{{xxx.user.firstName}}</div>--%>
+                                <input ng-show="xxx.tags !== ''" class="col-sm-7 col-xs-6 userDetail updateDetail"  ng-model="xxx.tags" readonly/>
+                                <input ng-show="xxx.tags == ''" value="No Tags to show" readonly/>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+
                                 <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
                                 <%--<div class="col-sm-7 col-xs-6 userDetail updateDetail">{{xxx.user.firstName}}</div>--%>
                                 <input class="col-sm-7 col-xs-6 userDetail updateDetail"  ng-model="xxx.user.firstName" readonly/>

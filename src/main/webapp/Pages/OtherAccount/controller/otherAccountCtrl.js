@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('OtherAccountCtrl', otherAccountController);
 
-otherAccountController.$inject = ['$location','UserAccountService', 'OtherAccountService', 'FavouritesService'];
+otherAccountController.$inject = ['$location', 'AddTagsService', 'UserAccountService', 'OtherAccountService', 'FavouritesService'];
 
-function otherAccountController($location, UserAccountService, OtherAccountService, FavouritesService) {
+function otherAccountController($location, AddTagsService, UserAccountService, OtherAccountService, FavouritesService) {
     var vm = this;
 
     vm.backToSearch = backToSearch;
@@ -21,16 +21,17 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
 
     vm.saveReview = saveReview;
 
-    // vm.editReview = editReview;
-
     vm.getReviews = getReviews;
 
     vm.takeToAccount = takeToAccount;
 
     vm.userAndReviews = '';
+    vm.tags = '';
     vm.showReviews = false;
 
     vm.review;
+
+    getTags();
 
 
     var localUserData = localStorage['localOtherUser'];
@@ -41,6 +42,19 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
+    }
+
+    function getTags() {
+        var localUserData = localStorage['localOtherUser'];
+        var user = JSON.parse(localUserData);
+        AddTagsService.receiveTags(user.username)
+            .then(
+                function(r) {
+                    vm.tags = r.tags;
+                },
+                function(errResponse){
+                    console.error('this review could not be saved');
+                });
     }
 
     function takeToAccount(username){
@@ -137,10 +151,6 @@ function otherAccountController($location, UserAccountService, OtherAccountServi
                 });
     }
 
-    // function editReview() {
-    //     $("#writeReviewBox").attr('readonly', false);
-    //     $("#writeReviewBox").removeClass("writeReviewBox");
-    // }
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
     function checkIfFav(loggedInUsername, otherUsername) {

@@ -104,7 +104,7 @@
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Experience:</div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Experience  <span id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/></div>
                                     <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>

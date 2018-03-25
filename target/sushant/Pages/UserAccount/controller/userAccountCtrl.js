@@ -18,6 +18,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.changePicModal = changePicModal;
     vm.showFavourites = showFavourites;
     vm.addTags = addTags;
+    vm.addExperience = addExperience;
 
     var userData = localStorage['userInfo'];
 
@@ -26,6 +27,10 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     }
 
     getProfilePic(vm.user.username);
+
+    function addExperience() {
+        ModalFactory.open('Pages/UserAccount/templates/addExperience.html', 'AddExperienceController', 'md', '$ctrl')
+    }
 
     function addTags() {
         ModalFactory.open('Pages/UserAccount/templates/addTags.html', 'AddTagsController', 'md', '$ctrl')

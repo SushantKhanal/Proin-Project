@@ -27,10 +27,8 @@ function addTagsService(HttpService){
         return HttpService.post(REST_SERVICE_URI+'sendTags/', userTags);
     }
 
-    function receiveTags(){
-        var userData = localStorage['userInfo'];
-        var user = JSON.parse(userData);
-        return HttpService.post(REST_SERVICE_URI+'receiveTags/', user.username);
+    function receiveTags(username){
+        return HttpService.post(REST_SERVICE_URI+'receiveTags/', username);
     }
 
 

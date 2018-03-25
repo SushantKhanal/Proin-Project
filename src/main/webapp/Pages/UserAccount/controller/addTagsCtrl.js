@@ -14,7 +14,9 @@
         getTags();
 
         function getTags() {
-            AddTagsService.receiveTags()
+            var userData = localStorage['userInfo'];
+            var user = JSON.parse(userData);
+            AddTagsService.receiveTags(user.username)
                 .then(
                     function(r) {
                         vm.tags = r.tags;
@@ -33,7 +35,6 @@
             AddTagsService.sendTags(vm.tags);
             vm.cancelModal();
         }
-
 
     };
 })();

@@ -29,6 +29,7 @@
     <script src="/Pages/UserAccount/controller/profilePicCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/favouritesCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/addTagsCtrl.js"></script>
+    <script src="/Pages/UserAccount/controller/addExperienceCtrl.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>
     <script src="/Pages/UserAccount/services/profile_pic_service.js"></script>
     <script src="/Pages/UserAccount/services/add_tags_service.js"></script>

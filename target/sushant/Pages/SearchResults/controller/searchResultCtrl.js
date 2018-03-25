@@ -5,6 +5,7 @@ angular
 searchResultController.$inject = ['$location', 'SearchResultsService', 'FavouritesService','$scope'];
 
 function searchResultController($location, SearchResultsService, FavouritesService, $scope) {
+
     var vm = this;
     vm.goBack = goBack;
     vm.searchResults = searchResults;
