@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users_table")
-
+@AllArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -47,6 +48,8 @@ public class User {
     private String experience;
 
     private String marketDomain;
+
+    public User() {super();}
 
     @Override
     public String toString() {

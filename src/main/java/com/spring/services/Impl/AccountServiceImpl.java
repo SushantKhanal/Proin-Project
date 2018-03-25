@@ -1,10 +1,12 @@
 package com.spring.services.Impl;
 
+import com.spring.model.UserExperience;
 import com.spring.model.UserProfilePic;
 import com.spring.model.UserTags;
 import com.spring.repository.UserProfilePicRepository;
 import com.spring.repository.UserRepository;
 import com.spring.repository.UserTagsRepository;
+import com.spring.repository.UserExperienceRepository;
 import com.spring.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private UserTagsRepository userTagsRepository;
+
+    @Autowired
+    private UserExperienceRepository userExperienceRepository;
 
     @Override
     public void updateUser(User p) {
@@ -70,6 +75,21 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public UserTags getUserTagsByUsername(String username){
         return userTagsRepository.getUserTagsByUsername(username);
+    }
+
+    @Override
+    public void addUserExperience(UserExperience userExperience1) {
+        try{
+            userExperienceRepository.saveAndFlush(userExperience1);
+        }
+        catch(Exception e){
+            System.out.println("error");
+        }
+    }
+
+    @Override
+    public UserExperience getUserExperienceByUsername(String username){
+        return userExperienceRepository.getUserExperienceByUsername(username);
     }
 
 }

@@ -1,9 +1,6 @@
 package com.spring.controller;
 
-import com.spring.model.FavUsers;
-import com.spring.model.User;
-import com.spring.model.UserProfilePic;
-import com.spring.model.UserTags;
+import com.spring.model.*;
 import com.spring.requestDto.UserExperienceDTO;
 import com.spring.requestDto.UserTagsDTO;
 import com.spring.responseDto.TagsInfo;
@@ -164,6 +161,26 @@ public class AccountController {
     //WHEN USER SENDS EXPERIENCE
     @PostMapping("/user/userExperience/")
     public ResponseEntity<Void> receiveExperience(@RequestBody UserExperienceDTO exp) {
+
+        String loggedInUsername = exp.getUsername();
+
+        User returnedUser = signInService.getUserByUsername(loggedInUsername);
+
+        UserExperience userExp = accountService.getUserExperienceByUsername(loggedInUsername);
+
+        UserExperience exp1;
+
+        if (userExp != null) {
+            exp1 = new UserExperience(userExp.getId(), exp.getUsername(), exp.getTitle(),
+                    exp.getCompany(), exp.getLocation(), exp.getStartDate(), exp.getEndDate(),
+                    exp.getDescription(), returnedUser);
+        } else {
+            exp1 = new UserExperience(exp.getUsername(), exp.getTitle(),
+                    exp.getCompany(), exp.getLocation(), exp.getStartDate(), exp.getEndDate(),
+                    exp.getDescription(), returnedUser);
+        }
+
+        accountService.addUserExperience(exp1);
 
         return new ResponseEntity<>(HttpStatus.OK);
 
