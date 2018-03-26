@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location', 'AddAcademicsService'];
 
-function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location) {
+function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location, AddAcademicsService) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
@@ -19,7 +19,10 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.showFavourites = showFavourites;
     vm.addTags = addTags;
     vm.addExperience = addExperience;
+    vm.editAcademics = editAcademics;
     vm.addAcademics = addAcademics;
+    vm.academics = '';
+
 
     var userData = localStorage['userInfo'];
 
@@ -28,6 +31,30 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     }
 
     getProfilePic(vm.user.username);
+
+    getAcademics();
+
+    function getAcademics() {
+        AddAcademicsService.getAcademics(vm.user.username)
+            .then(
+                function(r) {
+                    r.startDate = new Date(r.startDate);
+                    r.endDate = new Date(r.endDate);
+                    vm.academics = r;
+                },
+                function(errResponse){
+                    alert('Academics could not be retrieved');
+                });
+    }
+
+    function editAcademics() {
+        var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/editAcademics.html', 'EditAcademicsController', 'md', '$ctrl');
+        academicsPopup.result.then(function(){
+            getAcademics();
+        },function(){
+            console.log('modal was dismissed, instead of saved');
+        })
+    }
 
     function addAcademics() {
         ModalFactory.open('Pages/UserAccount/templates/addAcademics.html', 'AddAcademicsController', 'md', '$ctrl')

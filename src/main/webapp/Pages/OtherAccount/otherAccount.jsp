@@ -23,7 +23,6 @@
                                                              id="profile-image1" class="img-circle img-responsive">
 
                                         <input id="profile-image-upload" class="hidden" type="file">
-                                        <%--<div style="color:#999;">click here to change profile image</div>--%>
                                         <!--Upload Image Js And Css-->
 
                                     </div>
@@ -43,7 +42,6 @@
 
 
                                 <div class="col-sm-5 col-xs-6 tital ">Tags:</div>
-                                <%--<div class="col-sm-7 col-xs-6 userDetail updateDetail">{{xxx.user.firstName}}</div>--%>
                                 <input ng-show="xxx.tags !== ''" class="col-sm-7 col-xs-6 userDetail updateDetail"  ng-model="xxx.tags" readonly/>
                                 <input ng-show="xxx.tags == ''" value="No Tags to show" readonly/>
                                 <div class="clearfix"></div>
@@ -51,78 +49,70 @@
 
 
                                 <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
-                                <%--<div class="col-sm-7 col-xs-6 userDetail updateDetail">{{xxx.user.firstName}}</div>--%>
                                 <input class="col-sm-7 col-xs-6 userDetail updateDetail"  ng-model="xxx.user.firstName" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Last Name:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.lastName}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.lastName" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">username:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.username}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.username" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Date Of Birth:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.dob | date}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.dob" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Bio:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.bio}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.bio" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Email:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.email}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.email" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
 
                                 <div class="col-sm-5 col-xs-6 tital ">Date Of Joining:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail">{{xxx.user.joinDate | date}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.joinDate" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Place Of Birth:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail">{{xxx.user.address}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.address" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Country:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail">{{xxx.user.nation}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.nation" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Agenda:</div>
-                                <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.agenda}}</div>--%>
                                 <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.agenda" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Academics:   <span style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"/></div>
-                                    <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.academics}}</div>--%>
-                                    <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.academics" readonly/>
+                                    <div class="col-sm-5 col-xs-6 tital ">Academics:       </div>
+                                    &nbsp; &nbsp;
+                                    <span style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"/>
+                                    <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.academics" readonly/>--%>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Experience:   <span style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/></div>
-                                    <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.experience}}</div>--%>
-                                    <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>
+                                    <div class="col-sm-5 col-xs-6 tital ">Experience:   </div>
+                                    &nbsp; &nbsp;
+                                    <span style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
+                                    <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>--%>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
@@ -172,9 +162,7 @@
 
                                 </div>
                                 <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
-                                <%--&nbsp;--%>
-                                <%--<button ng-click="xxx.editReview()" ng-show="xxx.allowReview" class="btn btn-primary ">Edit Review</button>--%>
-                                <!-- /.box-body -->
+
                             </div>
                             <!-- /.box -->
 

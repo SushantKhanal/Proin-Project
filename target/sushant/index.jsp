@@ -31,6 +31,7 @@
     <script src="/Pages/UserAccount/controller/addTagsCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/addExperienceCtrl.js"></script>
     <script src="/Pages/UserAccount/controller/addAcademicsCtrl.js"></script>
+    <script src="/Pages/UserAccount/controller/editAcademicsCtrl.js"></script>
     <script src="/Pages/UserAccount/services/add_experience_service.js"></script>
     <script src="/Pages/UserAccount/services/add_academics_service.js"></script>
     <script src="/Pages/UserAccount/services/user_account_service.js"></script>

@@ -14,20 +14,7 @@
         vm.cancelModal = cancelModal;
         var userData = localStorage['userInfo'];
         var user = JSON.parse(userData);
-        getAcademics();
 
-        function getAcademics() {
-            AddAcademicsService.getAcademics(user.username)
-                .then(
-                    function(r) {
-                        r.startDate = new Date(r.startDate);
-                        r.endDate = new Date(r.endDate);
-                        vm.academics = r;
-                    },
-                    function(errResponse){
-                        alert('Academics could not be retrieved');
-                    });
-        }
 
         function saveAcademics() {
             vm.academics.username = user.username;
