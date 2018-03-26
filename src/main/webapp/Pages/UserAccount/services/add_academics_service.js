@@ -12,14 +12,14 @@ function addAcademicsService(HttpService){
 
     var factory = {
         sendAcademics: sendAcademics,
-        //getAcademics: getAcademics,
+        getAcademics: getAcademics,
     };
 
     return factory;
 
-    // function getAcademics(username) {
-    //     return HttpService.post(REST_SERVICE_URI+'getAcademics/', username);
-    // }
+    function getAcademics(username) {
+        return HttpService.post(REST_SERVICE_URI+'getAcademics/', username);
+    }
 
     function sendAcademics(userAcademics) {
 

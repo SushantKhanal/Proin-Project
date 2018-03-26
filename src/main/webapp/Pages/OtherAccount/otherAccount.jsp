@@ -112,7 +112,7 @@
                                 <div class="bot-border"></div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Academics:</div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Academics:   <span style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"/></div>
                                     <%--<div class="col-sm-7 userDetail updateDetail"> {{xxx.user.academics}}</div>--%>
                                     <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.academics" readonly/>
                                     <div class="clearfix"></div>

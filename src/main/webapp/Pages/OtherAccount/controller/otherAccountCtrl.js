@@ -29,6 +29,7 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
     vm.tags = '';
     vm.showReviews = false;
     vm.addExperience = addExperience;
+    vm.addAcademics = addAcademics;
 
     vm.review;
 
@@ -47,6 +48,9 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
 
     function addExperience() {
         ModalFactory.open('Pages/OtherAccount/templates/experience.html', 'ShowExperienceController', 'md', '$ctrl')
+    }
+    function addAcademics() {
+        ModalFactory.open('Pages/OtherAccount/templates/academics.html', 'ShowAcademicsController', 'md', '$ctrl')
     }
 
     function getTags() {

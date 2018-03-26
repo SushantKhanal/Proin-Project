@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4>Academics</h4>
+</div>
+
+<div class="modal-body">
+    <div>Degree</div>
+    <input type="text" ng-model="$ctrl.academics.degree" class="form-control input-sm" readonly/>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    <div>School</div>
+    <input type="text" ng-model="$ctrl.academics.school" class="form-control input-sm" readonly/>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    <div>Location</div>
+    <input type="text" ng-model="$ctrl.academics.location" class="form-control input-sm" readonly/>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    <div>From</div>
+    <input id="startDate" type="date" ng-model="$ctrl.academics.startDate" class="form-control input-sm" readonly/>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    <div>To</div>
+    <input id="endDate" type="date" ng-model="$ctrl.academics.endDate" class="form-control input-sm" readonly/>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    <div>Description</div>
+    <textarea style="border:1px solid green;" class="col-sm-12" ng-model="$ctrl.academics.description" readonly></textarea>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-warning pull-right" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>

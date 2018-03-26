@@ -2,18 +2,17 @@
     'use strict';
     angular
         .module("myApp")
-        .controller("AddAcademicsController", addAcademicsController);
-    addAcademicsController.$inject = ['$uibModalInstance', 'AddAcademicsService'];
+        .controller("ShowAcademicsController", showAcademicsController);
+    showAcademicsController.$inject = ['$uibModalInstance', 'AddAcademicsService'];
 
-    function addAcademicsController($uibModalInstance, AddAcademicsService){
+    function showAcademicsController($uibModalInstance, AddAcademicsService){
 
         var vm = this;
         vm.academics={id: null, username:'', degree:'', school:'', location:'', startDate:'', endDate:'', description:''};
 
-        vm.saveAcademics = saveAcademics;
         vm.cancelModal = cancelModal;
-        var userData = localStorage['userInfo'];
-        var user = JSON.parse(userData);
+        var localUserData = localStorage['localOtherUser'];
+        var user = JSON.parse(localUserData);
         getAcademics();
 
         function getAcademics() {
@@ -29,19 +28,6 @@
                     });
         }
 
-        function saveAcademics() {
-            vm.academics.username = user.username;
-            console.log(vm.academics);
-            AddAcademicsService.sendAcademics(vm.academics)
-                .then(
-                    function() {
-                        cancelModal();
-                    },
-                    function(errResponse){
-                        alert('this Academics could not be saved');
-                    });
-
-        }
 
         function cancelModal(){
             $uibModalInstance.close('save');

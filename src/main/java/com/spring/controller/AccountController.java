@@ -227,4 +227,15 @@ public class AccountController {
 
     }
 
+    //send user his academics
+    @PostMapping("/user/getAcademics/")
+    public ResponseEntity<UserAcademicsDTO> getAcademics(@RequestBody String loggedInUsername) {
+
+        UserAcademics userAcd = accountService.getUserAcademicsByUsername(loggedInUsername);
+        UserAcademicsDTO userAcademicsDTO = new UserAcademicsDTO(userAcd.getId(), userAcd.getUsername(), userAcd.getDegree(),
+                userAcd.getSchool(), userAcd.getLocation(), userAcd.getStartDate(), userAcd.getEndDate(),
+                userAcd.getDescription());
+
+        return new ResponseEntity<>(userAcademicsDTO, HttpStatus.OK);
+    }
 }
