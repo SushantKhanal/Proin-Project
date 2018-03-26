@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Service
 @Transactional
@@ -89,8 +90,15 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public UserAcademics getUserAcademicsByUsername(String username){
-      return userAcademicsRepository.getUserAcademicsByUsername(username);
+    public List<UserAcademics> getUserAcademicsByUsername(String username){
+        List<UserAcademics> userAcademics = userAcademicsRepository.getUserAcademicsByUsername(username);
+        return userAcademics;
+      //return userAcademicsRepository.getUserAcademicsByUsername(username);
+    }
+
+    @Override
+    public UserAcademics getUserAcademicsFromId(Long id){
+        return userAcademicsRepository.findOne(id);
     }
 
     @Override
@@ -101,6 +109,11 @@ public class AccountServiceImpl implements AccountService {
         catch(Exception e){
             System.out.println("error");
         }
+    }
+
+    @Override
+    public void deleteThisAcademics(Long id){
+        userAcademicsRepository.delete(id);
     }
 
 }

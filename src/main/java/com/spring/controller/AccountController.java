@@ -199,43 +199,58 @@ public class AccountController {
         return new ResponseEntity<>(userExperienceDTO, HttpStatus.OK);
     }
 
-    //WHEN USER SENDS ACADEMICS
+    //WHEN USER SAVES ACADEMICS
     @PostMapping("/user/userAcademics/")
     public ResponseEntity<Void> receiveAcademics(@RequestBody UserAcademicsDTO acd) {
 
         String loggedInUsername = acd.getUsername();
 
+        Long academicsId = acd.getId();
+
         User returnedUser = signInService.getUserByUsername(loggedInUsername);
 
-        UserAcademics userAcd = accountService.getUserAcademicsByUsername(loggedInUsername);
-
-        UserAcademics acd1;
-
-        if (userAcd != null) {
-            acd1 = new UserAcademics(userAcd.getId(), acd.getUsername(), acd.getDegree(),
+        UserAcademics academics1;
+        //edit feature
+        if (academicsId != null) {
+            academics1 = new UserAcademics(academicsId, acd.getUsername(), acd.getDegree(),
                     acd.getSchool(), acd.getLocation(), acd.getStartDate(), acd.getEndDate(),
                     acd.getDescription(), returnedUser);
         } else {
-            acd1 = new UserAcademics(acd.getUsername(), acd.getDegree(),
+            academics1 = new UserAcademics(acd.getUsername(), acd.getDegree(),
                     acd.getSchool(), acd.getLocation(), acd.getStartDate(), acd.getEndDate(),
                     acd.getDescription(), returnedUser);
         }
 
-        accountService.addUserAcademics(acd1);
+        accountService.addUserAcademics(academics1);
 
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-    //send user his academics
-    @PostMapping("/user/getAcademics/")
-    public ResponseEntity<UserAcademicsDTO> getAcademics(@RequestBody String loggedInUsername) {
+    //send user all his academics
+    @PostMapping("/user/getAllAcademics/")
+    public ResponseEntity<List<UserAcademics>> getAcademics(@RequestBody String loggedInUsername) {
 
-        UserAcademics userAcd = accountService.getUserAcademicsByUsername(loggedInUsername);
-        UserAcademicsDTO userAcademicsDTO = new UserAcademicsDTO(userAcd.getId(), userAcd.getUsername(), userAcd.getDegree(),
-                userAcd.getSchool(), userAcd.getLocation(), userAcd.getStartDate(), userAcd.getEndDate(),
-                userAcd.getDescription());
+        List<UserAcademics> userAllAcads = accountService.getUserAcademicsByUsername(loggedInUsername);
 
-        return new ResponseEntity<>(userAcademicsDTO, HttpStatus.OK);
+        return new ResponseEntity<>(userAllAcads, HttpStatus.OK);
+    }
+
+    //send user the academics he wants to edit
+    @PostMapping("/user/getAcademicFromId/")
+    public ResponseEntity<UserAcademics> getAcademicFromId(@RequestBody Long id) {
+
+        UserAcademics userAcd = accountService.getUserAcademicsFromId(id);
+
+        return new ResponseEntity<>(userAcd, HttpStatus.OK);
+    }
+
+    //delete the academics the user wants to delete
+    @PostMapping("/user/deleteThisAcademics/")
+    public ResponseEntity<Void> deleteThisAcademics(@RequestBody Long id) {
+
+        accountService.deleteThisAcademics(id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

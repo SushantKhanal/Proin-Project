@@ -2,6 +2,8 @@ package com.spring.services;
 
 import com.spring.model.*;
 
+import java.util.List;
+
 public interface AccountService {
 
 
@@ -21,8 +23,12 @@ public interface AccountService {
 
     UserExperience getUserExperienceByUsername(String username);
 
-    UserAcademics getUserAcademicsByUsername(String username);
+    List<UserAcademics> getUserAcademicsByUsername(String username);
+
+    UserAcademics getUserAcademicsFromId(Long id);
 
     void addUserAcademics(UserAcademics userAcademics);
+
+    void deleteThisAcademics(Long id);
 
 }

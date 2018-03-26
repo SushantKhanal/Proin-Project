@@ -7,8 +7,10 @@ package com.spring.repository;
         import org.springframework.data.jpa.repository.Query;
         import org.springframework.data.repository.query.Param;
 
+        import java.util.List;
+
 public interface UserAcademicsRepository extends JpaRepository<UserAcademics, Long> {
     @Query("SELECT e from UserAcademics e where e.username=:username")
-    UserAcademics getUserAcademicsByUsername (@Param("username") String username); //getUserAcademicsByUsername
+    List<UserAcademics> getUserAcademicsByUsername (@Param("username") String username); //getUserAcademicsByUsername
 }
 

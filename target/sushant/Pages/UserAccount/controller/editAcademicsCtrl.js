@@ -11,22 +11,29 @@
         vm.academics={id: null, username:'', degree:'', school:'', location:'', startDate:'', endDate:'', description:''};
 
         vm.saveAcademics = saveAcademics;
-        vm.cancelModal = cancelModal;
+        vm.deleteAcademics = deleteAcademics;
         var userData = localStorage['userInfo'];
+        var academicsData = localStorage['academicsToBeEdited'];
         var user = JSON.parse(userData);
         getAcademics();
 
-        function getAcademics() {
-            AddAcademicsService.getAcademics(user.username)
+        function deleteAcademics(){
+            alert("are you sure you want to delete " + vm.academics.degree + " from your profile?");
+            AddAcademicsService.deleteAcademics(vm.academics.id)
                 .then(
-                    function(r) {
-                        r.startDate = new Date(r.startDate);
-                        r.endDate = new Date(r.endDate);
-                        vm.academics = r;
+                    function() {
+                        localStorage['academicsToBeEdited'] = undefined;
+                        cancelModal();
                     },
                     function(errResponse){
-                        alert('Academics could not be retrieved');
+
                     });
+        }
+
+        function getAcademics() {
+            vm.academics = JSON.parse(academicsData);
+            vm.academics.startDate = new Date(vm.academics.startDate);
+            vm.academics.endDate = new Date(vm.academics.endDate);
         }
 
         function saveAcademics() {

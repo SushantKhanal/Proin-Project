@@ -32,32 +32,54 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
 
     getProfilePic(vm.user.username);
 
-    getAcademics();
+    getAllAcademics();
 
-    function getAcademics() {
-        AddAcademicsService.getAcademics(vm.user.username)
+    function getAllAcademics() {
+        AddAcademicsService.getAllAcademics(vm.user.username)
             .then(
-                function(r) {
-                    r.startDate = new Date(r.startDate);
-                    r.endDate = new Date(r.endDate);
-                    vm.academics = r;
+                function(response) {
+                    for(r of response) {
+                        r.startDate = new Date(r.startDate);
+                        r.endDate = new Date(r.endDate);
+                    }
+                    // r.startDate = new Date(r.startDate);
+                    // r.endDate = new Date(r.endDate);
+                    vm.academics = response;
                 },
                 function(errResponse){
                     alert('Academics could not be retrieved');
                 });
     }
 
-    function editAcademics() {
-        var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/editAcademics.html', 'EditAcademicsController', 'md', '$ctrl');
-        academicsPopup.result.then(function(){
-            getAcademics();
-        },function(){
-            console.log('modal was dismissed, instead of saved');
-        })
+    function editAcademics(id) {
+        AddAcademicsService.getAcademicFromId(id)
+            .then(
+                function(d) {
+                    console.log(d);
+                    localStorage['academicsToBeEdited'] = JSON.stringify(d);
+                    var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/editAcademics.html', 'EditAcademicsController', 'md', '$ctrl');
+                    academicsPopup.result.then(function(){
+                        localStorage['academicsToBeEdited']=undefined;
+                        getAllAcademics();
+                    },function(){
+                        localStorage['academicsToBeEdited'] = undefined;
+                        console.log('modal was dismissed, instead of saved');
+                    })
+                },
+                function(errResponse){
+                    console.error('Error while editing Academics');
+                }
+            );
+
     }
 
     function addAcademics() {
-        ModalFactory.open('Pages/UserAccount/templates/addAcademics.html', 'AddAcademicsController', 'md', '$ctrl')
+        var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/addAcademics.html', 'AddAcademicsController', 'md', '$ctrl')
+        academicsPopup.result.then(function(){
+            getAllAcademics();
+        },function(){
+            console.log('modal was dismissed, instead of saved');
+        })
     }
 
 

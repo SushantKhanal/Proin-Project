@@ -97,42 +97,48 @@
                                 <div class="bot-border"></div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Academics:  </div>
+                                    <div style="margin-left:40%; margin-right:40%; color:green;" class="col-sm-5 col-xs-6 tital ">Academics:  <span ng-show="xxx.academics == '' " style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
+                                    </div>
 
                                     &nbsp; &nbsp;
-                                    <span ng-show="xxx.academics == '' " style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
                                     <div class="bot-border"></div>
                                     <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.academics" readonly/>--%>
-                                    <div style="margin-left:40%; margin-right:40%;"><b>Degree 1</b></div>
-                                    <div ng-show="xxx.academics !== ''" style="border:2px solid black; margin-left: 10px;">
-                                        <button ng-click="xxx.editAcademics()" class="btn-warning pull-left">Edit</button>
-                                        <button ng-click="xxx.addAcademics()" class="btn-danger pull-right">Add More</button>
-                                        <div style="margin-left: 10px;">
-                                            <div class="clearfix"></div>
+                                    <div ng-show="xxx.academics !== ''">
+                                        <div ng-repeat="academics in xxx.academics">
+                                            <div style="border:2px solid black; margin-left: 10px;">
+                                                <button ng-click="xxx.editAcademics(academics.id)" class="btn-warning pull-left">Edit</button>
+                                                <button ng-click="xxx.addAcademics()" class="btn-danger pull-right">Add More</button>
+                                                <div style="margin-left: 10px;">
+                                                    <div style="margin-left:40%; margin-right:40%;"><b>Degree {{xxx.academics.indexOf(academics) + 1}}</b></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Degree</div>
+                                                    <span>{{academics.degree}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>School</div>
+                                                    <span>{{academics.school}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Location</div>
+                                                    <span>{{academics.location}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>From</div>
+                                                    <span>{{academics.startDate | date}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>To</div>
+                                                    <span>{{academics.endDate | date}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Description</div>
+                                                    <span>{{academics.description}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                </div>
+                                            </div>
                                             <div class="bot-border"></div>
-                                            <div>Degree</div>
-                                            <span>{{xxx.academics.degree}}</span>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                            <div>School</div>
-                                            <span>{{xxx.academics.school}}</span>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                            <div>Location</div>
-                                            <span>{{xxx.academics.location}}</span>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                            <div>From</div>
-                                            <span>{{xxx.academics.startDate | date}}</span>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                            <div>To</div>
-                                            <span>{{xxx.academics.endDate | date}}</span>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                            <div>Description</div>
-                                            <span>{{xxx.academics.description}}</span>
-                                            <div class="clearfix"></div>
                                             <div class="bot-border"></div>
                                         </div>
 
@@ -143,10 +149,10 @@
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital ">Experience:  </div>
+                                    <div class="col-sm-5 col-xs-6 tital " style="margin-left:40%; margin-right:40%; color:green;">Experience: <span ng-show="xxx.experience == '' " id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
+                                    </div>
                                     &nbsp; &nbsp;
-                                    <span id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
-                                    <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>--%>
+                                <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>--%>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                     <div class="bot-border"></div>

@@ -12,20 +12,28 @@ function addAcademicsService(HttpService){
 
     var factory = {
         sendAcademics: sendAcademics,
-        getAcademics: getAcademics,
+        getAllAcademics: getAllAcademics,
+        getAcademicFromId: getAcademicFromId,
+        deleteAcademics: deleteAcademics,
     };
 
     return factory;
 
-    function getAcademics(username) {
-        return HttpService.post(REST_SERVICE_URI+'getAcademics/', username);
+    function getAllAcademics(username) {
+        return HttpService.post(REST_SERVICE_URI+'getAllAcademics/', username);
     }
 
     function sendAcademics(userAcademics) {
-
         return HttpService.post(REST_SERVICE_URI+'userAcademics/', userAcademics);
     }
 
+    function getAcademicFromId(id) {
+        return HttpService.post(REST_SERVICE_URI+'getAcademicFromId/', id);
 
+    }
+
+    function deleteAcademics(id) {
+        return HttpService.post(REST_SERVICE_URI+'deleteThisAcademics/', id);
+    }
 }
 
