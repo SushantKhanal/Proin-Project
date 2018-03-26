@@ -21,14 +21,17 @@ public interface AccountService {
 
     void addUserExperience(UserExperience userExperience1);
 
-    UserExperience getUserExperienceByUsername(String username);
+    List<UserExperience> getUserExperienceByUsername(String username);
 
     List<UserAcademics> getUserAcademicsByUsername(String username);
 
     UserAcademics getUserAcademicsFromId(Long id);
 
+    UserExperience getExperienceFromId(Long id);
+
     void addUserAcademics(UserAcademics userAcademics);
 
     void deleteThisAcademics(Long id);
 
+    void deleteThisExperience(Long id);
 }

@@ -167,12 +167,14 @@ public class AccountController {
 
         User returnedUser = signInService.getUserByUsername(loggedInUsername);
 
-        UserExperience userExp = accountService.getUserExperienceByUsername(loggedInUsername);
+        Long experienceId = exp.getId();
+
+        //UserExperience userExp = accountService.getUserExperienceByUsername(loggedInUsername);
 
         UserExperience exp1;
 
-        if (userExp != null) {
-            exp1 = new UserExperience(userExp.getId(), exp.getUsername(), exp.getTitle(),
+        if (experienceId != null) {
+            exp1 = new UserExperience(experienceId, exp.getUsername(), exp.getTitle(),
                     exp.getCompany(), exp.getLocation(), exp.getStartDate(), exp.getEndDate(),
                     exp.getDescription(), returnedUser);
         } else {
@@ -187,16 +189,16 @@ public class AccountController {
 
     }
 
-    //send user his experience
-    @PostMapping("/user/getExperience/")
-    public ResponseEntity<UserExperienceDTO> receiveExperience(@RequestBody String username) {
+    //send user all his experience
+    @PostMapping("/user/getAllExperience/")
+    public ResponseEntity<List<UserExperience>> receiveExperience(@RequestBody String username) {
 
-        UserExperience userExp = accountService.getUserExperienceByUsername(username);
-        UserExperienceDTO userExperienceDTO = new UserExperienceDTO(userExp.getId(), userExp.getUsername(),
-                userExp.getTitle(), userExp.getCompany(), userExp.getLocation(), userExp.getStartDate(),
-                userExp.getEndDate(), userExp.getDescription());
+        List<UserExperience> userAllExp = accountService.getUserExperienceByUsername(username);
+//        UserExperienceDTO userExperienceDTO = new UserExperienceDTO(userExp.getId(), userExp.getUsername(),
+//                userExp.getTitle(), userExp.getCompany(), userExp.getLocation(), userExp.getStartDate(),
+//                userExp.getEndDate(), userExp.getDescription());
 
-        return new ResponseEntity<>(userExperienceDTO, HttpStatus.OK);
+        return new ResponseEntity<>(userAllExp, HttpStatus.OK);
     }
 
     //WHEN USER SAVES ACADEMICS
@@ -250,6 +252,24 @@ public class AccountController {
     public ResponseEntity<Void> deleteThisAcademics(@RequestBody Long id) {
 
         accountService.deleteThisAcademics(id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //send user the experience he wants to edit
+    @PostMapping("/user/getExperienceFromId/")
+    public ResponseEntity<UserExperience> getExperienceFromId(@RequestBody Long id) {
+
+        UserExperience userExperience = accountService.getExperienceFromId(id);
+
+        return new ResponseEntity<>(userExperience, HttpStatus.OK);
+    }
+
+    //delete the academics the user wants to delete
+    @PostMapping("/user/deleteThisExperience/")
+    public ResponseEntity<Void> deleteThisExperience(@RequestBody Long id) {
+
+        accountService.deleteThisExperience(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

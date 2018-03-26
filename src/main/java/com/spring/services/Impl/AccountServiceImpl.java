@@ -85,7 +85,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public UserExperience getUserExperienceByUsername(String username){
+    public List<UserExperience> getUserExperienceByUsername(String username){
         return userExperienceRepository.getUserExperienceByUsername(username);
     }
 
@@ -102,6 +102,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public UserExperience getExperienceFromId(Long id) { return userExperienceRepository.findOne(id); }
+
+    @Override
     public void addUserAcademics(UserAcademics userAcademics) {
         try{
             userAcademicsRepository.saveAndFlush(userAcademics);
@@ -115,5 +118,11 @@ public class AccountServiceImpl implements AccountService {
     public void deleteThisAcademics(Long id){
         userAcademicsRepository.delete(id);
     }
+
+    @Override
+    public void deleteThisExperience(Long id){
+        userExperienceRepository.delete(id);
+    }
+
 
 }

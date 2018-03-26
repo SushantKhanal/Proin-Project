@@ -97,12 +97,11 @@
                                 <div class="bot-border"></div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div style="margin-left:40%; margin-right:40%; color:green;" class="col-sm-5 col-xs-6 tital ">Academics:                                      <span ng-show="xxx.academics == '' " style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
+                                    <div style="margin-left:40%; margin-right:40%; color:green;" class="col-sm-5 col-xs-6 tital ">Academics:  <span ng-show="xxx.academics == '' " style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
                                     </div>
 
                                     &nbsp; &nbsp;
                                     <div class="bot-border"></div>
-                                    <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.academics" readonly/>--%>
                                     <div ng-show="xxx.academics !== ''">
                                         <div ng-repeat="academics in xxx.academics">
                                             <div style="border:2px solid black; margin-left: 10px;">
@@ -142,8 +141,6 @@
                                             <div class="bot-border"></div>
                                         </div>
 
-
-
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
@@ -151,13 +148,54 @@
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital " style="margin-left:40%; margin-right:40%; color:green;">Experience: <span id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
+                                    <div class="col-sm-5 col-xs-6 tital " style="margin-left:40%; margin-right:40%; color:green;">Experience: <span ng-show="xxx.experience == '' " id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
                                     </div>
                                     &nbsp; &nbsp;
-                                <%--<input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.experience" readonly/>--%>
+                                    <div class="bot-border"></div>
+                                    <div ng-show="xxx.experience !== ''">
+                                        <div ng-repeat="exp in xxx.experience">
+                                            <div style="border:2px solid black; margin-left: 10px;">
+                                                <button class="btn-warning pull-left" ng-click="xxx.editExperience(exp.id)">Edit</button>
+                                                <button class="btn-danger pull-right" ng-click="xxx.addExperience()">Add More</button>
+                                                <div style="margin-left: 10px;">
+                                                    <div style="margin-left:40%; margin-right:40%;"><b>Job {{xxx.experience.indexOf(exp) + 1}}</b></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Title</div>
+                                                    <span>{{exp.title}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Company</div>
+                                                    <span>{{exp.company}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Location</div>
+                                                    <span>{{exp.location}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>From</div>
+                                                    <span>{{exp.startDate | date}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>To</div>
+                                                    <span>{{exp.endDate | date}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                    <div>Description</div>
+                                                    <span>{{exp.description}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bot-border"></div>
+                                            <div class="bot-border"></div>
+                                        </div>
+
+                                    </div>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                     <div class="bot-border"></div>
+
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Corporate'">

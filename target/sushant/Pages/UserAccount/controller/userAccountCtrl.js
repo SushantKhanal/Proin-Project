@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location', 'AddAcademicsService'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location', 'AddAcademicsService', 'AddExperienceService'];
 
-function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location, AddAcademicsService) {
+function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location, AddAcademicsService, AddExperienceService) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
@@ -20,9 +20,10 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.addTags = addTags;
     vm.addExperience = addExperience;
     vm.editAcademics = editAcademics;
+    vm.editExperience = editExperience;
     vm.addAcademics = addAcademics;
     vm.academics = '';
-
+    vm.experience = '';
 
     var userData = localStorage['userInfo'];
 
@@ -34,6 +35,8 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
 
     getAllAcademics();
 
+    getAllExperience();
+
     function getAllAcademics() {
         AddAcademicsService.getAllAcademics(vm.user.username)
             .then(
@@ -42,12 +45,25 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
                         r.startDate = new Date(r.startDate);
                         r.endDate = new Date(r.endDate);
                     }
-                    // r.startDate = new Date(r.startDate);
-                    // r.endDate = new Date(r.endDate);
                     vm.academics = response;
                 },
                 function(errResponse){
                     alert('Academics could not be retrieved');
+                });
+    }
+
+    function getAllExperience() {
+        AddExperienceService.getAllExperience(vm.user.username)
+            .then(
+                function(response) {
+                    for(r of response) {
+                        r.startDate = new Date(r.startDate);
+                        r.endDate = new Date(r.endDate);
+                    }
+                    vm.experience = response;
+                },
+                function(errResponse){
+                    alert('Experience data could not be retrieved');
                 });
     }
 
@@ -72,10 +88,31 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
             );
 
     }
+///Add the functionalities required for the below function
+    function editExperience(id) {
+        AddExperienceService.getExperienceFromId(id)
+            .then(
+                function(d) {
+                    console.log(d);
+                    localStorage['experienceToBeEdited'] = JSON.stringify(d);
+                    var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/editExperience.html', 'EditExperienceController', 'md', '$ctrl');
+                    academicsPopup.result.then(function(){
+                        localStorage['experienceToBeEdited']=undefined;
+                        getAllExperience();
+                    },function(){
+                        localStorage['experienceToBeEdited'] = undefined;
+                        console.log('modal was dismissed, instead of saved');
+                    })
+                },
+                function(errResponse){
+                    console.error('Error while editing Experience');
+                }
+            );
+    }
 
     function addAcademics() {
-        var academicsPopup = ModalFactory.open('Pages/UserAccount/templates/addAcademics.html', 'AddAcademicsController', 'md', '$ctrl')
-        academicsPopup.result.then(function(){
+        var academicsPopUp = ModalFactory.open('Pages/UserAccount/templates/addAcademics.html', 'AddAcademicsController', 'md', '$ctrl');
+        academicsPopUp.result.then(function(){
             getAllAcademics();
         },function(){
             console.log('modal was dismissed, instead of saved');
@@ -84,7 +121,12 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
 
 
     function addExperience() {
-        ModalFactory.open('Pages/UserAccount/templates/addExperience.html', 'AddExperienceController', 'md', '$ctrl')
+       var experiencePopUp = ModalFactory.open('Pages/UserAccount/templates/addExperience.html', 'AddExperienceController', 'md', '$ctrl');
+        experiencePopUp.result.then(function () {
+            getAllExperience(); //function not created yet
+        },function(){
+            console.log('modal was dismissed, instead of saved');
+        })
     }
 
     function addTags() {

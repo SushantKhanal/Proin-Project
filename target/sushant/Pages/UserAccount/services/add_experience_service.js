@@ -12,13 +12,23 @@ function addExperienceService(HttpService){
 
     var factory = {
         sendExperience: sendExperience,
-        getExperience: getExperience,
+        getAllExperience: getAllExperience,
+        getExperienceFromId: getExperienceFromId,
+        deleteExperience: deleteExperience,
     };
 
     return factory;
 
-    function getExperience(username) {
-        return HttpService.post(REST_SERVICE_URI+'getExperience/', username);
+    function deleteExperience(id) {
+        return HttpService.post(REST_SERVICE_URI+'deleteThisExperience/', id);
+    }
+
+    function getExperienceFromId(id) {
+        return HttpService.post(REST_SERVICE_URI+'getExperienceFromId/', id);
+    }
+
+    function getAllExperience(username) {
+        return HttpService.post(REST_SERVICE_URI+'getAllExperience/', username);
     }
 
     function sendExperience(userExperience) {
