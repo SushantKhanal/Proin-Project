@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('OtherAccountCtrl', otherAccountController);
 
-otherAccountController.$inject = ['$location', 'ModalFactory', 'AddTagsService', 'UserAccountService', 'OtherAccountService', 'FavouritesService'];
+otherAccountController.$inject = ['$location', 'ModalFactory', 'AddTagsService', 'UserAccountService', 'OtherAccountService', 'FavouritesService', 'AddAcademicsService', 'AddExperienceService'];
 
-function otherAccountController($location, ModalFactory, AddTagsService, UserAccountService, OtherAccountService, FavouritesService) {
+function otherAccountController($location, ModalFactory, AddTagsService, UserAccountService, OtherAccountService, FavouritesService, AddAcademicsService, AddExperienceService) {
     var vm = this;
 
     vm.backToSearch = backToSearch;
@@ -35,7 +35,6 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
 
     getTags();
 
-
     var localUserData = localStorage['localOtherUser'];
 
     if(localUserData !== undefined) {
@@ -44,6 +43,40 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
+    }
+
+    getAllAcademics();
+    getAllExperience();
+
+    function getAllAcademics() {
+        vm.user = JSON.parse(localUserData);
+        AddAcademicsService.getAllAcademics(vm.user.username)
+            .then(
+                function(response) {
+                    for(r of response) {
+                        r.startDate = new Date(r.startDate);
+                        r.endDate = new Date(r.endDate);
+                    }
+                    vm.academics = response;
+                },
+                function(errResponse){
+                    alert('Academics could not be retrieved');
+                });
+    }
+
+    function getAllExperience() {
+        AddExperienceService.getAllExperience(vm.user.username)
+            .then(
+                function(response) {
+                    for(r of response) {
+                        r.startDate = new Date(r.startDate);
+                        r.endDate = new Date(r.endDate);
+                    }
+                    vm.experience = response;
+                },
+                function(errResponse){
+                    alert('Experience data could not be retrieved');
+                });
     }
 
     function addExperience() {
