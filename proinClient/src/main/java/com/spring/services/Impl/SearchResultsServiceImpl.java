@@ -1,8 +1,6 @@
 package com.spring.services.Impl;
 
-import com.spring.model.User;
 import com.spring.services.SearchResultsService;
-import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;

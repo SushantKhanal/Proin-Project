@@ -20,7 +20,6 @@ function firstPageController(AdminSignInService) {
             },function(errorResponse) {
                 console.log(errorResponse);
             })
-
     }
 
 }

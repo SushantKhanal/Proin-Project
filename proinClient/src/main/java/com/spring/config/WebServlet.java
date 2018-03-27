@@ -4,9 +4,6 @@ package com.spring.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-
 @Configuration
 public class WebServlet extends AbstractAnnotationConfigDispatcherServletInitializer{
 

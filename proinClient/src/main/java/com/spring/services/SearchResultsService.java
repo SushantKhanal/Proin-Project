@@ -1,7 +1,5 @@
 package com.spring.services;
 
-import com.spring.model.User;
-
 import java.util.List;
 
 /**

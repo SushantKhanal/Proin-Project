@@ -10,7 +10,7 @@ angular
 adminSignInService.$inject = ['HttpService'];
 function adminSignInService(HttpService) {
 
-    var REST_SERVICE_URI = 'http://localhost:8080/userLogIn/';
+    var REST_SERVICE_URI = 'http://localhost:8080/admin/adminLogIn/';
 
     var factory = {
         checkLogIn: checkLogIn,

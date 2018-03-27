@@ -3,8 +3,6 @@ package com.spring.responseDto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 /**
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>

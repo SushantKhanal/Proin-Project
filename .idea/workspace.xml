@@ -8,9 +8,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f884443c-3502-4708-bcaf-59fe9363c3c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/firstPage.jsp" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/firstPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js" afterPath="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/config/WebServlet.class" afterPath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/config/WebServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/config/WebServlet.class" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/config/WebServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/config/WebServlet.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/config/WebServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/responseDto/ReviewInfo.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/responseDto/ReviewInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/SearchResultsServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/SearchResultsServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/config/WebServlet.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/config/WebServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/responseDto/ReviewInfo.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/responseDto/ReviewInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/SearchResultsServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/SearchResultsServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/HibernateConfiguration.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/HibernateConfiguration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/RootConfig.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/RootConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/SpringConfig.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/SpringConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/WebServlet.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/WebServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/FirstPage/controller/firstPageCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/FirstPage/controller/firstPageCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/FirstPage/services/admin_signIn_service.js" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/FirstPage/services/admin_signIn_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/HibernateConfiguration.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/HibernateConfiguration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/RootConfig.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/RootConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/SpringConfig.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/SpringConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/WebServlet.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/config/WebServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/OtherAccountController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/OtherAccountController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SearchResultsController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SearchResultsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignInController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignInController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/Countries.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/Countries.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/FavUsers.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/FavUsers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/User.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserAcademics.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserAcademics.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserExperience.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserExperience.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserProfilePic.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserProfilePic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserReviews.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserReviews.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserTags.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/UserTags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/FavUsersRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/FavUsersRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/ReviewsRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/ReviewsRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserAcademicsRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserAcademicsRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserExperienceRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserExperienceRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserProfilePicRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserProfilePicRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserTagsRepository.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/repository/UserTagsRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/FavUserDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/FavUserDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/LoginRequestDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/LoginRequestDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/ReviewDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/ReviewDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserAcademicsDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserAcademicsDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserExperienceDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserExperienceDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserTagsDTO.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/requestDto/UserTagsDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/responseDto/ReviewInfo.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/responseDto/ReviewInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/responseDto/TagsInfo.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/responseDto/TagsInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/OtherAccountServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/OtherAccountServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SearchResultsServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SearchResultsServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignInServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignInServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignUpServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignUpServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/OtherAccountService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/OtherAccountService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SearchResultsService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SearchResultsService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignInService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignInService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignUpService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignUpService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,22 +92,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="firstPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/firstPage.jsp">
+      <file leaf-file-name="AccountCtrl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AccountCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="59" lean-forward="true" selection-start-line="1" selection-start-column="59" selection-end-line="1" selection-end-column="59" />
+            <state relative-caret-position="216">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firstPageCtrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js">
+      <file leaf-file-name="SignInInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/requestDTO/SignInInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="130">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,31 +129,11 @@
       <file leaf-file-name="admin_signIn_service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="54">
+              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Common/HttpService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -178,11 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/templates/addAcademics.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/Pages/OtherAccount/controller/showAcademicsCtrl.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/Pages/OtherAccount/templates/academics.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spring/model/UserExperience.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spring/model/UserAcademics.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/factory/ModalFactory.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/templates/addEducation.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/controller/addEducationCtrl.js" />
@@ -227,8 +271,13 @@
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/first_page_service.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Common/HttpService.js" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/requestDTO/SignInInfo.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AccountController.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/sp/controller/AccountController.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/sp/controller/AccountCtrl.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AccountCtrl.java" />
       </list>
     </option>
   </component>
@@ -511,12 +560,38 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Common" />
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="requestDTO" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,6 +614,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1217,16 +1334,16 @@
       <workItem from="1521963394999" duration="16522000" />
       <workItem from="1522037003430" duration="28890000" />
       <workItem from="1522122768411" duration="3403000" />
-      <workItem from="1522126570581" duration="17105000" />
+      <workItem from="1522126570581" duration="20634000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="547405000" />
+    <option name="totallyTimeSpent" value="550934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1240,7 +1357,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29256967" sideWeight="0.76175296" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29256967" sideWeight="0.76175296" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.8430279" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1272,10 +1389,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AccountCtrl.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="740" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="727" />
+      <option name="time" value="741" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1284,20 +1409,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/templates/addExperience.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="64" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/controller/addExperienceCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Pages/UserAccount/templates/editExperience.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -1438,16 +1549,6 @@
         <state relative-caret-position="-213">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="119" column="34" lean-forward="false" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
-          <folding>
-            <element signature="e#3938#3946#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1641,27 +1742,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/firstPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="59" lean-forward="true" selection-start-line="1" selection-start-column="59" selection-end-line="1" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/FirstPage/services/client_signIn_service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-455">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="265">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
@@ -1675,21 +1768,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/firstPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="59" lean-forward="true" selection-start-line="1" selection-start-column="59" selection-end-line="1" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/services/admin_signIn_service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="54">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/FirstPage/controller/firstPageCtrl.js">
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/requestDTO/SignInInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        <state relative-caret-position="130">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AccountCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
