@@ -1,5 +1,5 @@
 
-<div class="col-sm-5">
+<div class="col-sm-5" ng-controller="FirstPageCtrl as xxx">
     <h2>SignIn and SignUp for admins</h2>
     <div class="form-box">
         <div class="form-top">
@@ -13,13 +13,13 @@
             <form role="form" action="" method="post" class="login-form">
                 <div class="form-group">
                     <label class="sr-only">Username</label>
-                    <input type="text" placeholder="Username..." class="form-username form-control" id="usernameAdmin">
+                    <input type="text" ng-model="xxx.username" placeholder="Username..." class="form-username form-control" id="usernameAdmin">
                 </div>
                 <div class="form-group">
                     <label class="sr-only">Password</label>
-                    <input type="password" placeholder="Password..." class="form-password form-control" id="passwordAdmin">
+                    <input type="password" ng-model="xxx.password" placeholder="Password..." class="form-password form-control" id="passwordAdmin">
                 </div>
-                <button type="button" class="btn btn-primary">Sign in!</button>
+                <button type="button" class="btn btn-primary" ng-click="xxx.adminSignIn()">Sign in!</button>
             </form>
             <div class="social-login">
                 <button class="btn btn-warning">SignUp for Admins</button>
