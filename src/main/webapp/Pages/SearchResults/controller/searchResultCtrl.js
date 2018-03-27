@@ -28,7 +28,11 @@ function searchResultController($location, SearchResultsService, FavouritesServi
                 function(d) {
                     vm.user = d;
                     localStorage['localOtherUser'] = JSON.stringify(vm.user);
-                    $location.path('/searchResults/otherAccount');
+                    if(localStorage['userInfo'] == localStorage['localOtherUser']){
+                        $location.path('/userAccount');
+                    }else {
+                        $location.path('/searchResults/otherAccount');
+                    }
                 },
                 function(errResponse){
                     console.error('Error while fetching fav user names');

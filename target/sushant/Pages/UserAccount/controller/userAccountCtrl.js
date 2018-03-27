@@ -3,12 +3,13 @@ angular
     .module('myApp')
     .controller('UserAccountCtrl', userAccountController);
 
-userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location', 'AddAcademicsService', 'AddExperienceService'];
+userAccountController.$inject = ['ClientSignInService', 'UserAccountService', 'ModalFactory', '$location', 'AddAcademicsService', 'AddExperienceService', 'OtherAccountService'];
 
-function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location, AddAcademicsService, AddExperienceService) {
+function userAccountController(ClientSignInService, UserAccountService, ModalFactory, $location, AddAcademicsService, AddExperienceService, OtherAccountService) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
+    vm.userAndReviews = '';
     vm.editProfile = editProfile;
     vm.editContent = false;
     vm.updateProfile = updateProfile;
@@ -22,6 +23,9 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.editAcademics = editAcademics;
     vm.editExperience = editExperience;
     vm.addAcademics = addAcademics;
+    vm.showReviews = showReviews;
+    vm.allowReviews = false;
+    vm.reviewsText = 'Show Reviews';
     vm.academics = '';
     vm.experience = '';
 
@@ -36,6 +40,24 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllAcademics();
 
     getAllExperience();
+
+    function showReviews() {
+        vm.allowReviews = !vm.allowReviews;
+        if(vm.allowReviews == true){
+            vm.reviewsText = 'Hide Reviews';
+        } else {
+            vm.reviewsText = 'Show Reviews';
+        }
+        OtherAccountService.getReviews(vm.user.username)
+            .then(
+                function(r) {
+                    console.log(r);
+                    vm.userAndReviews = r;
+                },
+                function(errResponse){
+                    console.error('Error while getting reviews');
+                });
+    }
 
     function getAllAcademics() {
         AddAcademicsService.getAllAcademics(vm.user.username)

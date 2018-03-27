@@ -205,6 +205,20 @@
                                     <div class="bot-border"></div>
                                 </div>
                                 <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
+                                &nbsp;
+                                <button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">{{xxx.reviewsText}}</button>
+                                <div class="bot-border"></div>
+                                <div ng-show="xxx.allowReviews">
+                                    <ol>
+                                        <li ng-repeat="userReview in xxx.userAndReviews">
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span>{{userReview.rating}} Star Rating</span>
+                                            <h4>{{userReview.review}}</h4>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                        </li>
+                                    </ol>
+                                </div>
                                 <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()" class="btn btn-danger pull-right">Save</button>
 
                                 <a class="btn btn-info btn-lg pull-right" ng-if="xxx.editContent == false" ng-click="xxx.searchResults()">
