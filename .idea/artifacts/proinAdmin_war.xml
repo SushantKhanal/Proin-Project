@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="proinAdmin:war">
+    <output-path>$PROJECT_DIR$/proinAdmin/target</output-path>
+    <root id="archive" name="SpringWebExample.war">
+      <element id="artifact" artifact-name="proinAdmin:war exploded" />
+    </root>
+  </artifact>
+</component>

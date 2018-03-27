@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4>Add tags you want people to find you by</h4>
+</div>
+
+<div class="modal-body">
+
+    <textarea style="border:1px solid green;" class="col-sm-12" ng-model="$ctrl.tags"></textarea>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-danger pull-left" ng-click="$ctrl.saveTags()">Save</button>
+        <button class="btn btn-warning pull-right" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>
