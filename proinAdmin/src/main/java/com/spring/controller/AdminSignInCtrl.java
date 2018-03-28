@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-public class AccountCtrl {
+public class AdminSignInCtrl {
 
 
 //    @Autowired

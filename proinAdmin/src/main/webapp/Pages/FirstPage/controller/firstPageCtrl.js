@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('FirstPageCtrl', firstPageController);
 
-firstPageController.$inject = ['AdminSignInService'];
+firstPageController.$inject = ['AdminSignInService', '$location'];
 
-function firstPageController(AdminSignInService) {
+function firstPageController(AdminSignInService, $location) {
 
     var vm = this;
     vm.username;
@@ -13,12 +13,21 @@ function firstPageController(AdminSignInService) {
     vm.adminSignIn = adminSignIn;
 
     function adminSignIn() {
-        //console.log(vm.username, vm.password);
         AdminSignInService.checkLogIn(vm.username, vm.password)
             .then(function(r){
-                console.log("response", r);
+                vm.username = '';
+                vm.password = '';
+                //vm.admin = 'r';
+                //localStorage['adminInfo'] = JSON.stringify(vm.admin);
+
+                localStorage['adminLoggedIn'] = JSON.stringify(true);
+
+                $location.path('/adminAccount'); //THE ADMIN ACCOUNT IS SHOWN
+
             },function(errorResponse) {
-                console.log(errorResponse);
+                vm.username = '';
+                vm.password = '';
+                alert("error matching admin username, password");
             })
     }
 
