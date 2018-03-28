@@ -8,7 +8,6 @@
             <option value="">-- Select a Country --</option>
             <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
         </select>
-        <%--<button class="btn-primary" ng-click="xxx.searchResults()">Search</button>--%>
 
         <ol>
             <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">

@@ -1,6 +1,9 @@
 package com.spring.services.Impl;
 
+import com.spring.model.User;
+import com.spring.repository.UserRepository;
 import com.spring.services.AdminAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,16 +13,16 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- */
+
 @Service
 @Transactional
 public class AdminAccountServiceImpl implements AdminAccountService {
 
     @PersistenceContext
     EntityManager em;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public List<String> getResults(String searchTxt) {
@@ -57,5 +60,10 @@ public class AdminAccountServiceImpl implements AdminAccountService {
             System.out.println("Exception " + e);
         }
         return results;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
     }
 }

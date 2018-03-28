@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import com.spring.model.User;
 import com.spring.requestDTO.SearchInfo;
 import com.spring.responseDTO.CountriesList;
 import com.spring.services.AdminAccountService;
@@ -13,11 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- */
 
 @RestController
 public class AdminAccountCtrl {
@@ -47,6 +43,14 @@ public class AdminAccountCtrl {
         List<String> results = adminAccountService.findResults(country, searchTxt);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
+    }
+
+    @PostMapping("/adminAccount/getClientProfile/")
+    public ResponseEntity<User> getClientProfile(@RequestBody String username) {
+
+        User user = adminAccountService.getUserByUsername(username);
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
 }

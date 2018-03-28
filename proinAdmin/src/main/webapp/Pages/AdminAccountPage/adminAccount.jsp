@@ -13,7 +13,7 @@
         {{xxx.selectedCountry}}
         <ol>
             <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                <li style="cursor: pointer; color:blue;" class="listOfResult">{{profile}}</li>
+                <li style="cursor: pointer; color:blue;" class="listOfResult" ng-click="xxx.displayProfile(profile)">{{profile}}</li>
             </div>
         </ol>
     </div>

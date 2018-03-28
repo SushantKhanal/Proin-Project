@@ -13,9 +13,14 @@ function adminAccountService(HttpService){
     var factory = {
         getCountries: getCountries,
         getMatchedClients: getMatchedClients,
+        getUserProfile: getUserProfile,
     };
 
     return factory;
+
+    function getUserProfile(username) {
+        return HttpService.post(REST_SERVICE_URI + "getClientProfile/", username);
+    }
 
     function getCountries() {
         return HttpService.get(REST_SERVICE_URI + "getCountries/");

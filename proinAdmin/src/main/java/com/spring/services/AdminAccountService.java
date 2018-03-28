@@ -1,5 +1,7 @@
 package com.spring.services;
 
+import com.spring.model.User;
+
 import java.util.List;
 
 /**
@@ -9,4 +11,5 @@ import java.util.List;
 public interface AdminAccountService {
     List<String> getResults(String searchTxt);
     List<String> findResults(String country, String searchTxt);
+    User getUserByUsername(String username);
 }

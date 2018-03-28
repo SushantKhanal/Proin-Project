@@ -13,9 +13,30 @@ function adminAccountPageController($location, AdminAccountService) {
     vm.searchResults = searchResults;
     vm.searchThis = '';
     vm.logOut = logOut;
+    vm.displayProfile = displayProfile;
     vm.showList = false;
     vm.users = '';
     getCountries();
+
+    function displayProfile(profile) {
+        vm.username = profile;
+        AdminAccountService.getUserProfile(vm.username)
+            .then(
+                function(d) {
+                    vm.user = d;
+                    // localStorage['localOtherUser'] = JSON.stringify(vm.user);
+                    // if(localStorage['userInfo'] == localStorage['localOtherUser']){
+                    //     $location.path('/userAccount');
+                    // }else {
+                    //     $location.path('/searchResults/otherAccount');
+                    // }
+                },
+                function(errResponse){
+                    console.error('Error while fetching fav user names');
+                }
+            );
+
+    }
 
     function showAccountRequests() {
         console.log("This feature is not added yet");
