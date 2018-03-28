@@ -93,7 +93,6 @@ public class AccountServiceImpl implements AccountService {
     public List<UserAcademics> getUserAcademicsByUsername(String username){
         List<UserAcademics> userAcademics = userAcademicsRepository.getUserAcademicsByUsername(username);
         return userAcademics;
-      //return userAcademicsRepository.getUserAcademicsByUsername(username);
     }
 
     @Override

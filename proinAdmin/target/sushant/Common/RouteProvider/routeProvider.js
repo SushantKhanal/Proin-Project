@@ -8,7 +8,6 @@
 
         $routeProvider
             .when('/', {templateUrl: 'Pages/FirstPage/firstPage.jsp'})
-            // .when('/adminAccount', {templateUrl: 'Pages/AdminAccountPage/adminAccount.jsp'})
             .when('/adminAccount', {
                 resolve: {
                     "check": function($location){
@@ -20,22 +19,11 @@
                 templateUrl: 'Pages/AdminAccountPage/adminAccount.jsp'
 
             })
+            .when('/adminAccount/clientAccount', {templateUrl: 'Pages/ClientAccountPage/clientAccountPage.jsp'})
+            .when('/adminAccount/clientAccount/differentPath', {templateUrl: 'Pages/ClientAccountPage/clientAccountPage.jsp'})
+
     }
 })();
 
 
-
-           // .when('/', {templateUrl: 'Pages/FirstPage/firstPage.jsp'})
-            //.when('/userSignUp', {templateUrl: 'Pages/UserSignUp/ClientSignUp.jsp'})
-            // .when('/userAccount', {
-            //     resolve: {
-            //         "check": function($location){
-            //             if(localStorage['ifloggedin']!=='true') {
-            //                 $location.path('/')
-            //             }
-            //         }
-            //     },
-            //     templateUrl: 'Pages/UserAccount/userAccount.jsp'
-            //
-            // })
 

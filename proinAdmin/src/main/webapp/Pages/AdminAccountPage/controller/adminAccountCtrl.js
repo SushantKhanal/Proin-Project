@@ -24,16 +24,15 @@ function adminAccountPageController($location, AdminAccountService) {
             .then(
                 function(d) {
                     vm.user = d;
-                    // localStorage['localOtherUser'] = JSON.stringify(vm.user);
-                    // if(localStorage['userInfo'] == localStorage['localOtherUser']){
-                    //     $location.path('/userAccount');
-                    // }else {
-                    //     $location.path('/searchResults/otherAccount');
-                    // }
+                    localStorage['adminSeesClient'] = JSON.stringify(vm.user);
+
+                    $location.path('/adminAccount/clientAccount');
+
                 },
                 function(errResponse){
                     console.error('Error while fetching fav user names');
                 }
+
             );
 
     }
