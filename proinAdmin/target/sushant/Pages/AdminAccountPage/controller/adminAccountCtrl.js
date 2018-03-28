@@ -13,7 +13,6 @@ function adminAccountPageController($location, AdminAccountService) {
     vm.searchResults = searchResults;
     vm.searchThis = '';
     vm.logOut = logOut;
-    vm.selectedCountry = '';
     vm.showList = false;
     vm.users = '';
     getCountries();
@@ -35,6 +34,9 @@ function adminAccountPageController($location, AdminAccountService) {
     }
 
     function searchResults() {
+        if (vm.selectedCountry==null) {
+            vm.selectedCountry = '';
+        }
         console.log(vm.searchThis, vm.selectedCountry);
         AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry)
             .then(
@@ -49,7 +51,6 @@ function adminAccountPageController($location, AdminAccountService) {
                 }
             );
     }
-
 
     function logOut() {
         localStorage['adminLoggedIn'] = JSON.stringify(false);
