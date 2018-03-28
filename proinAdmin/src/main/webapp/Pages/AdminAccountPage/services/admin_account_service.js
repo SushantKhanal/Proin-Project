@@ -12,6 +12,7 @@ function adminAccountService(HttpService){
 
     var factory = {
         getCountries: getCountries,
+        getMatchedClients: getMatchedClients,
     };
 
     return factory;
@@ -20,6 +21,14 @@ function adminAccountService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
+    function getMatchedClients(searchThis, country) {
+        var searchInfo = {
+            searchThis: searchThis,
+            country: country
+        };
+        return HttpService.post(REST_SERVICE_URI + "getResults/", searchInfo);
+
+    }
 
 }
 

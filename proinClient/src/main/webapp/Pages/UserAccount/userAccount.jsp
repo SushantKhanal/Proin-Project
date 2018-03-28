@@ -35,7 +35,8 @@
                                     <button class="btn btn-basic pull-right" ng-click="xxx.addTags()">Add Tags</button>
 
                                     <span><p>Aspirant</p></span>
-                                    <span style="color:#008000; font-size:12px; cursor: pointer;" ng-click="xxx.showFavourites()">Show Favourites</span>
+                                    <span style="color:#008000; font-size:12px; cursor: pointer;"
+                                          ng-click="xxx.showFavourites()">Show Favourites</span>
                                     <br>
                                     <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
                                         Profile
@@ -46,58 +47,62 @@
 
 
                                 <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
-                                <input class="col-sm-7 col-xs-6 userDetail updateDetail"  ng-model="xxx.user.firstName" readonly/>
+                                <input class="col-sm-7 col-xs-6 userDetail updateDetail" ng-model="xxx.user.firstName"
+                                       readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Last Name:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.lastName" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.lastName" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">username:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.username" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.username" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Date Of Birth:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.dob" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.dob" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Bio:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.bio" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.bio" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Email:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.email" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.email" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
 
                                 <div class="col-sm-5 col-xs-6 tital ">Date Of Joining:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.joinDate" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.joinDate" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Place Of Birth:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.address" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.address" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Country:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.nation" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.nation" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital ">Agenda:</div>
-                                <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.agenda" readonly/>
+                                <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.agenda" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div style="margin-left:40%; margin-right:40%; color:green;" class="col-sm-5 col-xs-6 tital ">Academics:  <span ng-show="xxx.academics == '' " style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
+                                    <div style="margin-left:40%; margin-right:40%; color:green;"
+                                         class="col-sm-5 col-xs-6 tital ">Academics: <span
+                                            ng-show="xxx.academics == '' " style="color:blue;"
+                                            class="glyphicon glyphicon-plus" ng-click="xxx.addAcademics()"></span>
                                     </div>
 
                                     &nbsp; &nbsp;
@@ -105,10 +110,15 @@
                                     <div ng-show="xxx.academics !== ''">
                                         <div ng-repeat="academics in xxx.academics">
                                             <div style="border:2px solid black; margin-left: 10px;">
-                                                <button ng-click="xxx.editAcademics(academics.id)" class="btn-warning pull-left">Edit</button>
-                                                <button ng-click="xxx.addAcademics()" class="btn-danger pull-right">Add More</button>
+                                                <button ng-click="xxx.editAcademics(academics.id)"
+                                                        class="btn-warning pull-left">Edit
+                                                </button>
+                                                <button ng-click="xxx.addAcademics()" class="btn-danger pull-right">Add
+                                                    More
+                                                </button>
                                                 <div style="margin-left: 10px;">
-                                                    <div style="margin-left:40%; margin-right:40%;"><b>Degree {{xxx.academics.indexOf(academics) + 1}}</b></div>
+                                                    <div style="margin-left:40%; margin-right:40%;"><b>Degree
+                                                        {{xxx.academics.indexOf(academics) + 1}}</b></div>
                                                     <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
                                                     <div>Degree</div>
@@ -148,17 +158,25 @@
                                 </div>
 
                                 <div ng-if="xxx.user.clientType == 'Personal'">
-                                    <div class="col-sm-5 col-xs-6 tital " style="margin-left:40%; margin-right:40%; color:green;">Experience: <span ng-show="xxx.experience == '' " id="experience" style="color:blue;" class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
+                                    <div class="col-sm-5 col-xs-6 tital "
+                                         style="margin-left:40%; margin-right:40%; color:green;">Experience: <span
+                                            ng-show="xxx.experience == '' " id="experience" style="color:blue;"
+                                            class="glyphicon glyphicon-plus" ng-click="xxx.addExperience()"/>
                                     </div>
                                     &nbsp; &nbsp;
                                     <div class="bot-border"></div>
                                     <div ng-show="xxx.experience !== ''">
                                         <div ng-repeat="exp in xxx.experience">
                                             <div style="border:2px solid black; margin-left: 10px;">
-                                                <button class="btn-warning pull-left" ng-click="xxx.editExperience(exp.id)">Edit</button>
-                                                <button class="btn-danger pull-right" ng-click="xxx.addExperience()">Add More</button>
+                                                <button class="btn-warning pull-left"
+                                                        ng-click="xxx.editExperience(exp.id)">Edit
+                                                </button>
+                                                <button class="btn-danger pull-right" ng-click="xxx.addExperience()">Add
+                                                    More
+                                                </button>
                                                 <div style="margin-left: 10px;">
-                                                    <div style="margin-left:40%; margin-right:40%;"><b>Job {{xxx.experience.indexOf(exp) + 1}}</b></div>
+                                                    <div style="margin-left:40%; margin-right:40%;"><b>Job
+                                                        {{xxx.experience.indexOf(exp) + 1}}</b></div>
                                                     <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
                                                     <div>Title</div>
@@ -200,18 +218,22 @@
 
                                 <div ng-if="xxx.user.clientType == 'Corporate'">
                                     <div class="col-sm-5 col-xs-6 tital ">marketDomain:</div>
-                                    <input class="col-sm-7 userDetail updateDetail"  ng-model="xxx.user.marketDomain" readonly/>
+                                    <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.marketDomain"
+                                           readonly/>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
                                 <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
                                 &nbsp;
-                                <button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">{{xxx.reviewsText}}</button>
+                                <button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">
+                                    {{xxx.reviewsText}}
+                                </button>
                                 <div class="bot-border"></div>
                                 <div ng-show="xxx.allowReviews">
                                     <ol>
                                         <li ng-repeat="userReview in xxx.userAndReviews">
-                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;"
+                                                  ng-click="xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
                                             <span>{{userReview.rating}} Star Rating</span>
                                             <h4>{{userReview.review}}</h4>
                                             <div class="clearfix"></div>
@@ -219,9 +241,12 @@
                                         </li>
                                     </ol>
                                 </div>
-                                <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()" class="btn btn-danger pull-right">Save</button>
+                                <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()"
+                                        class="btn btn-danger pull-right">Save
+                                </button>
 
-                                <a class="btn btn-info btn-lg pull-right" ng-if="xxx.editContent == false" ng-click="xxx.searchResults()">
+                                <a class="btn btn-info btn-lg pull-right" ng-if="xxx.editContent == false"
+                                   ng-click="xxx.searchResults()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </a>
 
