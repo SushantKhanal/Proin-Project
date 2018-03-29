@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/Common/css/app.css" rel="stylesheet"/>
     <%--'/Common/css' refers to the ClientSide CSS; 'Common/css' refers to the admin side css --%>
+
 </head>
 <body ng-app="myApp" class="ng-cloak">
 

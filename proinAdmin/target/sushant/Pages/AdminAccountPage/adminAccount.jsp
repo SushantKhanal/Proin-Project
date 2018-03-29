@@ -1,6 +1,9 @@
 <div ng-controller="AdminAccountPageCtrl as xxx">
     <h1>{{xxx.welcomeMessage}}</h1>
     <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">Show Account Requests</button>
+    &nbsp;
+    <button class="btn btn-primary" ng-click="xxx.sendEmail()">Send Email</button>
+
     <div class="bot-border"></div>
     <div>
         <h3>Search for client accounts here</h3>

@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminSignInCtrl {
 
-
-//    @Autowired
-//    private SignInService signInService;
-
     //checks for the matching username and password
     @PostMapping("/adminLogIn/")
     public ResponseEntity<Void> adminLogIn(@RequestBody SignInInfo signInInfo) {

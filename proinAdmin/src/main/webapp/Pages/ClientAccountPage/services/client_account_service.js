@@ -17,9 +17,14 @@ function clientAccountService(HttpService){
         getAllExperience: getAllExperience,
         getAllAcademics: getAllAcademics,
         receiveFavs: receiveFavs,
+        deleteThisAccount: deleteThisAccount,
     };
 
     return factory;
+
+    function deleteThisAccount(id) {
+        return HttpService.post(REST_SERVICE_URI + "deleteThisAccount/", id);
+    }
 
     function getAllAcademics(username) {
         return HttpService.post(REST_SERVICE_URI + "getAllAcademics/", username);

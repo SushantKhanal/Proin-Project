@@ -14,6 +14,7 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     vm.tags = '';
     vm.showReviews = false;
     vm.showFavourites = showFavourites;
+    vm.deleteAccount = deleteAccount;
 
     vm.review;
 
@@ -27,6 +28,23 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     getTags();
     getAllAcademics();
     getAllExperience();
+
+    function deleteAccount() {
+
+        var r = confirm("Are you sure you want to delete this account?");
+        if (r == true) {
+            console.log("You pressed OK!");
+            ClientAccountService.deleteThisAccount(vm.user.id)
+                .then(function(){
+                    console.log("You have successfully deleted this account");
+                },function () {
+                    console.log("Trouble deleting this account.");
+                })
+
+        } else {
+            console.log("You pressed Cancel!");
+        }
+    }
 
     function showFavourites() {
         ModalFactory.open('Pages/ClientAccountPage/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')

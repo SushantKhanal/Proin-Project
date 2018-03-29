@@ -13,29 +13,42 @@ function adminAccountPageController($location, AdminAccountService) {
     vm.searchResults = searchResults;
     vm.searchThis = '';
     vm.logOut = logOut;
-    vm.displayProfile = displayProfile;
+    // vm.displayProfile = displayProfile;
+    vm.sendEmail = sendEmail;
     vm.showList = false;
     vm.users = '';
     getCountries();
 
-    function displayProfile(profile) {
-        vm.username = profile;
-        AdminAccountService.getUserProfile(vm.username)
+    function sendEmail() {
+        AdminAccountService.sendEmail()
             .then(
-                function(d) {
-                    vm.user = d;
-                    localStorage['adminSeesClient'] = JSON.stringify(vm.user);
-
-                    $location.path('/adminAccount/clientAccount');
-
+                function() {
+                    console.log("Mail Sent");
                 },
                 function(errResponse){
-                    console.error('Error while fetching fav user names');
+                    console.error('Error while fetching Users');
                 }
-
             );
-
     }
+
+    // function displayProfile(profile) {
+    //     vm.username = profile;
+    //     AdminAccountService.getUserProfile(vm.username)
+    //         .then(
+    //             function(d) {
+    //                 vm.user = d;
+    //                 localStorage['adminSeesClient'] = JSON.stringify(vm.user);
+    //
+    //                 $location.path('/adminAccount/clientAccount');
+    //
+    //             },
+    //             function(errResponse){
+    //                 console.error('Error while fetching fav user names');
+    //             }
+    //
+    //         );
+    //
+    // }
 
     function showAccountRequests() {
         console.log("This feature is not added yet");

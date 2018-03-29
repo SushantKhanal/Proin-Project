@@ -14,9 +14,15 @@ function adminAccountService(HttpService){
         getCountries: getCountries,
         getMatchedClients: getMatchedClients,
         getUserProfile: getUserProfile,
+        sendEmail: sendEmail,
     };
 
     return factory;
+
+    function sendEmail() {
+        var myMail = "dreamerking114@gmail.com";
+        return HttpService.post(REST_SERVICE_URI + "sendEmail/", myMail);
+    }
 
     function getUserProfile(username) {
         return HttpService.post(REST_SERVICE_URI + "getClientProfile/", username);

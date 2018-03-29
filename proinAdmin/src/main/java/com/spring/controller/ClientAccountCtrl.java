@@ -20,7 +20,7 @@ public class ClientAccountCtrl {
     @Autowired
     ClientAccountService clientAccountService;
 
-//SENDS ADMIN SELECTED USER ACADEMICS
+    //SENDS ADMIN SELECTED USER ACADEMICS
     @PostMapping("/client/getAllAcademics/")
     public ResponseEntity<List<UserAcademics>> getAllAcademics(@RequestBody String loggedInUsername) {
 
@@ -83,7 +83,7 @@ public class ClientAccountCtrl {
 
         return new ResponseEntity<>(tagsInfo, HttpStatus.OK);
     }
-
+    //SENDS ADMIN THE SELECTED USER'S FAVOURITE USERS
     @PostMapping("/client/receiveFavs/")
     public ResponseEntity<List<String>> receiveFavs(@RequestBody String loggedInUsername) {
 
@@ -95,6 +95,15 @@ public class ClientAccountCtrl {
         }
 
         return new ResponseEntity<>(listOfFavUsers, HttpStatus.OK);
+    }
+
+    //DELETES THE CLIENT ACCOUNT ADMIN WANTS
+    @PostMapping("/client/deleteThisAccount/")
+    public ResponseEntity<Void> deleteThisAccount(@RequestBody Long id) {
+
+        //add status 0 for deleted accounts and 1 for those not deleted
+
+        return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
     }
 
 
