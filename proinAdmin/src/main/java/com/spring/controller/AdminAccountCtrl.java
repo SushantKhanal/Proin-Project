@@ -20,7 +20,6 @@ public class AdminAccountCtrl {
     @Autowired
     AdminAccountService adminAccountService;
 
-
     @GetMapping("/adminAccount/getCountries/")
     public ResponseEntity<String[]> adminLogIn() {
         CountriesList countriesList = new CountriesList();

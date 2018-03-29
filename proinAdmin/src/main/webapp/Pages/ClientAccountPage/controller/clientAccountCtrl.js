@@ -34,7 +34,7 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
         var r = confirm("Are you sure you want to delete this account?");
         if (r == true) {
             console.log("You pressed OK!");
-            ClientAccountService.deleteThisAccount(vm.user.id)
+            ClientAccountService.deleteThisAccount(vm.user.username)
                 .then(function(){
                     console.log("You have successfully deleted this account");
                 },function () {

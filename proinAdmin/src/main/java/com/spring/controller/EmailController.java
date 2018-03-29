@@ -18,7 +18,7 @@ public class EmailController {
     public ResponseEntity<Void> sendEmailToClient(@RequestBody String getMailTo) {
 
         String emailSubject = "About Proin app Sign Up";
-        String emailBody = "Hey your Sign Up was Succesful";
+        String emailBody = "Hey your Sign Up was Successful";
         String recipient = getMailTo;
 
         SimpleMailMessage message = new SimpleMailMessage();
@@ -31,7 +31,6 @@ public class EmailController {
         } catch(Exception e) {
             System.out.println(e);
         }
-
 
         return new ResponseEntity<Void>(HttpStatus.OK);
 

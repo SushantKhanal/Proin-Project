@@ -20,12 +20,6 @@ public class ClientAccountServiceImpl implements ClientAccountService {
     EntityManager em;
 
     @Autowired
-    private FavUsersRepository favUsersRepository;
-
-    @Autowired
-    private ReviewsRepository ReviewsRepository;
-
-    @Autowired
     private UserProfilePicRepository userProfilePicRepository;
 
     @Autowired
@@ -33,6 +27,10 @@ public class ClientAccountServiceImpl implements ClientAccountService {
 
     @Autowired
     private UserExperienceRepository userExperienceRepository;
+
+    @Autowired
+    private UserStatusRepository userStatusRepository;
+
 
     @Autowired
     private UserAcademicsRepository userAcademicsRepository;
@@ -75,6 +73,11 @@ public class ClientAccountServiceImpl implements ClientAccountService {
         System.out.println(query.toString());
         List<UserReviews> results = query.getResultList();
         return results;
+    }
+
+    @Override
+    public void addUserStatus(UserStatus userStatus) {
+        userStatusRepository.saveAndFlush(userStatus);
     }
 
 }

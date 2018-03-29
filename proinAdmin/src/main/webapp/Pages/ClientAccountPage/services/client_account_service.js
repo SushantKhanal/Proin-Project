@@ -22,8 +22,8 @@ function clientAccountService(HttpService){
 
     return factory;
 
-    function deleteThisAccount(id) {
-        return HttpService.post(REST_SERVICE_URI + "deleteThisAccount/", id);
+    function deleteThisAccount(username) {
+        return HttpService.post(REST_SERVICE_URI + "deleteThisAccount/", username);
     }
 
     function getAllAcademics(username) {

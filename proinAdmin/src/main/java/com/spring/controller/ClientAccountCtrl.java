@@ -3,6 +3,7 @@ package com.spring.controller;
         import com.spring.model.*;
         import com.spring.responseDTO.ReviewInfo;
         import com.spring.responseDTO.TagsInfo;
+        import com.spring.services.AdminAccountService;
         import com.spring.services.ClientAccountService;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.http.HttpStatus;
@@ -19,6 +20,10 @@ public class ClientAccountCtrl {
 
     @Autowired
     ClientAccountService clientAccountService;
+
+    @Autowired
+    AdminAccountService adminAccountService;
+
 
     //SENDS ADMIN SELECTED USER ACADEMICS
     @PostMapping("/client/getAllAcademics/")
@@ -99,11 +104,14 @@ public class ClientAccountCtrl {
 
     //DELETES THE CLIENT ACCOUNT ADMIN WANTS
     @PostMapping("/client/deleteThisAccount/")
-    public ResponseEntity<Void> deleteThisAccount(@RequestBody Long id) {
+    public ResponseEntity<Void> deleteThisAccount(@RequestBody String username) {
 
         //add status 0 for deleted accounts and 1 for those not deleted
+        User user = adminAccountService.getUserByUsername(username);
+        UserStatus userStatus = new UserStatus(0, username, user);
+        clientAccountService.addUserStatus(userStatus);
 
-        return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 
