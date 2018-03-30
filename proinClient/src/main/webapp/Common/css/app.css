@@ -193,6 +193,10 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
     width: 150px;
 }
 
+.selectedCountry {
+    width: 150px;
+}
+
 /*OTHER ACCOUNT HEART ICON*/
 .makeFav {
     font-size: 25px;

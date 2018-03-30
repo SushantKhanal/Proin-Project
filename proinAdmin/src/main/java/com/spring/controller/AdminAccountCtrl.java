@@ -32,13 +32,14 @@ public class AdminAccountCtrl {
         String empty = "";
         String country = searchInfo.getCountry();
         String searchTxt = searchInfo.getSearchThis();
+        Integer status = searchInfo.getStatus();
 
         if (country.equals(empty)){
-            List<String> results = adminAccountService.getResults(searchTxt);
+            List<String> results = adminAccountService.getResults(searchTxt, status);
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
 
-        List<String> results = adminAccountService.findResults(country, searchTxt);
+        List<String> results = adminAccountService.findResults(country, searchTxt, status);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
     }

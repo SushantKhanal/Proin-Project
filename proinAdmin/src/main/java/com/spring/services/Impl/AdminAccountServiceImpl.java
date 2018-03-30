@@ -30,14 +30,20 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     private UserStatusRepository userStatusRepository;
 
     @Override
-    public List<String> getResults(String searchTxt) {
+    public List<String> getResults(String searchTxt, Integer status) {
+
         String sql = "SELECT u.username FROM users_table u" +
-                " JOIN users_tags_table t ON u.id = t.user_id" +
-                " WHERE u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike";
+                " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
+                " LEFT JOIN user_status_table s ON u.id = s.user_id" +
+                " WHERE (u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike " +
+                "OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike)" +
+                " and s.status != :status";
+
         List<String> results=new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("searchTxtLike", "%"+searchTxt+"%");
+            query.setParameter("status", status);
 
             results=query.getResultList();
 
@@ -48,16 +54,23 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     }
 
     @Override
-    public List<String> findResults(String country, String searchTxt) {
+    public List<String> findResults(String country, String searchTxt, Integer status) {
+
         String sql = "SELECT u.username FROM users_table u" +
-                " JOIN users_tags_table t ON u.id = t.user_id" +
-                " WHERE u.nation = :country and (u.username = :searchTxt OR u.firstName = :searchTxt OR u.email = :searchTxt OR t.tags LIKE :searchTxtLike)";
+                " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
+                " LEFT JOIN user_status_table s ON u.id = s.user_id" +
+                " WHERE u.nation = :country and (u.username LIKE :searchTxt OR u.firstName LIKE :searchTxt OR u.email LIKE :searchTxt OR t.tags LIKE :searchTxtLike)"+
+                " and s.status != :status";
+
+
         List<String> results = new ArrayList<>();
+
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("country", country);
             query.setParameter("searchTxt", searchTxt);
             query.setParameter("searchTxtLike", "%" + searchTxt + "%");
+            query.setParameter("status", status);
 
             results = query.getResultList();
 
@@ -71,17 +84,6 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     public User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
-
-//    @Override
-//    public List<User> getAllUsers(){
-//        String sql = "SELECT u FROM User u";
-//        Query query = em.createQuery(sql);
-//
-//        List<User> results = new ArrayList<>();
-//        results = query.getResultList();
-//
-//        return results;
-//    }
 
     @Override
     public UserStatus getUserStatusByUsername(String username) {

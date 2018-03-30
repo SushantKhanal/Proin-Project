@@ -16,6 +16,7 @@ function adminAccountPageController($location, AdminAccountService) {
     vm.displayProfile = displayProfile;
     vm.sendEmail = sendEmail;
     vm.showList = false;
+    vm.accountType = '';
     vm.users = '';
     getCountries();
 
@@ -66,12 +67,12 @@ function adminAccountPageController($location, AdminAccountService) {
             );
     }
 
-    function searchResults() {
+    function searchResults(status) {
         if (vm.selectedCountry==null) {
             vm.selectedCountry = '';
         }
-        console.log(vm.searchThis, vm.selectedCountry);
-        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry)
+        console.log(vm.searchThis, vm.selectedCountry, status);
+        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status)
             .then(
                 function(u) {
                     vm.users = u;

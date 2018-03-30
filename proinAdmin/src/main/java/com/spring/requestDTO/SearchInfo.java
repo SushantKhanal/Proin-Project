@@ -10,4 +10,5 @@ import lombok.Setter;
 public class SearchInfo {
     private String searchThis;
     private String country;
+    private Integer status;
 }

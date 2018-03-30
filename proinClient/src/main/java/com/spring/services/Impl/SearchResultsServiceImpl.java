@@ -46,8 +46,12 @@ public class SearchResultsServiceImpl implements SearchResultsService {
     public List<String> getResults(String searchTxt) {
 
         String sql = "SELECT u.username FROM users_table u" +
-                " JOIN users_tags_table t ON u.id = t.user_id" +
-                " WHERE u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike";
+                " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
+                " LEFT JOIN user_status_table s ON u.id = s.user_id" +
+                " WHERE (u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike " +
+                "OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike)" +
+                " and s.status != 0";
+
         List<String> results=new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);

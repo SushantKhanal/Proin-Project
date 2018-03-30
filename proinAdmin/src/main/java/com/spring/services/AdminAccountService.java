@@ -10,8 +10,8 @@ import java.util.List;
  *         <suraj.gautam@f1soft.com>
  */
 public interface AdminAccountService {
-    List<String> getResults(String searchTxt);
-    List<String> findResults(String country, String searchTxt);
+    List<String> getResults(String searchTxt, Integer status);
+    List<String> findResults(String country, String searchTxt, Integer status);
     User getUserByUsername(String username);
     UserStatus getUserStatusByUsername(String username);
 //    List<User> getAllUsers();

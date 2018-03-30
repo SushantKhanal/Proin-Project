@@ -32,10 +32,11 @@ function adminAccountService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
-    function getMatchedClients(searchThis, country) {
+    function getMatchedClients(searchThis, country, status) {
         var searchInfo = {
             searchThis: searchThis,
-            country: country
+            country: country,
+            status: status,
         };
         return HttpService.post(REST_SERVICE_URI + "getResults/", searchInfo);
 

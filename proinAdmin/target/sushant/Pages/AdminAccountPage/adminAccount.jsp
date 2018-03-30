@@ -7,13 +7,17 @@
     <div class="bot-border"></div>
     <div>
         <h3>Search for client accounts here</h3>
-        <input class="searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults()"
+        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="1">Deleted Accounts
+        &nbsp;
+        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="0">Active accounts
+        <br/>
+        {{xxx.accountType}}
+        <input class="searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults(xxx.accountType)"
                ng-model-options="{debounce: 500}"/>
         <select id="selectedCountry" ng-model="xxx.selectedCountry">
             <option value="">-- Select a Country --</option>
             <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
         </select>
-        {{xxx.selectedCountry}}
         <ol>
             <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
                 <li style="cursor: pointer; color:blue;" class="listOfResult" ng-click="xxx.displayProfile(profile)">{{profile}}</li>
