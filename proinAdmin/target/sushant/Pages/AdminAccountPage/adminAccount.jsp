@@ -11,7 +11,7 @@
         &nbsp;
         <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="0">Active accounts
         <br/>
-        {{xxx.accountType}}
+
         <input class="searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults(xxx.accountType)"
                ng-model-options="{debounce: 500}"/>
         <select id="selectedCountry" ng-model="xxx.selectedCountry">

@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import com.spring.model.UserStatus;
 import com.spring.requestDto.LoginRequestDTO;
 import com.spring.model.User;
 import com.spring.services.AccountService;
@@ -26,7 +27,6 @@ public class SignInController {
     //RequestDTO
     //ResponseDTO
 
-
     @PostMapping("/userLogIn/")
     public ResponseEntity<User> matchUser(@RequestBody LoginRequestDTO loginRequestDTO) {
 
@@ -34,11 +34,15 @@ public class SignInController {
         String password = loginRequestDTO.getPassword();
         User returnedUser = signInService.getUserByUsername(username);
         String returnedPassword = returnedUser.getPassword();
-        //UserProfilePic userProfilePic = accountService.getUserPpByUsername(username);
+        UserStatus ust = signInService.getUserStatusByUsername(username);
+        Integer status = ust.getStatus();
 
-        if (returnedPassword.equals(password)) {
-            return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
+        if(status == 1) {
+            if (returnedPassword.equals(password)) {
+                return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
+            }
         }
+
 
         return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
     }
