@@ -21,17 +21,17 @@ public class SearchResultsServiceImpl implements SearchResultsService {
     @Override
     public List<String> findResults(String country, String searchTxt) {
 
-//        SELECT * FROM users_table u JOIN users_tags_table t ON u.id = t.user_id WHERE u.nation = "Nepal" and (u.username = "engineer" OR u.firstName = "engineer" OR u.email = "engineer" OR t.tags LIKE '%engineer%')
-
 
         String sql = "SELECT u.username FROM users_table u" +
-                " JOIN users_tags_table t ON u.id = t.user_id" +
-                " WHERE u.nation = :country and (u.username = :searchTxt OR u.firstName = :searchTxt OR u.email = :searchTxt OR t.tags LIKE :searchTxtLike)";
+                " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
+                " LEFT JOIN user_status_table s ON u.id = s.user_id" +
+                " WHERE u.nation = :country and (u.username LIKE :searchTxt OR u.firstName LIKE :searchTxt OR u.email LIKE :searchTxt OR t.tags LIKE :searchTxtLike)"+
+                " and s.status != 0";
         List<String> results=new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("country", country);
-            query.setParameter("searchTxt", searchTxt);
+            query.setParameter("searchTxt", "%"+searchTxt+"%");
             query.setParameter("searchTxtLike", "%" + searchTxt + "%");
 
             results = query.getResultList();

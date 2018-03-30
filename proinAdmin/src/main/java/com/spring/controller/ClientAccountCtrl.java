@@ -8,6 +8,7 @@ package com.spring.controller;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.http.HttpStatus;
         import org.springframework.http.ResponseEntity;
+        import org.springframework.web.bind.annotation.GetMapping;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestBody;
         import org.springframework.web.bind.annotation.RestController;
@@ -88,6 +89,7 @@ public class ClientAccountCtrl {
 
         return new ResponseEntity<>(tagsInfo, HttpStatus.OK);
     }
+
     //SENDS ADMIN THE SELECTED USER'S FAVOURITE USERS
     @PostMapping("/client/receiveFavs/")
     public ResponseEntity<List<String>> receiveFavs(@RequestBody String loggedInUsername) {
@@ -108,7 +110,9 @@ public class ClientAccountCtrl {
 
         //add status 0 for deleted accounts and 1 for those not deleted
         User user = adminAccountService.getUserByUsername(username);
-        UserStatus userStatus = new UserStatus(0, username, user);
+        UserStatus ust = adminAccountService.getUserStatusByUsername(username);
+        Long ustId = ust.getId();
+        UserStatus userStatus = new UserStatus(ustId,0, username, user);
         clientAccountService.addUserStatus(userStatus);
 
         return new ResponseEntity<Void>(HttpStatus.OK);

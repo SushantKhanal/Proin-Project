@@ -1,7 +1,9 @@
 package com.spring.services.Impl;
 
 import com.spring.model.User;
+import com.spring.model.UserStatus;
 import com.spring.repository.UserRepository;
+import com.spring.repository.UserStatusRepository;
 import com.spring.services.AdminAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,9 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserStatusRepository userStatusRepository;
 
     @Override
     public List<String> getResults(String searchTxt) {
@@ -65,5 +70,21 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     @Override
     public User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
+    }
+
+//    @Override
+//    public List<User> getAllUsers(){
+//        String sql = "SELECT u FROM User u";
+//        Query query = em.createQuery(sql);
+//
+//        List<User> results = new ArrayList<>();
+//        results = query.getResultList();
+//
+//        return results;
+//    }
+
+    @Override
+    public UserStatus getUserStatusByUsername(String username) {
+        return userStatusRepository.getUserStatusByUsername(username);
     }
 }

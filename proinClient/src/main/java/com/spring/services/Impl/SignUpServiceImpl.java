@@ -1,7 +1,9 @@
 package com.spring.services.Impl;
 
 import com.spring.model.User;
+import com.spring.model.UserStatus;
 import com.spring.repository.UserRepository;
+import com.spring.repository.UserStatusRepository;
 import com.spring.services.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class SignUpServiceImpl implements SignUpService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserStatusRepository userStatusRepository;
+
     @Override
     public void addUser(User p) {
         try {
@@ -23,5 +28,10 @@ public class SignUpServiceImpl implements SignUpService {
         }catch (Exception e){
             System.out.println("Exception "+e);
         }
+    }
+
+    @Override
+    public void addUserStatus(UserStatus userStatus) {
+        userStatusRepository.saveAndFlush(userStatus);
     }
 }

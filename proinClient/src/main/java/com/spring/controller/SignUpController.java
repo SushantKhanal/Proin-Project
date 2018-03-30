@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.User;
+import com.spring.model.UserStatus;
 import com.spring.services.SignInService;
 import com.spring.services.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,11 @@ public class SignUpController {
 
         User returnedUser = signInService.getUserByUsername(providedUsername);
 
+        UserStatus userStatus = new UserStatus(1, providedUsername, returnedUser);
+
+        signUpService.addUserStatus(userStatus);
+
+//add this to database
         return new ResponseEntity<User>(returnedUser, HttpStatus.OK);
 
     }

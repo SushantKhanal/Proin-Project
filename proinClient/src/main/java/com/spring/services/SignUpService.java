@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.User;
+import com.spring.model.UserStatus;
 
 /**
  * @author : Suraj Gautam
@@ -8,4 +9,5 @@ import com.spring.model.User;
  */
 public interface SignUpService {
     void addUser(User p); //signup
+    void addUserStatus(UserStatus userStatus); //add status 1
 }
