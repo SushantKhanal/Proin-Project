@@ -8,10 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f884443c-3502-4708-bcaf-59fe9363c3c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/ClientAccountPage/controller/favouritesCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/Pages/ClientAccountPage/controller/favouritesCtrl.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,14 +37,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientAccountCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java">
+      <file leaf-file-name="favouritesCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="37" column="58" lean-forward="false" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientAccountServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,18 +60,8 @@
       <file leaf-file-name="clientAccountCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client_account_service.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
-              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="227">
+              <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -85,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ProfilePicController</find>
       <find>vm</find>
       <find>$ctrl.</find>
       <find>ProfilePicModalFactory</find>
@@ -115,6 +111,7 @@
       <find>emailSender</find>
       <find>sav</find>
       <find>lList</find>
+      <find>receiveFavs</find>
     </findStrings>
     <replaceStrings>
       <replace>saveProfile</replace>
@@ -181,7 +178,6 @@
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Common/RouteProvider/routeProvider.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/templates/favourites.html" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/favourites_service.js" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/proinAdmin/pom.xml" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminSignInCtrl.java" />
@@ -189,7 +185,6 @@
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/MailConfiguration.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/EmailController.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/model/UserStatus.java" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/repository/UserStatusRepository.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/ClientAccountService.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignUpService.java" />
@@ -211,6 +206,8 @@
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -463,44 +460,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proinAdmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClientAccountPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -590,6 +549,14 @@
               <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -618,10 +585,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="spring" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1306,12 +1269,12 @@
       <workItem from="1522212947286" duration="26858000" />
       <workItem from="1522295992987" duration="23412000" />
       <workItem from="1522380730739" duration="256000" />
-      <workItem from="1522381014574" duration="24640000" />
+      <workItem from="1522381014574" duration="26216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="626215000" />
+    <option name="totallyTimeSpent" value="627791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -1396,7 +1359,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="859" />
+      <option name="time" value="864" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1447,24 +1410,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/templates/favourites.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/favourites_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1667,14 +1616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="41" column="89" lean-forward="false" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Common/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1712,35 +1653,6 @@
         <state relative-caret-position="280">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-455">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/ClientAccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="54" />
-          <folding>
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2937#2938#0" expanded="true" />
-            <marker date="1522405139266" expanded="true" signature="971:1370" ph="SELECT u.use... users_table" />
-            <marker date="1522405139266" expanded="true" signature="1895:2284" ph="SELECT u.use... users_table" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1786,28 +1698,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/favourites_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="41" column="89" lean-forward="false" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <marker date="1522405139266" expanded="true" signature="971:1370" ph="SELECT u.use... users_table" />
+            <marker date="1522405139266" expanded="true" signature="1895:2284" ph="SELECT u.use... users_table" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/ClientAccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        <state relative-caret-position="341">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+        <state relative-caret-position="400">
+          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-457">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="227">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="37" column="58" lean-forward="false" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>

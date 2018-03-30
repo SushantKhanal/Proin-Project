@@ -3,9 +3,9 @@
     angular
         .module("myApp")
         .controller("FavouritesController", favouritesController);
-    favouritesController.$inject = ['$uibModalInstance','$location','FavouritesService'];
+    favouritesController.$inject = ['$uibModalInstance','$location','FavouritesService', 'ClientAccountService'];
 
-    function favouritesController($uibModalInstance, $location, FavouritesService){
+    function favouritesController($uibModalInstance, $location, FavouritesService, ClientAccountService){
 
         var vm = this;
         var userData = '';
@@ -35,7 +35,7 @@
         }
 
         function loadFavUsers() {
-            var userData = localStorage['userInfo'];
+            var userData = localStorage['adminSeesClient'];
 
             if(userData !== undefined) {
                 vm.user = JSON.parse(userData);
@@ -43,7 +43,7 @@
             loadFavUsernames(vm.user.username);
         }
         function loadFavUsernames(username) {
-            FavouritesService.loadFavUsernames(username)
+            ClientAccountService.receiveFavs(username)
                 .then(
                     function(d) {
                         vm.users = d;
