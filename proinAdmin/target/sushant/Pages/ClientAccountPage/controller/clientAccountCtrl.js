@@ -15,6 +15,8 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     vm.showReviews = false;
     vm.showFavourites = showFavourites;
     vm.deleteAccount = deleteAccount;
+    vm.whetherDelete = "Delete account";
+    vm.status = '';
 
     vm.review;
 
@@ -28,18 +30,46 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     getTags();
     getAllAcademics();
     getAllExperience();
+    checkIfDeleted();
 
+    function checkIfDeleted() {
+
+        ClientAccountService.checkIfDeleted(vm.user.username)
+            .then(function(r){
+                vm.status = r;
+                if(r==0){
+                    vm.whetherDelete = "Undo delete account";
+                }else {
+                    vm.whetherDelete = "Delete account";
+                }
+            },function () {
+                console.log("Could not get account status");
+            })
+    }
+//DELETES OR RECOVERS ACCOUNT, BASED ON VM.STATUS
     function deleteAccount() {
 
-        var r = confirm("Are you sure you want to delete this account?");
+        var r = confirm("Are you sure you want to go ahead?");
         if (r == true) {
             console.log("You pressed OK!");
-            ClientAccountService.deleteThisAccount(vm.user.username)
-                .then(function(){
-                    console.log("You have successfully deleted this account");
-                },function () {
-                    console.log("Trouble deleting this account.");
-                })
+            if (vm.status==0){
+                ClientAccountService.undoDeleteThisAccount(vm.user.username)
+                    .then(function(){
+                        console.log("You have successfully recovered this account");
+                        checkIfDeleted();
+                    },function () {
+                        console.log("Trouble recovering the account");
+                    })
+            } else {
+                ClientAccountService.deleteThisAccount(vm.user.username)
+                    .then(function(){
+                        console.log("You have successfully deleted this account");
+                        checkIfDeleted();
+                    },function () {
+                        console.log("Trouble deleting this account.");
+                    })
+            }
+
 
         } else {
             console.log("You pressed Cancel!");

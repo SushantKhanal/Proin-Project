@@ -36,7 +36,7 @@
                                     <span style="color:#008000; font-size:12px; cursor: pointer;"
                                           ng-click="xxx.showFavourites()">Show Favourites</span>
                                     <br>
-                                    <button class="btn btn-danger pull-right" ng-click="xxx.deleteAccount()">Delete this account</button>
+                                    <button class="btn btn-danger pull-right" ng-click="xxx.deleteAccount()">{{xxx.whetherDelete}}</button>
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">

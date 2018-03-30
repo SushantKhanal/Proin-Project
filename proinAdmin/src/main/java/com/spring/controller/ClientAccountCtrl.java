@@ -118,5 +118,27 @@ public class ClientAccountCtrl {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    //RECOVERS THE CLIENT ACCOUNT ADMIN WANTS
+    @PostMapping("/client/undoDeleteThisAccount/")
+    public ResponseEntity<Void> undoDeleteThisAccount(@RequestBody String username) {
 
+        //add status 0 for deleted accounts and 1 for those not deleted
+        User user = adminAccountService.getUserByUsername(username);
+        UserStatus ust = adminAccountService.getUserStatusByUsername(username);
+        Long ustId = ust.getId();
+        UserStatus userStatus = new UserStatus(ustId,1, username, user);
+        clientAccountService.addUserStatus(userStatus);
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    //CHECK IF DELETED
+    @PostMapping("/client/checkIfDeleted/")
+    public ResponseEntity<Integer> checkIfDeleted(@RequestBody String username) {
+
+        UserStatus ust = adminAccountService.getUserStatusByUsername(username);
+        Integer status = ust.getStatus();
+
+        return new ResponseEntity<Integer>(status, HttpStatus.OK);
+    }
 }

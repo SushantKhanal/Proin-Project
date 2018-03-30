@@ -18,12 +18,22 @@ function clientAccountService(HttpService){
         getAllAcademics: getAllAcademics,
         receiveFavs: receiveFavs,
         deleteThisAccount: deleteThisAccount,
+        checkIfDeleted: checkIfDeleted,
+        undoDeleteThisAccount: undoDeleteThisAccount,
     };
 
     return factory;
+    
+    function checkIfDeleted(username) {
+        return HttpService.post(REST_SERVICE_URI + "checkIfDeleted/", username);
+    }
 
     function deleteThisAccount(username) {
         return HttpService.post(REST_SERVICE_URI + "deleteThisAccount/", username);
+    }
+
+    function undoDeleteThisAccount(username) {
+        return HttpService.post(REST_SERVICE_URI + "undoDeleteThisAccount/", username);
     }
 
     function getAllAcademics(username) {
