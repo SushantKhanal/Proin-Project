@@ -88,8 +88,8 @@ function clientSignUpController($scope, ClientSignupService, $location) {
     function createUser(user){
         ClientSignupService.createUser(user)
             .then(
-                function(response){
-                    alert("Your Sign Up is successful, " + response.username);
+                function(data){
+                    alert("Your Sign Up request is registered, " + data.username);
                     vm.close();
                 },
                 function(errResponse){

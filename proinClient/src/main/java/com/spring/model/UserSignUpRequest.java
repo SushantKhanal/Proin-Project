@@ -1,18 +1,19 @@
 package com.spring.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+        import lombok.AllArgsConstructor;
+        import lombok.Getter;
+        import lombok.NoArgsConstructor;
+        import lombok.Setter;
 
-
-import javax.persistence.*;
+        import javax.persistence.*;
 
 @Entity
-@Table(name="users_table")
+@Table(name="user_signUp_request_table")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class UserSignUpRequest {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -48,11 +49,9 @@ public class User {
 
     private String marketDomain;
 
-    public User() {super();}
-
     @Override
     public String toString() {
-        return "User{" +
+        return "UserSignUpRequest{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
