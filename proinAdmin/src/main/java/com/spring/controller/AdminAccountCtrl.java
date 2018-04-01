@@ -28,11 +28,11 @@ public class AdminAccountCtrl {
         String[] countries = countriesList.getCountries();
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
-//THE FOLLOWING METHOD SHOULD FETCH CLIENT SIGN UP REQUESTS
+
+    //THE FOLLOWING METHOD SHOULD FETCH CLIENT SIGN UP REQUESTS
     @GetMapping(WebResourceConstant.AdminSetupCtrl.CLIENT_ACCOUNT_REQUESTS)
-    public ResponseEntity<String[]> clientAccountRequests() {
-        CountriesList countriesList = new CountriesList();
-        return new ResponseEntity<>(countriesList.getCountries(), HttpStatus.OK);
+    public ResponseEntity<List<String>> clientAccountRequests() {
+        return new ResponseEntity<>(adminAccountService.getAllSignUpRequestUsernames(), HttpStatus.OK);
     }
 
     @PostMapping(WebResourceConstant.AdminSetupCtrl.FETCH_SEARCH_RESULTS)

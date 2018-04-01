@@ -53,7 +53,15 @@ function adminAccountPageController($location, AdminAccountService) {
 //FETCHES ACCOUNT REQUESTS
     function showAccountRequests() {
         console.log("This feature is not added yet");
-        AdminAccountService.fetchAccountRequests();
+        AdminAccountService.fetchAccountRequests()
+            .then(
+                function(r) {
+                    vm.usersR = r;
+                },
+                function(errResponse){
+                    console.error('Error while fetching Requesting Users');
+                }
+            );
     }
 
     function getCountries() {

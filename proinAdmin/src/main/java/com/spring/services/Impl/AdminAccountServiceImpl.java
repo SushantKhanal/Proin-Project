@@ -89,4 +89,19 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     public UserStatus getUserStatusByUsername(String username) {
         return userStatusRepository.getUserStatusByUsername(username);
     }
+
+    @Override
+    public List<String> getAllSignUpRequestUsernames() {
+        String sql = "SELECT u.username FROM user_signUp_request_table u";
+
+        List<String> results = new ArrayList<>();
+
+        try {
+            Query query = em.createNativeQuery(sql);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Exception " + e);
+        }
+        return results;
+    }
 }
