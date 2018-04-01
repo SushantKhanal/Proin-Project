@@ -58,6 +58,7 @@ public class SignUpController {
 //        UserStatus userStatus = new UserStatus(1, providedUsername, returnedUser);
 //
 //        signUpService.addUserStatus(userStatus);
+
         SendString sendString = new SendString(providedUsername);
 
         return new ResponseEntity<>(sendString, HttpStatus.OK);

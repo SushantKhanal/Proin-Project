@@ -41,7 +41,7 @@ public class AccountController {
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
 
-    //----------------When user posts profile picture-----------------------------------------------------//
+    //----------------WHEN USER POSTS PROFILE PICTURE-----------------------------------------------------//
 
     @PostMapping("/user/profilePic/{username}/{fileType}")
     public ResponseEntity<UserProfilePic> postProfilePic(@PathVariable("username") String username,@PathVariable("fileType") String fileType, @RequestBody String image)
@@ -65,7 +65,7 @@ public class AccountController {
         }
 
 
-        //if isExists == true
+        //IF ISEXISTS == TRUE
         UserProfilePic userProfilePic = accountService.getUserPpByUsername(username);
         if(userProfilePic != null) {
             Long trueId = userProfilePic.getId();
@@ -84,7 +84,7 @@ public class AccountController {
 
     }
 
-    //returns profile pic based on username
+    //RETURNS PROFILE PIC BASED ON USERNAME
     @PostMapping("/user/getProfilePic/")
     public ResponseEntity<UserProfilePic> getProfilePic(@RequestBody String username) {
 
@@ -108,10 +108,10 @@ public class AccountController {
             listOfFavUsers.add(favUsername);
         }
 
-        return new ResponseEntity<List<String>>(listOfFavUsers, HttpStatus.OK);
+        return new ResponseEntity<>(listOfFavUsers, HttpStatus.OK);
     }
 
-    //sends other user profile based on username
+    //SENDS OTHER USER PROFILE BASED ON USERNAME
     @PostMapping("/user/getUserProfile/")
     public ResponseEntity<User> getUserProfile(@RequestBody String otherAccountUsername) {
 
@@ -120,7 +120,7 @@ public class AccountController {
         return new ResponseEntity<>(otherUser, HttpStatus.OK);
     }
 
-    //saves tags
+    //SAVES TAGS
     @PostMapping("/user/sendTags/")
     public ResponseEntity<Void> savesTags(@RequestBody UserTagsDTO usertagsdto) {
         String loggedInUsername = usertagsdto.getUsername();
@@ -129,7 +129,7 @@ public class AccountController {
 
         UserTags userTags = accountService.getUserTagsByUsername(loggedInUsername);
 
-        //check if userTags is null
+        //CHECK IF USERTAGS IS NULL
 
         if (userTags != null) {
             Long trueId = userTags.getId();
@@ -146,7 +146,7 @@ public class AccountController {
 
     }
 
-    //sends tags based on username
+    //SENDS TAGS BASED ON USERNAME
     @PostMapping("/user/receiveTags/")
     public ResponseEntity<TagsInfo> receiveTags(@RequestBody String loggedInUsername) {
 
@@ -189,7 +189,7 @@ public class AccountController {
 
     }
 
-    //send user all his experience
+    //SEND USER ALL HIS EXPERIENCE
     @PostMapping("/user/getAllExperience/")
     public ResponseEntity<List<UserExperience>> receiveExperience(@RequestBody String username) {
 
@@ -212,7 +212,7 @@ public class AccountController {
         User returnedUser = signInService.getUserByUsername(loggedInUsername);
 
         UserAcademics academics1;
-        //edit feature
+        //EDIT FEATURE
         if (academicsId != null) {
             academics1 = new UserAcademics(academicsId, acd.getUsername(), acd.getDegree(),
                     acd.getSchool(), acd.getLocation(), acd.getStartDate(), acd.getEndDate(),
@@ -229,7 +229,7 @@ public class AccountController {
 
     }
 
-    //send user all his academics
+    //SEND USER ALL HIS ACADEMICS
     @PostMapping("/user/getAllAcademics/")
     public ResponseEntity<List<UserAcademics>> getAcademics(@RequestBody String loggedInUsername) {
 
@@ -238,7 +238,7 @@ public class AccountController {
         return new ResponseEntity<>(userAllAcads, HttpStatus.OK);
     }
 
-    //send user the academics he wants to edit
+    //SEND USER THE ACADEMICS HE WANTS TO EDIT
     @PostMapping("/user/getAcademicFromId/")
     public ResponseEntity<UserAcademics> getAcademicFromId(@RequestBody Long id) {
 
@@ -247,7 +247,7 @@ public class AccountController {
         return new ResponseEntity<>(userAcd, HttpStatus.OK);
     }
 
-    //delete the academics the user wants to delete
+    //DELETE THE ACADEMICS THE USER WANTS TO DELETE
     @PostMapping("/user/deleteThisAcademics/")
     public ResponseEntity<Void> deleteThisAcademics(@RequestBody Long id) {
 
@@ -256,7 +256,7 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //send user the experience he wants to edit
+    //SEND USER THE EXPERIENCE HE WANTS TO EDIT
     @PostMapping("/user/getExperienceFromId/")
     public ResponseEntity<UserExperience> getExperienceFromId(@RequestBody Long id) {
 
@@ -265,7 +265,7 @@ public class AccountController {
         return new ResponseEntity<>(userExperience, HttpStatus.OK);
     }
 
-    //delete the academics the user wants to delete
+    //DELETE THE ACADEMICS THE USER WANTS TO DELETE
     @PostMapping("/user/deleteThisExperience/")
     public ResponseEntity<Void> deleteThisExperience(@RequestBody Long id) {
 

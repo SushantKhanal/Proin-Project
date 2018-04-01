@@ -1,6 +1,5 @@
 <div ng-controller="AdminAccountPageCtrl as xxx">
     <h1>{{xxx.welcomeMessage}}</h1>
-    <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">Show Account Requests</button>
     &nbsp;
     <button class="btn btn-primary" ng-click="xxx.sendEmail()">Send Email</button>
 
@@ -25,5 +24,6 @@
         </ol>
     </div>
     <div class="bot-border"></div>
+    <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">Show Account Requests</button>
     <button class="btn btn-danger" ng-click="xxx.logOut()">Log out</button>
 </div>

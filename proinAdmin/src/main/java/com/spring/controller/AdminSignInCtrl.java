@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminSignInCtrl {
 
-    //checks for the matching username and password
+    //CHECKS FOR THE MATCHING USERNAME AND PASSWORD
     @PostMapping("/adminLogIn/")
     public ResponseEntity<Void> adminLogIn(@RequestBody SignInInfo signInInfo) {
         String username = "admin";

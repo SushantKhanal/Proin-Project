@@ -8,16 +8,21 @@ adminAccountService.$inject = ['HttpService'];
 
 function adminAccountService(HttpService){
 
-    var REST_SERVICE_URI = 'http://localhost:8080/admin/adminAccount/';
+    var REST_SERVICE_URI = 'http://localhost:8080/admin/api/adminAccount/';
 
     var factory = {
         getCountries: getCountries,
         getMatchedClients: getMatchedClients,
         getUserProfile: getUserProfile,
         sendEmail: sendEmail,
+        fetchAccountRequests: fetchAccountRequests,
     };
 
     return factory;
+
+    function fetchAccountRequests() {
+        return HttpService.get(REST_SERVICE_URI + "clientAccountRequests/");
+    }
 
     function sendEmail() {
         var myMail = "dreamerking114@gmail.com";

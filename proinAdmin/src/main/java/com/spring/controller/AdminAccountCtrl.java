@@ -4,37 +4,45 @@ import com.spring.model.User;
 import com.spring.requestDTO.SearchInfo;
 import com.spring.responseDTO.CountriesList;
 import com.spring.services.AdminAccountService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(WebResourceConstant.API_BASE +
+        WebResourceConstant.AdminSetupCtrl.ADMIN_ACCOUNT_BASE)
 public class AdminAccountCtrl {
 
-    @Autowired
-    AdminAccountService adminAccountService;
+    private final AdminAccountService adminAccountService;
 
-    @GetMapping("/adminAccount/getCountries/")
-    public ResponseEntity<String[]> adminLogIn() {
+    public AdminAccountCtrl(AdminAccountService adminAccountService) {
+        this.adminAccountService = adminAccountService;
+    }
+
+    @GetMapping(WebResourceConstant.AdminSetupCtrl.FETCH_COUNTRIES)
+    public ResponseEntity<String[]> getCountries() {
         CountriesList countriesList = new CountriesList();
         String[] countries = countriesList.getCountries();
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
+//THE FOLLOWING METHOD SHOULD FETCH CLIENT SIGN UP REQUESTS
+    @GetMapping(WebResourceConstant.AdminSetupCtrl.CLIENT_ACCOUNT_REQUESTS)
+    public ResponseEntity<String[]> clientAccountRequests() {
+        CountriesList countriesList = new CountriesList();
+        return new ResponseEntity<>(countriesList.getCountries(), HttpStatus.OK);
+    }
 
-    @PostMapping("/adminAccount/getResults/")
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.FETCH_SEARCH_RESULTS)
     public ResponseEntity<List<String>> getResults(@RequestBody SearchInfo searchInfo) {
         String empty = "";
         String country = searchInfo.getCountry();
         String searchTxt = searchInfo.getSearchThis();
         Integer status = searchInfo.getStatus();
 
-        if (country.equals(empty)){
+        if (country.equals(empty)) {
             List<String> results = adminAccountService.getResults(searchTxt, status);
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
@@ -44,12 +52,9 @@ public class AdminAccountCtrl {
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
 
-    @PostMapping("/adminAccount/getClientProfile/")
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.FETCH_CLIENT_PROFILE)
     public ResponseEntity<User> getClientProfile(@RequestBody String username) {
-
-        User user = adminAccountService.getUserByUsername(username);
-
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(adminAccountService.getUserByUsername(username), HttpStatus.OK);
     }
 
 }
