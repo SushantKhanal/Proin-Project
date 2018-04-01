@@ -20,13 +20,14 @@
 
         <ol style="cursor: pointer; color:blue;" class="listOfResult">
             <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                <li  ng-click="xxx.displayProfile(profile)">
+                <li ng-click="xxx.displayProfile(profile)">
                     {{profile}}
                 </li>
             </div>
         </ol>
 
     </div>
+
     <div class="bot-border"></div>
     <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">{{xxx.requestButton}}</button>
     <ol ng-show="xxx.requestingUsers !== '' && xxx.showClientRequests == true">
@@ -35,8 +36,8 @@
             <li class="listOfResult">
                 <span style="cursor: pointer; color:blue; margin-bottom: 2px" ng-click="xxx.displayProfile(profile)">{{profile}}</span>
                 <br/>
-                <button>Approve</button>
-                <button>Reject</button>
+                <button ng-click="xxx.approveRequest(profile)">Approve</button>
+                <button ng-click="xxx.denyRequest(profile)">Reject</button>
                 <br/>
             </li>
         </div>

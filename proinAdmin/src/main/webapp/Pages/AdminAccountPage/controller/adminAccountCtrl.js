@@ -23,7 +23,33 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
     vm.requestingUsers = '';
     vm.requestButton = 'Show Account Requests';
     vm.showClientRequests = false;
+    vm.approveRequest = approveRequest;
+    vm.denyRequest = denyRequest;
     getCountries();
+
+    function approveRequest(username) {
+        AdminAccountService.approveClientRequest(username)
+            .then(
+                function() {
+                    console.log("Approval Mail Sent");
+                },
+                function(errResponse){
+                    console.error('Error while approving client sign up request');
+                }
+            );
+    }
+
+    function denyRequest(username) {
+        AdminAccountService.denyClientRequest(username)
+            .then(
+                function() {
+                    console.log("Denial Mail Sent");
+                },
+                function(errResponse){
+                    console.error('Error while denying client sign up request');
+                }
+            );
+    }
 
     function sendEmail() {
         AdminAccountService.sendEmail()
@@ -73,7 +99,6 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
         } else {
             vm.requestButton = 'Show Account Requests';
         }
-
     }
 
     function getCountries() {

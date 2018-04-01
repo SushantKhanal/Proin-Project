@@ -16,9 +16,19 @@ function adminAccountService(HttpService){
         getUserProfile: getUserProfile,
         sendEmail: sendEmail,
         fetchAccountRequests: fetchAccountRequests,
+        approveClientRequest: approveClientRequest,
+        denyClientRequest: denyClientRequest,
     };
 
     return factory;
+    
+    function approveClientRequest(username) {
+        return HttpService.post(REST_SERVICE_URI + "approveClientRequest/", username);
+    }
+    
+    function denyClientRequest(username) {
+        return HttpService.post(REST_SERVICE_URI + "denyClientRequest/", username);
+    }
 
     function fetchAccountRequests() {
         return HttpService.get(REST_SERVICE_URI + "clientAccountRequests/");

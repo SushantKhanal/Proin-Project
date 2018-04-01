@@ -57,4 +57,15 @@ public class AdminAccountCtrl {
         return new ResponseEntity<>(adminAccountService.getUserByUsername(username), HttpStatus.OK);
     }
 
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.APPROVE_CLIENT_REQUEST)
+    public ResponseEntity<Void> approveClientRequest(@RequestBody String username) {
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.DENY_CLIENT_REQUEST)
+    public ResponseEntity<Void> denyClientRequest(@RequestBody String username) {
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
 }
