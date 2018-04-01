@@ -17,13 +17,32 @@
             <option value="">-- Select a Country --</option>
             <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
         </select>
-        <ol>
+
+        <ol style="cursor: pointer; color:blue;" class="listOfResult">
             <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                <li style="cursor: pointer; color:blue;" class="listOfResult" ng-click="xxx.displayProfile(profile)">{{profile}}</li>
+                <li  ng-click="xxx.displayProfile(profile)">
+                    {{profile}}
+                </li>
             </div>
         </ol>
+
     </div>
     <div class="bot-border"></div>
-    <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">Show Account Requests</button>
+    <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">{{xxx.requestButton}}</button>
+    <ol ng-show="xxx.requestingUsers !== '' && xxx.showClientRequests == true">
+        <div ng-repeat="profile in xxx.requestingUsers">
+            <br/>
+            <li class="listOfResult">
+                <span style="cursor: pointer; color:blue; margin-bottom: 2px" ng-click="xxx.displayProfile(profile)">{{profile}}</span>
+                <br/>
+                <button>Approve</button>
+                <button>Reject</button>
+                <br/>
+            </li>
+        </div>
+        <br/>
+        <button class="btn">Submit</button>
+        <br/>
+    </ol>
     <button class="btn btn-danger" ng-click="xxx.logOut()">Log out</button>
 </div>

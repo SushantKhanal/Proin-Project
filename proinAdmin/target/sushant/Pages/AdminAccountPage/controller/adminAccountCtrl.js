@@ -3,11 +3,12 @@ angular
     .module('myApp')
     .controller('AdminAccountPageCtrl', adminAccountPageController);
 
-adminAccountPageController.$inject = ['$location', 'AdminAccountService'];
+adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scope'];
 
-function adminAccountPageController($location, AdminAccountService) {
+function adminAccountPageController($location, AdminAccountService, $scope) {
 
     var vm = this;
+    var x;
     vm.welcomeMessage = "Welcome to admin account Page";
     vm.showAccountRequests = showAccountRequests;
     vm.searchResults = searchResults;
@@ -17,7 +18,11 @@ function adminAccountPageController($location, AdminAccountService) {
     vm.sendEmail = sendEmail;
     vm.showList = false;
     vm.accountType = '';
+    vm.approvalType = '';
     vm.users = '';
+    vm.requestingUsers = '';
+    vm.requestButton = 'Show Account Requests';
+    vm.showClientRequests = false;
     getCountries();
 
     function sendEmail() {
@@ -50,18 +55,25 @@ function adminAccountPageController($location, AdminAccountService) {
             );
 
     }
-//FETCHES ACCOUNT REQUESTS
+
+    //FETCHES ACCOUNT REQUESTS
     function showAccountRequests() {
-        console.log("This feature is not added yet");
-        AdminAccountService.fetchAccountRequests()
-            .then(
-                function(r) {
-                    vm.usersR = r;
-                },
-                function(errResponse){
-                    console.error('Error while fetching Requesting Users');
-                }
-            );
+        vm.showClientRequests = !vm.showClientRequests;
+        if(vm.showClientRequests == true) {
+            AdminAccountService.fetchAccountRequests()
+                .then(
+                    function(r) {
+                        vm.requestingUsers = r;
+                        vm.requestButton = 'Hide Account Requests';
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching Requesting Users');
+                    }
+                );
+        } else {
+            vm.requestButton = 'Show Account Requests';
+        }
+
     }
 
     function getCountries() {
