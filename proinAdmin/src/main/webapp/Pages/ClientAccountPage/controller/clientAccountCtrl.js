@@ -7,7 +7,7 @@ clientAccountController.$inject = ['$location', 'ClientAccountService', 'ModalFa
 function clientAccountController($location, ClientAccountService, ModalFactory) {
 
     var vm = this;
-    vm.GoBack = GoBack;
+    vm.goBack = goBack;
     vm.picPath1 = '';
     vm.getReviews = getReviews;
     vm.userAndReviews = '';
@@ -159,7 +159,7 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     }
 
     //THE GO_BACK BUTTON
-    function GoBack() {
+    function goBack() {
         $location.path('/adminAccount')
     }
 

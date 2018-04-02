@@ -8,25 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f884443c-3502-4708-bcaf-59fe9363c3c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/controller/AdminAccountCtrl.class" afterPath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/controller/AdminAccountCtrl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/services/AdminAccountService.class" afterPath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/services/AdminAccountService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/services/Impl/AdminAccountServiceImpl.class" afterPath="$PROJECT_DIR$/proinAdmin/target/classes/com/spring/services/Impl/AdminAccountServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/controller/AdminAccountCtrl.class" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/controller/AdminAccountCtrl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/services/AdminAccountService.class" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/services/AdminAccountService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/services/Impl/AdminAccountServiceImpl.class" afterPath="$PROJECT_DIR$/proinAdmin/target/sushant/WEB-INF/classes/com/spring/services/Impl/AdminAccountServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/controller/SignUpController.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/controller/SignUpController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/SignUpServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/SignUpServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/SignUpService.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/SignUpService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/controller/SignUpController.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/controller/SignUpController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/SignUpServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/SignUpServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/SignUpService.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/SignUpService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/AdminAccountService.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/AdminAccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java" afterPath="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/adminAccount.jsp" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/adminAccount.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" afterPath="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,71 +40,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminAccountCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java">
+      <file leaf-file-name="clientAccountPage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+            <state relative-caret-position="114">
+              <caret line="209" column="64" lean-forward="false" selection-start-line="209" selection-start-column="58" selection-end-line="209" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminAccount.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/adminAccount.jsp">
+      <file leaf-file-name="clientAccountCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="220">
+              <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminAccountCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js">
+      <file leaf-file-name="client_account_service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198">
-              <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmailSenderScheduler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/scheduler/EmailSenderScheduler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminAccountServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-              <folding>
-                <marker date="1522653097036" expanded="true" signature="1367:1766" ph="SELECT u.use... users_table" />
-                <marker date="1522653097036" expanded="true" signature="2291:2680" ph="SELECT u.use... users_table" />
-                <marker date="1522653097036" expanded="true" signature="3586:3635" ph="SELECT sR.us... user_signUp_request_table" />
-                <marker date="1522653097036" expanded="true" signature="3586:3636" ph="SELECT u.use... user_signUp_request_table" />
-                <marker date="1522653097036" expanded="true" signature="3586:3637" ph="SELECT sR.us... user_signUp_request_table" />
-                <marker date="1522653097036" expanded="true" signature="3586:3738" ph="SELECT u.use... user_signUp_request_table" />
-                <marker date="1522653097036" expanded="true" signature="3586:3783" ph="SELECT u.use... user_signUp_request_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserSignUpRequestStatus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/model/UserSignUpRequestStatus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="44" />
+            <state relative-caret-position="371">
+              <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -236,7 +183,6 @@
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/ClientAccountCtrl.java" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/favouritesCtrl.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/ClientAccountServiceImpl.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/User.java" />
@@ -248,8 +194,6 @@
         <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserSignUp/js/controller/client_signup_controller.js" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminSignInCtrl.java" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/repository/UserSignUpRequestRepository.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/requestDTO/EmailContent.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/scheduler/EmailSenderScheduler.java" />
@@ -259,11 +203,14 @@
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/SignUpService.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignUpServiceImpl.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/AdminAccountService.java" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/Impl/AdminAccountServiceImpl.java" />
-        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js" />
         <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/adminAccount.jsp" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js" />
+        <option value="$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js" />
       </list>
     </option>
   </component>
@@ -475,7 +422,155 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ClientAccountPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientAccountPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientAccountPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="AdminAccountPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminAccountPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,6 +631,104 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinAdmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1227,12 +1420,12 @@
       <workItem from="1522380730739" duration="256000" />
       <workItem from="1522381014574" duration="26563000" />
       <workItem from="1522565078055" duration="18224000" />
-      <workItem from="1522641179566" duration="13320000" />
+      <workItem from="1522641179566" duration="16940000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="659682000" />
+    <option name="totallyTimeSpent" value="663302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -1250,7 +1443,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33281735" sideWeight="0.76175296" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2012384" sideWeight="0.76175296" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.8430279" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1260,7 +1453,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35603714" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3529412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.503096" sideWeight="0.8653386" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2616099" sideWeight="0.8653386" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2756972" sideWeight="0.49298596" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23481782" sideWeight="0.50701404" order="6" side_tool="true" content_ui="tabs" />
@@ -1273,42 +1466,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41021672" sideWeight="0.238247" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33281735" sideWeight="0.76175296" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.8430279" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35603714" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3529412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.503096" sideWeight="0.8653386" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2756972" sideWeight="0.49298596" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23481782" sideWeight="0.50701404" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1318,42 +1475,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java</url>
-          <line>92</line>
-          <properties />
-          <option name="timeStamp" value="884" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="885" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="910" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="911" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="912" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="913" />
+      <option name="time" value="926" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1362,28 +1487,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/SignInServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="38" column="115" lean-forward="true" selection-start-line="38" selection-start-column="115" selection-end-line="38" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/favourites_service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1398,20 +1501,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1552,22 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1715,29 +1788,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/model/UserSignUpRequestStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/services/AdminAccountService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="65" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/scheduler/EmailSenderScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1757,36 +1822,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/scheduler/EmailSenderScheduler.java">
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/model/UserSignUpRequestStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="223">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SignUpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js">
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/MailConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state relative-caret-position="198">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/config/HibernateConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/services/admin_account_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/controller/AdminAccountCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="266">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/java/com/spring/utils/WebResourceConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="19" column="89" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/adminAccount.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="211">
+          <caret line="36" column="113" lean-forward="false" selection-start-line="36" selection-start-column="92" selection-end-line="36" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/services/client_account_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/clientAccountPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="209" column="64" lean-forward="false" selection-start-line="209" selection-start-column="58" selection-end-line="209" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding />
         </state>
       </provider>

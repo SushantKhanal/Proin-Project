@@ -34,7 +34,7 @@
         <div ng-repeat="profile in xxx.requestingUsers">
             <br/>
             <li class="listOfResult">
-                <span style="cursor: pointer; color:blue; margin-bottom: 2px" ng-click="xxx.displayProfile(profile)">{{profile}}</span>
+                <span style="cursor: pointer; color:blue; margin-bottom: 2px" ng-click="xxx.displayRequestingUser(profile)">{{profile}}</span>
                 <br/>
                 <button ng-click="xxx.approveRequest(profile)">Approve</button>
                 <button ng-click="xxx.denyRequest(profile)">Reject</button>

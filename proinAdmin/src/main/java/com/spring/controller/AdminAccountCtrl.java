@@ -11,10 +11,8 @@ import com.spring.scheduler.EmailSenderScheduler;
 import com.spring.services.AdminAccountService;
 import com.spring.services.ClientAccountService;
 import com.spring.utils.WebResourceConstant;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -113,6 +111,12 @@ public class AdminAccountCtrl {
         adminAccountService.addUserSignUpRequestStatus(uSRS);
 
         return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.FETCH_REQUESTING_CLIENT_INFO)
+    public ResponseEntity<UserSignUpRequest> getRequestingUserInfo(@RequestBody String username) {
+        return new ResponseEntity<UserSignUpRequest>(adminAccountService.getSignUpRequestByUsername(username),
+                HttpStatus.OK);
     }
 
 }

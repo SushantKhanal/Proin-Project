@@ -17,6 +17,7 @@ public class WebResourceConstant {
         public static final String FETCH_CLIENT_PROFILE = "/getClientProfile/";
         public static final String APPROVE_CLIENT_REQUEST = "/approveClientRequest/";
         public static final String DENY_CLIENT_REQUEST = "/denyClientRequest/";
+        public static final String FETCH_REQUESTING_CLIENT_INFO = "/getRequestingUserInfo/";
     }
 
 

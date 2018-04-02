@@ -18,9 +18,14 @@ function adminAccountService(HttpService){
         fetchAccountRequests: fetchAccountRequests,
         approveClientRequest: approveClientRequest,
         denyClientRequest: denyClientRequest,
+        getRequestingUser: getRequestingUser
     };
 
     return factory;
+
+    function getRequestingUser(username) {
+        return HttpService.post(REST_SERVICE_URI + "getRequestingUserInfo/", username);
+    }
     
     function approveClientRequest(username) {
         return HttpService.post(REST_SERVICE_URI + "approveClientRequest/", username);

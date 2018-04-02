@@ -14,6 +14,7 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
     vm.searchThis = '';
     vm.logOut = logOut;
     vm.displayProfile = displayProfile;
+    vm.displayRequestingUser = displayRequestingUser;
     vm.sendEmail = sendEmail;
     vm.showList = false;
     vm.accountType = '';
@@ -81,6 +82,23 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
 
             );
 
+    }
+
+    function displayRequestingUser(username) {
+        AdminAccountService.getRequestingUser(username)
+            .then(
+                function(d) {
+                    vm.user = d;
+                    localStorage['adminSeesClient'] = JSON.stringify(vm.user);
+
+                    $location.path('/adminAccount/clientAccount');
+
+                },
+                function(errResponse){
+                    console.error('Error while fetching fav user names');
+                }
+
+            );
     }
 
     //FETCHES ACCOUNT REQUESTS
