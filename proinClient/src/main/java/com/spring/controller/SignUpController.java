@@ -1,8 +1,8 @@
 package com.spring.controller;
 
 import com.spring.model.UserSignUpRequest;
+import com.spring.model.UserSignUpRequestStatus;
 import com.spring.responseDto.SendString;
-import com.spring.services.SignInService;
 import com.spring.services.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,14 +11,15 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 public class SignUpController {
 
     @Autowired
     private SignUpService signUpService;
-    @Autowired
-    private SignInService signInService;
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -34,15 +35,16 @@ public class SignUpController {
         signUpService.addUserSignUpRequest(userSignUpRequest);
 
         //add status 1 to user sign up requests
+        UserSignUpRequest returnedUSR = signUpService.getUserSignUpRequestByUsername(providedUsername);
 
-        String getMailTo = userSignUpRequest.getEmail();
-        String emailSubject = "About Proin app Sign Up";
-        String emailBody = "Your sign up request was received, and is under review. We will follow up soon.";
+        UserSignUpRequestStatus uSRS = new UserSignUpRequestStatus(1, returnedUSR.getUsername(), returnedUSR);
+        signUpService.addUserSignUpRequestStatus(uSRS);
+
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(getMailTo);
-        message.setSubject(emailSubject);
-        message.setText(emailBody);
+        message.setTo(userSignUpRequest.getEmail());
+        message.setSubject("About Proin app Sign Up");
+        message.setText("Your sign up request was received, and is under review. We will follow up soon.");
         message.setFrom("ProinProject@gmail.com");
         try{
             mailSender.send(message);
@@ -53,7 +55,6 @@ public class SignUpController {
         SendString sendString = new SendString(providedUsername);
 
         return new ResponseEntity<>(sendString, HttpStatus.OK);
-
     }
 
 

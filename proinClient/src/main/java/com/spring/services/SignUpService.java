@@ -2,7 +2,10 @@ package com.spring.services;
 
 import com.spring.model.User;
 import com.spring.model.UserSignUpRequest;
+import com.spring.model.UserSignUpRequestStatus;
 import com.spring.model.UserStatus;
+
+import java.util.List;
 
 /**
  * @author : Suraj Gautam
@@ -10,7 +13,7 @@ import com.spring.model.UserStatus;
  */
 
 public interface SignUpService {
-    void addUser(User p); //signup
-    void addUserStatus(UserStatus userStatus); //add status 1
     void addUserSignUpRequest(UserSignUpRequest p);
+    void addUserSignUpRequestStatus(UserSignUpRequestStatus uSRS);
+    UserSignUpRequest getUserSignUpRequestByUsername(String username);
 }
