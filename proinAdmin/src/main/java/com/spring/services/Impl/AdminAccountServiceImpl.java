@@ -1,8 +1,10 @@
 package com.spring.services.Impl;
 
 import com.spring.model.User;
+import com.spring.model.UserSignUpRequest;
 import com.spring.model.UserStatus;
 import com.spring.repository.UserRepository;
+import com.spring.repository.UserSignUpRequestRepository;
 import com.spring.repository.UserStatusRepository;
 import com.spring.services.AdminAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
     @Autowired
     private UserStatusRepository userStatusRepository;
+
+    @Autowired
+    private UserSignUpRequestRepository userSignUpRequestRepository;
 
     @Override
     public List<String> getResults(String searchTxt, Integer status) {
@@ -93,7 +98,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     @Override
     public List<String> getAllSignUpRequestUsernames() {
         String sql = "SELECT u.username FROM user_signUp_request_table u";
-
+        //filter the requests with status 0
         List<String> results = new ArrayList<>();
 
         try {
@@ -104,4 +109,14 @@ public class AdminAccountServiceImpl implements AdminAccountService {
         }
         return results;
     }
+    @Override
+    public UserSignUpRequest getSignUpRequestByUsername(String username) {
+        return userSignUpRequestRepository.getSignUpRequestByUsername(username);
+    }
+
+    @Override
+    public void addUser(User user){
+        userRepository.saveAndFlush(user);
+    }
+
 }

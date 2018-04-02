@@ -31,10 +31,9 @@ public class SignUpController {
 
         String providedUsername = userSignUpRequest.getUsername();
 
-        //DON'T ADD TO USERS TABLE ON SIGN UP, ADD THEM TO USER SIGN UP REQUEST TABLE, AND SEND THEM MAILS, WHICH GETS ADDED
-        //TO USERS TABLE ONLY ON ADMINS APPROVAL
-
         signUpService.addUserSignUpRequest(userSignUpRequest);
+
+        //add status 1 to user sign up requests
 
         String getMailTo = userSignUpRequest.getEmail();
         String emailSubject = "About Proin app Sign Up";
@@ -50,14 +49,6 @@ public class SignUpController {
         } catch(Exception e) {
             System.out.println(e);
         }
-
-//        signUpService.addUser(user); //added to the database
-//
-//        User returnedUser = signInService.getUserByUsername(providedUsername);
-//
-//        UserStatus userStatus = new UserStatus(1, providedUsername, returnedUser);
-//
-//        signUpService.addUserStatus(userStatus);
 
         SendString sendString = new SendString(providedUsername);
 

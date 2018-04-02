@@ -16,5 +16,6 @@ public interface AdminAccountService {
     User getUserByUsername(String username);
     UserStatus getUserStatusByUsername(String username);
     List<String> getAllSignUpRequestUsernames();
-//    List<User> getAllUsers();
+    UserSignUpRequest getSignUpRequestByUsername(String username);
+    void addUser(User user);
 }

@@ -8,7 +8,6 @@ adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scop
 function adminAccountPageController($location, AdminAccountService, $scope) {
 
     var vm = this;
-    var x;
     vm.welcomeMessage = "Welcome to admin account Page";
     vm.showAccountRequests = showAccountRequests;
     vm.searchResults = searchResults;
