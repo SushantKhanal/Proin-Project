@@ -42,8 +42,7 @@
             </li>
         </div>
         <br/>
-        <button class="btn">Submit</button>
-        <br/>
+        <h4 ng-show="xxx.requestingUsers == ''">No account requests to show</h4>
     </ol>
     <button class="btn btn-danger" ng-click="xxx.logOut()">Log out</button>
 </div>

@@ -31,6 +31,7 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
             .then(
                 function() {
                     console.log("Approval Mail Sent");
+                    showAccountRequests();
                 },
                 function(errResponse){
                     console.error('Error while approving client sign up request');
@@ -43,6 +44,7 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
             .then(
                 function() {
                     console.log("Denial Mail Sent");
+                    showAccountRequests();
                 },
                 function(errResponse){
                     console.error('Error while denying client sign up request');

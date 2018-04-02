@@ -2,6 +2,7 @@ package com.spring.services;
 
 import com.spring.model.User;
 import com.spring.model.UserSignUpRequest;
+import com.spring.model.UserSignUpRequestStatus;
 import com.spring.model.UserStatus;
 
 import java.util.List;
@@ -17,5 +18,6 @@ public interface AdminAccountService {
     UserStatus getUserStatusByUsername(String username);
     List<String> getAllSignUpRequestUsernames();
     UserSignUpRequest getSignUpRequestByUsername(String username);
+    void addUserSignUpRequestStatus(UserSignUpRequestStatus uSRS);
     void addUser(User user);
 }

@@ -11,8 +11,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 @RestController
 public class SignUpController {
@@ -40,7 +38,7 @@ public class SignUpController {
         UserSignUpRequestStatus uSRS = new UserSignUpRequestStatus(1, returnedUSR.getUsername(), returnedUSR);
         signUpService.addUserSignUpRequestStatus(uSRS);
 
-
+        //send Email
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(userSignUpRequest.getEmail());
         message.setSubject("About Proin app Sign Up");
@@ -51,7 +49,7 @@ public class SignUpController {
         } catch(Exception e) {
             System.out.println(e);
         }
-
+        //return username in object form
         SendString sendString = new SendString(providedUsername);
 
         return new ResponseEntity<>(sendString, HttpStatus.OK);

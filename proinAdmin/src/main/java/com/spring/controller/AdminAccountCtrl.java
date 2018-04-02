@@ -2,6 +2,7 @@ package com.spring.controller;
 
 import com.spring.model.User;
 import com.spring.model.UserSignUpRequest;
+import com.spring.model.UserSignUpRequestStatus;
 import com.spring.model.UserStatus;
 import com.spring.requestDTO.EmailContent;
 import com.spring.requestDTO.SearchInfo;
@@ -92,6 +93,9 @@ public class AdminAccountCtrl {
         emailSenderScheduler.sendEmailToClient(email);
 
         //add status 0 to User Sign Up Request
+        UserSignUpRequestStatus uSRS = new UserSignUpRequestStatus(uR.getId(), 0, username, uR);
+        adminAccountService.addUserSignUpRequestStatus(uSRS);
+
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
@@ -105,6 +109,9 @@ public class AdminAccountCtrl {
         emailSenderScheduler.sendEmailToClient(email);
 
         //add status 0 to UserSignUp Request
+        UserSignUpRequestStatus uSRS = new UserSignUpRequestStatus(uR.getId(), 0, username, uR);
+        adminAccountService.addUserSignUpRequestStatus(uSRS);
+
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
