@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/normalClient/normalClient.iml" filepath="$PROJECT_DIR$/normalClient/normalClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/proinAdmin/proinAdmin.iml" filepath="$PROJECT_DIR$/proinAdmin/proinAdmin.iml" />
       <module fileurl="file://$PROJECT_DIR$/proinClient/proinClient.iml" filepath="$PROJECT_DIR$/proinClient/proinClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/proinapp.iml" filepath="$PROJECT_DIR$/proinapp.iml" />

@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="normalClient" />
         <module name="proinAdmin" />
         <module name="proinClient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="normalClient" target="1.8" />
       <module name="proinAdmin" target="1.8" />
       <module name="proinapp" target="1.5" />
       <module name="proinClient" target="1.8" />

@@ -13,6 +13,7 @@
         <modules>
             <module>proinAdmin</module>
             <module>proinClient</module>
+            <module>normalClient</module>
         </modules>
 
     <dependencies>
