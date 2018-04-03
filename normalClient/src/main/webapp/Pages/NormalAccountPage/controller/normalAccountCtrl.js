@@ -29,7 +29,7 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
 
 
     function showFavourites() {
-        ModalFactory.open('Pages/UserAccount/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')
+        // ModalFactory.open('Pages/UserAccount/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')
     }
 
     function getProfilePic(username){
@@ -47,14 +47,14 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
 
     //RESPONSIBLE FOR MODAL WINDOW POPUP
     function changePicModal () {
-        // var modalInstance = ModalFactory.open('Pages/UserAccount/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
-        // modalInstance.result.then(
-        //     function(response){
-        //         getProfilePic(vm.user.username);
-        //     },function(errResponse){
-        //
-        //     }
-        // )
+        var modalInstance = ModalFactory.open('Pages/NormalAccountPage/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
+        modalInstance.result.then(
+            function(response){
+                // getProfilePic(vm.user.username);
+            },function(errResponse){
+
+            }
+        )
     }
 
     //MAKES THE PROFILE EDITABLE

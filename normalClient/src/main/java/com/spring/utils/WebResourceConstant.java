@@ -24,6 +24,7 @@ public class WebResourceConstant {
     public interface NormalAccountCtrl {
         public static final String Normal_ACCOUNT_BASE = "/normalAccount";
         public static final String UPDATE_USER = "/updateUser/";
+        public static final String UPDATE_PROFILE_PIC = "/updateProfilePic/";
 
     }
 

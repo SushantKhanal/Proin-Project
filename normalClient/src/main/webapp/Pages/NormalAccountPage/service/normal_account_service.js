@@ -22,7 +22,7 @@ function normalAccountService(HttpService){
     }
 
     function getProfilePic(username) {
-        return HttpService.getProfilePic(REST_SERVICE_URI, username);
+        // return HttpService.getProfilePic(REST_SERVICE_URI, username);
     }
 }
 
