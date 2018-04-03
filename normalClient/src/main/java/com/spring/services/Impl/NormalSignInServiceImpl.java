@@ -2,7 +2,7 @@ package com.spring.services.Impl;
 
 import com.spring.model.NormalUser;
 import com.spring.repository.NormalUserRepository;
-import com.spring.services.SignUpService;
+import com.spring.services.NormalSignInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  */
 @Service
 @Transactional
-public class SignUpServiceImpl implements SignUpService {
+public class NormalSignInServiceImpl implements NormalSignInService {
 
     @PersistenceContext
     EntityManager em;
@@ -25,8 +25,8 @@ public class SignUpServiceImpl implements SignUpService {
     private NormalUserRepository normalUserRepository;
 
     @Override
-    public void addNormalUser(NormalUser normalUser){
-        normalUserRepository.saveAndFlush(normalUser);
+    public NormalUser getNormalUserByUsername(String username) {
+        return normalUserRepository.getUserByUsername(username);
     }
 
 }

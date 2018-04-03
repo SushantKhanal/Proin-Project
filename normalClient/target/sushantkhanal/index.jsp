@@ -13,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/angular-base64-upload@0.1.23/dist/angular-base64-upload.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="Common/css/app.css" rel="stylesheet"/>
-    <%--'/Common/css' refers to the ClientSide CSS; 'Common/css' refers to the admin side css --%>
 
 </head>
 
@@ -25,6 +24,7 @@
 <script src="Common/RouteProvider/routeProvider.js"></script>
 <script src="Common/HttpService.js"></script>
 <script src="Pages/FirstPage/controller/firstPageCtrl.js"></script>
+<script src="Pages/FirstPage/services/sign_in_service.js"></script>
 <script src="Pages/SignUpPage/controller/signUpCtrl.js"></script>
 <script src="Pages/SignUpPage/services/sign_up_service.js"></script>
 

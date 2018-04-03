@@ -14,6 +14,12 @@ public class WebResourceConstant {
         public static final String SIGN_UP_BASE = "/signUp/";
         public static final String CREATE_USER = "/createUser/";
     }
+//api/signIn/fetchNormalUser/
+    public interface SignInCtrl {
+        public static final String SIGN_IN_BASE = "/signIn";
+        public static final String FETCH_NORMAL_USER = "/fetchNormalUser/";
+
+    }
 
 
 }
