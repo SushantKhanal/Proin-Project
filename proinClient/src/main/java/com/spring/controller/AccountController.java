@@ -46,6 +46,7 @@ public class AccountController {
     @PostMapping("/user/profilePic/{username}/{fileType}")
     public ResponseEntity<UserProfilePic> postProfilePic(@PathVariable("username") String username,@PathVariable("fileType") String fileType, @RequestBody String image)
             throws IOException {
+
         UserProfilePic userProfilePic1;
         User returnedUser = signInService.getUserByUsername(username);
         Long id = returnedUser.getId();

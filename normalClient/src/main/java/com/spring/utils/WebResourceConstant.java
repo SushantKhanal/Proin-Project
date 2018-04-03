@@ -25,6 +25,7 @@ public class WebResourceConstant {
         public static final String Normal_ACCOUNT_BASE = "/normalAccount";
         public static final String UPDATE_USER = "/updateUser/";
         public static final String UPDATE_PROFILE_PIC = "/updateProfilePic/";
+        public static final String FETCH_PROFILE_PIC = "/fetchProfilePic/";
 
     }
 

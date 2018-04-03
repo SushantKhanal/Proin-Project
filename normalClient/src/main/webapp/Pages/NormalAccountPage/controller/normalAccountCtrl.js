@@ -25,8 +25,7 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
         vm.user = JSON.parse(userData);
     }
 
-    //getProfilePic(vm.user.username);
-
+    getProfilePic(vm.user.username);
 
     function showFavourites() {
         // ModalFactory.open('Pages/UserAccount/templates/favourites.html', 'FavouritesController', 'md', '$ctrl')
