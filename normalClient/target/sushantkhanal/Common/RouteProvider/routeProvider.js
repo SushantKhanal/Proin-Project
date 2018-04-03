@@ -8,6 +8,7 @@
 
         $routeProvider
             .when('/', {templateUrl: 'Pages/FirstPage/firstPage.jsp'})
+            .when('/userSignUp', {templateUrl: 'Pages/SignUpPage/signUp.jsp'})
     }
 })();
 

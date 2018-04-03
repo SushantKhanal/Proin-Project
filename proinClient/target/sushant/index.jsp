@@ -42,8 +42,6 @@
     <script src="/Pages/UserAccount/services/favourites_service.js"></script>
     <script src="/Pages/SearchResults/controller/searchResultCtrl.js"></script>
     <script src="/Pages/OtherAccount/controller/otherAccountCtrl.js"></script>
-    <%--<script src="/Pages/OtherAccount/controller/showExperienceCtrl.js"></script>--%>
-    <%--<script src="/Pages/OtherAccount/controller/showAcademicsCtrl.js"></script>--%>
     <script src="/Pages/SearchResults/services/search_results_service.js"></script>
     <script src="/Pages/OtherAccount/services/other_account_service.js"></script>
 
