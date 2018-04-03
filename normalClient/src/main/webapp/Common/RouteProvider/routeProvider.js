@@ -17,7 +17,7 @@
                         }
                     }
                 },
-                templateUrl: 'Pages/UserAccountPage/userAccount.jsp'
+                templateUrl: 'Pages/NormalAccountPage/normalAccount.jsp'
 
             })
     }
