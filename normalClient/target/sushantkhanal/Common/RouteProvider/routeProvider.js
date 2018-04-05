@@ -20,6 +20,17 @@
                 templateUrl: 'Pages/NormalAccountPage/normalAccount.jsp'
 
             })
+            .when('/NormalAccount/searchProClients', {
+                resolve: {
+                    "check": function($location){
+                        if(localStorage['ifNormalloggedin']!=='true') {
+                            $location.path('/')
+                        }
+                    }
+                },
+                templateUrl: 'Pages/SearchProClientsPage/searchProClients.jsp'
+            })
+
     }
 })();
 

@@ -14,7 +14,7 @@ public class WebResourceConstant {
         public static final String SIGN_UP_BASE = "/signUp/";
         public static final String CREATE_USER = "/createUser/";
     }
-//api/signIn/fetchNormalUser/
+
     public interface SignInCtrl {
         public static final String SIGN_IN_BASE = "/signIn";
         public static final String FETCH_NORMAL_USER = "/fetchNormalUser/";
@@ -26,6 +26,10 @@ public class WebResourceConstant {
         public static final String UPDATE_USER = "/updateUser/";
         public static final String UPDATE_PROFILE_PIC = "/updateProfilePic/";
         public static final String FETCH_PROFILE_PIC = "/fetchProfilePic/";
+        public static final String GET_COUNTRIES = "/getCountries/";
+        public static final String SEARCH_PRO_USERS = "/getMatchedProUsers/";
+//        ##########################################################################
+        public static final String FETCH_VALUE = "/fetchValue/";
 
     }
 

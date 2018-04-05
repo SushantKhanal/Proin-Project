@@ -30,8 +30,10 @@
 <script src="Pages/SignUpPage/services/sign_up_service.js"></script>
 <script src="Pages/NormalAccountPage/controller/normalAccountCtrl.js"></script>
 <script src="Pages/NormalAccountPage/controller/profilePicCtrl.js"></script>
-<script src="Pages/NormalAccountPage/service/normal_account_service.js"></script>
-<script src="Pages/NormalAccountPage/service/profile_pic_service.js"></script>
+<script src="Pages/NormalAccountPage/services/normal_account_service.js"></script>
+<script src="Pages/NormalAccountPage/services/profile_pic_service.js"></script>
+<script src="Pages/SearchProClientsPage/controller/searchProClientsCtrl.js"></script>
+<script src="Pages/SearchProClientsPage/services/search_proClients_service.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

@@ -1,6 +1,9 @@
 package com.spring.services;
 
 import com.spring.model.NormalProfilePic;
+import com.spring.model.Value;
+
+import java.math.BigInteger;
 
 /**
  * @author : Suraj Gautam
@@ -10,4 +13,5 @@ import com.spring.model.NormalProfilePic;
 public interface NormalAccountService {
     NormalProfilePic getUserPpByUsername(String username);
     void addProfilePic(NormalProfilePic normalProfilePic);
+    BigInteger updateValue();
 }

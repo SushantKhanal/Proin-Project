@@ -49,7 +49,7 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
         var modalInstance = ModalFactory.open('Pages/NormalAccountPage/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
         modalInstance.result.then(
             function(response){
-                // getProfilePic(vm.user.username);
+                 getProfilePic(vm.user.username);
             },function(errResponse){
 
             }
@@ -95,6 +95,6 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
 
     //WHEN CLICKED AT THE PLUS BUTTON AT THE BOTTOM RIGHT
     function searchResults() {
-        // $location.path('/userAccount/searchResults')
+        $location.path('/NormalAccount/searchProClients')
     }
 }

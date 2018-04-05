@@ -3,20 +3,21 @@ package com.spring.controller;
 import com.spring.model.NormalProfilePic;
 import com.spring.model.NormalUser;
 import com.spring.requestDto.PicDataDto;
+import com.spring.responseDto.CountriesList;
+import com.spring.responseDto.SearchParamsDto;
+import com.spring.responseDto.ValueDto;
 import com.spring.services.NormalAccountService;
 import com.spring.services.NormalSignInService;
 import com.spring.services.NormalSignUpService;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Base64;
 
 /**
@@ -89,4 +90,29 @@ public class NormalAccountCtrl {
         NormalProfilePic normalProfilePic2 = normalAccountService.getUserPpByUsername(username);
         return new ResponseEntity<>(normalProfilePic2, HttpStatus.OK);
     }
+
+    @GetMapping(WebResourceConstant.NormalAccountCtrl.GET_COUNTRIES)
+    public ResponseEntity<CountriesList> getCountries() {
+        CountriesList countriesList = new CountriesList();
+        return new ResponseEntity<>(countriesList, HttpStatus.OK);
+    }
+
+    // ******************************************************* //
+
+    @GetMapping(WebResourceConstant.NormalAccountCtrl.FETCH_VALUE)
+    public ResponseEntity<ValueDto> fetchValue() {
+       //Value value = new Value(0L, 0L);
+        BigInteger v = normalAccountService.updateValue();
+        ValueDto valueDto = new ValueDto(v);
+        return new ResponseEntity<ValueDto>(valueDto,HttpStatus.OK);
+    }
+
+    // ******************************************************* //
+
+    @PostMapping(WebResourceConstant.NormalAccountCtrl.SEARCH_PRO_USERS)
+    public ResponseEntity<Void> searchProUsers(@RequestBody SearchParamsDto searchParams) {
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
 }
