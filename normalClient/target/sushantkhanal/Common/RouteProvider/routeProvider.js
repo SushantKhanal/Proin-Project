@@ -30,6 +30,7 @@
                 },
                 templateUrl: 'Pages/SearchProClientsPage/searchProClients.jsp'
             })
+            .when('/searchProClients/proAccount', {templateUrl: 'Pages/ViewProAccountPage/viewProAccount.jsp'})
 
     }
 })();

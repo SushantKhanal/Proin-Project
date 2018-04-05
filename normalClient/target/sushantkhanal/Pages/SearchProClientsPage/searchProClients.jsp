@@ -6,7 +6,7 @@
     <div>
         <br>
         <button style="font-size:16px" ng-click="xxx.goBack()"><i class="fa fa-arrow-left"></i> Go Back</button>
-        <h3>Search for other professionals here</h3>
+        <h3>Search for professionals here</h3>
         <input class="searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults()"
                ng-model-options="{debounce: 500}"/>
         <select id="selectedCountry" ng-model="xxx.selectedCountry">

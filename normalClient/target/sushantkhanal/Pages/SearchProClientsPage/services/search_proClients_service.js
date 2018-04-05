@@ -14,9 +14,14 @@ function searchProClientsService(HttpService){
         fetchValue: fetchValue,
         getCountries: getCountries,
         getMatchedProUsers: getMatchedProUsers,
+        getProUserProfile: getProUserProfile,
     };
 
     return factory;
+
+    function getProUserProfile(username) {
+        return HttpService.post(REST_SERVICE_URI + 'getProUserProfile/', username)
+    }
 
     function fetchValue() {
         return HttpService.get(REST_SERVICE_URI + "fetchValue/");
@@ -27,13 +32,15 @@ function searchProClientsService(HttpService){
     }
 
     function getMatchedProUsers(searchThis, country) {
+        if(country == undefined) {
+            country = "undefined";
+        }
         var searchParams = {
             searchThis: searchThis,
             country: country,
-        }
+        };
         return HttpService.post(REST_SERVICE_URI + "getMatchedProUsers/", searchParams);
     }
-
 
 }
 

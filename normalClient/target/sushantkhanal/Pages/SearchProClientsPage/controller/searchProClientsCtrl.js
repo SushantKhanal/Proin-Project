@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('SearchProCleintsCtrl', searchProCleintsCtrl);
 
-searchProCleintsCtrl.$inject = ['SearchProClientsService'];
+searchProCleintsCtrl.$inject = ['SearchProClientsService', '$location'];
 
-function searchProCleintsCtrl(SearchProClientsService) {
+function searchProCleintsCtrl(SearchProClientsService, $location) {
 
     var vm = this;
     var returnedValue = [];
@@ -23,22 +23,17 @@ function searchProCleintsCtrl(SearchProClientsService) {
     getCountries();
 
     function displayProfile(profile) {
-        // vm.username = profile;
-        // FavouritesService.getUserProfile(vm.username)
-        //     .then(
-        //         function(d) {
-        //             vm.user = d;
-        //             localStorage['localOtherUser'] = JSON.stringify(vm.user);
-        //             if(localStorage['userInfo'] == localStorage['localOtherUser']){
-        //                 $location.path('/userAccount');
-        //             }else {
-        //                 $location.path('/searchResults/otherAccount');
-        //             }
-        //         },
-        //         function(errResponse){
-        //             console.error('Error while fetching fav user names');
-        //         }
-        //     );
+        vm.username = profile;
+        SearchProClientsService.getProUserProfile(vm.username)
+            .then(
+                function(d) {
+                    localStorage['localProUser'] = JSON.stringify(d);
+                        $location.path('/searchProClients/proAccount');
+                },
+                function(errResponse){
+                    console.error('Error while fetching proAccount');
+                }
+            );
     }
 
     function goBack(){
@@ -47,6 +42,7 @@ function searchProCleintsCtrl(SearchProClientsService) {
 
     function searchResults() {
         console.log(vm.searchThis, vm.selectedCountry);
+
         SearchProClientsService.getMatchedProUsers(vm.searchThis, vm.selectedCountry)
             .then(
                 function(u) {

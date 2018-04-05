@@ -2,6 +2,7 @@ package com.spring.controller;
 
 import com.spring.model.NormalProfilePic;
 import com.spring.model.NormalUser;
+import com.spring.model.User;
 import com.spring.requestDto.PicDataDto;
 import com.spring.responseDto.CountriesList;
 import com.spring.responseDto.SearchParamsDto;
@@ -9,6 +10,7 @@ import com.spring.responseDto.ValueDto;
 import com.spring.services.NormalAccountService;
 import com.spring.services.NormalSignInService;
 import com.spring.services.NormalSignUpService;
+import com.spring.services.SearchProClientsService;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Base64;
+import java.util.List;
 
 /**
  * @author : Suraj Gautam
@@ -32,13 +35,18 @@ public class NormalAccountCtrl {
     private final NormalSignUpService normalSignUpService;
     private final NormalSignInService normalSignInService;
     private final NormalAccountService normalAccountService;
+    private final SearchProClientsService searchProClientsService;
 
-    public NormalAccountCtrl(NormalSignUpService normalSignUpService, NormalSignInService normalSignInService, NormalAccountService normalAccountService) {
+    public NormalAccountCtrl(NormalSignUpService normalSignUpService, NormalSignInService normalSignInService,
+                             NormalAccountService normalAccountService,
+                             SearchProClientsService searchProClientsService) {
         this.normalSignUpService = normalSignUpService;
         this.normalSignInService = normalSignInService;
         this.normalAccountService = normalAccountService;
+        this.searchProClientsService = searchProClientsService;
     }
 
+//EDIT NORMAL CLIENT PROFILE
     @PostMapping(WebResourceConstant.NormalAccountCtrl.UPDATE_USER)
     public ResponseEntity<NormalUser> createUser(@RequestBody NormalUser normalUser){
         normalSignUpService.addNormalUser(normalUser);
@@ -46,6 +54,7 @@ public class NormalAccountCtrl {
         return new ResponseEntity<>(returnedProfile, HttpStatus.OK);
     }
 
+//UPDATES PROFILE PICS OF NORMAL CLIENTS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.UPDATE_PROFILE_PIC)
     public ResponseEntity<NormalProfilePic> updateProfilePic(@RequestBody PicDataDto picData)
             throws IOException {
@@ -84,13 +93,13 @@ public class NormalAccountCtrl {
 
         return new ResponseEntity<NormalProfilePic>(normalProfilePic2, HttpStatus.ACCEPTED);
     }
-
+//FETCH PROFILE PICTURE OF NORMAL CLIENTS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.FETCH_PROFILE_PIC)
     public ResponseEntity<NormalProfilePic> createUser(@RequestBody String username){
         NormalProfilePic normalProfilePic2 = normalAccountService.getUserPpByUsername(username);
         return new ResponseEntity<>(normalProfilePic2, HttpStatus.OK);
     }
-
+//FETCH COUNTRIES LIST
     @GetMapping(WebResourceConstant.NormalAccountCtrl.GET_COUNTRIES)
     public ResponseEntity<CountriesList> getCountries() {
         CountriesList countriesList = new CountriesList();
@@ -108,11 +117,26 @@ public class NormalAccountCtrl {
     }
 
     // ******************************************************* //
-
+    //SEARCH FOR PRO CLIENTS BASED ON COUNTRY AND OTHER PARAMS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.SEARCH_PRO_USERS)
-    public ResponseEntity<Void> searchProUsers(@RequestBody SearchParamsDto searchParams) {
+    public ResponseEntity<List<String>> searchProUsers(@RequestBody SearchParamsDto searchParams) {
+        String undefined = "undefined";
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        if (searchParams.getCountry().equals(undefined)){
+            List<String> results = searchProClientsService.getResults(searchParams.getSearchThis());
+            return new ResponseEntity<>(results, HttpStatus.OK);
+        }
+        List<String> results = searchProClientsService.findResults(searchParams.getCountry(),
+                searchParams.getSearchThis());
+
+        return new ResponseEntity<>(results, HttpStatus.OK);
+    }
+
+    //FETCH PRO ACCOUNT BY USERNAME
+    @PostMapping(WebResourceConstant.NormalAccountCtrl.FETCH_PRO_USER)
+    public ResponseEntity<User> getProUserProfile(@RequestBody String username) {
+        User proUser = searchProClientsService.getProUserProfile(username);
+        return new ResponseEntity<User>(proUser, HttpStatus.OK);
     }
 
 }
