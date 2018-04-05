@@ -20,8 +20,8 @@ function proAccountService(HttpService) {
         getAllAcademics: getAllAcademics,
 
         sendFav: sendFav,
-        checkIfFav: checkIfFav,
         deleteFav: deleteFav,
+        checkIfFav: checkIfFav,
 
     };
 
@@ -57,30 +57,31 @@ function proAccountService(HttpService) {
         return HttpService.post(REST_SERVICE_URI+'getReviews/', proUsername);
     }
 
-    function checkIfFav(loggedInUser, favUser) {
-        var loggedFavUsers = {
-            loggedInUser: loggedInUser,
-            favUser: favUser
-        };
-        return HttpService.post(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
-    }
 
-    function sendFav(loggedInUser, favUser) {
+    function sendFav(loggedInUser, favUser) {    //nth returns
         var loggedFavUsers = {
-            loggedInUser: loggedInUser,
-            favUser: favUser
+            loggedInNormalUser: loggedInUser,
+            favProUser: favUser
         };
         return HttpService.post(REST_SERVICE_URI + 'sendFav/', loggedFavUsers);
     }
 
 
-    function deleteFav(loggedInUser, favUser) {
+    function deleteFav(loggedInUser, favUser) {     //nth returns
 
         var loggedFavUsers = {
-            loggedInUser: loggedInUser,
-            favUser: favUser
+            loggedInNormalUser: loggedInUser,
+            favProUser: favUser
         };
-        return HttpService.postObject(REST_SERVICE_URI+'deleteFav/', loggedFavUsers);
+        return HttpService.post(REST_SERVICE_URI+'deleteFav/', loggedFavUsers);
+    }
+
+    function checkIfFav(loggedInUser, favUser) { //nth returns
+        var loggedFavUsers = {
+            loggedInNormalUser: loggedInUser,
+            favProUser: favUser
+        };
+        return HttpService.post(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
     }
 
 }

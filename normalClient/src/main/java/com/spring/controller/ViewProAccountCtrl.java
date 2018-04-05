@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.*;
+import com.spring.requestDto.FavDto;
 import com.spring.services.ViewProAccountService;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
@@ -50,4 +51,46 @@ public class ViewProAccountCtrl {
         return new ResponseEntity<>(viewProAccountService.getReviews(username), HttpStatus.OK);
     }
 
+
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.NORMAL_SENDS_PRO_FAV)
+    public ResponseEntity<Void> sendFav(@RequestBody FavDto favDto) {
+        viewProAccountService.addFav(favDto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.NORMAL_DELETES_PRO_Fav)
+    public ResponseEntity<Void> deleteFav(@RequestBody FavDto favDto) {
+
+        String loggedInNormalUsername = favDto.getLoggedInNormalUser();
+        String favProUsername = favDto.getFavProUser();
+
+        List<FavProUsers> favUsers = viewProAccountService.getResults(loggedInNormalUsername);
+
+        for (FavProUsers element : favUsers) {
+            if (element.getFavProUsername().equals(favProUsername)) {
+                Long favId = element.getId();
+                viewProAccountService.deleteFav(favId);
+            }
+        }
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.NORMAL_CHECKS_PRO_FAV)
+    public ResponseEntity<Void> checkIfFav(@RequestBody FavDto favDto) {
+
+        String loggedInUsername = favDto.getLoggedInNormalUser();
+        String favUsername = favDto.getFavProUser();
+
+        List<FavProUsers> favUsers = viewProAccountService.getResults(loggedInUsername);
+
+        for (FavProUsers element : favUsers) {
+            if (element.getFavProUsername().equals(favUsername)) {
+                return new ResponseEntity<Void>(HttpStatus.OK);
+            }
+        }
+
+        return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+    }
 }
