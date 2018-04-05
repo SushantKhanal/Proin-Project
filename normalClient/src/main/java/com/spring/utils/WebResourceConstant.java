@@ -1,5 +1,7 @@
 package com.spring.utils;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 /**
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
@@ -32,6 +34,15 @@ public class WebResourceConstant {
 //        ##########################################################################
         public static final String FETCH_VALUE = "/fetchValue/";
 
+    }
+
+    public interface ViewProAccountCtrl {
+        public static final String VIEW_PRO_ACCOUNT_BASE = "/viewProAccount";
+        public static final String FETCH_PRO_PROFILE_PIC = "/getProProfilePic/";
+        public static final String FETCH_TAGS = "/receiveTags/";
+        public static final String FETCH_ALL_EXPERIENCE = "/getAllExperience/";
+        public static final String FETCH_ALL_ACADEMICS = "/getAllAcademics/";
+        public static final String FETCH_REVIEWS = "/getReviews/";
     }
 
 
