@@ -57,7 +57,7 @@ function proAccountService(HttpService) {
         return HttpService.post(REST_SERVICE_URI+'getReviews/', proUsername);
     }
 
-    function checkIfFav(loggedInUser, favUser) {
+    function checkIfFav(loggedInUser, favUser) { //nth returns
         var loggedFavUsers = {
             loggedInUser: loggedInUser,
             favUser: favUser
@@ -65,7 +65,7 @@ function proAccountService(HttpService) {
         return HttpService.post(REST_SERVICE_URI+'checkIfFav/', loggedFavUsers);
     }
 
-    function sendFav(loggedInUser, favUser) {
+    function sendFav(loggedInUser, favUser) {    //nth returns
         var loggedFavUsers = {
             loggedInUser: loggedInUser,
             favUser: favUser
@@ -74,7 +74,7 @@ function proAccountService(HttpService) {
     }
 
 
-    function deleteFav(loggedInUser, favUser) {
+    function deleteFav(loggedInUser, favUser) {     //nth returns
 
         var loggedFavUsers = {
             loggedInUser: loggedInUser,
