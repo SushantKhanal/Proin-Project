@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import com.spring.model.FavProUsers;
 import com.spring.model.NormalProfilePic;
 import com.spring.model.NormalUser;
 import com.spring.model.User;
@@ -7,10 +8,7 @@ import com.spring.requestDto.PicDataDto;
 import com.spring.responseDto.CountriesList;
 import com.spring.responseDto.SearchParamsDto;
 import com.spring.responseDto.ValueDto;
-import com.spring.services.NormalAccountService;
-import com.spring.services.NormalSignInService;
-import com.spring.services.NormalSignUpService;
-import com.spring.services.SearchProClientsService;
+import com.spring.services.*;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -36,15 +35,18 @@ public class NormalAccountCtrl {
     private final NormalSignInService normalSignInService;
     private final NormalAccountService normalAccountService;
     private final SearchProClientsService searchProClientsService;
+    private final ViewProAccountService viewProAccountService;
 
     public NormalAccountCtrl(NormalSignUpService normalSignUpService, NormalSignInService normalSignInService,
-                             NormalAccountService normalAccountService,
-                             SearchProClientsService searchProClientsService) {
+                             NormalAccountService normalAccountService, SearchProClientsService searchProClientsService,
+                             ViewProAccountService viewProAccountService) {
         this.normalSignUpService = normalSignUpService;
         this.normalSignInService = normalSignInService;
         this.normalAccountService = normalAccountService;
         this.searchProClientsService = searchProClientsService;
+        this.viewProAccountService = viewProAccountService;
     }
+
 
 //EDIT NORMAL CLIENT PROFILE
     @PostMapping(WebResourceConstant.NormalAccountCtrl.UPDATE_USER)
@@ -138,5 +140,17 @@ public class NormalAccountCtrl {
         User proUser = searchProClientsService.getProUserProfile(username);
         return new ResponseEntity<User>(proUser, HttpStatus.OK);
     }
+
+    //FETCH FAV USERNAMES
+    @PostMapping(WebResourceConstant.NormalAccountCtrl.LOAD_FAV_USERNAMES)
+        public ResponseEntity<List<String>> loadFavUsernames(@RequestBody String loggedInUsername) {
+            List<FavProUsers> favUsers = viewProAccountService.getResults(loggedInUsername);
+            List<String> favUsernames= new ArrayList<String>();
+            for(FavProUsers element : favUsers) {
+                favUsernames.add(element.getFavProUsername());
+            }
+            return new ResponseEntity<>(favUsernames, HttpStatus.OK);
+        }
+
 
 }

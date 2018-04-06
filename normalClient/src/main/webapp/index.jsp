@@ -30,6 +30,8 @@
 <script src="Pages/SignUpPage/services/sign_up_service.js"></script>
 <script src="Pages/NormalAccountPage/controller/normalAccountCtrl.js"></script>
 <script src="Pages/NormalAccountPage/controller/profilePicCtrl.js"></script>
+<script src="Pages/NormalAccountPage/controller/favouritesCtrl.js"></script>
+<script src="Pages/NormalAccountPage/services/normal_favourites_service.js"></script>
 <script src="Pages/NormalAccountPage/services/normal_account_service.js"></script>
 <script src="Pages/NormalAccountPage/services/profile_pic_service.js"></script>
 <script src="Pages/SearchProClientsPage/controller/searchProClientsCtrl.js"></script>

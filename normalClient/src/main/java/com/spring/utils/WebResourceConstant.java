@@ -31,6 +31,7 @@ public class WebResourceConstant {
         public static final String GET_COUNTRIES = "/getCountries/";
         public static final String SEARCH_PRO_USERS = "/getMatchedProUsers/";
         public static final String FETCH_PRO_USER = "/getProUserProfile/";
+        public static final String LOAD_FAV_USERNAMES = "/loadFavUsernames/";
 //        ##########################################################################
         public static final String FETCH_VALUE = "/fetchValue/";
 

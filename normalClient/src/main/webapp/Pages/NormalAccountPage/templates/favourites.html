@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h1>List of Fav Users</h1>
+</div>
+
+<div class="modal-body">
+    <div ng-show="$ctrl.users.length !== 0">
+        <ol>
+            <li ng-repeat="username in $ctrl.users">
+                <span style="color: blue; cursor: pointer;" ng-click="$ctrl.showProfile(username)">{{username}}</span>
+            </li>
+        </ol>
+    </div>
+    <div ng-show="$ctrl.users.length === 0">
+        <h4>Sorry, no favourites to show</h4>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>
