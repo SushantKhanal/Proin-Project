@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.*;
+import com.spring.requestDto.ApproveFollowRequestInfo;
 import com.spring.requestDto.UserAcademicsDTO;
 import com.spring.requestDto.UserExperienceDTO;
 import com.spring.requestDto.UserTagsDTO;
@@ -275,9 +276,23 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //CHECKS AND RETURNS FOLLOW REQUESTS
     @PostMapping("/user/checkFollowRequests/")
     public ResponseEntity<List<NormalFollowRequest>> checkFollowRequests(@RequestBody String username) {
         List<NormalFollowRequest> followRequests = accountService.checkFollowRequests(username);
         return new ResponseEntity<List<NormalFollowRequest>>(followRequests, HttpStatus.OK);
     }
+
+    //APPROVES FOLLOW REQUESTS
+    @PostMapping("/user/acceptFollowRequest/")
+    public ResponseEntity<Void> acceptFollowRequest(@RequestBody ApproveFollowRequestInfo approveFollow) {
+
+        String followedBy = approveFollow.getFollowedBy();
+        String following = approveFollow.getFollowing();
+
+
+        return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
+    }
+
+
 }

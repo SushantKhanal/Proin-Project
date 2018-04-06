@@ -14,9 +14,18 @@ function userAccountService(HttpService){
         updateUser: updateUser,
         getProfilePic: getProfilePic,
         checkFollowRequests: checkFollowRequests,
+        acceptFollowRequest: acceptFollowRequest,
     };
 
     return factory;
+
+    function acceptFollowRequest(followedBy, following) {
+        var followInfo = {
+            followedBy: followedBy,
+            following: following,
+        };
+        return HttpService.post(REST_SERVICE_URI + 'acceptFollowRequest/', followInfo)
+    }
 
     function checkFollowRequests(username) {
         return HttpService.post(REST_SERVICE_URI + 'checkFollowRequests/', username)
@@ -29,5 +38,6 @@ function userAccountService(HttpService){
     function getProfilePic(username) {
         return HttpService.getProfilePic(REST_SERVICE_URI, username);
     }
+
 }
 

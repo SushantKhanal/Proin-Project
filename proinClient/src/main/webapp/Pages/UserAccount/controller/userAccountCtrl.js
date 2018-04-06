@@ -43,14 +43,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllExperience();
 
     function checkFollowRequests() {
-        UserAccountService.checkFollowRequests(vm.user.username)
-            .then(
-                function(r) {
-                    console.log(r);
-                },
-                function(errResponse){
-                    console.log('No follow requests');
-                });
+        ModalFactory.open('Pages/UserAccount/templates/showFollowRequests.html', 'ShowFollowRequestsController', 'sm', '$ctrl');
     }
 
     function showReviews() {

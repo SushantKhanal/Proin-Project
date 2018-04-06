@@ -36,6 +36,9 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
             .then(
                 function(d) {
                     vm.userProfilePic =d;
+                    if(d.picPath == undefined) {
+                        return;
+                    }
                     vm.picPath1 = '/user'+d.picPath+"?"+ new Date().getTime();
                 },
                 function(errResponse){

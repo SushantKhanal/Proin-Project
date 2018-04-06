@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h3>List of Follow Requests</h3>
+</div>
+
+<div class="modal-body">
+    <div ng-show="$ctrl.requests.length !== 0">
+        <ol>
+            <li ng-repeat="request in $ctrl.requests">
+                <span>
+                    <p style="color: green; cursor: pointer;">
+                        {{request[1]}}:  <button class="btn-danger" ng-click="$ctrl.approveRequest(request[1])">Approve</button> &nbsp; <button class="btn-primary">Reject</button>
+                    </p>
+                    <p style="margin-top: 0;">{{request[2]}}</p>
+                </span>
+            </li>
+        </ol>
+    </div>
+
+    <div ng-show="$ctrl.requests.length === 0">
+        <h4>Sorry, no favourites to show</h4>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>
