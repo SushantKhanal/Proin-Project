@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -123,5 +125,21 @@ public class AccountServiceImpl implements AccountService {
         userExperienceRepository.delete(id);
     }
 
+    @Override
+    public List<NormalFollowRequest> checkFollowRequests(String username) {
+        String sql = "SELECT * FROM normal_follow_request_table f" +
+                " WHERE f.toProUsername = :username";
+        List<NormalFollowRequest> results = new ArrayList<>();
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("username", username);
 
+            results = query.getResultList();
+
+        }catch(Exception e){
+            System.out.println("Exception "+e);
+        }
+        return results;
+
+    }
 }

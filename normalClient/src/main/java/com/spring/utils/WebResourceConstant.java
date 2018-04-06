@@ -49,7 +49,7 @@ public class WebResourceConstant {
         public static final String NORMAL_CHECKS_PRO_FAV = "/checkIfFav/";
         public static final String POST_REVIEW = "/writeReview/";
         public static final String SEND_FOLLOW_REQUEST = "/sendFollowRequest/";
-
+        public static final String CHECK_IF_FOLLOWED = "/checkIfFollowed/";
     }
 
 

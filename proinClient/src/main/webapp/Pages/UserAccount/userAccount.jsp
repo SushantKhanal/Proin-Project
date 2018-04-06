@@ -37,6 +37,8 @@
                                     <span><p>Aspirant</p></span>
                                     <span style="color:#008000; font-size:12px; cursor: pointer;"
                                           ng-click="xxx.showFavourites()">Show Favourites</span>
+
+                                    <button class="btn-warning" ng-click="xxx.checkFollowRequests()">Follow requests</button>
                                     <br>
                                     <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
                                         Profile

@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.*;
+import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
 import com.spring.requestDto.ReviewDto;
@@ -29,6 +30,15 @@ public class ViewProAccountCtrl {
     public ViewProAccountCtrl(ViewProAccountService viewProAccountService, NormalSignInService normalSignInService) {
         this.viewProAccountService = viewProAccountService;
         this.normalSignInService = normalSignInService;
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.CHECK_IF_FOLLOWED)
+    public ResponseEntity<Void>checkIfFollowed(@RequestBody CheckIfFollowedDto checkIfFollowedDto) {
+        if (viewProAccountService.checkIfFollowed(checkIfFollowedDto) == true) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.SEND_FOLLOW_REQUEST)

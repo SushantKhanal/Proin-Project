@@ -13,9 +13,14 @@ function userAccountService(HttpService){
     var factory = {
         updateUser: updateUser,
         getProfilePic: getProfilePic,
+        checkFollowRequests: checkFollowRequests,
     };
 
     return factory;
+
+    function checkFollowRequests(username) {
+        return HttpService.post(REST_SERVICE_URI + 'checkFollowRequests/', username)
+    }
 
     function updateUser(user, id) {
         return HttpService.put(REST_SERVICE_URI, user, id);

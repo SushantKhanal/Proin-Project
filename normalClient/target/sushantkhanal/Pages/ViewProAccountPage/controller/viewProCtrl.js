@@ -23,7 +23,7 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
     vm.getReviews = getReviews;
 
-    // vm.takeToAccount = takeToAccount;
+    vm.ifFollow = "Send Follow Request";
 
     vm.userAndReviews = '';
     vm.tags = '';
@@ -32,23 +32,43 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
     vm.review;
 
-    getTags();
-
     var localUserData = localStorage['localProUser'];
+    var userData = localStorage['NormalUserInfo'];
+    var loggedInUser = JSON.parse(userData);
 
     if(localUserData !== undefined) {
         vm.user = JSON.parse(localUserData);
         getProfilePic(vm.user.username);
-        var userData = localStorage['NormalUserInfo'];
-        var loggedInUser = JSON.parse(userData);
         checkIfFav(loggedInUser.username, vm.user.username);
     }
 
+    getTags();
     getAllAcademics();
     getAllExperience();
+    checkIfFollowed();
+
+    function checkIfFollowed() {
+        ProAccountService.checkIfFollowed(loggedInUser.username, vm.user.username)
+            .then(
+                function(response) {
+                    vm.ifFollow = "Follow Request Sent";
+                    vm.isRequestSent = true;
+                },
+                function(errResponse){
+                    vm.ifFollow = "Send Follow Request";
+                    vm.isRequestSent = false;
+                });
+    }
     
     function sendFollowRequest() {
-        ModalFactory.open('Pages/ViewProAccountPage/templates/followRequest.jsp', 'FollowRequestController', 'md', '$ctrl');
+        var modalInstance = ModalFactory.open('Pages/ViewProAccountPage/templates/followRequest.jsp', 'FollowRequestController', 'md', '$ctrl');
+        modalInstance.result.then(
+            function(response){
+                checkIfFollowed();
+            },function(errResponse){
+
+            }
+        )
     }
 
     function getAllAcademics() {
@@ -95,21 +115,6 @@ function proAccountController($location, ModalFactory, ProAccountService) {
                     console.error('this review could not be saved');
                 });
     }
-
-    // function takeToAccount(username){
-    //     ProAccountService.getUserProfile(username)
-    //         .then(
-    //             function(d) {
-    //                 vm.user = d;
-    //                 localStorage['localOtherUser'] = JSON.stringify(vm.user);
-    //
-    //                 $location.path('/searchResults/otherUser');
-    //             },
-    //             function(errResponse){
-    //                 console.error('Error while fetching fav user names');
-    //             }
-    //         );
-    // }
 
     //GETS AVAILABLE REVIEWS
     function getReviews() {

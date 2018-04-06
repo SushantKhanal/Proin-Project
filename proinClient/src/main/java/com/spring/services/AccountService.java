@@ -34,4 +34,6 @@ public interface AccountService {
     void deleteThisAcademics(Long id);
 
     void deleteThisExperience(Long id);
+
+    List<NormalFollowRequest> checkFollowRequests(String username);
 }

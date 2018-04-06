@@ -274,4 +274,10 @@ public class AccountController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping("/user/checkFollowRequests/")
+    public ResponseEntity<List<NormalFollowRequest>> checkFollowRequests(@RequestBody String username) {
+        List<NormalFollowRequest> followRequests = accountService.checkFollowRequests(username);
+        return new ResponseEntity<List<NormalFollowRequest>>(followRequests, HttpStatus.OK);
+    }
 }

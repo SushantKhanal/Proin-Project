@@ -2,6 +2,7 @@ package com.spring.services.Impl;
 
 import com.spring.model.*;
 import com.spring.repository.*;
+import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.services.ViewProAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,5 +121,27 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
         normalFollowRequestRepository.saveAndFlush(normalFollowRequest);
     }
 
+    @Override
+    public Boolean checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto) {
+        String from = checkIfFollowedDto.getLoggedInUsername();
+        String to = checkIfFollowedDto.getOtherUsername();
+        String sql = "SELECT f.id FROM normal_follow_request_table f" +
+                " WHERE f.fromNormalUsername = :from AND f.toProUsername = :to";
+
+        Object result;
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("from", from);
+            query.setParameter("to", to);
+            result = query.getSingleResult();
+
+        }catch(Exception e){
+            System.out.println("Exception "+e);
+            return false;
+        }
+
+            return true;
+
+    }
 
 }

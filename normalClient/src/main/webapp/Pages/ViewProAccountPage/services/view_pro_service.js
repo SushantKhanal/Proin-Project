@@ -11,21 +11,27 @@ function proAccountService(HttpService) {
     var REST_SERVICE_URI = 'http://localhost:8080/normalClient/api/viewProAccount/';
 
     var factory = {
+        checkIfFollowed: checkIfFollowed,
         sendReview: sendReview,
-
         getReviews: getReviews,
         getProfilePic: getProfilePic,
         receiveTags: receiveTags,
         getAllExperience: getAllExperience,
         getAllAcademics: getAllAcademics,
-
         sendFav: sendFav,
         deleteFav: deleteFav,
         checkIfFav: checkIfFav,
-
     };
 
     return factory;
+
+    function checkIfFollowed(loggedInUsername, otherUsername) {
+        var ifFollowedData = {
+            loggedInUsername: loggedInUsername,
+            otherUsername: otherUsername,
+        };
+        return HttpService.post(REST_SERVICE_URI+'checkIfFollowed/', ifFollowedData);
+    }
 
     function sendReview (loggedInUsername, otherUsername, review, rating) {
         var loggedReview = {

@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}}</h4></span>
-                                    <button class="btn btn-default" ng-click="xxx.sendFollowRequest()">Send Follow Request</button>
+                                    <button class="btn btn-default" ng-click="xxx.sendFollowRequest()" ng-disabled="xxx.isRequestSent">{{xxx.ifFollow}}</button>
                                     <span class="glyphicon glyphicon-heart pull-right makeFav" ng-click="xxx.addToFav()"></span>
 
                                 </div>

@@ -24,6 +24,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.editExperience = editExperience;
     vm.addAcademics = addAcademics;
     vm.showReviews = showReviews;
+    vm.checkFollowRequests = checkFollowRequests;
     vm.allowReviews = false;
     vm.reviewsText = 'Show Reviews';
     vm.academics = '';
@@ -40,6 +41,17 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllAcademics();
 
     getAllExperience();
+
+    function checkFollowRequests() {
+        UserAccountService.checkFollowRequests(vm.user.username)
+            .then(
+                function(r) {
+                    console.log(r);
+                },
+                function(errResponse){
+                    console.log('No follow requests');
+                });
+    }
 
     function showReviews() {
         vm.allowReviews = !vm.allowReviews;

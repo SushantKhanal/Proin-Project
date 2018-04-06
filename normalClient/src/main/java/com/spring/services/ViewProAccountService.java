@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.*;
+import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 
 import java.util.List;
@@ -22,4 +23,5 @@ public interface ViewProAccountService {
     List<NormalUserReviews> getNormalReviews(String loggedInUsername);
     void addNormalReview(NormalUserReviews normalUserReviews1);
     void registerFollowRequest(NormalFollowRequest normalFollowRequest);
+    Boolean checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto);
 }
