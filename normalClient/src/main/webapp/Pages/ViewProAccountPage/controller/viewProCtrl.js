@@ -79,12 +79,6 @@ function proAccountController($location, ModalFactory, ProAccountService) {
                 });
     }
 
-    // function addExperience() {
-    //     ModalFactory.open('Pages/OtherAccount/templates/experience.html', 'ShowExperienceController', 'md', '$ctrl')
-    // }
-    // function addAcademics() {
-    //     ModalFactory.open('Pages/OtherAccount/templates/academics.html', 'ShowAcademicsController', 'md', '$ctrl')
-    // }
 
     function getTags() {
         var localUserData = localStorage['localProUser'];
@@ -187,6 +181,7 @@ function proAccountController($location, ModalFactory, ProAccountService) {
             .then(
                 function() {
                     vm.review = '';
+                    getReviews();
                 },
                 function(errResponse){
                     console.error('this review could not be saved');

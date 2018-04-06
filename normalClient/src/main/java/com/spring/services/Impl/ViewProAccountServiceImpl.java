@@ -45,6 +45,9 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     @Autowired
     FavProUsersRepository favProUsersRepository;
 
+    @Autowired
+    NormalUserReviewsRepository normalUserReviewsRepository;
+
     @Override
     public UserProfilePic getProProfilePic(String username) {
         return userProfilePicRepository.getUserProfilePicByusername(username);
@@ -66,12 +69,12 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     }
 
     @Override
-    public List<UserReviews> getReviews(String username) {
-        Query query = em.createQuery("SELECT p from UserReviews p where p.otherUsername like :otherUsername");
+    public List<NormalUserReviews> getReviews(String username) {
+        Query query = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :otherUsername");
         query.setParameter("otherUsername","%"+username+"%");
 
         System.out.println(query.toString());
-        List<UserReviews> results = query.getResultList();
+        List<NormalUserReviews> results = query.getResultList();
         return results;
     }
 
@@ -92,6 +95,21 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
         Query query = em.createQuery("SELECT p from FavProUsers p where p.loggedInNormalUsername like '%"+loggedInNormalUsername+"%'");
         List<FavProUsers> results = query.getResultList();
         return results;
+    }
+
+    @Override
+    public List<NormalUserReviews> getNormalReviews(String loggedInUsername) {
+        Query query = em.createQuery("SELECT n from NormalUserReviews n where n.loggedInUsername like :loggedInUsername");
+        query.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+
+        System.out.println(query.toString());
+        List<NormalUserReviews> results = query.getResultList();
+        return results;
+    }
+
+    @Override
+    public void addNormalReview(NormalUserReviews normalUserReviews1){
+        normalUserReviewsRepository.saveAndFlush(normalUserReviews1);
     }
 
 

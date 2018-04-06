@@ -47,6 +47,7 @@ public class WebResourceConstant {
         public static final String NORMAL_SENDS_PRO_FAV = "/sendFav/";
         public static final String NORMAL_DELETES_PRO_Fav = "/deleteFav/";
         public static final String NORMAL_CHECKS_PRO_FAV = "/checkIfFav/";
+        public static final String POST_REVIEW = "/writeReview/";
 
     }
 

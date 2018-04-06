@@ -28,13 +28,13 @@ function proAccountService(HttpService) {
     return factory;
 
     function sendReview (loggedInUsername, otherUsername, review, rating) {
-        // var loggedReview = {
-        //     loggedInUsername: loggedInUsername,
-        //     otherUsername: otherUsername,
-        //     review: review,
-        //     rating: rating
-        // };
-        // return HttpService.postObject(REST_SERVICE_URI+'writeReview/', loggedReview);
+        var loggedReview = {
+            loggedInUsername: loggedInUsername,
+            otherUsername: otherUsername,
+            review: review,
+            rating: rating
+        };
+        return HttpService.post(REST_SERVICE_URI+'writeReview/', loggedReview);
     }
 
     function getProfilePic(proUsername) {

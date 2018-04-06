@@ -2,6 +2,8 @@ package com.spring.controller;
 
 import com.spring.model.*;
 import com.spring.requestDto.FavDto;
+import com.spring.requestDto.ReviewDto;
+import com.spring.services.NormalSignInService;
 import com.spring.services.ViewProAccountService;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.http.HttpStatus;
@@ -21,8 +23,11 @@ public class ViewProAccountCtrl {
 
     private final ViewProAccountService viewProAccountService;
 
-    public ViewProAccountCtrl(ViewProAccountService viewProAccountService) {
+    private final NormalSignInService normalSignInService;
+
+    public ViewProAccountCtrl(ViewProAccountService viewProAccountService, NormalSignInService normalSignInService) {
         this.viewProAccountService = viewProAccountService;
+        this.normalSignInService = normalSignInService;
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.FETCH_PRO_PROFILE_PIC)
@@ -47,11 +52,9 @@ public class ViewProAccountCtrl {
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.FETCH_REVIEWS)
-    public ResponseEntity<List<UserReviews>> getReviews(@RequestBody String  username){
+    public ResponseEntity<List<NormalUserReviews>> getReviews(@RequestBody String  username){
         return new ResponseEntity<>(viewProAccountService.getReviews(username), HttpStatus.OK);
     }
-
-
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.NORMAL_SENDS_PRO_FAV)
     public ResponseEntity<Void> sendFav(@RequestBody FavDto favDto) {
@@ -92,5 +95,44 @@ public class ViewProAccountCtrl {
         }
 
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.POST_REVIEW)
+    public ResponseEntity<Void> postReview(@RequestBody ReviewDto reviewDTO1) {
+        //check if exists
+        //add or update the review
+        //create a new Review-ClientType table, where "Normal" is added as client type
+        String loggedInUsername = reviewDTO1.getLoggedInUsername();
+        String otherUsername = reviewDTO1.getOtherUsername();
+        String review = reviewDTO1.getReview();
+        Integer rating = reviewDTO1.getRating();
+
+        NormalUser loggedInNormalUser = normalSignInService.getNormalUserByUsername(loggedInUsername);
+
+        List<NormalUserReviews> normalUserReviews = viewProAccountService.getNormalReviews(loggedInUsername);
+        //checking if the user has already reviewed this account, if true, update, instead of create
+        for (NormalUserReviews element : normalUserReviews) {
+            String usernameOther = element.getOtherUsername();
+            if (usernameOther.equals(otherUsername)) {
+                Long id = element.getId();
+                NormalUserReviews normalUserReviews1 = new NormalUserReviews(id, loggedInUsername, otherUsername, review, rating, loggedInNormalUser);
+                try {
+                    viewProAccountService.addNormalReview(normalUserReviews1);
+                    return new ResponseEntity<Void>(HttpStatus.OK);
+                } catch (Exception e) {
+                    return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+                }
+            }
+        }
+
+        NormalUserReviews normalUserReviews2 = new NormalUserReviews(loggedInUsername, otherUsername, review, rating, loggedInNormalUser);
+
+        try {
+            viewProAccountService.addNormalReview(normalUserReviews2);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 }
