@@ -2,6 +2,7 @@ package com.spring.controller;
 
 import com.spring.model.*;
 import com.spring.requestDto.FavDto;
+import com.spring.requestDto.LoggedMessageDto;
 import com.spring.requestDto.ReviewDto;
 import com.spring.services.NormalSignInService;
 import com.spring.services.ViewProAccountService;
@@ -28,6 +29,14 @@ public class ViewProAccountCtrl {
     public ViewProAccountCtrl(ViewProAccountService viewProAccountService, NormalSignInService normalSignInService) {
         this.viewProAccountService = viewProAccountService;
         this.normalSignInService = normalSignInService;
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.SEND_FOLLOW_REQUEST)
+    public ResponseEntity<Void>sendFollowRequest(@RequestBody LoggedMessageDto followRequest) {
+        NormalFollowRequest normalFollowRequest = new NormalFollowRequest(followRequest.getFromNormalUsername(),
+                followRequest.getToProUsername(), followRequest.getMessage());
+        viewProAccountService.registerFollowRequest(normalFollowRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.FETCH_PRO_PROFILE_PIC)

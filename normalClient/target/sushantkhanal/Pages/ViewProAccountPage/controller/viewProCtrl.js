@@ -28,8 +28,7 @@ function proAccountController($location, ModalFactory, ProAccountService) {
     vm.userAndReviews = '';
     vm.tags = '';
     vm.showReviews = false;
-    // vm.addExperience = addExperience;
-    // vm.addAcademics = addAcademics;
+    vm.sendFollowRequest = sendFollowRequest;
 
     vm.review;
 
@@ -47,6 +46,10 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
     getAllAcademics();
     getAllExperience();
+    
+    function sendFollowRequest() {
+        ModalFactory.open('Pages/ViewProAccountPage/templates/followRequest.jsp', 'FollowRequestController', 'md', '$ctrl');
+    }
 
     function getAllAcademics() {
         vm.user = JSON.parse(localUserData);

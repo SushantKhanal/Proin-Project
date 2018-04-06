@@ -37,7 +37,7 @@ function searchProCleintsCtrl(SearchProClientsService, $location) {
     }
 
     function goBack(){
-        // $location.path('/userAccount');
+        $location.path('/normalUserAccount');
     }
 
     function searchResults() {

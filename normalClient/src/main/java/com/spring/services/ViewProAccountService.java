@@ -21,4 +21,5 @@ public interface ViewProAccountService {
     void deleteFav(Long favId);
     List<NormalUserReviews> getNormalReviews(String loggedInUsername);
     void addNormalReview(NormalUserReviews normalUserReviews1);
+    void registerFollowRequest(NormalFollowRequest normalFollowRequest);
 }

@@ -48,6 +48,9 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     @Autowired
     NormalUserReviewsRepository normalUserReviewsRepository;
 
+    @Autowired
+    NormalFollowRequestRepository normalFollowRequestRepository;
+
     @Override
     public UserProfilePic getProProfilePic(String username) {
         return userProfilePicRepository.getUserProfilePicByusername(username);
@@ -110,6 +113,11 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     @Override
     public void addNormalReview(NormalUserReviews normalUserReviews1){
         normalUserReviewsRepository.saveAndFlush(normalUserReviews1);
+    }
+
+    @Override
+    public void registerFollowRequest(NormalFollowRequest normalFollowRequest) {
+        normalFollowRequestRepository.saveAndFlush(normalFollowRequest);
     }
 
 
