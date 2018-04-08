@@ -32,11 +32,14 @@
 
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}} </h4></span>
+                                    <button class="btn-danger pull-right">Social</button>
+
 
                                     <span><p>Aspirant</p></span>
                                     <span style="color:#008000; font-size:12px; cursor: pointer;"
                                           ng-click="xxx.showFavourites()">Show Favourites</span>
                                     <br>
+
                                     <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
                                         Profile
                                     </button>

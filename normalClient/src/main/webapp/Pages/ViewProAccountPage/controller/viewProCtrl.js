@@ -136,7 +136,6 @@ function proAccountController($location, ModalFactory, ProAccountService) {
                 });
     }
 
-
     function getTags() {
         var localUserData = localStorage['localProUser'];
         var user = JSON.parse(localUserData);

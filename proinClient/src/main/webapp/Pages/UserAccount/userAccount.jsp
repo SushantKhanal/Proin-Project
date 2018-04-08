@@ -32,7 +32,8 @@
 
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}} </h4></span>
-                                    <button class="btn btn-basic pull-right" ng-click="xxx.addTags()">Add Tags</button>
+                                    <button class="btn-danger pull-right">Social</button>
+                                    <button class="btn-basic pull-right" ng-click="xxx.addTags()">Add Tags</button>
 
                                     <span><p>Aspirant</p></span>
                                     <span style="color:#008000; font-size:12px; cursor: pointer;"
@@ -40,13 +41,11 @@
 
                                     <button class="btn-warning" ng-click="xxx.checkFollowRequests()">Follow requests</button>
                                     <br>
-                                    <button class="btn btn-primary pull-right" ng-click="xxx.editProfile()">Edit
-                                        Profile
+                                    <button class="btn-primary pull-right" ng-click="xxx.editProfile()">Edit Profile
                                     </button>
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">
-
 
                                 <div class="col-sm-5 col-xs-6 tital ">First Name:</div>
                                 <input class="col-sm-7 col-xs-6 userDetail updateDetail" ng-model="xxx.user.firstName"
@@ -78,7 +77,6 @@
                                 <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.email" readonly/>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
-
 
                                 <div class="col-sm-5 col-xs-6 tital ">Date Of Joining:</div>
                                 <input class="col-sm-7 userDetail updateDetail" ng-model="xxx.user.joinDate" readonly/>
@@ -243,6 +241,7 @@
                                         </li>
                                     </ol>
                                 </div>
+
                                 <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()"
                                         class="btn btn-danger pull-right">Save
                                 </button>

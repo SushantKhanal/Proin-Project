@@ -115,6 +115,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
             );
 
     }
+
 ///Add the functionalities required for the below function
     function editExperience(id) {
         AddExperienceService.getExperienceFromId(id)
