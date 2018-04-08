@@ -36,4 +36,6 @@ public interface AccountService {
     void deleteThisExperience(Long id);
 
     List<NormalFollowRequest> checkFollowRequests(String username);
+
+    void approveFollowRequest(Long id);
 }

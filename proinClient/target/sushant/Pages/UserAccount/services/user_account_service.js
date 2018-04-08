@@ -19,12 +19,8 @@ function userAccountService(HttpService){
 
     return factory;
 
-    function acceptFollowRequest(followedBy, following) {
-        var followInfo = {
-            followedBy: followedBy,
-            following: following,
-        };
-        return HttpService.post(REST_SERVICE_URI + 'acceptFollowRequest/', followInfo)
+    function acceptFollowRequest(id) {
+        return HttpService.post(REST_SERVICE_URI + 'acceptFollowRequest/', id)
     }
 
     function checkFollowRequests(username) {

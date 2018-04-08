@@ -23,18 +23,21 @@ public class NormalFollowRequest {
     private String fromNormalUsername;
     private String toProUsername;
     private String message;
+    private Long status;
 
-    public NormalFollowRequest(Long id, String fromNormalUsername, String toProUsername, String message) {
+    public NormalFollowRequest(Long id, String fromNormalUsername, String toProUsername, String message, Long status) {
         this.id = id;
         this.fromNormalUsername = fromNormalUsername;
         this.toProUsername = toProUsername;
         this.message = message;
+        this.status = status;
     }
 
-    public NormalFollowRequest(String fromNormalUsername, String toProUsername, String message) {
+    public NormalFollowRequest(String fromNormalUsername, String toProUsername, String message, Long status) {
         this.fromNormalUsername = fromNormalUsername;
         this.toProUsername = toProUsername;
         this.message = message;
+        this.status = status;
     }
 
     @Override
@@ -44,6 +47,7 @@ public class NormalFollowRequest {
                 ", fromNormalUsername='" + fromNormalUsername + '\'' +
                 ", toProUsername='" + toProUsername + '\'' +
                 ", message='" + message + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

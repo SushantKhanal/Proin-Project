@@ -34,6 +34,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private UserAcademicsRepository userAcademicsRepository;
 
+    @Autowired
+    private NormalFollowRequestRepository normalFollowRequestRepository;
+
     @Override
     public void updateUser(User p) {
         userRepository.saveAndFlush(p);
@@ -128,7 +131,8 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<NormalFollowRequest> checkFollowRequests(String username) {
         String sql = "SELECT * FROM normal_follow_request_table f" +
-                " WHERE f.toProUsername = :username";
+                " WHERE f.toProUsername = :username" +
+                " AND f.status = 0";
         List<NormalFollowRequest> results = new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
@@ -141,5 +145,19 @@ public class AccountServiceImpl implements AccountService {
         }
         return results;
 
+    }
+
+    @Override
+    public void approveFollowRequest(Long id) {
+        String sql = "UPDATE normal_follow_request_table nfr" +
+                " SET status = 1"+
+                " WHERE id = :id";
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("id", id);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Exception "+e);
+        }
     }
 }

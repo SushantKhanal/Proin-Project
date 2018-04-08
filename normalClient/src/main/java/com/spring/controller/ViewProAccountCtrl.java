@@ -5,6 +5,7 @@ import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
 import com.spring.requestDto.ReviewDto;
+import com.spring.responseDto.SendStringDto;
 import com.spring.services.NormalSignInService;
 import com.spring.services.ViewProAccountService;
 import com.spring.utils.WebResourceConstant;
@@ -33,18 +34,15 @@ public class ViewProAccountCtrl {
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.CHECK_IF_FOLLOWED)
-    public ResponseEntity<Void>checkIfFollowed(@RequestBody CheckIfFollowedDto checkIfFollowedDto) {
-        if (viewProAccountService.checkIfFollowed(checkIfFollowedDto) == true) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<SendStringDto>checkIfFollowed(@RequestBody CheckIfFollowedDto checkIfFollowedDto) {
+        SendStringDto sendStringDto = new SendStringDto(viewProAccountService.checkIfFollowed(checkIfFollowedDto));
+        return new ResponseEntity<SendStringDto>(sendStringDto, HttpStatus.OK);
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.SEND_FOLLOW_REQUEST)
     public ResponseEntity<Void>sendFollowRequest(@RequestBody LoggedMessageDto followRequest) {
         NormalFollowRequest normalFollowRequest = new NormalFollowRequest(followRequest.getFromNormalUsername(),
-                followRequest.getToProUsername(), followRequest.getMessage());
+                followRequest.getToProUsername(), followRequest.getMessage(), 0L);
         viewProAccountService.registerFollowRequest(normalFollowRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }

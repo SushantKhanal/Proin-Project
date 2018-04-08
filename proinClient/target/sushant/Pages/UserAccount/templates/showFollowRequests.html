@@ -8,7 +8,9 @@
             <li ng-repeat="request in $ctrl.requests">
                 <span>
                     <p style="color: green; cursor: pointer;">
-                        {{request[1]}}:  <button class="btn-danger" ng-click="$ctrl.approveRequest(request[1])">Approve</button> &nbsp; <button class="btn-primary">Reject</button>
+                        {{request[1]}}:
+                        <button class="btn-danger" ng-click="$ctrl.approveRequest(request[0])">Approve</button>
+                        &nbsp; <button class="btn-primary">Reject</button>
                     </p>
                     <p style="margin-top: 0;">{{request[2]}}</p>
                 </span>

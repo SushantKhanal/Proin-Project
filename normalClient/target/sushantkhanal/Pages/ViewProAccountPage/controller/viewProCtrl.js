@@ -25,6 +25,8 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
     vm.ifFollow = "Send Follow Request";
 
+    vm.beforeFollow = true;
+
     vm.userAndReviews = '';
     vm.tags = '';
     vm.showReviews = false;
@@ -51,14 +53,24 @@ function proAccountController($location, ModalFactory, ProAccountService) {
         ProAccountService.checkIfFollowed(loggedInUser.username, vm.user.username)
             .then(
                 function(response) {
-                    vm.ifFollow = "Follow Request Sent";
-                    vm.isRequestSent = true;
+                    var r = response.sendThis;
+                    if(r == "pending"){
+                        vm.ifFollow = "Follow Request Sent";
+                        vm.isRequestSent = true;
+                    } else if(r == "noRequestFound"){
+                        vm.ifFollow = "Send Follow Request";
+                        vm.isRequestSent = false;
+                    } else if(r == "accepted") {
+                        vm.ifFollow = "following";
+                        vm.isRequestSent = true;
+                    }
                 },
                 function(errResponse){
                     vm.ifFollow = "Send Follow Request";
                     vm.isRequestSent = false;
                 });
     }
+
     
     function sendFollowRequest() {
         var modalInstance = ModalFactory.open('Pages/ViewProAccountPage/templates/followRequest.jsp', 'FollowRequestController', 'md', '$ctrl');

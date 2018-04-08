@@ -15,9 +15,8 @@
         vm.approveRequest = approveRequest;
         checkFollowRequests();
 
-        function approveRequest(approvedUsername) {
-            console.log(approvedUsername);
-            UserAccountService.acceptFollowRequest(approvedUsername, vm.user.username)
+        function approveRequest(id) {
+            UserAccountService.acceptFollowRequest(id)
                 .then(
                     function(r) {
                         console.log("Follow request approved");

@@ -285,14 +285,9 @@ public class AccountController {
 
     //APPROVES FOLLOW REQUESTS
     @PostMapping("/user/acceptFollowRequest/")
-    public ResponseEntity<Void> acceptFollowRequest(@RequestBody ApproveFollowRequestInfo approveFollow) {
-
-        String followedBy = approveFollow.getFollowedBy();
-        String following = approveFollow.getFollowing();
-
-
-        return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
+    public ResponseEntity<Void> acceptFollowRequest(@RequestBody Long id) {
+        accountService.approveFollowRequest(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
-
 
 }

@@ -122,25 +122,38 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     }
 
     @Override
-    public Boolean checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto) {
+    public String checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto) {
         String from = checkIfFollowedDto.getLoggedInUsername();
         String to = checkIfFollowedDto.getOtherUsername();
         String sql = "SELECT f.id FROM normal_follow_request_table f" +
-                " WHERE f.fromNormalUsername = :from AND f.toProUsername = :to";
+                " WHERE f.fromNormalUsername = :from AND f.toProUsername = :to" +
+                " AND f.status = :status";
 
         Object result;
+        String followStatus;
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("from", from);
             query.setParameter("to", to);
+            query.setParameter("status", 0);
             result = query.getSingleResult();
-
+            followStatus = "pending";
         }catch(Exception e){
-            System.out.println("Exception "+e);
-            return false;
+            try {
+                Query query1 = em.createNativeQuery(sql);
+                query1.setParameter("from", from);
+                query1.setParameter("to", to);
+                query1.setParameter("status", 1);
+                result = query1.getSingleResult();
+                followStatus = "accepted";
+            }catch(Exception e1){
+                followStatus = "noRequestFound";
+                return followStatus;
+            }
+            return followStatus;
         }
 
-            return true;
+            return followStatus;
 
     }
 
