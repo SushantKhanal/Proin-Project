@@ -18,6 +18,7 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
     vm.searchResults =  searchResults;
     vm.changePicModal = changePicModal;
     vm.showFavourites = showFavourites;
+    vm.takeToSocial = takeToSocial;
 
     var userData = localStorage['NormalUserInfo'];
 
@@ -26,6 +27,10 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
     }
 
     getProfilePic(vm.user.username);
+
+    function takeToSocial() {
+        console.log("take to page where followers and following is shown");
+    }
 
     function showFavourites() {
         ModalFactory.open('Pages/NormalAccountPage/templates/favourites.html', 'FavouritesController', 'md', '$ctrl');

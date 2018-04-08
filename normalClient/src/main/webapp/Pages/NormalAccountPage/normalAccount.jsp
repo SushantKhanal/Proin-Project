@@ -32,8 +32,7 @@
 
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.user.firstName}} {{xxx.user.lastName}} </h4></span>
-                                    <button class="btn-danger pull-right">Social</button>
-
+                                    <button class="btn-danger pull-right" ng-click="xxx.takeToSocial()">Social</button>
 
                                     <span><p>Aspirant</p></span>
                                     <span style="color:#008000; font-size:12px; cursor: pointer;"

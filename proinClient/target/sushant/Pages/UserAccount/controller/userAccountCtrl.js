@@ -25,6 +25,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.addAcademics = addAcademics;
     vm.showReviews = showReviews;
     vm.checkFollowRequests = checkFollowRequests;
+    vm.takeToSocial = takeToSocial;
     vm.allowReviews = false;
     vm.reviewsText = 'Show Reviews';
     vm.academics = '';
@@ -41,6 +42,10 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllAcademics();
 
     getAllExperience();
+
+    function takeToSocial() {
+        console.log("take to page where followers and following is shown");
+    }
 
     function checkFollowRequests() {
         ModalFactory.open('Pages/UserAccount/templates/showFollowRequests.html', 'ShowFollowRequestsController', 'sm', '$ctrl');

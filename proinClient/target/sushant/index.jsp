@@ -45,6 +45,7 @@
     <script src="/Pages/OtherAccount/controller/otherAccountCtrl.js"></script>
     <script src="/Pages/SearchResults/services/search_results_service.js"></script>
     <script src="/Pages/OtherAccount/services/other_account_service.js"></script>
+    <script src="/Pages/FollowersPage/controller/normalFollowersCtrl.js"
 
     <script src="/Common/RouteProvider/routeProvider.js"></script>
 
