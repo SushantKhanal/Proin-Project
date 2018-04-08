@@ -39,10 +39,31 @@ public class ViewProAccountCtrl {
         return new ResponseEntity<SendStringDto>(sendStringDto, HttpStatus.OK);
     }
 
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.UNFOLLOW)
+    public ResponseEntity<Void>unfollow(@RequestBody CheckIfFollowedDto checkIfFollowedDto) {
+        try {
+            viewProAccountService.unfollow(checkIfFollowedDto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.SEND_FOLLOW_REQUEST)
     public ResponseEntity<Void>sendFollowRequest(@RequestBody LoggedMessageDto followRequest) {
-        NormalFollowRequest normalFollowRequest = new NormalFollowRequest(followRequest.getFromNormalUsername(),
-                followRequest.getToProUsername(), followRequest.getMessage(), 0L);
+        //check for past follow requests
+        NormalFollowRequest normalFollowRequest;
+        try {
+            Long trueId = viewProAccountService.checkPastRequests(followRequest);
+            normalFollowRequest = new NormalFollowRequest(trueId, followRequest.getFromNormalUsername(),
+                    followRequest.getToProUsername(), followRequest.getMessage(), 0L);
+        }
+        catch (Exception e) {
+            normalFollowRequest = new NormalFollowRequest(followRequest.getFromNormalUsername(),
+                    followRequest.getToProUsername(), followRequest.getMessage(), 0L);
+        }
+
         viewProAccountService.registerFollowRequest(normalFollowRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }

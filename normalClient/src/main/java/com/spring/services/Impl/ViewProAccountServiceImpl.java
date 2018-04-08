@@ -4,6 +4,7 @@ import com.spring.model.*;
 import com.spring.repository.*;
 import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
+import com.spring.requestDto.LoggedMessageDto;
 import com.spring.services.ViewProAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.math.BigInteger;
 import java.util.List;
 
 /**
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
  */
+
 @Service
 @Transactional
 public class ViewProAccountServiceImpl implements ViewProAccountService{
@@ -115,12 +118,12 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     public void addNormalReview(NormalUserReviews normalUserReviews1){
         normalUserReviewsRepository.saveAndFlush(normalUserReviews1);
     }
-
+//follow request sent status = 0
     @Override
     public void registerFollowRequest(NormalFollowRequest normalFollowRequest) {
         normalFollowRequestRepository.saveAndFlush(normalFollowRequest);
     }
-
+//follow request accepted status = 1
     @Override
     public String checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto) {
         String from = checkIfFollowedDto.getLoggedInUsername();
@@ -147,7 +150,17 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
                 result = query1.getSingleResult();
                 followStatus = "accepted";
             }catch(Exception e1){
-                followStatus = "noRequestFound";
+                try {
+                    Query query1 = em.createNativeQuery(sql);
+                    query1.setParameter("from", from);
+                    query1.setParameter("to", to);
+                    query1.setParameter("status", 3);
+                    result = query1.getSingleResult();
+                    followStatus = "pending";
+                }catch(Exception e2){
+                    followStatus = "noRequestFound";
+                    return followStatus;
+                }
                 return followStatus;
             }
             return followStatus;
@@ -155,6 +168,30 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
 
             return followStatus;
 
+    }
+
+//unfollowed status = 2
+    @Override
+    public void unfollow(CheckIfFollowedDto checkIfFollowedDto) {
+
+        String sql = "UPDATE normal_follow_request_table nfr" +
+                " SET status = 2"+
+                " WHERE nfr.fromNormalUsername = :from AND nfr.toProUsername = :to";
+        Query query = em.createNativeQuery(sql);
+        query.setParameter("from", checkIfFollowedDto.getLoggedInUsername());
+        query.setParameter("to", checkIfFollowedDto.getOtherUsername());
+        query.executeUpdate();
+    }
+
+    @Override
+    public Long checkPastRequests(LoggedMessageDto followRequest) {
+        String sql = "SELECT f.id FROM normal_follow_request_table f" +
+                " WHERE f.fromNormalUsername = :from AND f.toProUsername = :to";
+        Query query = em.createNativeQuery(sql);
+        query.setParameter("from", followRequest.getFromNormalUsername());
+        query.setParameter("to", followRequest.getToProUsername());
+        BigInteger result = (BigInteger) query.getSingleResult();
+        return result.longValue();
     }
 
 }

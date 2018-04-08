@@ -160,4 +160,34 @@ public class AccountServiceImpl implements AccountService {
             System.out.println("Exception "+e);
         }
     }
+
+    @Override
+    public void ignoreFollowRequest(Long id) {
+        String sql = "UPDATE normal_follow_request_table nfr" +
+                " SET status = 3"+
+                " WHERE id = :id";
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("id", id);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Exception "+e);
+        }
+    }
+
+    @Override
+    public List<NormalFollowRequest> getIgnoredRequests() {
+
+        String sql = "SELECT * FROM normal_follow_request_table f" +
+                " WHERE f.status = 3";
+        List<NormalFollowRequest> results = new ArrayList<>();
+        try {
+            Query query = em.createNativeQuery(sql);
+            results = query.getResultList();
+        }catch(Exception e){
+            System.out.println("Exception "+e);
+        }
+        return results;
+
+    }
 }

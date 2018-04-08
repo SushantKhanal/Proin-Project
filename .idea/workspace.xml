@@ -7,24 +7,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f884443c-3502-4708-bcaf-59fe9363c3c8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/AccountServiceImpl.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/classes/com/spring/model/NormalFollowRequest.class" afterPath="$PROJECT_DIR$/normalClient/target/classes/com/spring/model/NormalFollowRequest.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/NormalFollowRequest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/classes/com/spring/controller/ViewProAccountCtrl.class" afterPath="$PROJECT_DIR$/normalClient/target/classes/com/spring/controller/ViewProAccountCtrl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/classes/com/spring/services/Impl/ViewProAccountServiceImpl.class" afterPath="$PROJECT_DIR$/normalClient/target/classes/com/spring/services/Impl/ViewProAccountServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/classes/com/spring/services/ViewProAccountService.class" afterPath="$PROJECT_DIR$/normalClient/target/classes/com/spring/services/ViewProAccountService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/classes/com/spring/utils/WebResourceConstant$ViewProAccountCtrl.class" afterPath="$PROJECT_DIR$/normalClient/target/classes/com/spring/utils/WebResourceConstant$ViewProAccountCtrl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/controller/ViewProAccountCtrl.class" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/controller/ViewProAccountCtrl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/model/NormalFollowRequest.class" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/model/NormalFollowRequest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/services/Impl/ViewProAccountServiceImpl.class" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/services/Impl/ViewProAccountServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/services/ViewProAccountService.class" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/services/ViewProAccountService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/utils/WebResourceConstant$ViewProAccountCtrl.class" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/WEB-INF/classes/com/spring/utils/WebResourceConstant$ViewProAccountCtrl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/controller/AccountController.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/controller/AccountController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/model/NormalFollowRequest.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/model/NormalFollowRequest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/AccountService.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/AccountService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/AccountServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/classes/com/spring/services/Impl/AccountServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/controller/AccountController.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/controller/AccountController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/model/NormalFollowRequest.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/model/NormalFollowRequest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/AccountService.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/AccountService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/AccountServiceImpl.class" afterPath="$PROJECT_DIR$/proinClient/target/sushant/WEB-INF/classes/com/spring/services/Impl/AccountServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java" afterPath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/model/NormalFollowRequest.java" afterPath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/model/NormalFollowRequest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java" afterPath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java" afterPath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java" afterPath="$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js" afterPath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js" afterPath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp" afterPath="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/controller/viewProCtrl.js" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/controller/viewProCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/services/view_pro_service.js" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/services/view_pro_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/viewProAccount.jsp" afterPath="$PROJECT_DIR$/normalClient/target/sushantkhanal/Pages/ViewProAccountPage/viewProAccount.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java" />
@@ -64,38 +74,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="viewProCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+            <state relative-caret-position="233">
+              <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewProAccountServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java">
+      <file leaf-file-name="showFollowRequestsCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/showFollowRequestsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showFollowRequests.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/templates/showFollowRequests.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding>
-                <marker date="1523165710646" expanded="true" signature="4170:4298" ph="SELECT f.id normal_follow_request_table" />
-                <marker date="1523165710646" expanded="true" signature="4170:4335" ph="SELECT f.id normal_follow_request_table" />
-                <marker date="1523165710646" expanded="true" signature="4170:4342" ph="SELECT f.id normal_follow_request_table" />
+                <element signature="n#style#0;n#p#0;n#span#0;n#li#0;n#ol#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#span#0;n#li#0;n#ol#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendStringDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/responseDto/SendStringDto.java">
+      <file leaf-file-name="userAccount.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/userAccount.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -216,8 +234,6 @@
         <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/requestDto/LoggedMessageDto.java" />
         <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/repository/NormalFollowRequestRepository.java" />
         <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/followRequestCtrl.js" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js" />
         <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/requestDto/CheckIfFollowedDto.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/userAccount.jsp" />
         <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/NormalAccountPage/controller/normalAccountCtrl.js" />
@@ -229,18 +245,20 @@
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/FollowRequestStatus.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/NormalFollowRequest.java" />
         <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/model/NormalFollowRequest.java" />
-        <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/showFollowRequestsCtrl.js" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/responseDto/SendStringDto.java" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js" />
+        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/services/user_account_service.js" />
-        <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/templates/showFollowRequests.html" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java" />
         <option value="$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/responseDto/SendStringDto.java" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js" />
-        <option value="$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java" />
+        <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/showFollowRequestsCtrl.js" />
+        <option value="$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/templates/showFollowRequests.html" />
       </list>
     </option>
   </component>
@@ -346,7 +364,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,47 +378,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proin-Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -412,11 +390,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,7 +404,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -442,15 +416,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="Pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,7 +434,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -476,19 +446,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="Pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Impl" />
+              <option name="myItemId" value="UserAccount" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,7 +468,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -514,15 +480,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="Pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="responseDto" />
+              <option name="myItemId" value="UserAccount" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,7 +506,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="normalClient" />
+              <option name="myItemId" value="proinClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -548,15 +518,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="Pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserAccount" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Proin-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proinClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -567,7 +563,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Workspace/Gitproject/erp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -591,8 +587,8 @@
       <recent name="$PROJECT_DIR$/normalClient/src/main/webapp/Pages/NormalAccountPage/service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.spring.repository" />
       <recent name="com.spring.model" />
+      <recent name="com.spring.repository" />
       <recent name="com.spring.services.Impl" />
       <recent name="com.spring.services" />
       <recent name="com.spring.responseDto" />
@@ -1258,12 +1254,12 @@
       <workItem from="1522815810453" duration="21281000" />
       <workItem from="1522900027270" duration="23367000" />
       <workItem from="1522984786638" duration="29959000" />
-      <workItem from="1523159063606" duration="6915000" />
+      <workItem from="1523159063606" duration="18071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="774842000" />
+    <option name="totallyTimeSpent" value="785998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1304,6 +1300,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31394422" sideWeight="0.49298596" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23481782" sideWeight="0.50701404" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1311,7 +1308,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1371,17 +1367,11 @@
           <properties />
           <option name="timeStamp" value="974" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java</url>
-          <line>155</line>
-          <properties />
-          <option name="timeStamp" value="1080" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1081" />
+      <option name="time" value="1128" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1390,31 +1380,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/templates/followRequest.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="66" lean-forward="false" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/requestDto/LoggedMessageDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/follow_request_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="67" lean-forward="false" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/NormalAccountCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1437,6 +1402,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,13 +1413,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/followRequestCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1472,13 +1431,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1522,6 +1474,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1529,13 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="35" column="64" lean-forward="true" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/userAccount.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="40" column="97" lean-forward="false" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -1561,18 +1507,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/userAccountCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/SearchResultsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1603,32 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/NormalFollowRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="51" column="75" lean-forward="false" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/model/NormalFollowRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/OtherAccountController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1343">
@@ -1641,32 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/services/user_account_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/templates/showFollowRequests.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="64" lean-forward="true" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#span#0;n#li#0;n#ol#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/showFollowRequestsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1706,70 +1593,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="135" column="62" lean-forward="true" selection-start-line="135" selection-start-column="62" selection-end-line="135" selection-end-column="62" />
-          <folding>
-            <marker date="1523164019934" expanded="true" signature="3546:3644" ph="SELECT * FRO... normal_follow_request_table" />
-            <marker date="1523164019934" expanded="true" signature="3546:3645" ph="SELECT u.use... users_table" />
-            <marker date="1523164019934" expanded="true" signature="4119:4228" ph="UPDATE norma... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="281" column="72" lean-forward="false" selection-start-line="281" selection-start-column="72" selection-end-line="281" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/responseDto/ValueDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1779,19 +1606,193 @@
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/ClientAccountPage/controller/clientAccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinAdmin/src/main/webapp/Pages/AdminAccountPage/controller/adminAccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-194">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/followRequestCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/viewProAccount.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="36" column="117" lean-forward="false" selection-start-line="36" selection-start-column="109" selection-end-line="36" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/utils/WebResourceConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="52" column="59" lean-forward="true" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/services/view_pro_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="41" column="58" lean-forward="false" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/ViewProAccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="57" lean-forward="true" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/webapp/Pages/ViewProAccountPage/controller/viewProCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="70" column="47" lean-forward="false" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/controller/ViewProAccountCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/services/Impl/ViewProAccountServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+        <state relative-caret-position="248">
+          <caret line="159" column="35" lean-forward="false" selection-start-line="159" selection-start-column="35" selection-end-line="159" selection-end-column="35" />
           <folding>
-            <marker date="1523165710646" expanded="true" signature="4170:4298" ph="SELECT f.id normal_follow_request_table" />
-            <marker date="1523165710646" expanded="true" signature="4170:4335" ph="SELECT f.id normal_follow_request_table" />
-            <marker date="1523165710646" expanded="true" signature="4170:4342" ph="SELECT f.id normal_follow_request_table" />
+            <marker date="1523172758418" expanded="true" signature="4315:4443" ph="SELECT f.id normal_follow_request_table" />
+            <marker date="1523172758418" expanded="true" signature="4315:4480" ph="SELECT f.id normal_follow_request_table" />
+            <marker date="1523172758418" expanded="true" signature="4315:4487" ph="SELECT f.id normal_follow_request_table" />
+            <marker date="1523172758418" expanded="true" signature="5966:6125" ph="UPDATE norma... " />
+            <marker date="1523172758418" expanded="true" signature="6470:6598" ph="SELECT f.id normal_follow_request_table" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/services/user_account_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalClient/src/main/java/com/spring/model/NormalFollowRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/OtherAccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="76" column="45" lean-forward="true" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/services/Impl/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding>
+            <marker date="1523182154238" expanded="true" signature="3546:3644" ph="SELECT * FRO... normal_follow_request_table" />
+            <marker date="1523182154238" expanded="true" signature="3546:3645" ph="SELECT u.use... users_table" />
+            <marker date="1523182154238" expanded="true" signature="3546:3682" ph="SELECT * FRO... normal_follow_request_table" />
+            <marker date="1523182154238" expanded="true" signature="4119:4228" ph="UPDATE norma... " />
+            <marker date="1523182154238" expanded="true" signature="4555:4664" ph="UPDATE norma... " />
+            <marker date="1523182154238" expanded="true" signature="5005:5076" ph="SELECT * FRO... normal_follow_request_table" />
+            <marker date="1523182154238" expanded="true" signature="5005:5088" ph="SELECT * FRO... normal_follow_request_table" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/model/NormalFollowRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/userAccountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/userAccount.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/java/com/spring/controller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/controller/showFollowRequestsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proinClient/src/main/webapp/Pages/UserAccount/templates/showFollowRequests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#span#0;n#li#0;n#ol#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#span#0;n#li#0;n#ol#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -5,6 +5,7 @@ angular
 proAccountController.$inject = ['$location', 'ModalFactory', 'ProAccountService'];
 
 function proAccountController($location, ModalFactory, ProAccountService) {
+
     var vm = this;
 
     vm.backToSearch = backToSearch;
@@ -23,6 +24,8 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
     vm.getReviews = getReviews;
 
+    vm.unFollow = unFollow;
+
     vm.ifFollow = "Send Follow Request";
 
     vm.beforeFollow = true;
@@ -31,6 +34,11 @@ function proAccountController($location, ModalFactory, ProAccountService) {
     vm.tags = '';
     vm.showReviews = false;
     vm.sendFollowRequest = sendFollowRequest;
+    //follow request sent status = 0
+    //follow request accepted status = 1
+    //unfollowed status = 2
+    //ignored request status = 3
+
 
     vm.review;
 
@@ -60,14 +68,15 @@ function proAccountController($location, ModalFactory, ProAccountService) {
                     } else if(r == "noRequestFound"){
                         vm.ifFollow = "Send Follow Request";
                         vm.isRequestSent = false;
+                        vm.beforeFollow = true;
                     } else if(r == "accepted") {
-                        vm.ifFollow = "following";
+                        vm.ifFollow = "Following";
                         vm.isRequestSent = true;
+                        vm.beforeFollow = false;
                     }
                 },
                 function(errResponse){
-                    vm.ifFollow = "Send Follow Request";
-                    vm.isRequestSent = false;
+
                 });
     }
 
@@ -81,6 +90,19 @@ function proAccountController($location, ModalFactory, ProAccountService) {
 
             }
         )
+    }
+
+    function unFollow() {
+        var r = confirm("Are you sure you want to unfollow " + vm.user.username + "?");
+        if (r==true) {
+            ProAccountService.unFollow(loggedInUser.username, vm.user.username)
+                .then(function(){
+                    console.log("Unfollowed ", vm.user.username);
+                    checkIfFollowed();
+                },function(){
+                    console.log("error");
+                })
+        }
     }
 
     function getAllAcademics() {

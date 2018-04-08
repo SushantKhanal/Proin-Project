@@ -15,12 +15,22 @@ function userAccountService(HttpService){
         getProfilePic: getProfilePic,
         checkFollowRequests: checkFollowRequests,
         acceptFollowRequest: acceptFollowRequest,
+        ignoreFollowRequest: ignoreFollowRequest,
+        showIgnoredRequests: showIgnoredRequests,
     };
 
     return factory;
 
+    function showIgnoredRequests() {
+        return HttpService.get(REST_SERVICE_URI + 'getIgnoredRequests/')
+    }
+
     function acceptFollowRequest(id) {
         return HttpService.post(REST_SERVICE_URI + 'acceptFollowRequest/', id)
+    }
+
+    function ignoreFollowRequest(id) {
+        return HttpService.post(REST_SERVICE_URI + 'ignoreFollowRequest/', id)
     }
 
     function checkFollowRequests(username) {

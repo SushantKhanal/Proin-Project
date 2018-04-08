@@ -290,4 +290,18 @@ public class AccountController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    //IGNORES FOLLOW REQUEST
+    @PostMapping("/user/ignoreFollowRequest/")
+    public ResponseEntity<Void> ignoreFollowRequest(@RequestBody Long id) {
+        accountService.ignoreFollowRequest(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    //FETCHES IGNORED REQUESTS
+    @GetMapping("/user/getIgnoredRequests")
+    public ResponseEntity<List<NormalFollowRequest>> getIgnoredRequests() {
+        List<NormalFollowRequest> list =  accountService.getIgnoredRequests();
+        return new ResponseEntity<List<NormalFollowRequest>>(list, HttpStatus.OK);
+    }
+
 }

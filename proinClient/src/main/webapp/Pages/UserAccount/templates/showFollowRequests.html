@@ -10,22 +10,42 @@
                     <p style="color: green; cursor: pointer;">
                         {{request[1]}}:
                         <button class="btn-danger" ng-click="$ctrl.approveRequest(request[0])">Approve</button>
-                        &nbsp; <button class="btn-primary">Reject</button>
+                        &nbsp; <button class="btn-primary" ng-click="$ctrl.ignoreRequest(request[0])">Ignore</button>
                     </p>
-                    <p style="margin-top: 0;">{{request[2]}}</p>
+                    <p style="margin-top: 0;">Msg: {{request[2]}}</p>
                 </span>
             </li>
         </ol>
     </div>
 
     <div ng-show="$ctrl.requests.length === 0">
-        <h4>Sorry, no favourites to show</h4>
+        <h4>Sorry, no follow requests to show</h4>
+    </div>
+
+    <div ng-show="$ctrl.showIgnored">
+        <h4>Ignored follow requests:</h4>
+        <ol>
+            <li ng-repeat="iRequest in $ctrl.ignoredRequests">
+            <span>
+                <p style="color: green; cursor: pointer;">
+                    {{iRequest[1]}}:
+                    <button class="btn-danger" ng-click="$ctrl.approveRequest(iRequest[0])">Approve</button>
+                    &nbsp; <button class="btn-primary" ng-click="$ctrl.ignoreRequest(iRequest[0])">Ignore</button>
+                </p>
+                <p style="margin-top: 0;">Msg: {{iRequest[2]}}</p>
+            </span>
+            </li>
+        </ol>
+        <div ng-show="$ctrl.ignoredRequests.length == 0">
+            <p style="color: green;">No ignored requests to show</p>
+        </div>
     </div>
 
 </div>
 
 <div class="modal-footer">
-    <div class="col-md-10 top-buffer">
-        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancelModal()">Cancel</button>
-    </div>
+
+        <button class="btn-primary pull-left" ng-click="$ctrl.showIgnoredRequests()">{{$ctrl.ignoreRB}}</button>
+        &nbsp;
+        <button class="btn-warning pull-right" ng-click="$ctrl.cancelModal()">Cancel</button>
 </div>

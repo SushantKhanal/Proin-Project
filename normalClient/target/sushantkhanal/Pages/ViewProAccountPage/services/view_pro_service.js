@@ -21,6 +21,7 @@ function proAccountService(HttpService) {
         sendFav: sendFav,
         deleteFav: deleteFav,
         checkIfFav: checkIfFav,
+        unFollow: unFollow,
     };
 
     return factory;
@@ -31,6 +32,14 @@ function proAccountService(HttpService) {
             otherUsername: otherUsername,
         };
         return HttpService.post(REST_SERVICE_URI+'checkIfFollowed/', ifFollowedData);
+    }
+
+    function unFollow(loggedInUsername, otherUsername) {
+        var ifFollowedData = {
+            loggedInUsername: loggedInUsername,
+            otherUsername: otherUsername,
+        };
+        return HttpService.post(REST_SERVICE_URI+'unFollow/', ifFollowedData);
     }
 
     function sendReview (loggedInUsername, otherUsername, review, rating) {

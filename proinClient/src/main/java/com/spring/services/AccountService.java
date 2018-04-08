@@ -38,4 +38,8 @@ public interface AccountService {
     List<NormalFollowRequest> checkFollowRequests(String username);
 
     void approveFollowRequest(Long id);
+
+    void ignoreFollowRequest(Long id);
+
+    List<NormalFollowRequest> getIgnoredRequests();
 }
