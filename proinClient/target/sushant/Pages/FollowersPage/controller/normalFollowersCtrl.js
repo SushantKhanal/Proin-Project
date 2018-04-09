@@ -3,12 +3,13 @@ angular
     .module('myApp')
     .controller('NormalFollowersCtrl', normalFollowersCtrl);
 
-normalFollowersCtrl.$inject = ['ClientSignInService', 'UserAccountService', '$location', 'NormalFollowersService'];
+normalFollowersCtrl.$inject = ['ClientSignInService', 'UserAccountService', '$location', 'NormalFollowersService', 'ModalFactory'];
 
-function normalFollowersCtrl(ClientSignInService, UserAccountService, $location, NormalFollowersService) {
+function normalFollowersCtrl(ClientSignInService, UserAccountService, $location, NormalFollowersService, ModalFactory) {
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
+    vm.sendCustomEmail = sendCustomEmail;
 
     //follow request sent status = 0
     //follow request accepted status = 1
@@ -24,6 +25,9 @@ function normalFollowersCtrl(ClientSignInService, UserAccountService, $location,
     getProfilePic(vm.user.username);
     fetchFollowers(vm.user.username);
 
+    function sendCustomEmail(emailAddress) {
+        var modalInstance = ModalFactory.open('Pages/FollowersPage/templates/sendCustomEmail.html', 'SendCustomEmailController', 'md', '$ctrl', emailAddress);
+    }
 
     function getProfilePic(username){
         UserAccountService.getProfilePic(username)

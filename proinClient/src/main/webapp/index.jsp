@@ -46,7 +46,9 @@
     <script src="/Pages/SearchResults/services/search_results_service.js"></script>
     <script src="/Pages/OtherAccount/services/other_account_service.js"></script>
     <script src="/Pages/FollowersPage/controller/normalFollowersCtrl.js"></script>
+    <script src="/Pages/FollowersPage/controller/sendCustomEmailController.js"></script>
     <script src="/Pages/FollowersPage/services/normal_followers_service.js"></script>
+    <script src="/Pages/FollowersPage/services/custom_email_service.js"></script>
 
     <script src="/Common/RouteProvider/routeProvider.js"></script>
 

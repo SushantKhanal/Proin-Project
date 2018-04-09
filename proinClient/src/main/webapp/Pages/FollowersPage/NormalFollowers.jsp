@@ -47,7 +47,7 @@
 
                                 <div ng-repeat="follower in xxx.followersList">
                                     <div class="col-sm-5 col-xs-6 tital "><p>{{follower.username}}</p></div>
-                                    <span class="col-sm-7">{{follower.email}} <button class="btn-primary">Send Email</button></span>
+                                    <span class="col-sm-7">{{follower.email}} <button class="btn-primary" ng-click="xxx.sendCustomEmail(follower.email)">Send Email</button></span>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
