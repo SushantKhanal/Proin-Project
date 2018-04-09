@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module("myApp")
-        .config(routeFunc)
+        .config(routeFunc);
 
     function routeFunc($routeProvider){
 
@@ -32,7 +32,8 @@
 
             })
             .when('/searchResults/otherAccount', {templateUrl: 'Pages/OtherAccount/otherAccount.jsp'})
-            .when('/searchResults/otherUser', {templateUrl: 'Pages/OtherAccount/otherAccount.jsp'});
+            .when('/searchResults/otherUser', {templateUrl: 'Pages/OtherAccount/otherAccount.jsp'})
+            .when('/userAccount/followers', {templateUrl: 'Pages/FollowersPage/NormalFollowers.jsp'})
         //'/searchResults/otherAccount'
     }
 })();

@@ -18,6 +18,7 @@
         vm.showIgnored = false;
         vm.ignoreRB = "Show Ignore Requests";
         checkFollowRequests();
+
         //follow request sent status = 0
         //follow request accepted status = 1
         //unfollowed status = 2

@@ -29,6 +29,7 @@ function normalAccountController(ModalFactory, $location, NormalAccountService) 
     getProfilePic(vm.user.username);
 
     function takeToSocial() {
+        $location.path('/NormalAccount/Following');
         console.log("take to page where followers and following is shown");
     }
 

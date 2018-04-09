@@ -44,6 +44,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllExperience();
 
     function takeToSocial() {
+        $location.path('/userAccount/followers');
         console.log("take to page where followers and following is shown");
     }
 

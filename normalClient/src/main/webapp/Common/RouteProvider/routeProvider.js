@@ -31,6 +31,7 @@
                 templateUrl: 'Pages/SearchProClientsPage/searchProClients.jsp'
             })
             .when('/searchProClients/proAccount', {templateUrl: 'Pages/ViewProAccountPage/viewProAccount.jsp'})
+            .when('/NormalAccount/Following', {templateUrl: 'Pages/FollowingPage/NormalfollowingPro.jsp'})
 
     }
 })();
