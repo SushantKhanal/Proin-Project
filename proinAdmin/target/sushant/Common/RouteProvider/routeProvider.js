@@ -21,7 +21,7 @@
             })
             .when('/adminAccount/clientAccount', {templateUrl: 'Pages/ClientAccountPage/clientAccountPage.jsp'})
             .when('/adminAccount/clientAccount/differentPath', {templateUrl: 'Pages/ClientAccountPage/clientAccountPage.jsp'})
-
+            .when('/adminAccount/signUp/', {templateUrl: 'Pages/SignUpPage/adminSignUp.jsp'})
     }
 })();
 

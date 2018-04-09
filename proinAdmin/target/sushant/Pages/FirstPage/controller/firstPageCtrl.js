@@ -11,6 +11,7 @@ function firstPageController(AdminSignInService, $location) {
     vm.username;
     vm.password;
     vm.adminSignIn = adminSignIn;
+    vm.adminSignUp = adminSignUp;
 
     function adminSignIn() {
         AdminSignInService.checkLogIn(vm.username, vm.password)
@@ -29,6 +30,11 @@ function firstPageController(AdminSignInService, $location) {
                 vm.password = '';
                 alert("error matching admin username, password");
             })
+    }
+
+    function adminSignUp() {
+        alert("You want to sign up?");
+        $location.path('/adminAccount/signUp/');
     }
 
 }

@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- */
-
 @RestController
 @RequestMapping(WebResourceConstant.API_BASE +
         WebResourceConstant.NormalFollowersCtrl.NORMAL_FOLLOWERS_BASE)

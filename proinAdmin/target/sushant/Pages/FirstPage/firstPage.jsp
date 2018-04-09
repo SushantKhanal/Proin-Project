@@ -1,4 +1,3 @@
-
 <div class="col-sm-5" ng-controller="FirstPageCtrl as xxx">
     <h2>SignIn and SignUp for admins</h2>
     <div class="form-box">
@@ -22,7 +21,7 @@
                 <button type="button" class="btn btn-primary" ng-click="xxx.adminSignIn()">Sign in!</button>
             </form>
             <div class="social-login">
-                <button class="btn btn-warning">SignUp for Admins</button>
+                <button class="btn btn-warning" ng-click="xxx.adminSignUp()">SignUp for Admins</button>
             </div>
         </div>
     </div>

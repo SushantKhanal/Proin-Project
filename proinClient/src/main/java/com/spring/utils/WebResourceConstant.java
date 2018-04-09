@@ -1,10 +1,5 @@
 package com.spring.utils;
 
-/**
- * @author : Suraj Gautam
- *         <suraj.gautam@f1soft.com>
- *         The class stores all the RESTful Web Service's endpoints
- */
 public class WebResourceConstant {
 
     public static final String API_BASE = "/api";
