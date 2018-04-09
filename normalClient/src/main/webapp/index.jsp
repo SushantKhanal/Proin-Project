@@ -41,7 +41,9 @@
 <script src="Pages/ViewProAccountPage/services/view_pro_service.js"></script>
 <script src="Pages/ViewProAccountPage/services/follow_request_service.js"></script>
 <script src="Pages/FollowingPage/controller/normalFollowingProCtrl.js"></script>
+<script src="Pages/FollowingPage/controller/sendCustomEmailCtrl.js"></script>
 <script src="Pages/FollowingPage/services/normal_following_pro_service.js"></script>
+<script src="Pages/FollowingPage/services/send_custom_email_service.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4>Subject</h4>
+    <textarea style="width:500px; height: 20px;" ng-model = "$ctrl.emailSubject"></textarea>
+</div>
+
+<div class="modal-body">
+    <h4>Body</h4>
+    <textarea style="width:500px; height: 60px;" ng-model = "$ctrl.emailBody"></textarea>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-10 top-buffer">
+        <button class="btn btn-primary pull-left" ng-click="$ctrl.sendEmail()">Send Email</button>
+        <button class="btn btn-warning pull-right" ng-click="$ctrl.cancelModal()">Cancel</button>
+    </div>
+</div>

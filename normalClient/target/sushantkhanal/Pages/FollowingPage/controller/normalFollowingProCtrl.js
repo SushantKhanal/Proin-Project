@@ -22,7 +22,7 @@ function normalFollowingProCtrl(ModalFactory, $location, NormalAccountService, N
     fetchFollowings(vm.user.username);
 
     function sendCustomEmail(emailAddress) {
-        console.log(emailAddress);
+        var modalInstance = ModalFactory.open('Pages/FollowingPage/templates/sendCustomEmail.html', 'SendCustomEmailController', 'md', '$ctrl', emailAddress);
     }
 
     function getProfilePic(username){
