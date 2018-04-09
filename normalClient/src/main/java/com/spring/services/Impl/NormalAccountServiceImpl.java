@@ -3,6 +3,7 @@ package com.spring.services.Impl;
 import com.spring.model.NormalProfilePic;
 import com.spring.repository.NormalProfilePicRepository;
 import com.spring.repository.ValueRepository;
+import com.spring.responseDto.FollowingDto;
 import com.spring.services.NormalAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -67,6 +70,31 @@ public class NormalAccountServiceImpl implements NormalAccountService{
             System.out.println("Exception "+e);
         }
         return integer;
+    }
+
+    @Override
+    public List<FollowingDto> getFollowingsData(String username){
+        String sql = "SELECT f.toProUsername FROM normal_follow_request_table f" +
+                " WHERE f.status = 1 and f.fromNormalUsername = :username";
+        List<String> results = new ArrayList<>();
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("username", username);
+            results = query.getResultList();
+        }catch(Exception e){
+            System.out.println("Exception "+e);
+        }
+        List<FollowingDto> followingDtos = new ArrayList<FollowingDto>();
+        for (String proUsername : results) {
+            String sql1 = "SELECT n.email FROM users_table n" +
+                    " WHERE n.username = :proUsername";
+            Query query1 = em.createNativeQuery(sql1);
+            query1.setParameter("proUsername", proUsername);
+            String result = (String) query1.getSingleResult();
+            FollowingDto followingDto = new FollowingDto(proUsername, result);
+            followingDtos.add(followingDto);
+        }
+        return followingDtos;
     }
 
 }

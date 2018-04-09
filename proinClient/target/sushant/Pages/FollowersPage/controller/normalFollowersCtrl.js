@@ -42,6 +42,7 @@ function normalFollowersCtrl(ClientSignInService, UserAccountService, $location,
         NormalFollowersService.fetchFollowers(username)
             .then(
                 function(d) {
+                    vm.followersList = d;
                     console.log(d);
                 },
                 function(errResponse){
@@ -49,9 +50,5 @@ function normalFollowersCtrl(ClientSignInService, UserAccountService, $location,
                 }
             );
     }
-
-
-
-
 
 }

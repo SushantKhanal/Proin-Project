@@ -6,6 +6,7 @@ import com.spring.model.NormalUser;
 import com.spring.model.User;
 import com.spring.requestDto.PicDataDto;
 import com.spring.responseDto.CountriesList;
+import com.spring.responseDto.FollowingDto;
 import com.spring.responseDto.SearchParamsDto;
 import com.spring.responseDto.ValueDto;
 import com.spring.services.*;
@@ -30,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping(WebResourceConstant.API_BASE +
         WebResourceConstant.NormalAccountCtrl.Normal_ACCOUNT_BASE)
+
 public class NormalAccountCtrl {
     private final NormalSignUpService normalSignUpService;
     private final NormalSignInService normalSignInService;
@@ -152,5 +154,9 @@ public class NormalAccountCtrl {
             return new ResponseEntity<>(favUsernames, HttpStatus.OK);
         }
 
+    @PostMapping(WebResourceConstant.NormalAccountCtrl.FETCH_FOLLOWINGS)
+        public ResponseEntity<List<FollowingDto>> fetchFollowings(@RequestBody String username) {
+            return new ResponseEntity<>(normalAccountService.getFollowingsData(username),HttpStatus.OK);
+        }
 
 }

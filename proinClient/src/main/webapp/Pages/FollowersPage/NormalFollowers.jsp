@@ -34,16 +34,23 @@
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">
 
-                                <div class="col-sm-5 col-xs-6 tital "><h4 style="color: seagreen;">Normal Followers</h4></div>
+                                <div class="col-sm-5 col-xs-6 tital "><h4 style="color: seagreen; ">Normal Followers</h4></div>
                                 <%--<input class="col-sm-7 col-xs-6 userDetail updateDetail" ng-model="xxx.user.firstName"--%>
                                        <%--readonly/>--%>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 
                                 <div class="col-sm-5 col-xs-6 tital "><span style="color: blue;">Username</span></div>
-                                <span style="color: blue;" class="col-sm-7">Email</span>
+                                <span style="color: blue;" class="col-sm-5 col-xs-6 tital">Email</span>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
+
+                                <div ng-repeat="follower in xxx.followersList">
+                                    <div class="col-sm-5 col-xs-6 tital "><p>{{follower.username}}</p></div>
+                                    <span class="col-sm-7">{{follower.email}} <button class="btn-primary">Send Email</button></span>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
 
                                 <!-- /.box-body -->
                             </div>
