@@ -8,7 +8,7 @@ customEmailService.$inject = ['HttpService'];
 
 function customEmailService(HttpService) {
 
-    var REST_SERVICE_URI = 'http://localhost:8080/normalClient/api/sendCustomEmail/';
+    var REST_SERVICE_URI = 'http://localhost:8080/normalClient/api/normalAccount/';
 
     var factory = {
         sendEmail: sendEmail,

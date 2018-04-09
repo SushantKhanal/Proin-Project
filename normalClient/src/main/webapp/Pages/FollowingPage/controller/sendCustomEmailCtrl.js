@@ -20,7 +20,7 @@
                 .then(function(){
                     cancelModal();
                 }, function(){
-                    alert("error sending follow request");
+                    console.log("error sending email");
                 })
         }
 

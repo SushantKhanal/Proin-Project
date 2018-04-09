@@ -4,6 +4,7 @@ import com.spring.model.FavProUsers;
 import com.spring.model.NormalProfilePic;
 import com.spring.model.NormalUser;
 import com.spring.model.User;
+import com.spring.requestDto.CustomEmailDTO;
 import com.spring.requestDto.PicDataDto;
 import com.spring.responseDto.CountriesList;
 import com.spring.responseDto.FollowingDto;
@@ -11,8 +12,11 @@ import com.spring.responseDto.SearchParamsDto;
 import com.spring.responseDto.ValueDto;
 import com.spring.services.*;
 import com.spring.utils.WebResourceConstant;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -33,6 +37,9 @@ import java.util.List;
         WebResourceConstant.NormalAccountCtrl.Normal_ACCOUNT_BASE)
 
 public class NormalAccountCtrl {
+    @Autowired
+    private JavaMailSender mailSender;
+
     private final NormalSignUpService normalSignUpService;
     private final NormalSignInService normalSignInService;
     private final NormalAccountService normalAccountService;
@@ -50,15 +57,15 @@ public class NormalAccountCtrl {
     }
 
 
-//EDIT NORMAL CLIENT PROFILE
+    //EDIT NORMAL CLIENT PROFILE
     @PostMapping(WebResourceConstant.NormalAccountCtrl.UPDATE_USER)
-    public ResponseEntity<NormalUser> createUser(@RequestBody NormalUser normalUser){
+    public ResponseEntity<NormalUser> createUser(@RequestBody NormalUser normalUser) {
         normalSignUpService.addNormalUser(normalUser);
         NormalUser returnedProfile = normalSignInService.getNormalUserByUsername(normalUser.getUsername());
         return new ResponseEntity<>(returnedProfile, HttpStatus.OK);
     }
 
-//UPDATES PROFILE PICS OF NORMAL CLIENTS
+    //UPDATES PROFILE PICS OF NORMAL CLIENTS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.UPDATE_PROFILE_PIC)
     public ResponseEntity<NormalProfilePic> updateProfilePic(@RequestBody PicDataDto picData)
             throws IOException {
@@ -69,24 +76,23 @@ public class NormalAccountCtrl {
         byte[] decodedImg = Base64.getDecoder().decode(picData.getImage());
         //NormalProfilePic NormalProfilePic1 = new NormalProfilePic();
 
-        String picPath = File.separator+"proinProjectNormalImages/"+picData.getUsername()+"."+picData.getFileType();
+        String picPath = File.separator + "proinProjectNormalImages/" + picData.getUsername() + "." + picData.getFileType();
 
-        FileOutputStream imageOutFile = new FileOutputStream(System.getProperty("catalina.home")+ picPath);
+        FileOutputStream imageOutFile = new FileOutputStream(System.getProperty("catalina.home") + picPath);
 
         try {
             imageOutFile.write(decodedImg);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("error");
         }
 
         //IF ISEXISTS == TRUE
         NormalProfilePic normalProfilePic = normalAccountService.getUserPpByUsername(picData.getUsername());
-        if(normalProfilePic != null) {
+        if (normalProfilePic != null) {
             Long trueId = normalProfilePic.getId();
             normalProfilePic1 = new NormalProfilePic(picData.getUsername(), picPath, returnedUser);
             normalProfilePic1.setId(trueId);
-        }else {
+        } else {
             normalProfilePic1 = new NormalProfilePic(picData.getUsername(), picPath, returnedUser);
         }
         //
@@ -97,13 +103,15 @@ public class NormalAccountCtrl {
 
         return new ResponseEntity<NormalProfilePic>(normalProfilePic2, HttpStatus.ACCEPTED);
     }
-//FETCH PROFILE PICTURE OF NORMAL CLIENTS
+
+    //FETCH PROFILE PICTURE OF NORMAL CLIENTS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.FETCH_PROFILE_PIC)
-    public ResponseEntity<NormalProfilePic> createUser(@RequestBody String username){
+    public ResponseEntity<NormalProfilePic> createUser(@RequestBody String username) {
         NormalProfilePic normalProfilePic2 = normalAccountService.getUserPpByUsername(username);
         return new ResponseEntity<>(normalProfilePic2, HttpStatus.OK);
     }
-//FETCH COUNTRIES LIST
+
+    //FETCH COUNTRIES LIST
     @GetMapping(WebResourceConstant.NormalAccountCtrl.GET_COUNTRIES)
     public ResponseEntity<CountriesList> getCountries() {
         CountriesList countriesList = new CountriesList();
@@ -114,10 +122,10 @@ public class NormalAccountCtrl {
 
     @GetMapping(WebResourceConstant.NormalAccountCtrl.FETCH_VALUE)
     public ResponseEntity<ValueDto> fetchValue() {
-       //Value value = new Value(0L, 0L);
+        //Value value = new Value(0L, 0L);
         BigInteger v = normalAccountService.updateValue();
         ValueDto valueDto = new ValueDto(v);
-        return new ResponseEntity<ValueDto>(valueDto,HttpStatus.OK);
+        return new ResponseEntity<ValueDto>(valueDto, HttpStatus.OK);
     }
 
     // ******************************************************* //
@@ -126,7 +134,7 @@ public class NormalAccountCtrl {
     public ResponseEntity<List<String>> searchProUsers(@RequestBody SearchParamsDto searchParams) {
         String undefined = "undefined";
 
-        if (searchParams.getCountry().equals(undefined)){
+        if (searchParams.getCountry().equals(undefined)) {
             List<String> results = searchProClientsService.getResults(searchParams.getSearchThis());
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
@@ -145,18 +153,34 @@ public class NormalAccountCtrl {
 
     //FETCH FAV USERNAMES
     @PostMapping(WebResourceConstant.NormalAccountCtrl.LOAD_FAV_USERNAMES)
-        public ResponseEntity<List<String>> loadFavUsernames(@RequestBody String loggedInUsername) {
-            List<FavProUsers> favUsers = viewProAccountService.getResults(loggedInUsername);
-            List<String> favUsernames= new ArrayList<String>();
-            for(FavProUsers element : favUsers) {
-                favUsernames.add(element.getFavProUsername());
-            }
-            return new ResponseEntity<>(favUsernames, HttpStatus.OK);
+    public ResponseEntity<List<String>> loadFavUsernames(@RequestBody String loggedInUsername) {
+        List<FavProUsers> favUsers = viewProAccountService.getResults(loggedInUsername);
+        List<String> favUsernames = new ArrayList<String>();
+        for (FavProUsers element : favUsers) {
+            favUsernames.add(element.getFavProUsername());
         }
+        return new ResponseEntity<>(favUsernames, HttpStatus.OK);
+    }
 
     @PostMapping(WebResourceConstant.NormalAccountCtrl.FETCH_FOLLOWINGS)
-        public ResponseEntity<List<FollowingDto>> fetchFollowings(@RequestBody String username) {
-            return new ResponseEntity<>(normalAccountService.getFollowingsData(username),HttpStatus.OK);
-        }
+    public ResponseEntity<List<FollowingDto>> fetchFollowings(@RequestBody String username) {
+        return new ResponseEntity<>(normalAccountService.getFollowingsData(username), HttpStatus.OK);
+    }
 
+    @PostMapping(WebResourceConstant.NormalAccountCtrl.SEND_CUSTOM_EMAIL)
+    public ResponseEntity<Void> sendCustomEmail(@RequestBody CustomEmailDTO customEmailDTO) {
+        //send Email
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(customEmailDTO.getEmailId());
+        message.setSubject(customEmailDTO.getSubject());
+        message.setText(customEmailDTO.getBody());
+        message.setFrom("ProinProject@gmail.com");
+        try{
+            mailSender.send(message);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch(Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<Void>(HttpStatus.EXPECTATION_FAILED);
+        }
+    }
 }
