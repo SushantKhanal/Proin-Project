@@ -2,17 +2,18 @@ package com.spring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="users_table")
-@AllArgsConstructor
+@Table(name="admins_table")
 @Getter
 @Setter
-public class User {
-//    vm.user={firstName:'', lastName:'', bio:'', nation:'', clientType:'', username:'', password:'', address:'',email:'',agenda:'',academics: '',experience: '', marketDomain: ''};
+@AllArgsConstructor
+@NoArgsConstructor
+public class Admin {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
@@ -26,8 +27,6 @@ public class User {
     private String bio;
 
     private String nation;
-
-    private String clientType;
 
     private String username;
 
@@ -45,20 +44,17 @@ public class User {
 
     private String experience;
 
-    private String marketDomain;
-
-    public User() {super();}
+    private Long status;
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Admin{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dob='" + dob + '\'' +
                 ", bio='" + bio + '\'' +
                 ", nation='" + nation + '\'' +
-                ", clientType='" + clientType + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
@@ -67,7 +63,8 @@ public class User {
                 ", joinDate='" + joinDate + '\'' +
                 ", academics='" + academics + '\'' +
                 ", experience='" + experience + '\'' +
-                ", marketDomain='" + marketDomain + '\'' +
+                ", status=" + status +
                 '}';
     }
+
 }

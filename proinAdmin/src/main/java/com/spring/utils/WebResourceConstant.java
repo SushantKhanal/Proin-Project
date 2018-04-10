@@ -20,5 +20,10 @@ public class WebResourceConstant {
         public static final String FETCH_REQUESTING_CLIENT_INFO = "/getRequestingUserInfo/";
     }
 
+    public interface SignUpCtrl {
+        public static final String SIGNUP_BASE = "/SignUp";
+        public static final String CREATE_ADMIN = "/createAdmin";
+    }
+
 
 }

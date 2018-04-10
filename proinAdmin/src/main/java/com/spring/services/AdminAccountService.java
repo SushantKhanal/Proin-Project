@@ -11,6 +11,7 @@ import java.util.List;
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
  */
+
 public interface AdminAccountService {
     List<String> getResults(String searchTxt, Integer status);
     List<String> findResults(String country, String searchTxt, Integer status);
