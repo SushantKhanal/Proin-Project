@@ -18,6 +18,9 @@ public class WebResourceConstant {
         public static final String APPROVE_CLIENT_REQUEST = "/approveClientRequest/";
         public static final String DENY_CLIENT_REQUEST = "/denyClientRequest/";
         public static final String FETCH_REQUESTING_CLIENT_INFO = "/getRequestingUserInfo/";
+        public static final String FETCH_ADMIN_REQUESTS = "/fetchAdminRequests/";
+        public static final String APPROVE_ADMIN_REQUEST = "/approveAdminRequest/";
+        public static final String REJECT_ADMIN_REQUEST = "/rejectAdminRequest/";
     }
 
     public interface SignUpCtrl {

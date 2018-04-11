@@ -18,10 +18,27 @@ function adminAccountService(HttpService){
         fetchAccountRequests: fetchAccountRequests,
         approveClientRequest: approveClientRequest,
         denyClientRequest: denyClientRequest,
-        getRequestingUser: getRequestingUser
-    };
+        getRequestingUser: getRequestingUser,
+        fetchAdminRequests: fetchAdminRequests,
 
+        approveAdminRequest: approveAdminRequest,
+        rejectAdminRequest: rejectAdminRequest,
+    };
+//ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
+//ADMIN STATUS 1 == ACCEPTED
+//ADMIN STATUS 2 == REJECTED
     return factory;
+
+    function approveAdminRequest(username) {
+        return HttpService.post(REST_SERVICE_URI + 'approveAdminRequest/', username);
+    }
+    function rejectAdminRequest(username) {
+        return HttpService.post(REST_SERVICE_URI + 'rejectAdminRequest/', username)
+    }
+
+    function fetchAdminRequests() {
+        return HttpService.get(REST_SERVICE_URI + "fetchAdminRequests/");
+    }
 
     function getRequestingUser(username) {
         return HttpService.post(REST_SERVICE_URI + "getRequestingUserInfo/", username);

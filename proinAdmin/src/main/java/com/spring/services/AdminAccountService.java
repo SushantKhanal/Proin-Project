@@ -1,9 +1,6 @@
 package com.spring.services;
 
-import com.spring.model.User;
-import com.spring.model.UserSignUpRequest;
-import com.spring.model.UserSignUpRequestStatus;
-import com.spring.model.UserStatus;
+import com.spring.model.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public interface AdminAccountService {
     UserSignUpRequest getSignUpRequestByUsername(String username);
     void addUserSignUpRequestStatus(UserSignUpRequestStatus uSRS);
     void addUser(User user);
+    void approveAdminRequest(String username);
+    void rejectAdminRequest(String username);
+    List<String> getAdminRequests();
 }

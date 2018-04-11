@@ -1,9 +1,6 @@
 package com.spring.services.Impl;
 
-import com.spring.model.User;
-import com.spring.model.UserSignUpRequest;
-import com.spring.model.UserSignUpRequestStatus;
-import com.spring.model.UserStatus;
+import com.spring.model.*;
 import com.spring.repository.UserRepository;
 import com.spring.repository.UserSignUpRequestRepository;
 import com.spring.repository.UserSignUpRequestStatusRepository;
@@ -132,4 +129,51 @@ public class AdminAccountServiceImpl implements AdminAccountService {
         userSignUpRequestStatusRepository.saveAndFlush(uSRS);
     }
 
+    @Override
+    public List<String> getAdminRequests() {
+        String sql = "SELECT a.username FROM admins_table a"+
+                " WHERE a.status = 0";
+        //fetch the requests with status 0
+        List<String> results = new ArrayList<>();
+
+        try {
+            Query query = em.createNativeQuery(sql);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Exception " + e);
+        }
+        return results;
+    }
+
+    @Override
+    public void approveAdminRequest(String username) {
+        //change admin status
+        String sql = "UPDATE admins_table a" +
+                " SET a.status = 1"+
+                " WHERE a.username = :username";
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("username", username);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Exception "+e);
+        }
+    }
+    //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
+//ADMIN STATUS 1 == ACCEPTED
+//ADMIN STATUS 2 == REJECTED
+    @Override
+    public void rejectAdminRequest(String username) {
+        //change admin status
+        String sql = "UPDATE admins_table a" +
+                " SET a.status = 2"+
+                " WHERE a.username = :username";
+        try {
+            Query query = em.createNativeQuery(sql);
+            query.setParameter("username", username);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Exception "+e);
+        }
+    }
 }

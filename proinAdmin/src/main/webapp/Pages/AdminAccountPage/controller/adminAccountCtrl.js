@@ -10,6 +10,7 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
     var vm = this;
     vm.welcomeMessage = "Welcome to admin account Page";
     vm.showAccountRequests = showAccountRequests;
+    vm.fetchAdminRequests = fetchAdminRequests;
     vm.searchResults = searchResults;
     vm.searchThis = '';
     vm.logOut = logOut;
@@ -22,10 +23,81 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
     vm.users = '';
     vm.requestingUsers = '';
     vm.requestButton = 'Show Account Requests';
+    vm.requestingAdminsButton = "Show admin requests";
     vm.showClientRequests = false;
+    vm.showAdminRequests = false;
     vm.approveRequest = approveRequest;
     vm.denyRequest = denyRequest;
+    vm.approveAdminRequest = approveAdminRequest;
+    vm.rejectAdminRequest = rejectAdminRequest;
     getCountries();
+
+//ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
+//ADMIN STATUS 1 == ACCEPTED
+//ADMIN STATUS 2 == REJECTED
+
+    function approveAdminRequest(username) {
+        alert('approve admin?');
+        AdminAccountService.approveAdminRequest(username)
+            .then(function(){
+                fetchAdminRequests();
+            }, function(){
+                console.log("error approving admin");
+            });
+    }
+
+    function rejectAdminRequest(username) {
+        alert('reject admin?');
+        AdminAccountService.rejectAdminRequest(username)
+            .then(function(){
+                fetchAdminRequests();
+            }, function(){
+                console.log("error rejecting admin");
+            });
+    }
+
+    function fetchAdminRequests() {
+        vm.showAdminRequests = !vm.showAdminRequests;
+        if(vm.showAdminRequests) {
+            vm.showClientRequests = false;
+            vm.requestButton = 'Show Account Requests';
+            AdminAccountService.fetchAdminRequests()
+                .then(
+                    function(r) {
+                        vm.requestingAdmins = r;
+                        vm.requestingAdminsButton = "Hide Account Requests";
+                        console.log(r);
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching Requesting admins');
+                    }
+                );
+        } else {
+            vm.requestingAdminsButton = "Show admin requests";
+        }
+
+    }
+
+    //FETCHES ACCOUNT REQUESTS
+    function showAccountRequests() {
+        vm.showClientRequests = !vm.showClientRequests;
+        if(vm.showClientRequests == true) {
+            vm.showAdminRequests = false;
+            vm.requestingAdminsButton = "Show admin requests";
+            AdminAccountService.fetchAccountRequests()
+                .then(
+                    function(r) {
+                        vm.requestingUsers = r;
+                        vm.requestButton = 'Hide Account Requests';
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching Requesting Users');
+                    }
+                );
+        } else {
+            vm.requestButton = 'Show Account Requests';
+        }
+    }
 
     function approveRequest(username) {
         AdminAccountService.approveClientRequest(username)
@@ -101,24 +173,6 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
             );
     }
 
-    //FETCHES ACCOUNT REQUESTS
-    function showAccountRequests() {
-        vm.showClientRequests = !vm.showClientRequests;
-        if(vm.showClientRequests == true) {
-            AdminAccountService.fetchAccountRequests()
-                .then(
-                    function(r) {
-                        vm.requestingUsers = r;
-                        vm.requestButton = 'Hide Account Requests';
-                    },
-                    function(errResponse){
-                        console.error('Error while fetching Requesting Users');
-                    }
-                );
-        } else {
-            vm.requestButton = 'Show Account Requests';
-        }
-    }
 
     function getCountries() {
         AdminAccountService.getCountries()

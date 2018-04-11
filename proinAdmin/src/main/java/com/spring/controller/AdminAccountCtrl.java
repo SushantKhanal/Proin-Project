@@ -1,9 +1,6 @@
 package com.spring.controller;
 
-import com.spring.model.User;
-import com.spring.model.UserSignUpRequest;
-import com.spring.model.UserSignUpRequestStatus;
-import com.spring.model.UserStatus;
+import com.spring.model.*;
 import com.spring.requestDTO.EmailContent;
 import com.spring.requestDTO.SearchInfo;
 import com.spring.responseDTO.CountriesList;
@@ -117,6 +114,26 @@ public class AdminAccountCtrl {
     public ResponseEntity<UserSignUpRequest> getRequestingUserInfo(@RequestBody String username) {
         return new ResponseEntity<UserSignUpRequest>(adminAccountService.getSignUpRequestByUsername(username),
                 HttpStatus.OK);
+    }
+
+    @GetMapping(WebResourceConstant.AdminSetupCtrl.FETCH_ADMIN_REQUESTS)
+    public ResponseEntity<List<String>> fetchAdminRequests() {
+        //send list of admin accounts where status = 0;
+        return new ResponseEntity<>(adminAccountService.getAdminRequests(), HttpStatus.OK);
+    }
+
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.APPROVE_ADMIN_REQUEST)
+    public ResponseEntity<Void> approveAdminRequests(@RequestBody String username) {
+        adminAccountService.approveAdminRequest(username);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+//ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
+//ADMIN STATUS 1 == ACCEPTED
+//ADMIN STATUS 2 == REJECTED
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.REJECT_ADMIN_REQUEST)
+    public ResponseEntity<Void> rejectAdminRequest(@RequestBody String username) {
+        adminAccountService.rejectAdminRequest(username);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 }
