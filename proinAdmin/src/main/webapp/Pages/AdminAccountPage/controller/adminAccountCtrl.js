@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('AdminAccountPageCtrl', adminAccountPageController);
 
-adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scope'];
+adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scope', 'NgTableParams'];
 
-function adminAccountPageController($location, AdminAccountService, $scope) {
+function adminAccountPageController($location, AdminAccountService, $scope, NgTableParams) {
 
     var vm = this;
     vm.welcomeMessage = "Welcome to admin account Page";
@@ -35,6 +35,47 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
 //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
 //ADMIN STATUS 1 == ACCEPTED
 //ADMIN STATUS 2 == REJECTED
+    ///////////////////////////////////////////////
+    $scope.filteredTodos = [];
+    $scope.pagination = {
+        currentPage:  0
+    };
+    $scope.numPerPage = 3
+        ,$scope.maxSize = 5;
+
+    $scope.$watch('pagination.currentPage', function() {
+        var begin = (($scope.pagination.currentPage - 1) * $scope.numPerPage)
+            , end = begin + $scope.numPerPage;
+
+        vm.filteredTodos = vm.users.slice(begin, end);
+    });
+    ///////////////////////////////////////////////////////////////////
+
+    function searchResults(status) {
+        if (vm.selectedCountry==null) {
+            vm.selectedCountry = '';
+        }
+        console.log(vm.searchThis, vm.selectedCountry, status);
+        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status)
+            .then(
+                function(u) {
+                    $scope.pagination = {
+                        currentPage:  1
+                    };
+                    vm.users = u;
+
+                    //vm.tableParams = new NgTableParams({}, { dataset: u});
+                    vm.tableParams = new NgTableParams({count: vm.users.length},{counts: [], dataset: u});
+
+                    if (vm.users !== []) {
+                        vm.showList = true;
+                    }
+                },
+                function(errResponse){
+                    console.error('Error while fetching Users');
+                }
+            );
+    }
 
     function approveAdminRequest(username) {
         alert('approve admin?');
@@ -186,24 +227,7 @@ function adminAccountPageController($location, AdminAccountService, $scope) {
             );
     }
 
-    function searchResults(status) {
-        if (vm.selectedCountry==null) {
-            vm.selectedCountry = '';
-        }
-        console.log(vm.searchThis, vm.selectedCountry, status);
-        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status)
-            .then(
-                function(u) {
-                    vm.users = u;
-                    if (vm.users !== []) {
-                        vm.showList = true;
-                    }
-                },
-                function(errResponse){
-                    console.error('Error while fetching Users');
-                }
-            );
-    }
+
 
     function logOut() {
         localStorage['adminLoggedIn'] = JSON.stringify(false);

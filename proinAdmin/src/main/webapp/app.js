@@ -1,5 +1,5 @@
 var App = angular
-    .module('myApp',['ngRoute','ngTouch','ngAnimate','ui.bootstrap', 'naif.base64']);
+    .module('myApp',['ngRoute','ngTouch','ngAnimate','ui.bootstrap', 'naif.base64', 'ngTable']);
 
 
 

@@ -18,8 +18,10 @@ function firstPageController(AdminSignInService, $location) {
             .then(function(r){
                 vm.username = '';
                 vm.password = '';
-                //vm.admin = 'r';
-                //localStorage['adminInfo'] = JSON.stringify(vm.admin);
+                if(r !== '') {
+                    vm.admin = 'r';
+                    localStorage['adminInfo'] = JSON.stringify(vm.admin);
+                }
 
                 localStorage['adminLoggedIn'] = JSON.stringify(true);
 

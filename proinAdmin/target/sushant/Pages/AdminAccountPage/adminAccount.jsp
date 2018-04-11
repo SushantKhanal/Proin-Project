@@ -18,13 +18,20 @@
             <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
         </select>
 
-        <ol style="cursor: pointer; color:blue;" class="listOfResult">
-            <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                <li ng-click="xxx.displayProfile(profile)">
-                    {{profile}}
-                </li>
-            </div>
-        </ol>
+        <div ng-if="xxx.users !== ''">
+            <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
+                <tr ng-repeat="user in xxx.filteredTodos">
+                    <td ng-click="xxx.displayProfile(user)">{{user}}</td>
+                </tr>
+            </table>
+            <uib-pagination
+                    ng-model="pagination.currentPage"
+                    items-per-page="3"
+                    total-items="xxx.users.length"
+                    max-size="5"
+                    boundary-links="true">
+            </uib-pagination>
+        </div>
 
     </div>
 
