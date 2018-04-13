@@ -1,6 +1,8 @@
 package com.spring.services;
 
 import com.spring.model.*;
+import com.spring.responseDTO.SearchResults;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -10,8 +12,8 @@ import java.util.List;
  */
 
 public interface AdminAccountService {
-    List<String> getResults(String searchTxt, Integer status);
-    List<String> findResults(String country, String searchTxt, Integer status);
+    SearchResults getResults(String searchTxt, Integer status, Pageable pageable);
+    SearchResults findResults(String country, String searchTxt, Integer status, Pageable pageable);
     User getUserByUsername(String username);
     UserStatus getUserStatusByUsername(String username);
     List<String> getAllSignUpRequestUsernames();

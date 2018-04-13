@@ -4,10 +4,12 @@ import com.spring.model.*;
 import com.spring.requestDTO.EmailContent;
 import com.spring.requestDTO.SearchInfo;
 import com.spring.responseDTO.CountriesList;
+import com.spring.responseDTO.SearchResults;
 import com.spring.scheduler.EmailSenderScheduler;
 import com.spring.services.AdminAccountService;
 import com.spring.services.ClientAccountService;
 import com.spring.utils.WebResourceConstant;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,18 +46,18 @@ public class AdminAccountCtrl {
     }
 
     @PostMapping(WebResourceConstant.AdminSetupCtrl.FETCH_SEARCH_RESULTS)
-    public ResponseEntity<List<String>> getResults(@RequestBody SearchInfo searchInfo) {
+    public ResponseEntity<SearchResults> getResults(@RequestBody SearchInfo searchInfo, Pageable pageable) {
         String empty = "";
         String country = searchInfo.getCountry();
         String searchTxt = searchInfo.getSearchThis();
         Integer status = searchInfo.getStatus();
 
         if (country.equals(empty)) {
-            List<String> results = adminAccountService.getResults(searchTxt, status);
+            SearchResults results = adminAccountService.getResults(searchTxt, status, pageable);
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
 
-        List<String> results = adminAccountService.findResults(country, searchTxt, status);
+        SearchResults results = adminAccountService.findResults(country, searchTxt, status, pageable);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
     }

@@ -5,8 +5,10 @@ import com.spring.repository.UserRepository;
 import com.spring.repository.UserSignUpRequestRepository;
 import com.spring.repository.UserSignUpRequestStatusRepository;
 import com.spring.repository.UserStatusRepository;
+import com.spring.responseDTO.SearchResults;
 import com.spring.services.AdminAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,7 +39,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     private UserSignUpRequestStatusRepository userSignUpRequestStatusRepository;
 
     @Override
-    public List<String> getResults(String searchTxt, Integer status) {
+    public SearchResults getResults(String searchTxt, Integer status, Pageable pageable) {
 
         String sql = "SELECT u.username FROM users_table u" +
                 " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
@@ -45,23 +47,28 @@ public class AdminAccountServiceImpl implements AdminAccountService {
                 " WHERE (u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike " +
                 "OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike)" +
                 " and s.status != :status";
-
+        SearchResults searchResults = new SearchResults();
         List<String> results=new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("searchTxtLike", "%"+searchTxt+"%");
             query.setParameter("status", status);
+            int noOfitems = query.getResultList().size();
+            query.setFirstResult((pageable.getPageNumber() - 1) * pageable.getPageSize());
+            query.setMaxResults(pageable.getPageSize());
 
             results=query.getResultList();
+            searchResults.setNoOfItems(noOfitems);
+            searchResults.setResults(results);
 
         }catch(Exception e){
             System.out.println("Exception "+e);
         }
-        return results;
+        return searchResults;
     }
 
     @Override
-    public List<String> findResults(String country, String searchTxt, Integer status) {
+    public SearchResults findResults(String country, String searchTxt, Integer status, Pageable pageable) {
 
         String sql = "SELECT u.username FROM users_table u" +
                 " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
@@ -69,7 +76,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
                 " WHERE u.nation = :country and (u.username LIKE :searchTxt OR u.firstName LIKE :searchTxt OR u.email LIKE :searchTxt OR t.tags LIKE :searchTxtLike)"+
                 " and s.status != :status";
 
-
+        SearchResults searchResults = new SearchResults();
         List<String> results = new ArrayList<>();
 
         try {
@@ -78,13 +85,18 @@ public class AdminAccountServiceImpl implements AdminAccountService {
             query.setParameter("searchTxt", searchTxt);
             query.setParameter("searchTxtLike", "%" + searchTxt + "%");
             query.setParameter("status", status);
+            int noOfitems = query.getResultList().size();
+            query.setFirstResult((pageable.getPageNumber() - 1) * pageable.getPageSize());
+            query.setMaxResults(pageable.getPageSize());
 
             results = query.getResultList();
+            searchResults.setNoOfItems(noOfitems);
+            searchResults.setResults(results);
 
         } catch (Exception e) {
             System.out.println("Exception " + e);
         }
-        return results;
+        return searchResults;
     }
 
     @Override

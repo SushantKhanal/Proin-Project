@@ -38,34 +38,28 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     ///////////////////////////////////////////////
     $scope.filteredTodos = [];
     $scope.pagination = {
-        currentPage:  0
+        currentPage:  1
     };
+    $scope.noOfItems;
     $scope.numPerPage = 3
         ,$scope.maxSize = 5;
-
-    $scope.$watch('pagination.currentPage', function() {
-        var begin = (($scope.pagination.currentPage - 1) * $scope.numPerPage)
-            , end = begin + $scope.numPerPage;
-
-        vm.filteredTodos = vm.users.slice(begin, end);
-    });
-    ///////////////////////////////////////////////////////////////////
 
     function searchResults(status) {
         if (vm.selectedCountry==null) {
             vm.selectedCountry = '';
         }
         console.log(vm.searchThis, vm.selectedCountry, status);
-        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status)
+        AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status,
+            $scope.pagination.currentPage, $scope.numPerPage)
             .then(
                 function(u) {
-                    $scope.pagination = {
-                        currentPage:  1
-                    };
-                    vm.users = u;
-
+                    // $scope.pagination = {
+                    //     currentPage:  1
+                    // };
+                    vm.users = u.results;
+                    $scope.noOfItems = u.noOfItems;
                     //vm.tableParams = new NgTableParams({}, { dataset: u});
-                    vm.tableParams = new NgTableParams({count: vm.users.length},{counts: [], dataset: u});
+                    //vm.tableParams = new NgTableParams({count: vm.users.length},{counts: [], dataset: u});
 
                     if (vm.users !== []) {
                         vm.showList = true;

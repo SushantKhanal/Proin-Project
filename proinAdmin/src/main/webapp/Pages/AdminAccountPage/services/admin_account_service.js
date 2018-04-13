@@ -69,14 +69,14 @@ function adminAccountService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
-    function getMatchedClients(searchThis, country, status) {
+    function getMatchedClients(searchThis, country, status, pageNumber, size) {
         var searchInfo = {
             searchThis: searchThis,
             country: country,
             status: status,
         };
-        return HttpService.post(REST_SERVICE_URI + "getResults/", searchInfo);
-
+        return HttpService.post(REST_SERVICE_URI +
+            "getResults?page="+pageNumber+"&size="+size, searchInfo);
     }
 
 }

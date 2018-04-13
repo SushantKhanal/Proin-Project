@@ -20,15 +20,16 @@
 
         <div ng-if="xxx.users !== ''">
             <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
-                <tr ng-repeat="user in xxx.filteredTodos">
+                <tr ng-repeat="user in xxx.users">
                     <td ng-click="xxx.displayProfile(user)">{{user}}</td>
                 </tr>
             </table>
             <uib-pagination
                     ng-model="pagination.currentPage"
                     items-per-page="3"
-                    total-items="xxx.users.length"
+                    total-items="noOfItems"
                     max-size="5"
+                    ng-change="xxx.searchResults(xxx.accountType)"
                     boundary-links="true">
             </uib-pagination>
         </div>
