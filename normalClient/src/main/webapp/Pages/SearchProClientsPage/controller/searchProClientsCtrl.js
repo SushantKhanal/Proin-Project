@@ -64,7 +64,7 @@ function searchProCleintsCtrl(SearchProClientsService, $location) {
         }
     });
 
-//CLICK WHEN ENTER IS PRESSED
+    //CLICK WHEN ENTER IS PRESSED
     $("#arrowNavigation").on('keydown', function(e) {
         if (e.which == 13 || event.keyCode == 13) {
             $('.selectElement').click();

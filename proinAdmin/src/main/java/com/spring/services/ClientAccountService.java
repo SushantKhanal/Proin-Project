@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.*;
+import com.spring.responseDTO.ReviewInfo;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ClientAccountService {
 
     List<UserAcademics> getUserAcademicsByUsername(String username);
 
-    List<UserReviews> getAllReviews(String loggedInUsername);
+    List<ReviewInfo> getAllReviews(String loggedInUsername);
 
     List<FavUsers> getResults(String loggedInUsername);
 

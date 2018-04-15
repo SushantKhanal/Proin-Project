@@ -2,6 +2,7 @@ package com.spring.services.Impl;
 
 import com.spring.model.*;
 import com.spring.repository.*;
+import com.spring.responseDTO.ReviewInfo;
 import com.spring.services.ClientAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -66,13 +68,26 @@ public class ClientAccountServiceImpl implements ClientAccountService {
     }
 
     @Override
-    public List<UserReviews> getAllReviews(String loggedInUsername) {
-        Query query = em.createQuery("SELECT p from UserReviews p where p.loggedInUsername like :loggedInUsername");
+    public List<ReviewInfo> getAllReviews(String loggedInUsername) {
+        Query query = em.createQuery("SELECT p from UserReviews p where p.otherUsername like :loggedInUsername");
         query.setParameter("loggedInUsername","%"+loggedInUsername+"%");
 
-        System.out.println(query.toString());
         List<UserReviews> results = query.getResultList();
-        return results;
+        List<ReviewInfo> reviewInfoList= new ArrayList<ReviewInfo>();
+        for (UserReviews element : results) {
+            ReviewInfo reviewInfo1 = new ReviewInfo(element.getLoggedInUsername(),loggedInUsername, element.getReview(), element.getRating());
+            reviewInfoList.add(reviewInfo1);
+        }
+        Query query1 = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :loggedInUsername");
+        query1.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+
+        System.out.println(query1.toString());
+        List<NormalUserReviews> results1 = query1.getResultList();
+        for (NormalUserReviews element : results1) {
+            ReviewInfo reviewInfo2 = new ReviewInfo(element.getLoggedInUsername(),loggedInUsername, element.getReview(), element.getRating());
+            reviewInfoList.add(reviewInfo2);
+        }
+        return reviewInfoList;
     }
 
     @Override

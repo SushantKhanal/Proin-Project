@@ -61,19 +61,9 @@ public class ClientAccountCtrl {
     @PostMapping("/client/getReviews/")
     public ResponseEntity<List<ReviewInfo>> getReviews(@RequestBody String otherUsername) {
 
-        List<UserReviews> userReviews2 = clientAccountService.getAllReviews(otherUsername);
+        List<ReviewInfo> userReviews = clientAccountService.getAllReviews(otherUsername);
 
-        List<ReviewInfo> reviewInfoList= new ArrayList<ReviewInfo>();
-
-        for (UserReviews element : userReviews2) {
-            String loggedInUsername = element.getLoggedInUsername();
-            String review = element.getReview();
-            Integer rating = element.getRating();
-            ReviewInfo reviewInfo1 = new ReviewInfo(loggedInUsername, otherUsername, review, rating);
-            reviewInfoList.add(reviewInfo1);
-        }
-
-        return new ResponseEntity<List<ReviewInfo>>(reviewInfoList, HttpStatus.OK);
+        return new ResponseEntity<List<ReviewInfo>>(userReviews, HttpStatus.OK);
     }
 
 
