@@ -1,10 +1,10 @@
 <div ng-controller="AdminAccountPageCtrl as xxx">
     <h1>{{xxx.welcomeMessage}}</h1>
     &nbsp;
-    <button class="btn btn-primary" ng-click="xxx.sendEmail()">Send Email</button>
+    <%--<button class="btn btn-primary" ng-click="xxx.sendEmail()">Send Email</button>--%>
 
     <div class="bot-border"></div>
-    <div>
+    <div id="arrowNavigation">
         <h3>Search for client accounts here</h3>
         <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="1">Deleted Accounts
         &nbsp;
@@ -21,7 +21,7 @@
         <div ng-if="xxx.users !== ''">
             <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
                 <tr ng-repeat="user in xxx.users">
-                    <td ng-click="xxx.displayProfile(user)">{{user}}</td>
+                    <td id="user{{$index}}" ng-click="xxx.displayProfile(user)">{{user}}</td>
                 </tr>
             </table>
             <uib-pagination

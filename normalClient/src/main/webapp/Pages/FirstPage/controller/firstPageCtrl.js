@@ -14,6 +14,13 @@ function firstPageController($location, SignInService) {
     vm.password;
     vm.user;
 
+    $("#passwordClient").on('keydown', function(e) {
+        if (e.which == 13 || event.keyCode == 13) {
+            //e.preventDefault();
+            userSignIn();
+        }
+    });
+
     //WHEN USER-SIGN-UP BUTTON IS CLICKED, USER-SIGN-UP PAGE IS DISPLAYED
     function userSignUp(){
         $location.path('/userSignUp');

@@ -30,6 +30,7 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     vm.denyRequest = denyRequest;
     vm.approveAdminRequest = approveAdminRequest;
     vm.rejectAdminRequest = rejectAdminRequest;
+    vm.count = -1;
     getCountries();
 
 //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
@@ -43,6 +44,55 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     $scope.noOfItems;
     $scope.numPerPage = 3
         ,$scope.maxSize = 5;
+
+    //DOWN-ARROW NAVIGATION
+    $(document).on('keydown', function(e) {
+        if (e.which == 40 || event.keyCode == 40) {
+            if(vm.showList == true) {
+                vm.count++;
+                //alert("hehahaha");
+                if(vm.count == (vm.users.length)){
+                    vm.count = 0;
+                }
+                if(vm.count == 0){
+                    if($('#user'+(vm.users.length-1)).hasClass('selectElement')) {
+                        $('#user'+(vm.users.length - 1)).removeClass('selectElement');
+                    }
+                }
+                if(vm.count>0){
+                    $('#user'+(vm.count - 1)).removeClass('selectElement');
+                }
+                $('#user'+vm.count).addClass('selectElement');
+
+            }
+        }
+    });
+
+    //UP-ARROW NAVIGATION
+    $("#arrowNavigation").on('keydown', function(e) {
+        if (e.which == 38 || event.keyCode == 38) {
+            if(vm.showList == true) {
+                vm.count--;
+                if(vm.count == -1) {
+                    vm.count = vm.users.length - 1;
+                    $('#user0').removeClass('selectElement');
+                }
+                //alert("hehahaha");
+                if(vm.count>-1){
+                    $('#user'+(vm.count + 1)).removeClass('selectElement');
+                }
+                $('#user'+vm.count).addClass('selectElement');
+            }
+        }
+    });
+
+    //CLICK WHEN ENTER IS PRESSED
+    $("#arrowNavigation").on('keydown', function(e) {
+        if (e.which == 13 || event.keyCode == 13) {
+            $('.selectElement').click();
+        }
+    });
+
 //LAZY FETCHING
     function searchResults(status) {
         if (vm.selectedCountry==null) {

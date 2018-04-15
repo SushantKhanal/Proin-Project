@@ -47,22 +47,25 @@ public class AdminAccountServiceImpl implements AdminAccountService {
                 " WHERE (u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike " +
                 "OR u.email LIKE :searchTxtLike OR t.tags LIKE :searchTxtLike)" +
                 " and s.status != :status";
+
         SearchResults searchResults = new SearchResults();
-        List<String> results=new ArrayList<>();
+
+        List<String> results = new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
-            query.setParameter("searchTxtLike", "%"+searchTxt+"%");
+            query.setParameter("searchTxtLike", "%" + searchTxt + "%");
             query.setParameter("status", status);
+
             int noOfitems = query.getResultList().size();
             query.setFirstResult((pageable.getPageNumber() - 1) * pageable.getPageSize());
             query.setMaxResults(pageable.getPageSize());
+            results = query.getResultList();
 
-            results=query.getResultList();
             searchResults.setNoOfItems(noOfitems);
             searchResults.setResults(results);
 
-        }catch(Exception e){
-            System.out.println("Exception "+e);
+        } catch (Exception e) {
+            System.out.println("Exception " + e);
         }
         return searchResults;
     }
@@ -73,7 +76,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
         String sql = "SELECT u.username FROM users_table u" +
                 " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
                 " LEFT JOIN user_status_table s ON u.id = s.user_id" +
-                " WHERE u.nation = :country and (u.username LIKE :searchTxt OR u.firstName LIKE :searchTxt OR u.email LIKE :searchTxt OR t.tags LIKE :searchTxtLike)"+
+                " WHERE u.nation = :country and (u.username LIKE :searchTxt OR u.firstName LIKE :searchTxt OR u.email LIKE :searchTxt OR t.tags LIKE :searchTxtLike)" +
                 " and s.status != :status";
 
         SearchResults searchResults = new SearchResults();
@@ -111,9 +114,9 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
     @Override
     public List<String> getAllSignUpRequestUsernames() {
-        String sql = "SELECT u.username FROM user_signUp_request_table u"+
-                    " LEFT JOIN userSignUpRequest_status_table uS ON u.id = uS.userSignUpRequest_id"+
-                    " WHERE uS.status != 0";
+        String sql = "SELECT u.username FROM user_signUp_request_table u" +
+                " LEFT JOIN userSignUpRequest_status_table uS ON u.id = uS.userSignUpRequest_id" +
+                " WHERE uS.status != 0";
         //filter the requests with status 0
         List<String> results = new ArrayList<>();
 
@@ -132,7 +135,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     }
 
     @Override
-    public void addUser(User user){
+    public void addUser(User user) {
         userRepository.saveAndFlush(user);
     }
 
@@ -143,7 +146,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
     @Override
     public List<String> getAdminRequests() {
-        String sql = "SELECT a.username FROM admins_table a"+
+        String sql = "SELECT a.username FROM admins_table a" +
                 " WHERE a.status = 0";
         //fetch the requests with status 0
         List<String> results = new ArrayList<>();
@@ -161,16 +164,17 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     public void approveAdminRequest(String username) {
         //change admin status
         String sql = "UPDATE admins_table a" +
-                " SET a.status = 1"+
+                " SET a.status = 1" +
                 " WHERE a.username = :username";
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("username", username);
             query.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Exception "+e);
+            System.out.println("Exception " + e);
         }
     }
+
     //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
 //ADMIN STATUS 1 == ACCEPTED
 //ADMIN STATUS 2 == REJECTED
@@ -178,14 +182,14 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     public void rejectAdminRequest(String username) {
         //change admin status
         String sql = "UPDATE admins_table a" +
-                " SET a.status = 2"+
+                " SET a.status = 2" +
                 " WHERE a.username = :username";
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("username", username);
             query.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Exception "+e);
+            System.out.println("Exception " + e);
         }
     }
 }

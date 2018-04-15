@@ -13,6 +13,13 @@ function firstPageController(AdminSignInService, $location) {
     vm.adminSignIn = adminSignIn;
     vm.adminSignUp = adminSignUp;
 
+    $("#passwordAdmin").on('keydown', function(e) {
+        if (e.which == 13 || event.keyCode == 13) {
+            //e.preventDefault();
+            adminSignIn();
+        }
+    });
+
     function adminSignIn() {
         AdminSignInService.checkLogIn(vm.username, vm.password)
             .then(function(r){
