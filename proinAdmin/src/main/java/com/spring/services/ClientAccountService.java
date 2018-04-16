@@ -1,7 +1,9 @@
 package com.spring.services;
 
 import com.spring.model.*;
+import com.spring.responseDTO.ReviewDto;
 import com.spring.responseDTO.ReviewInfo;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -19,7 +21,7 @@ public interface ClientAccountService {
 
     List<UserAcademics> getUserAcademicsByUsername(String username);
 
-    List<ReviewInfo> getAllReviews(String loggedInUsername);
+    ReviewDto getAllReviews(String loggedInUsername, Pageable pageable);
 
     List<FavUsers> getResults(String loggedInUsername);
 

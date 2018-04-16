@@ -2,9 +2,11 @@ package com.spring.services.Impl;
 
 import com.spring.model.*;
 import com.spring.repository.*;
+import com.spring.responseDTO.ReviewDto;
 import com.spring.responseDTO.ReviewInfo;
 import com.spring.services.ClientAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +15,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Service
 @Transactional
@@ -68,9 +69,14 @@ public class ClientAccountServiceImpl implements ClientAccountService {
     }
 
     @Override
-    public List<ReviewInfo> getAllReviews(String loggedInUsername) {
+    public ReviewDto getAllReviews(String loggedInUsername, Pageable pageable) {
+        int size = pageable.getPageSize()/2;
+        int resultLength;
         Query query = em.createQuery("SELECT p from UserReviews p where p.otherUsername like :loggedInUsername");
         query.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+        resultLength = query.getResultList().size();
+        query.setFirstResult((pageable.getPageNumber() - 1) * size);
+        query.setMaxResults(size);
 
         List<UserReviews> results = query.getResultList();
         List<ReviewInfo> reviewInfoList= new ArrayList<ReviewInfo>();
@@ -80,6 +86,9 @@ public class ClientAccountServiceImpl implements ClientAccountService {
         }
         Query query1 = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :loggedInUsername");
         query1.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+        resultLength = resultLength + query1.getResultList().size();
+        query1.setFirstResult((pageable.getPageNumber() - 1) * size);
+        query1.setMaxResults(size);
 
         System.out.println(query1.toString());
         List<NormalUserReviews> results1 = query1.getResultList();
@@ -87,7 +96,8 @@ public class ClientAccountServiceImpl implements ClientAccountService {
             ReviewInfo reviewInfo2 = new ReviewInfo(element.getLoggedInUsername(),loggedInUsername, element.getReview(), element.getRating());
             reviewInfoList.add(reviewInfo2);
         }
-        return reviewInfoList;
+        ReviewDto reviewDto = new ReviewDto(reviewInfoList, resultLength);
+        return reviewDto;
     }
 
     @Override

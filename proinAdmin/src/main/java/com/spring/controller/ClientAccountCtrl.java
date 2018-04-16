@@ -1,14 +1,15 @@
 package com.spring.controller;
 
         import com.spring.model.*;
+        import com.spring.responseDTO.ReviewDto;
         import com.spring.responseDTO.ReviewInfo;
         import com.spring.responseDTO.TagsInfo;
         import com.spring.services.AdminAccountService;
         import com.spring.services.ClientAccountService;
         import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.data.domain.Pageable;
         import org.springframework.http.HttpStatus;
         import org.springframework.http.ResponseEntity;
-        import org.springframework.web.bind.annotation.GetMapping;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestBody;
         import org.springframework.web.bind.annotation.RestController;
@@ -58,12 +59,12 @@ public class ClientAccountCtrl {
     }
 
     //SENDS ADMIN SELECTED USER REVIEWS
-    @PostMapping("/client/getReviews/")
-    public ResponseEntity<List<ReviewInfo>> getReviews(@RequestBody String otherUsername) {
+    @PostMapping("/client/getReviews")
+    public ResponseEntity<ReviewDto> getReviews(@RequestBody String otherUsername, Pageable pageable) {
 
-        List<ReviewInfo> userReviews = clientAccountService.getAllReviews(otherUsername);
+        ReviewDto userReviews = clientAccountService.getAllReviews(otherUsername, pageable);
 
-        return new ResponseEntity<List<ReviewInfo>>(userReviews, HttpStatus.OK);
+        return new ResponseEntity<>(userReviews, HttpStatus.OK);
     }
 
 

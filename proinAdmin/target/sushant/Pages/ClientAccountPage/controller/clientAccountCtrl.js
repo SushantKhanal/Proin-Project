@@ -15,8 +15,15 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     vm.showReviews = false;
     vm.showFavourites = showFavourites;
     vm.deleteAccount = deleteAccount;
+    vm.seeMoreReviews = seeMoreReviews;
     vm.whetherDelete = "Delete account";
+    vm.reviewsText = "Show Reviews";
     vm.status = '';
+    vm.page = 0;
+    vm.seeLess = seeLess;
+    vm.showSeeLess = false;
+    vm.isReviewShown = false;
+    vm.moreReviews = true;
 
     vm.review;
 
@@ -46,7 +53,7 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
                 console.log("Could not get account status");
             })
     }
-//DELETES OR RECOVERS ACCOUNT, BASED ON VM.STATUS
+    //DELETES OR RECOVERS ACCOUNT, BASED ON VM.STATUS
     function deleteAccount() {
 
         var r = confirm("Are you sure you want to go ahead?");
@@ -124,25 +131,61 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
 
     //GETS AVAILABLE REVIEWS
     function getReviews() {
-        vm.allowReview = false;
-        vm.showReviews = true;
-        vm.user = JSON.parse(localUserData);
-        if (vm.userAndReviews !== ''){
+        vm.isReviewShown = !vm.isReviewShown;
+        if(vm.isReviewShown) {
+            vm.moreReviews = true;
+            vm.reviewsText = "Hide Reviews";
+            vm.page++;
+            vm.allowReview = false;
+            vm.showReviews = true;
+            vm.user = JSON.parse(localUserData);
+            if (vm.userAndReviews !== ''){
+                vm.showReviews = false;
+                vm.userAndReviews = '';
+                return;
+            }
+            ClientAccountService.getReviews(vm.page, vm.user.username)
+                .then(
+                    function(r) {
+                        vm.reviews = r.reviewInfoList;
+                        vm.userAndReviews = vm.reviews;
+                        vm.totalLength = r.totalSize;
+                    },
+                    function(errResponse){
+                        console.error('Error while getting reviews');
+                    });
+        } else {
+            vm.reviewsText = "Show Reviews";
             vm.showReviews = false;
             vm.userAndReviews = '';
-            return;
+            vm.page=0;
         }
-        ClientAccountService.getReviews(vm.user.username)
+
+    }
+    //SEE MORE REVIEWS
+    function seeMoreReviews() {
+        if(vm.userAndReviews.length >= vm.totalLength){
+            vm.moreReviews = false;
+        }
+        vm.showSeeLess=true;
+        vm.page++;
+        ClientAccountService.getReviews(vm.page, vm.user.username)
             .then(
                 function(r) {
-                    console.log(r);
-                    vm.userAndReviews = r;
+                    vm.userAndReviews = vm.userAndReviews.concat(r.reviewInfoList);
                 },
                 function(errResponse){
                     console.error('Error while getting reviews');
                 });
     }
 
+    //SEE LESS
+    function seeLess() {
+        vm.page = 1;
+        vm.userAndReviews = vm.reviews;
+        vm.showSeeLess = false;
+        vm.moreReviews = true;
+    }
 
     //GETS THE ACCOUNT PROFILE PICTURE ON LOAD
     function getProfilePic(username){

@@ -209,20 +209,23 @@
                                 <div>
                                     <button ng-click="xxx.goBack()" class="btn btn-danger pull-right">Go Back</button>
                                     &nbsp;
-                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>
+                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">{{xxx.reviewsText}}</button>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
                                 <div ng-show="xxx.showReviews">
                                     <ol>
                                         <li ng-repeat="userReview in xxx.userAndReviews">
-                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;">{{userReview.loggedInUsername}}: </span>
                                             <span>{{userReview.rating}} Star Rating</span>
                                             <h4>{{userReview.review}}</h4>
                                             <div class="clearfix"></div>
                                             <div class="bot-border"></div>
                                         </li>
                                     </ol>
+                                    <button ng-show="xxx.moreReviews" ng-click="xxx.seeMoreReviews()">See more</button>
+                                    &nbsp;
+                                    <button ng-show="xxx.showSeeLess" ng-click="xxx.seeLess()">See Less</button>
                                 </div>
 
                             </div>

@@ -48,8 +48,11 @@ function clientAccountService(HttpService){
         return HttpService.post(REST_SERVICE_URI + "getProfilePic/", username);
     }
 
-    function getReviews(username) {
-        return HttpService.post(REST_SERVICE_URI + "getReviews/", username);
+    function getReviews(pageNumber, username) {
+        // return HttpService.post(REST_SERVICE_URI +
+        //     "getResults?page="+pageNumber+"&size="+size, searchInfo);
+        return HttpService.post(REST_SERVICE_URI + "getReviews?page="+pageNumber+"&size="+2, username);
+        //keep the size even, for data is being fetched from two different tables
     }
 
     function receiveTags(username) {
