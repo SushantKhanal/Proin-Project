@@ -17,9 +17,19 @@ function userAccountService(HttpService){
         acceptFollowRequest: acceptFollowRequest,
         ignoreFollowRequest: ignoreFollowRequest,
         showIgnoredRequests: showIgnoredRequests,
+        postDoc: postDoc,
     };
 
     return factory;
+
+    function postDoc(username, fileType, doc) {
+        var docInfo = {
+            username,
+            fileType,
+            doc,
+        };
+        return HttpService.post(REST_SERVICE_URI + 'postDoc/', docInfo)
+    }
 
     function showIgnoredRequests() {
         return HttpService.get(REST_SERVICE_URI + 'getIgnoredRequests/')

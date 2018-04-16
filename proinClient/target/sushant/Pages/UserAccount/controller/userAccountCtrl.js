@@ -26,6 +26,7 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.showReviews = showReviews;
     vm.checkFollowRequests = checkFollowRequests;
     vm.takeToSocial = takeToSocial;
+    vm.uploadDocuments = uploadDocuments;
     vm.allowReviews = false;
     vm.reviewsText = 'Show Reviews';
     vm.academics = '';
@@ -42,6 +43,17 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllAcademics();
 
     getAllExperience();
+
+    function uploadDocuments() {
+        var modalInstance = ModalFactory.open('Pages/UserAccount/templates/uploadDocuments.html', 'UploadDocController', 'md', '$ctrl');
+        modalInstance.result.then(
+            function(response){
+                // getProfilePic(vm.user.username);
+            },function(errResponse){
+
+            }
+        )
+    }
 
     function takeToSocial() {
         $location.path('/userAccount/followers');

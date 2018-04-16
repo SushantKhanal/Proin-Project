@@ -1,10 +1,7 @@
 package com.spring.controller;
 
 import com.spring.model.*;
-import com.spring.requestDto.ApproveFollowRequestInfo;
-import com.spring.requestDto.UserAcademicsDTO;
-import com.spring.requestDto.UserExperienceDTO;
-import com.spring.requestDto.UserTagsDTO;
+import com.spring.requestDto.*;
 import com.spring.responseDto.TagsInfo;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
@@ -40,6 +37,30 @@ public class AccountController {
         accountService.updateUser(user);
         User currentUser = accountService.getUserById(user.getId());
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+    }
+//PRO USER UPLOADS DOCUMENTS, AND IT'S SAVED IN 'proinProjectdoc' FOLDER IN CATALINA HOME
+    @PostMapping("/user/postDoc/")
+    public ResponseEntity<Void> postDoc(@RequestBody DocInfo docInfo)
+            throws IOException {
+
+        User returnedUser = signInService.getUserByUsername(docInfo.getUsername());
+        Long id = returnedUser.getId();
+
+        byte[] decodedDoc = Base64.getDecoder().decode(docInfo.getDoc());
+        //UserProfilePic userProfilePic1 = new UserProfilePic();
+
+        String docPath = File.separator+"proinProjectdoc/"+docInfo.getUsername()+"."+docInfo.getFileType();
+
+        FileOutputStream docOutFile = new FileOutputStream(System.getProperty("catalina.home")+ docPath);
+
+        try {
+            docOutFile.write(decodedDoc);
+        }
+        catch(Exception e){
+            System.out.println("error");
+        }
+        return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+
     }
 
     //----------------WHEN USER POSTS PROFILE PICTURE-----------------------------------------------------//

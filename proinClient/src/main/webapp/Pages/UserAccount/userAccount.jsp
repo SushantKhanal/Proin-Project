@@ -228,6 +228,7 @@
                                 <button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">
                                     {{xxx.reviewsText}}
                                 </button>
+                                <button class="btn btn-warning pull-right" ng-click="xxx.uploadDocuments()">Upload documents</button>
                                 <div class="bot-border"></div>
                                 <div ng-show="xxx.allowReviews">
                                     <ol>
