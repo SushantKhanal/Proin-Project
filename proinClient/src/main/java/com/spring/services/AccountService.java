@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface AccountService {
 
-
     void updateUser(User p);
 
     User getUserById(Long id); //while updating user
@@ -42,4 +41,8 @@ public interface AccountService {
     void ignoreFollowRequest(Long id);
 
     List<NormalFollowRequest> getIgnoredRequests();
+
+    void saveUserDoc(UserDocuments userDocuments);
+
+    void checkForUploadedDocs(String username);
 }

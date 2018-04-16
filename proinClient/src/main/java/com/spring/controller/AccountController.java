@@ -6,11 +6,11 @@ import com.spring.responseDto.TagsInfo;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
+import com.spring.utils.WebResourceConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +19,8 @@ import java.util.Base64;
 import java.util.List;
 
 @RestController
+@RequestMapping(WebResourceConstant.API_BASE +
+        WebResourceConstant.AccountCtrl.USER_ACCOUNT_BASE)
 public class AccountController {
     @Autowired
     private AccountService accountService;
@@ -30,7 +32,7 @@ public class AccountController {
     private OtherAccountService otherAccountService;
     //------------------- Update a User, by the same user --------------------------------------------------------
 
-    @PutMapping("/user/{id}")
+    @PutMapping(WebResourceConstant.AccountCtrl.UPDATE_USER)
     public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
         System.out.println("Updating User " + id);
 
@@ -38,8 +40,9 @@ public class AccountController {
         User currentUser = accountService.getUserById(user.getId());
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
+
 //PRO USER UPLOADS DOCUMENTS, AND IT'S SAVED IN 'proinProjectdoc' FOLDER IN CATALINA HOME
-    @PostMapping("/user/postDoc/")
+    @PostMapping(WebResourceConstant.AccountCtrl.POST_DOC)
     public ResponseEntity<Void> postDoc(@RequestBody DocInfo docInfo)
             throws IOException {
 
@@ -49,7 +52,8 @@ public class AccountController {
         byte[] decodedDoc = Base64.getDecoder().decode(docInfo.getDoc());
         //UserProfilePic userProfilePic1 = new UserProfilePic();
 
-        String docPath = File.separator+"proinProjectdoc/"+docInfo.getUsername()+"."+docInfo.getFileType();
+        String docPath = File.separator+"proinProjectdoc/"+docInfo.getUsername()+"-"+
+                docInfo.getFileName()+"."+docInfo.getFileType();
 
         FileOutputStream docOutFile = new FileOutputStream(System.getProperty("catalina.home")+ docPath);
 
@@ -59,13 +63,22 @@ public class AccountController {
         catch(Exception e){
             System.out.println("error");
         }
+        UserDocuments userDocument = new UserDocuments(docInfo.getUsername(), docPath, returnedUser);
+        //NOW SAVE THE docPath IN A TABLE
+        accountService.saveUserDoc(userDocument);
         return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+    }
 
+    // NOT DONE YET
+    @PostMapping(WebResourceConstant.AccountCtrl.CHECK_FOR_UPLOADED_DOCS)
+    public ResponseEntity<Void> checkForUploadedDocs(@RequestBody String username) {
+        accountService.checkForUploadedDocs(username);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     //----------------WHEN USER POSTS PROFILE PICTURE-----------------------------------------------------//
 
-    @PostMapping("/user/profilePic/{username}/{fileType}")
+    @PostMapping(WebResourceConstant.AccountCtrl.POST_PROFILE_PIC)
     public ResponseEntity<UserProfilePic> postProfilePic(@PathVariable("username") String username,@PathVariable("fileType") String fileType, @RequestBody String image)
             throws IOException {
 
@@ -108,7 +121,7 @@ public class AccountController {
     }
 
     //RETURNS PROFILE PIC BASED ON USERNAME
-    @PostMapping("/user/getProfilePic/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_PROFILE_PIC)
     public ResponseEntity<UserProfilePic> getProfilePic(@RequestBody String username) {
 
         UserProfilePic returnedProfilePic = accountService.getUserPpByUsername(username);
@@ -121,7 +134,7 @@ public class AccountController {
     }
 
     //FETCHES THE LIST OF FAVOURITE ACCOUNTS
-    @PostMapping("/user/getFavUsers/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_FAV_USERS)
     public ResponseEntity<List<String>> getFavUsers(@RequestBody String loggedInUsername) {
 
         List<FavUsers> favUsers = otherAccountService.getResults(loggedInUsername);
@@ -135,7 +148,7 @@ public class AccountController {
     }
 
     //SENDS OTHER USER PROFILE BASED ON USERNAME
-    @PostMapping("/user/getUserProfile/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_USER_PROFILE)
     public ResponseEntity<User> getUserProfile(@RequestBody String otherAccountUsername) {
 
         User otherUser = signInService.getUserByUsername(otherAccountUsername);
@@ -144,7 +157,7 @@ public class AccountController {
     }
 
     //SAVES TAGS
-    @PostMapping("/user/sendTags/")
+    @PostMapping(WebResourceConstant.AccountCtrl.SEND_TAGS)
     public ResponseEntity<Void> savesTags(@RequestBody UserTagsDTO usertagsdto) {
         String loggedInUsername = usertagsdto.getUsername();
         String tags = usertagsdto.getTags();
@@ -170,7 +183,7 @@ public class AccountController {
     }
 
     //SENDS TAGS BASED ON USERNAME
-    @PostMapping("/user/receiveTags/")
+    @PostMapping(WebResourceConstant.AccountCtrl.RECIEVE_TAGS)
     public ResponseEntity<TagsInfo> receiveTags(@RequestBody String loggedInUsername) {
 
         UserTags userTags = accountService.getUserTagsByUsername(loggedInUsername);
@@ -183,7 +196,7 @@ public class AccountController {
     }
 
     //WHEN USER SENDS EXPERIENCE
-    @PostMapping("/user/userExperience/")
+    @PostMapping(WebResourceConstant.AccountCtrl.USER_EXPERIENCE)
     public ResponseEntity<Void> receiveExperience(@RequestBody UserExperienceDTO exp) {
 
         String loggedInUsername = exp.getUsername();
@@ -213,19 +226,15 @@ public class AccountController {
     }
 
     //SEND USER ALL HIS EXPERIENCE
-    @PostMapping("/user/getAllExperience/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_ALL_EXPERIENCE)
     public ResponseEntity<List<UserExperience>> receiveExperience(@RequestBody String username) {
 
         List<UserExperience> userAllExp = accountService.getUserExperienceByUsername(username);
-//        UserExperienceDTO userExperienceDTO = new UserExperienceDTO(userExp.getId(), userExp.getUsername(),
-//                userExp.getTitle(), userExp.getCompany(), userExp.getLocation(), userExp.getStartDate(),
-//                userExp.getEndDate(), userExp.getDescription());
-
         return new ResponseEntity<>(userAllExp, HttpStatus.OK);
     }
 
     //WHEN USER SAVES ACADEMICS
-    @PostMapping("/user/userAcademics/")
+    @PostMapping(WebResourceConstant.AccountCtrl.USER_ACADEMICS)
     public ResponseEntity<Void> receiveAcademics(@RequestBody UserAcademicsDTO acd) {
 
         String loggedInUsername = acd.getUsername();
@@ -253,7 +262,7 @@ public class AccountController {
     }
 
     //SEND USER ALL HIS ACADEMICS
-    @PostMapping("/user/getAllAcademics/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_ALL_ACADEMICS)
     public ResponseEntity<List<UserAcademics>> getAcademics(@RequestBody String loggedInUsername) {
 
         List<UserAcademics> userAllAcads = accountService.getUserAcademicsByUsername(loggedInUsername);
@@ -262,7 +271,7 @@ public class AccountController {
     }
 
     //SEND USER THE ACADEMICS HE WANTS TO EDIT
-    @PostMapping("/user/getAcademicFromId/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_ACADEMIC_FROM_ID)
     public ResponseEntity<UserAcademics> getAcademicFromId(@RequestBody Long id) {
 
         UserAcademics userAcd = accountService.getUserAcademicsFromId(id);
@@ -271,7 +280,7 @@ public class AccountController {
     }
 
     //DELETE THE ACADEMICS THE USER WANTS TO DELETE
-    @PostMapping("/user/deleteThisAcademics/")
+    @PostMapping(WebResourceConstant.AccountCtrl.DELETE_THIS_ACADEMICS)
     public ResponseEntity<Void> deleteThisAcademics(@RequestBody Long id) {
 
         accountService.deleteThisAcademics(id);
@@ -280,7 +289,7 @@ public class AccountController {
     }
 
     //SEND USER THE EXPERIENCE HE WANTS TO EDIT
-    @PostMapping("/user/getExperienceFromId/")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_EXPERIENCE_FROM_ID)
     public ResponseEntity<UserExperience> getExperienceFromId(@RequestBody Long id) {
 
         UserExperience userExperience = accountService.getExperienceFromId(id);
@@ -289,7 +298,7 @@ public class AccountController {
     }
 
     //DELETE THE ACADEMICS THE USER WANTS TO DELETE
-    @PostMapping("/user/deleteThisExperience/")
+    @PostMapping(WebResourceConstant.AccountCtrl.DELETE_THIS_EXPERIENCE)
     public ResponseEntity<Void> deleteThisExperience(@RequestBody Long id) {
 
         accountService.deleteThisExperience(id);
@@ -298,28 +307,28 @@ public class AccountController {
     }
 
     //CHECKS AND RETURNS FOLLOW REQUESTS
-    @PostMapping("/user/checkFollowRequests/")
+    @PostMapping(WebResourceConstant.AccountCtrl.CHECK_FOLLOW_REQUESTS)
     public ResponseEntity<List<NormalFollowRequest>> checkFollowRequests(@RequestBody String username) {
         List<NormalFollowRequest> followRequests = accountService.checkFollowRequests(username);
         return new ResponseEntity<List<NormalFollowRequest>>(followRequests, HttpStatus.OK);
     }
 
     //APPROVES FOLLOW REQUESTS
-    @PostMapping("/user/acceptFollowRequest/")
+    @PostMapping(WebResourceConstant.AccountCtrl.ACCEPT_FOLLOW_REQUESTS)
     public ResponseEntity<Void> acceptFollowRequest(@RequestBody Long id) {
         accountService.approveFollowRequest(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     //IGNORES FOLLOW REQUEST
-    @PostMapping("/user/ignoreFollowRequest/")
+    @PostMapping(WebResourceConstant.AccountCtrl.IGNORE_FOLLOW_REQUESTS)
     public ResponseEntity<Void> ignoreFollowRequest(@RequestBody Long id) {
         accountService.ignoreFollowRequest(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     //FETCHES IGNORED REQUESTS
-    @GetMapping("/user/getIgnoredRequests")
+    @PostMapping(WebResourceConstant.AccountCtrl.GET_IGNORED_REQUESTS)
     public ResponseEntity<List<NormalFollowRequest>> getIgnoredRequests() {
         List<NormalFollowRequest> list =  accountService.getIgnoredRequests();
         return new ResponseEntity<List<NormalFollowRequest>>(list, HttpStatus.OK);

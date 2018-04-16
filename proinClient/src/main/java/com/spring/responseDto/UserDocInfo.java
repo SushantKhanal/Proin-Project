@@ -1,4 +1,4 @@
-package com.spring.requestDto;
+package com.spring.responseDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,13 +9,12 @@ import lombok.Setter;
  * @author : Suraj Gautam
  *         <suraj.gautam@f1soft.com>
  */
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DocInfo {
+public class UserDocInfo {
     private String username;
-    private String fileName;
-    private String fileType;
-    private String doc;
+    private String docPath;
 }

@@ -2,6 +2,7 @@ package com.spring.services.Impl;
 
 import com.spring.model.*;
 import com.spring.repository.*;
+import com.spring.responseDto.UserDocInfo;
 import com.spring.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private NormalFollowRequestRepository normalFollowRequestRepository;
+
+    @Autowired
+    private UserDocumentsRepository userDocumentsRepository;
 
     @Override
     public void updateUser(User p) {
@@ -189,5 +193,22 @@ public class AccountServiceImpl implements AccountService {
         }
         return results;
 
+    }
+
+    @Override
+    public void saveUserDoc(UserDocuments userDocuments) {
+        userDocumentsRepository.saveAndFlush(userDocuments);
+    }
+
+    @Override
+    public void checkForUploadedDocs(String username) {
+        String sql = "SELECT * FROM user_documents_table ud" +
+                " WHERE ud.username = :username";
+        Query query = em.createNativeQuery(sql);
+        query.setParameter("username", username);
+        List<UserDocuments> results = query.getResultList();
+        for(UserDocuments element : results) {
+            UserDocInfo userDocInfo = new UserDocInfo(element.getUsername(), element.getDocPath());
+        }
     }
 }

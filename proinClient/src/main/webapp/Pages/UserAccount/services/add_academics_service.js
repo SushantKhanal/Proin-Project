@@ -8,7 +8,7 @@ addAcademicsService.$inject = ['HttpService'];
 
 function addAcademicsService(HttpService){
 
-    var REST_SERVICE_URI = 'http://localhost:8080/user/';
+    var REST_SERVICE_URI = 'http://localhost:8080/api/user/';
 
     var factory = {
         sendAcademics: sendAcademics,

@@ -44,6 +44,14 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
 
     getAllExperience();
 
+    checkForUploadedDocs();
+
+    function checkForUploadedDocs() {
+        userData = JSON.parse(localStorage['userInfo']);
+        username = userData.username;
+        UserAccountService.checkForUploadedDocs(username);
+    }
+
     function uploadDocuments() {
         var modalInstance = ModalFactory.open('Pages/UserAccount/templates/uploadDocuments.html', 'UploadDocController', 'md', '$ctrl');
         modalInstance.result.then(

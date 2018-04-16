@@ -8,7 +8,7 @@ userAccountService.$inject = ['HttpService'];
 
 function userAccountService(HttpService){
 
-    var REST_SERVICE_URI = 'http://localhost:8080/user/';
+    var REST_SERVICE_URI = 'http://localhost:8080/api/user/';
 
     var factory = {
         updateUser: updateUser,
@@ -18,13 +18,19 @@ function userAccountService(HttpService){
         ignoreFollowRequest: ignoreFollowRequest,
         showIgnoredRequests: showIgnoredRequests,
         postDoc: postDoc,
+        checkForUploadedDocs: checkForUploadedDocs,
     };
 
     return factory;
 
-    function postDoc(username, fileType, doc) {
+    function checkForUploadedDocs(username) {
+        return HttpService.post(REST_SERVICE_URI + 'checkForUploadedDocs/', username)
+    }
+
+    function postDoc(username, fileName, fileType, doc) {
         var docInfo = {
             username,
+            fileName,
             fileType,
             doc,
         };
