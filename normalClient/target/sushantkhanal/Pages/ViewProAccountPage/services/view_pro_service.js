@@ -22,9 +22,14 @@ function proAccountService(HttpService) {
         deleteFav: deleteFav,
         checkIfFav: checkIfFav,
         unFollow: unFollow,
+        checkForUploadedDocs: checkForUploadedDocs,
     };
 
     return factory;
+
+    function checkForUploadedDocs(username) {
+        return HttpService.post(REST_SERVICE_URI + 'checkForUploadedDocs/', username)
+    }
 
     function checkIfFollowed(loggedInUsername, otherUsername) {
         var ifFollowedData = {

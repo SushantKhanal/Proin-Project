@@ -4,6 +4,7 @@ import com.spring.model.*;
 import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
+import com.spring.responseDto.ProUserDocInfo;
 
 import java.util.List;
 
@@ -27,4 +28,5 @@ public interface ViewProAccountService {
     String checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto);
     void unfollow(CheckIfFollowedDto checkIfFollowedDto);
     Long checkPastRequests(LoggedMessageDto followRequest);
+    List<ProUserDocInfo> checkForUploadedDocs(String username);
 }

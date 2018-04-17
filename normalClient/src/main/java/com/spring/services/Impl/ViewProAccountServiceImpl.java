@@ -5,6 +5,7 @@ import com.spring.repository.*;
 import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
+import com.spring.responseDto.ProUserDocInfo;
 import com.spring.services.ViewProAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -192,6 +194,24 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
         query.setParameter("to", followRequest.getToProUsername());
         BigInteger result = (BigInteger) query.getSingleResult();
         return result.longValue();
+    }
+
+    @Override
+    public List<ProUserDocInfo> checkForUploadedDocs(String username) {
+        String sql = "SELECT * FROM user_documents_table ud" +
+                " WHERE ud.username = :username";
+        Query query = em.createNativeQuery(sql);
+        query.setParameter("username", username);
+        //List<UserDocuments> results = (List<UserDocuments>) query.getResultList();
+        List<Object[]> results = query.getResultList();
+        List<ProUserDocInfo> userDocInfos = new ArrayList<>();
+        for(Object[] element : results) {
+            ProUserDocInfo userDocInfo = new ProUserDocInfo();
+            userDocInfo.setId(Long.parseLong(element[0].toString()));
+            userDocInfo.setDocPath(element[1].toString());
+            userDocInfos.add(userDocInfo);
+        }
+        return userDocInfos;
     }
 
 }

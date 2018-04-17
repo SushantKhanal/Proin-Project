@@ -39,6 +39,9 @@ function proAccountController($location, ModalFactory, ProAccountService) {
     //unfollowed status = 2
     //ignored request status = 3
 
+    vm.docNames = [];
+
+
 
     vm.review;
 
@@ -56,6 +59,25 @@ function proAccountController($location, ModalFactory, ProAccountService) {
     getAllAcademics();
     getAllExperience();
     checkIfFollowed();
+    checkForUploadedDocs();
+
+    function checkForUploadedDocs() {
+        ProAccountService.checkForUploadedDocs(vm.user.username)
+            .then(function (r) {
+                vm.docNames=[];
+                for(element of r) {
+                    var docName = element.docPath;
+                    docName = docName.split('proinProjectdoc/')[1];
+                    var obj = {
+                        id: element.id,
+                        docName: docName,
+                    };
+                    vm.docNames.push(obj);
+                }
+            }, function (error) {
+                console.log(error);
+            })
+    }
 
     function checkIfFollowed() {
         ProAccountService.checkIfFollowed(loggedInUser.username, vm.user.username)

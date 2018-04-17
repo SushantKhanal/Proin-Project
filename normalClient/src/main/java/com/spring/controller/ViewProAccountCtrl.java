@@ -5,6 +5,7 @@ import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
 import com.spring.requestDto.ReviewDto;
+import com.spring.responseDto.ProUserDocInfo;
 import com.spring.responseDto.SendStringDto;
 import com.spring.services.NormalSignInService;
 import com.spring.services.ViewProAccountService;
@@ -172,5 +173,10 @@ public class ViewProAccountCtrl {
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    @PostMapping(WebResourceConstant.ViewProAccountCtrl.CHECK_FOR_UPLOADED_DOCS)
+    public ResponseEntity<List<ProUserDocInfo>> checkForUploadedDocs(@RequestBody String username) {
+        return new ResponseEntity<>(viewProAccountService.checkForUploadedDocs(username), HttpStatus.OK);
     }
 }

@@ -245,6 +245,11 @@
                                 </div>
                                 <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
 
+                                <br>
+                                <h4>Uploaded Docs</h4>
+                                <div ng-show="xxx.docNames !== []" ng-repeat="element in xxx.docNames">
+                                    <p>{{element.docName}} <button>download</button></p>
+                                </div>
                             </div>
                             <!-- /.box -->
 

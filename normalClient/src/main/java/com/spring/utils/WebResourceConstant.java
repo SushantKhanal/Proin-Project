@@ -53,6 +53,7 @@ public class WebResourceConstant {
         public static final String SEND_FOLLOW_REQUEST = "/sendFollowRequest/";
         public static final String CHECK_IF_FOLLOWED = "/checkIfFollowed/";
         public static final String UNFOLLOW = "/unFollow/";
+        public static final String CHECK_FOR_UPLOADED_DOCS = "/checkForUploadedDocs/";
     }
 
 
