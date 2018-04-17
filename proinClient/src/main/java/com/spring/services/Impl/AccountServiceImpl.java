@@ -201,14 +201,26 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void checkForUploadedDocs(String username) {
+    public List<UserDocInfo> checkForUploadedDocs(String username) {
         String sql = "SELECT * FROM user_documents_table ud" +
                 " WHERE ud.username = :username";
         Query query = em.createNativeQuery(sql);
         query.setParameter("username", username);
-        List<UserDocuments> results = query.getResultList();
-        for(UserDocuments element : results) {
-            UserDocInfo userDocInfo = new UserDocInfo(element.getUsername(), element.getDocPath());
+        //List<UserDocuments> results = (List<UserDocuments>) query.getResultList();
+        List<Object[]> results = query.getResultList();
+        List<UserDocInfo> userDocInfos = new ArrayList<>();
+        for(Object[] element : results) {
+
+            UserDocInfo userDocInfo = new UserDocInfo();
+            userDocInfo.setId(Long.parseLong(element[0].toString()));
+            userDocInfo.setDocPath(element[1].toString());
+            userDocInfos.add(userDocInfo);
         }
+        return userDocInfos;
+    }
+
+    @Override
+    public void deleteDocument(Long id) {
+        userDocumentsRepository.delete(id);
     }
 }

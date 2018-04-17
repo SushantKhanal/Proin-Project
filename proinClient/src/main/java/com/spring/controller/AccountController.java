@@ -3,6 +3,7 @@ package com.spring.controller;
 import com.spring.model.*;
 import com.spring.requestDto.*;
 import com.spring.responseDto.TagsInfo;
+import com.spring.responseDto.UserDocInfo;
 import com.spring.services.AccountService;
 import com.spring.services.OtherAccountService;
 import com.spring.services.SignInService;
@@ -71,9 +72,8 @@ public class AccountController {
 
     // NOT DONE YET
     @PostMapping(WebResourceConstant.AccountCtrl.CHECK_FOR_UPLOADED_DOCS)
-    public ResponseEntity<Void> checkForUploadedDocs(@RequestBody String username) {
-        accountService.checkForUploadedDocs(username);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+    public ResponseEntity<List<UserDocInfo>> checkForUploadedDocs(@RequestBody String username) {
+        return new ResponseEntity<>(accountService.checkForUploadedDocs(username), HttpStatus.OK);
     }
 
     //----------------WHEN USER POSTS PROFILE PICTURE-----------------------------------------------------//
@@ -331,7 +331,13 @@ public class AccountController {
     @PostMapping(WebResourceConstant.AccountCtrl.GET_IGNORED_REQUESTS)
     public ResponseEntity<List<NormalFollowRequest>> getIgnoredRequests() {
         List<NormalFollowRequest> list =  accountService.getIgnoredRequests();
-        return new ResponseEntity<List<NormalFollowRequest>>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @PostMapping(WebResourceConstant.AccountCtrl.DELETE_DOCUMENT)
+    public ResponseEntity<Void> deleteDocument(@RequestBody Long id) {
+        accountService.deleteDocument(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 }

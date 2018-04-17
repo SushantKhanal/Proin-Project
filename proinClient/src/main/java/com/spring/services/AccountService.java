@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.*;
+import com.spring.responseDto.UserDocInfo;
 
 import java.util.List;
 
@@ -44,5 +45,7 @@ public interface AccountService {
 
     void saveUserDoc(UserDocuments userDocuments);
 
-    void checkForUploadedDocs(String username);
+    List<UserDocInfo> checkForUploadedDocs(String username);
+
+    void deleteDocument(Long id);
 }

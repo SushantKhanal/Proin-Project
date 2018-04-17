@@ -19,9 +19,14 @@ function userAccountService(HttpService){
         showIgnoredRequests: showIgnoredRequests,
         postDoc: postDoc,
         checkForUploadedDocs: checkForUploadedDocs,
+        deleteDocument: deleteDocument,
     };
 
     return factory;
+
+    function deleteDocument(id) {
+        return HttpService.post(REST_SERVICE_URI + 'deleteDocument/', id);
+    }
 
     function checkForUploadedDocs(username) {
         return HttpService.post(REST_SERVICE_URI + 'checkForUploadedDocs/', username)

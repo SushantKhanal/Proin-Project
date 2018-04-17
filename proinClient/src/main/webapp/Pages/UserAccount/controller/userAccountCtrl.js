@@ -27,10 +27,13 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.checkFollowRequests = checkFollowRequests;
     vm.takeToSocial = takeToSocial;
     vm.uploadDocuments = uploadDocuments;
+    vm.deleteDocument = deleteDocument;
     vm.allowReviews = false;
     vm.reviewsText = 'Show Reviews';
     vm.academics = '';
     vm.experience = '';
+    vm.docNames = [];
+
 
     var userData = localStorage['userInfo'];
 
@@ -46,17 +49,41 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
 
     checkForUploadedDocs();
 
+    function deleteDocument(id) {
+        console.log(id);
+        UserAccountService.deleteDocument(id)
+            .then(function(){
+                checkForUploadedDocs();
+            },function(error){
+                alert("document not deleted");
+            })
+    }
+
     function checkForUploadedDocs() {
         userData = JSON.parse(localStorage['userInfo']);
         username = userData.username;
-        UserAccountService.checkForUploadedDocs(username);
+        UserAccountService.checkForUploadedDocs(username)
+            .then(function (r) {
+                vm.docNames=[];
+                for(element of r) {
+                    var docName = element.docPath;
+                    docName = docName.split('proinProjectdoc/')[1];
+                    var obj = {
+                        id: element.id,
+                        docName: docName,
+                    };
+                    vm.docNames.push(obj);
+                }
+            }, function (error) {
+                console.log(error);
+            })
     }
 
     function uploadDocuments() {
         var modalInstance = ModalFactory.open('Pages/UserAccount/templates/uploadDocuments.html', 'UploadDocController', 'md', '$ctrl');
         modalInstance.result.then(
             function(response){
-                // getProfilePic(vm.user.username);
+                checkForUploadedDocs();
             },function(errResponse){
 
             }

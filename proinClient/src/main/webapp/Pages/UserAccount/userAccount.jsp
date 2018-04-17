@@ -229,6 +229,11 @@
                                     {{xxx.reviewsText}}
                                 </button>
                                 <button class="btn btn-warning pull-right" ng-click="xxx.uploadDocuments()">Upload documents</button>
+                                <br>
+                                <h4>Uploaded Docs</h4>
+                                <div ng-show="xxx.docNames !== []" ng-repeat="element in xxx.docNames">
+                                    <p>{{element.docName}} <button ng-click="xxx.deleteDocument(element.id)">delete</button></p>
+                                </div>
                                 <div class="bot-border"></div>
                                 <div ng-show="xxx.allowReviews">
                                     <ol>

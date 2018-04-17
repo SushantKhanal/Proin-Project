@@ -15,6 +15,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDocInfo {
-    private String username;
+    private Long id;
     private String docPath;
 }

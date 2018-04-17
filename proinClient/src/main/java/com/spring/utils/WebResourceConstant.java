@@ -33,6 +33,7 @@ public class WebResourceConstant {
         public static final String ACCEPT_FOLLOW_REQUESTS = "/acceptFollowRequest/";
         public static final String IGNORE_FOLLOW_REQUESTS = "/ignoreFollowRequest/";
         public static final String GET_IGNORED_REQUESTS = "/getIgnoredRequests/";
+        public static final String DELETE_DOCUMENT = "/deleteDocument/";
 
     }
 
