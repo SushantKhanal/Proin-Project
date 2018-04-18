@@ -11,7 +11,6 @@ function normalFollowingProCtrl(ModalFactory, $location, NormalAccountService, N
     vm.picPath1='';
     vm.sendCustomEmail = sendCustomEmail;
 
-
     var userData = localStorage['NormalUserInfo'];
 
     if(userData !== undefined) {

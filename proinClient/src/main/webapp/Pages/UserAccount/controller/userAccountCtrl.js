@@ -9,7 +9,6 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     var vm = this;
     vm.user = ClientSignInService.getResponse();
     vm.picPath1='';
-    vm.userAndReviews = '';
     vm.editProfile = editProfile;
     vm.editContent = false;
     vm.updateProfile = updateProfile;
@@ -34,7 +33,13 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     vm.experience = '';
     vm.docNames = [];
 
-
+    vm.userAndReviews = '';
+    vm.seeMoreReviews = seeMoreReviews;
+    vm.seeLess = seeLess;
+    vm.showSeeLess = false;
+    vm.moreReviews = true;
+    vm.page = 0;
+    vm.totalReviewsFetched = vm.page * 2;
     var userData = localStorage['userInfo'];
 
     if(userData !== undefined) {
@@ -48,6 +53,8 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
     getAllExperience();
 
     checkForUploadedDocs();
+
+    showReviews();
 
     function deleteDocument(id) {
         console.log(id);
@@ -99,22 +106,49 @@ function userAccountController(ClientSignInService, UserAccountService, ModalFac
         ModalFactory.open('Pages/UserAccount/templates/showFollowRequests.html', 'ShowFollowRequestsController', 'sm', '$ctrl');
     }
 
+    //GETS AVAILABLE REVIEWS
+
     function showReviews() {
-        vm.allowReviews = !vm.allowReviews;
-        if(vm.allowReviews == true){
-            vm.reviewsText = 'Hide Reviews';
-        } else {
-            vm.reviewsText = 'Show Reviews';
-        }
-        OtherAccountService.getReviews(vm.user.username)
+        vm.moreReviews = true;
+        vm.reviewsText = "Hide Reviews";
+        vm.page++;
+
+        OtherAccountService.getReviews(vm.page, vm.user.username)
             .then(
                 function(r) {
-                    console.log(r);
-                    vm.userAndReviews = r;
+                    vm.reviews = r.reviewInfoList;
+                    vm.userAndReviews = vm.reviews;
+                    vm.totalLength = r.totalSize;
                 },
                 function(errResponse){
                     console.error('Error while getting reviews');
                 });
+
+    }
+
+    //SEE MORE REVIEWS
+    function seeMoreReviews() {
+        if(vm.userAndReviews.length >= vm.totalLength){
+            vm.moreReviews = false;
+        }
+        vm.showSeeLess=true;
+        vm.page++;
+        OtherAccountService.getReviews(vm.page, vm.user.username)
+            .then(
+                function(r) {
+                    vm.userAndReviews = vm.userAndReviews.concat(r.reviewInfoList);
+                },
+                function(errResponse){
+                    console.error('Error while getting reviews');
+                });
+    }
+
+    //SEE LESS
+    function seeLess() {
+        vm.page = 1;
+        vm.userAndReviews = vm.reviews;
+        vm.showSeeLess = false;
+        vm.moreReviews = true;
     }
 
     function getAllAcademics() {

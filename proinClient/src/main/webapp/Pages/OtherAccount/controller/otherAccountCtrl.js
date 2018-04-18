@@ -25,12 +25,18 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
 
     vm.takeToAccount = takeToAccount;
 
-    vm.userAndReviews = '';
     vm.tags = '';
     vm.showReviews = false;
     vm.addExperience = addExperience;
     vm.addAcademics = addAcademics;
 
+    vm.userAndReviews = '';
+    vm.seeMoreReviews = seeMoreReviews;
+    vm.seeLess = seeLess;
+    vm.showSeeLess = false;
+    vm.moreReviews = true;
+    vm.page = 0;
+    vm.totalReviewsFetched = vm.page * 2;
     vm.review;
 
     getTags();
@@ -47,6 +53,30 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
 
     getAllAcademics();
     getAllExperience();
+    getReviews();
+    checkForUploadedDocs();
+
+    function checkForUploadedDocs() {
+        OtherAccountService.checkForUploadedDocs(vm.user.username)
+            .then(function (r) {
+                vm.docNames=[];
+                vm.docPaths=[];
+                for(element of r) {
+                    var docName = element.docPath;
+                    vm.docPaths.push("http://localhost:8080"+'/proUser'+docName);
+                    docName = docName.split('proinProjectdoc/')[1];
+                    var obj = {
+                        id: element.id,
+                        docName: docName,
+                    };
+                    vm.docNames.push(obj);
+                }
+                console.log("docNames",vm.docNames);
+                console.log("docPaths",vm.docPaths);
+            }, function (error) {
+                console.log(error);
+            })
+    }
 
     function getAllAcademics() {
         vm.user = JSON.parse(localUserData);
@@ -114,26 +144,72 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
             );
     }
 
+    // //GETS AVAILABLE REVIEWS
+    // function getReviews() {
+    //     vm.allowReview = false;
+    //     vm.showReviews = true;
+    //     vm.user = JSON.parse(localUserData);
+    //     if (vm.userAndReviews !== ''){
+    //         vm.showReviews = false;
+    //         vm.userAndReviews = '';
+    //         return;
+    //     }
+    //     OtherAccountService.getReviews(vm.user.username)
+    //         .then(
+    //             function(r) {
+    //                 console.log(r);
+    //                 vm.userAndReviews = r.reviewInfoList;
+    //             },
+    //             function(errResponse){
+    //                 console.error('Error while getting reviews');
+    //             });
+    // }
+
     //GETS AVAILABLE REVIEWS
+
     function getReviews() {
-        vm.allowReview = false;
-        vm.showReviews = true;
-        vm.user = JSON.parse(localUserData);
-        if (vm.userAndReviews !== ''){
-            vm.showReviews = false;
-            vm.userAndReviews = '';
-            return;
-        }
-        OtherAccountService.getReviews(vm.user.username)
+        vm.moreReviews = true;
+        vm.reviewsText = "Hide Reviews";
+        vm.page++;
+
+        OtherAccountService.getReviews(vm.page, vm.user.username)
             .then(
                 function(r) {
-                    console.log(r);
-                    vm.userAndReviews = r;
+                    vm.reviews = r.reviewInfoList;
+                    vm.userAndReviews = vm.reviews;
+                    vm.totalLength = r.totalSize;
+                },
+                function(errResponse){
+                    console.error('Error while getting reviews');
+                });
+
+    }
+
+    //SEE MORE REVIEWS
+    function seeMoreReviews() {
+        if(vm.userAndReviews.length >= vm.totalLength){
+            vm.moreReviews = false;
+        }
+        vm.showSeeLess=true;
+        vm.page++;
+        OtherAccountService.getReviews(vm.page, vm.user.username)
+            .then(
+                function(r) {
+                    vm.userAndReviews = vm.userAndReviews.concat(r.reviewInfoList);
                 },
                 function(errResponse){
                     console.error('Error while getting reviews');
                 });
     }
+
+    //SEE LESS
+    function seeLess() {
+        vm.page = 1;
+        vm.userAndReviews = vm.reviews;
+        vm.showSeeLess = false;
+        vm.moreReviews = true;
+    }
+
 
     //ALLOW USER TO WRITE A REVIEW
     function writeReview() {
@@ -180,6 +256,7 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
         var userData = localStorage['userInfo'];
         var loggedInUser = JSON.parse(userData);
         sendReview(loggedInUser.username, vm.user.username, vm.review, vm.numOfStars);
+        vm.allowReview = false;
     }
 
     function sendReview(loggedInUsername, otherUsername, review, rating){
@@ -187,12 +264,13 @@ function otherAccountController($location, ModalFactory, AddTagsService, UserAcc
             .then(
                 function() {
                     vm.review = '';
+                    vm.page=0;
+                    getReviews();
                 },
                 function(errResponse){
                     console.error('this review could not be saved');
                 });
     }
-
 
     //CHECKS IF CURRENT ACCOUNT IS TAGGED FAVOURITE
     function checkIfFav(loggedInUsername, otherUsername) {

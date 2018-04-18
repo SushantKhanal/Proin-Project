@@ -73,8 +73,8 @@ function proAccountService(HttpService) {
         return HttpService.post(REST_SERVICE_URI + 'getAllAcademics/', proUsername);
     }
 
-    function getReviews (proUsername) {
-        return HttpService.post(REST_SERVICE_URI+'getReviews/', proUsername);
+    function getReviews (pageNumber, proUsername) {
+        return HttpService.post('http://localhost:8080/admin/client/' + "getReviews?page="+pageNumber+"&size="+2, proUsername);
     }
 
 

@@ -9,7 +9,7 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     var vm = this;
     vm.goBack = goBack;
     vm.picPath1 = '';
-    vm.getReviews = getReviews;
+    // vm.getReviews = getReviews;
     vm.userAndReviews = '';
     vm.tags = '';
     vm.showReviews = false;
@@ -24,7 +24,6 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     vm.showSeeLess = false;
     vm.isReviewShown = false;
     vm.moreReviews = true;
-
     vm.review;
 
     var localUserData = localStorage['adminSeesClient'];
@@ -38,6 +37,30 @@ function clientAccountController($location, ClientAccountService, ModalFactory) 
     getAllAcademics();
     getAllExperience();
     checkIfDeleted();
+    getReviews();
+    checkForUploadedDocs();
+
+    function checkForUploadedDocs() {
+        ClientAccountService.checkForUploadedDocs(vm.user.username)
+            .then(function (r) {
+                vm.docNames=[];
+                vm.docPaths=[];
+                for(element of r) {
+                    var docName = element.docPath;
+                    vm.docPaths.push("http://localhost:8080"+'/proUser'+docName);
+                    docName = docName.split('proinProjectdoc/')[1];
+                    var obj = {
+                        id: element.id,
+                        docName: docName,
+                    };
+                    vm.docNames.push(obj);
+                }
+                console.log("docNames",vm.docNames);
+                console.log("docPaths",vm.docPaths);
+            }, function (error) {
+                console.log(error);
+            })
+    }
 
     function checkIfDeleted() {
 

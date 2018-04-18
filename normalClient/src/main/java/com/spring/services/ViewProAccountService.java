@@ -5,6 +5,7 @@ import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
 import com.spring.responseDto.ProUserDocInfo;
+import com.spring.responseDto.ReviewDto;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ViewProAccountService {
     UserTags receiveTags(String username);
     List<UserExperience> getAllExperience(String username);
     List<UserAcademics> getAllAcademics(String username);
-    List<NormalUserReviews> getReviews(String username);
+    ReviewDto getReviews(String username);
     void addFav(FavDto favDto);
     List<FavProUsers> getResults(String loggedInNormalUsername);
     void deleteFav(Long favId);

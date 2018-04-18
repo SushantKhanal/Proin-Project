@@ -223,30 +223,39 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
-                                <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
-                                &nbsp;
-                                <button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">
-                                    {{xxx.reviewsText}}
-                                </button>
-                                <button class="btn btn-warning pull-right" ng-click="xxx.uploadDocuments()">Upload documents</button>
-                                <br>
-                                <h4>Uploaded Docs</h4>
-                                <div ng-show="xxx.docNames !== []" ng-repeat="element in xxx.docNames">
-                                    <p>{{element.docName}} <button ng-click="xxx.deleteDocument(element.id)">delete</button></p>
-                                </div>
+                                <%--<button class="btn btn-primary showReviewsBtn" ng-click="xxx.showReviews()">--%>
+                                    <%--{{xxx.reviewsText}}--%>
+                                <%--</button>--%>
+                                <h4>Reviews:</h4>
+                                <div class="clearfix"></div>
                                 <div class="bot-border"></div>
-                                <div ng-show="xxx.allowReviews">
+
+                                <div>
                                     <ol>
                                         <li ng-repeat="userReview in xxx.userAndReviews">
-                                            <span style="cursor: pointer; color: blue; font-size: 14px;"
-                                                  ng-click="xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
                                             <span>{{userReview.rating}} Star Rating</span>
                                             <h4>{{userReview.review}}</h4>
                                             <div class="clearfix"></div>
                                             <div class="bot-border"></div>
                                         </li>
                                     </ol>
+                                    <button ng-show="xxx.moreReviews && xxx.totalLength > 2" ng-click="xxx.seeMoreReviews()">See more</button>
+                                    &nbsp;
+                                    <button ng-show="xxx.showSeeLess" ng-click="xxx.seeLess()">See Less</button>
                                 </div>
+
+                                <button class="btn btn-warning pull-right" ng-click="xxx.uploadDocuments()">Upload documents</button>
+                                <div class="bot-border"></div>
+                                <br>
+                                <div ng-show="xxx.docNames.length !== 0">
+                                    <h4>Uploaded Docs</h4>
+                                    <div ng-repeat="element in xxx.docNames">
+                                        <p>{{element.docName}} <button ng-click="xxx.deleteDocument(element.id)">delete</button></p>
+                                    </div>
+                                </div>
+
+                                <div class="bot-border"></div>
 
                                 <button ng-show="xxx.editContent" ng-click="xxx.updateProfile()"
                                         class="btn btn-danger pull-right">Save
@@ -256,6 +265,7 @@
                                    ng-click="xxx.searchResults()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </a>
+                                <button class="btn btn-warning pull-left" ng-click="xxx.logOut()">Log Out</button>
 
                                 <!-- /.box-body -->
                             </div>

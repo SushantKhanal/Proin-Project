@@ -15,16 +15,15 @@
                 <option value="">-- Select a Country --</option>
                 <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
             </select>
-            {{xxx.selectedCountry}}
+
             <ol style="cursor: pointer; color:blue;" class="listOfResult">
                 <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                    <li id="user{{$index}}" ng-click="xxx.displayProfile(profile)">
-                        {{profile}}
+                    <li id="user{{$index}}" ng-click="xxx.displayProfile(profile.username)">
+                        {{profile.username}}: {{profile.tags}}
                     </li>
                 </div>
             </ol>
         </div>
-
 
     </div>
 

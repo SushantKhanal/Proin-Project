@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.User;
+import com.spring.responseDto.SearchResultUserInfo;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  *         <suraj.gautam@f1soft.com>
  */
 public interface SearchProClientsService {
-    List<String> findResults(String country, String searchTxt);
-    List<String> getResults(String searchTxt);
+    List<SearchResultUserInfo> findResults(String country, String searchTxt);
+    List<SearchResultUserInfo> getResults(String searchTxt);
     User getProUserProfile(String username);
 }

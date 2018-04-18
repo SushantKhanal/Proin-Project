@@ -21,10 +21,16 @@ function searchResultsService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
-    function getMatchedUsers(searchTxt, country) {
-        return HttpService.getSearchResults(REST_SERVICE_URI, searchTxt, country);
+    function getMatchedUsers(searchThis, country) {
+        if(country == undefined) {
+            country = "undefined";
+        }
+        var searchParams = {
+            searchThis: searchThis,
+            country: country,
+        };
+        return HttpService.post('http://localhost:8080/normalClient/api/normalAccount/' + "getMatchedProUsers/", searchParams);
     }
-
 
 }
 

@@ -208,22 +208,11 @@
                                 <div>
                                     <button ng-click="xxx.backToSearch()" class="btn btn-danger pull-right">Go Back</button>
                                     &nbsp;
-                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>
                                     <button ng-click="xxx.writeReview()" class="btn btn-danger pull-left">Write Review</button>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
-                                <div ng-show="xxx.showReviews">
-                                    <ol>
-                                        <li ng-repeat="userReview in xxx.userAndReviews">
-                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
-                                            <span>{{userReview.rating}} Star Rating</span>
-                                            <h4>{{userReview.review}}</h4>
-                                            <div class="clearfix"></div>
-                                            <div class="bot-border"></div>
-                                        </li>
-                                    </ol>
-                                </div>
+
                                 <div ng-show="xxx.allowReview">
                                     <div>
                                         <textarea class="col-sm-8 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
@@ -243,6 +232,35 @@
 
                                 </div>
                                 <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
+<br><br>
+                                <div class="bot-border"></div>
+
+
+                                <h4>Reviews:</h4>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                                <div>
+                                    <ol>
+                                        <li ng-repeat="userReview in xxx.userAndReviews">
+                                            <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
+                                            <span>{{userReview.rating}} Star Rating</span>
+                                            <h4>{{userReview.review}}</h4>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                        </li>
+                                    </ol>
+                                    <button ng-show="xxx.moreReviews && xxx.totalLength > 2" ng-click="xxx.seeMoreReviews()">See more</button>
+                                    &nbsp;
+                                    <button ng-show="xxx.showSeeLess" ng-click="xxx.seeLess()">See Less</button>
+                                </div>
+
+                                <div ng-show="xxx.docNames.length !== 0">
+                                    <h4>Uploaded Docs</h4>
+                                    <div ng-repeat="element in xxx.docNames">
+                                        <p>{{element.docName}} <a target="_blank" href="{{xxx.docPaths[$index]}}">download</a></p></p>
+                                    </div>
+                                </div>
 
                             </div>
                             <!-- /.box -->

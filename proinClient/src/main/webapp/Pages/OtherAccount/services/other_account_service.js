@@ -16,12 +16,17 @@ function otherAccountService(HttpService) {
         deleteFav: deleteFav,
         sendReview: sendReview,
         getReviews: getReviews,
+        checkForUploadedDocs: checkForUploadedDocs,
     };
 
     return factory;
 
-    function getReviews (otherUsername) {
-        return HttpService.post(REST_SERVICE_URI+'getReviews/', otherUsername);
+    function checkForUploadedDocs(username) {
+        return HttpService.post('http://localhost:8080/normalClient/api/viewProAccount/' + 'checkForUploadedDocs/', username)
+    }
+
+    function getReviews (pageNumber, proUsername) {
+        return HttpService.post('http://localhost:8080/admin/client/' + "getReviews?page="+pageNumber+"&size="+2, proUsername);
     }
 
     function sendReview (loggedInUsername, otherUsername, review, rating) {
@@ -35,7 +40,6 @@ function otherAccountService(HttpService) {
     }
 
     function sendFavUser(loggedInUser, favUser) {
-
         var loggedFavUsers = {
             loggedInUser: loggedInUser,
             favUser: favUser
@@ -52,7 +56,6 @@ function otherAccountService(HttpService) {
     }
 
     function deleteFav(loggedInUser, favUser) {
-
         var loggedFavUsers = {
             loggedInUser: loggedInUser,
             favUser: favUser

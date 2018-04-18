@@ -209,12 +209,40 @@
                                 <div>
                                     <button ng-click="xxx.backToSearch()" class="btn btn-danger pull-right">Go Back</button>
                                     &nbsp;
-                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>
                                     <button ng-click="xxx.writeReview()" class="btn btn-danger pull-left">Write Review</button>
+                                    <br>
+                                    <div class="bot-border"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div ng-show="xxx.allowReview">
+                                        <div>
+                                            <textarea class="col-sm-8 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
+                                            <div class="col-sm-4">
+                                                <div class="star-rating">
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                        </div>
+
+                                    </div>
+                                    <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
+                                    <div class="bot-border"></div>
+                                    <div class="bot-border"></div>
+                                    <br>
+                                <%--<button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">Show Reviews</button>--%>
+                                    <h4>Reviews:</h4>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
-                                <div ng-show="xxx.showReviews">
+
+                                <div>
                                     <ol>
                                         <li ng-repeat="userReview in xxx.userAndReviews">
                                             <span style="cursor: pointer; color: blue; font-size: 14px;" ng-click = "xxx.takeToAccount(userReview.loggedInUsername)">{{userReview.loggedInUsername}}: </span>
@@ -224,35 +252,21 @@
                                             <div class="bot-border"></div>
                                         </li>
                                     </ol>
+                                    <button ng-show="xxx.moreReviews && xxx.totalLength > 2" ng-click="xxx.seeMoreReviews()">See more</button>
+                                    &nbsp;
+                                    <button ng-show="xxx.showSeeLess" ng-click="xxx.seeLess()">See Less</button>
                                 </div>
-                                <div ng-show="xxx.allowReview">
-                                    <div>
-                                        <textarea class="col-sm-8 writeReviewBox" id="writeReviewBox" ng-model="xxx.review"></textarea>
-                                        <div class="col-sm-4">
-                                            <div class="star-rating">
-                                                <span class="fa fa-star-o" data-rating="1"></span>
-                                                <span class="fa fa-star-o" data-rating="2"></span>
-                                                <span class="fa fa-star-o" data-rating="3"></span>
-                                                <span class="fa fa-star-o" data-rating="4"></span>
-                                                <span class="fa fa-star-o" data-rating="5"></span>
-                                                <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="bot-border"></div>
-                                    </div>
 
-                                </div>
-                                <button ng-click="xxx.saveReview()" ng-show="xxx.allowReview" class="btn btn-primary pull-left ">Save Review</button>
 
                                 <br>
-                                <h4>Uploaded Docs</h4>
-                                <div ng-show="xxx.docNames !== []" ng-repeat="element in xxx.docNames">
-                                    <p>{{element.docName}} <button>download</button></p>
+                                <div ng-show="xxx.docNames.length !== 0">
+                                    <h4>Uploaded Docs</h4>
+                                    <div ng-repeat="element in xxx.docNames">
+                                        <p>{{element.docName}} <a target="_blank" href="{{xxx.docPaths[$index]}}">download</a></p></p>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.box -->
-
                         </div>
                     </div>
                 </div>

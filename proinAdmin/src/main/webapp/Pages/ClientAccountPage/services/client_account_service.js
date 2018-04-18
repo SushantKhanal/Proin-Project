@@ -20,9 +20,14 @@ function clientAccountService(HttpService){
         deleteThisAccount: deleteThisAccount,
         checkIfDeleted: checkIfDeleted,
         undoDeleteThisAccount: undoDeleteThisAccount,
+        checkForUploadedDocs: checkForUploadedDocs,
     };
 
     return factory;
+
+    function checkForUploadedDocs(username) {
+        return HttpService.post('http://localhost:8080/normalClient/api/viewProAccount/' + 'checkForUploadedDocs/', username);
+    }
     
     function checkIfDeleted(username) {
         return HttpService.post(REST_SERVICE_URI + "checkIfDeleted/", username);

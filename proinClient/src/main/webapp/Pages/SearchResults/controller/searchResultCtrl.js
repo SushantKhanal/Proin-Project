@@ -2,14 +2,15 @@ angular
     .module('myApp')
     .controller('SearchResultCtrl', searchResultController);
 
-searchResultController.$inject = ['$location', 'SearchResultsService', 'FavouritesService','$scope'];
+searchResultController.$inject = ['$location', 'SearchResultsService', 'FavouritesService','$scope', 'UserAccountService'];
 
-function searchResultController($location, SearchResultsService, FavouritesService, $scope) {
+function searchResultController($location, SearchResultsService, FavouritesService, $scope, UserAccountService) {
 
     var vm = this;
     vm.goBack = goBack;
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
+
 
     vm.picPath1 = '';
     vm.users = []; //make this persist on refresh
@@ -18,8 +19,27 @@ function searchResultController($location, SearchResultsService, FavouritesServi
     vm.searchThis;
     vm.count = -1;
     $scope.country;
+    var userData = localStorage['userInfo'];
+
+    if(userData !== undefined) {
+        vm.proUser = JSON.parse(userData);
+    }
 
     getCountries();
+    getProfilePic(vm.proUser.username);
+
+    function getProfilePic(username){
+        UserAccountService.getProfilePic(username)
+            .then(
+                function(d) {
+                    vm.userProfilePic =d;
+                    vm.picPath1 = '/user'+d.picPath+"?"+ new Date().getTime();
+                },
+                function(errResponse){
+                    console.error('Error while getting profilePic');
+                }
+            );
+    }
 
     //upArrow = 38
     //DOWN-ARROW NAVIGATION

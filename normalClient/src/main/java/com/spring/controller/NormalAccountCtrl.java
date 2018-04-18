@@ -6,10 +6,7 @@ import com.spring.model.NormalUser;
 import com.spring.model.User;
 import com.spring.requestDto.CustomEmailDTO;
 import com.spring.requestDto.PicDataDto;
-import com.spring.responseDto.CountriesList;
-import com.spring.responseDto.FollowingDto;
-import com.spring.responseDto.SearchParamsDto;
-import com.spring.responseDto.ValueDto;
+import com.spring.responseDto.*;
 import com.spring.services.*;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,14 +128,14 @@ public class NormalAccountCtrl {
     // ******************************************************* //
     //SEARCH FOR PRO CLIENTS BASED ON COUNTRY AND OTHER PARAMS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.SEARCH_PRO_USERS)
-    public ResponseEntity<List<String>> searchProUsers(@RequestBody SearchParamsDto searchParams) {
+    public ResponseEntity<List<SearchResultUserInfo>> searchProUsers(@RequestBody SearchParamsDto searchParams) {
         String undefined = "undefined";
 
         if (searchParams.getCountry().equals(undefined)) {
-            List<String> results = searchProClientsService.getResults(searchParams.getSearchThis());
+            List<SearchResultUserInfo> results = searchProClientsService.getResults(searchParams.getSearchThis());
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
-        List<String> results = searchProClientsService.findResults(searchParams.getCountry(),
+        List<SearchResultUserInfo> results = searchProClientsService.findResults(searchParams.getCountry(),
                 searchParams.getSearchThis());
 
         return new ResponseEntity<>(results, HttpStatus.OK);

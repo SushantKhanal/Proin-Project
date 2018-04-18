@@ -6,6 +6,8 @@ import com.spring.requestDto.CheckIfFollowedDto;
 import com.spring.requestDto.FavDto;
 import com.spring.requestDto.LoggedMessageDto;
 import com.spring.responseDto.ProUserDocInfo;
+import com.spring.responseDto.ReviewDto;
+import com.spring.responseDto.ReviewInfo;
 import com.spring.services.ViewProAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,13 +80,35 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     }
 
     @Override
-    public List<NormalUserReviews> getReviews(String username) {
-        Query query = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :otherUsername");
-        query.setParameter("otherUsername","%"+username+"%");
+    public ReviewDto getReviews(String loggedInUsername) {
+//        Query query = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :otherUsername");
+//        query.setParameter("otherUsername","%"+username+"%");
+//
+//        System.out.println(query.toString());
+//        List<NormalUserReviews> results = query.getResultList();
+//        return results;
 
-        System.out.println(query.toString());
-        List<NormalUserReviews> results = query.getResultList();
-        return results;
+        Query query = em.createQuery("SELECT p from UserReviews p where p.otherUsername like :loggedInUsername");
+        query.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+        int resultLength = query.getResultList().size();
+
+        List<UserReviews> results = query.getResultList();
+        List<ReviewInfo> reviewInfoList= new ArrayList<ReviewInfo>();
+        for (UserReviews element : results) {
+            ReviewInfo reviewInfo1 = new ReviewInfo(element.getLoggedInUsername(),loggedInUsername, element.getReview(), element.getRating());
+            reviewInfoList.add(reviewInfo1);
+        }
+        Query query1 = em.createQuery("SELECT p from NormalUserReviews p where p.otherUsername like :loggedInUsername");
+        query1.setParameter("loggedInUsername","%"+loggedInUsername+"%");
+        resultLength = resultLength + query1.getResultList().size();
+
+        List<NormalUserReviews> results1 = query1.getResultList();
+        for (NormalUserReviews element : results1) {
+            ReviewInfo reviewInfo2 = new ReviewInfo(element.getLoggedInUsername(),loggedInUsername, element.getReview(), element.getRating());
+            reviewInfoList.add(reviewInfo2);
+        }
+        ReviewDto reviewDto = new ReviewDto(reviewInfoList, resultLength);
+        return reviewDto;
     }
 
     @Override
@@ -120,12 +144,12 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
     public void addNormalReview(NormalUserReviews normalUserReviews1){
         normalUserReviewsRepository.saveAndFlush(normalUserReviews1);
     }
-//follow request sent status = 0
+    //follow request sent status = 0
     @Override
     public void registerFollowRequest(NormalFollowRequest normalFollowRequest) {
         normalFollowRequestRepository.saveAndFlush(normalFollowRequest);
     }
-//follow request accepted status = 1
+    //follow request accepted status = 1
     @Override
     public String checkIfFollowed(CheckIfFollowedDto checkIfFollowedDto) {
         String from = checkIfFollowedDto.getLoggedInUsername();
@@ -133,7 +157,6 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
         String sql = "SELECT f.id FROM normal_follow_request_table f" +
                 " WHERE f.fromNormalUsername = :from AND f.toProUsername = :to" +
                 " AND f.status = :status";
-
         Object result;
         String followStatus;
         try {
@@ -167,9 +190,7 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
             }
             return followStatus;
         }
-
             return followStatus;
-
     }
 
 //unfollowed status = 2
@@ -206,10 +227,10 @@ public class ViewProAccountServiceImpl implements ViewProAccountService{
         List<Object[]> results = query.getResultList();
         List<ProUserDocInfo> userDocInfos = new ArrayList<>();
         for(Object[] element : results) {
-            ProUserDocInfo userDocInfo = new ProUserDocInfo();
-            userDocInfo.setId(Long.parseLong(element[0].toString()));
-            userDocInfo.setDocPath(element[1].toString());
-            userDocInfos.add(userDocInfo);
+            ProUserDocInfo prouserDocInfo = new ProUserDocInfo();
+            prouserDocInfo.setId(Long.parseLong(element[0].toString()));
+            prouserDocInfo.setDocPath(element[1].toString());
+            userDocInfos.add(prouserDocInfo);
         }
         return userDocInfos;
     }

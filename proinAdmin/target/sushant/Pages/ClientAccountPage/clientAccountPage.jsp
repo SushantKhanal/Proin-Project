@@ -1,4 +1,3 @@
-
 <div class="UserAccount" ng-controller="ClientAccountCtrl as xxx">
 
     <div class="container">
@@ -209,7 +208,8 @@
                                 <div>
                                     <button ng-click="xxx.goBack()" class="btn btn-danger pull-right">Go Back</button>
                                     &nbsp;
-                                    <button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">{{xxx.reviewsText}}</button>
+                                    <%--<button id="showReviews" class="btn btn-primary" ng-click="xxx.getReviews()">{{xxx.reviewsText}}</button>--%>
+                                    <h4>Reviews:</h4>
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
                                 </div>
@@ -226,6 +226,14 @@
                                     <button ng-show="xxx.moreReviews" ng-click="xxx.seeMoreReviews()">See more</button>
                                     &nbsp;
                                     <button ng-show="xxx.showSeeLess" ng-click="xxx.seeLess()">See Less</button>
+                                </div>
+
+                                <br>
+                                <div ng-show="xxx.docNames.length !== 0">
+                                    <h4>Uploaded Docs</h4>
+                                    <div ng-repeat="element in xxx.docNames">
+                                        <p>{{element.docName}} <a target="_blank" href="{{xxx.docPaths[$index]}}">download</a></p></p>
+                                    </div>
                                 </div>
 
                             </div>

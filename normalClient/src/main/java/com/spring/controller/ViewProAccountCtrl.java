@@ -91,7 +91,7 @@ public class ViewProAccountCtrl {
     }
 
     @PostMapping(WebResourceConstant.ViewProAccountCtrl.FETCH_REVIEWS)
-    public ResponseEntity<List<NormalUserReviews>> getReviews(@RequestBody String  username){
+    public ResponseEntity<com.spring.responseDto.ReviewDto> getReviews(@RequestBody String  username){
         return new ResponseEntity<>(viewProAccountService.getReviews(username), HttpStatus.OK);
     }
 
