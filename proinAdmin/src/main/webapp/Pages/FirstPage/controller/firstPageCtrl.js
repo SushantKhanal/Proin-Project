@@ -28,6 +28,9 @@ function firstPageController(AdminSignInService, $location) {
                 if(r !== '') {
                     vm.admin = r;
                     localStorage['adminInfo'] = JSON.stringify(vm.admin);
+                } else {
+                    vm.admin = r;
+                    localStorage['adminInfo'] = undefined;
                 }
 
                 localStorage['adminLoggedIn'] = JSON.stringify(true);

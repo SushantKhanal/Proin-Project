@@ -31,6 +31,7 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     vm.approveAdminRequest = approveAdminRequest;
     vm.rejectAdminRequest = rejectAdminRequest;
     vm.count = -1;
+    vm.seekResults = seekResults;
     getCountries();
 
 //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
@@ -47,10 +48,16 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
 
     var adminData = localStorage['adminInfo'];
 
-    if(adminData !== undefined) {
+    if(adminData !== undefined & adminData !== "undefined") {
         vm.admin = JSON.parse(adminData);
         vm.welcomeMessage = "Welcome " + "Home " + vm.admin.username + " :)";
         console.log(vm.admin);
+    }
+
+    function seekResults() {
+        if(vm.searchThis !== ''){
+            vm.searchResults(vm.accountType);
+        }
     }
 
     //DOWN-ARROW NAVIGATION
@@ -101,7 +108,7 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
         }
     });
 
-//LAZY FETCHING
+    //LAZY FETCHING
     function searchResults(status) {
         if (vm.selectedCountry==null) {
             vm.selectedCountry = '';

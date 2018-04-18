@@ -5,18 +5,16 @@
     <div class="bot-border"></div>
     <div id="arrowNavigation">
         <h3>Search for client accounts here</h3>
-        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="1">Deleted Accounts
+        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-change="xxx.seekResults()" ng-value="1">Deleted Accounts
         &nbsp;
-        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-value="0">Active accounts
+        <input type="radio" name="radAnswer" ng-model="xxx.accountType" ng-change="xxx.seekResults()" ng-value="0">Active accounts
         <br/>
-
         <input class="searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults(xxx.accountType)"
                ng-model-options="{debounce: 500}"/>
         <select id="selectedCountry" ng-model="xxx.selectedCountry">
             <option value="">-- Select a Country --</option>
             <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
         </select>
-
         <div ng-if="xxx.users !== ''">
             <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
                 <tr ng-repeat="user in xxx.users">
@@ -32,7 +30,6 @@
                     boundary-links="true">
             </uib-pagination>
         </div>
-
     </div>
 
     <div class="bot-border"></div>

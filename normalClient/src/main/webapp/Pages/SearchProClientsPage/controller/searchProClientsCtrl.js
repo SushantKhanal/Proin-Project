@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('SearchProCleintsCtrl', searchProCleintsCtrl);
 
-searchProCleintsCtrl.$inject = ['SearchProClientsService', '$location'];
+searchProCleintsCtrl.$inject = ['SearchProClientsService', '$location', 'NormalAccountService'];
 
-function searchProCleintsCtrl(SearchProClientsService, $location) {
+function searchProCleintsCtrl(SearchProClientsService, $location, NormalAccountService) {
 
     var vm = this;
     var returnedValue = [];
@@ -15,13 +15,35 @@ function searchProCleintsCtrl(SearchProClientsService, $location) {
     vm.goBack = goBack;
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
+    vm.picPath1='';
 
     vm.users = []; //make this persist on refresh
     vm.user;
     vm.searchThis;
     vm.selectedCountry;
+    var userData = localStorage['NormalUserInfo'];
 
+    if(userData !== undefined) {
+        vm.normalUser = JSON.parse(userData);
+    }
+    getProfilePic(vm.normalUser.username);
     getCountries();
+
+    function getProfilePic(username){
+        NormalAccountService.getProfilePic(username)
+            .then(
+                function(d) {
+                    vm.userProfilePic =d;
+                    if(d.picPath == undefined) {
+                        return;
+                    }
+                    vm.picPath1 = '/user'+d.picPath+"?"+ new Date().getTime();
+                },
+                function(errResponse){
+                    console.error('Error while getting profilePic');
+                }
+            );
+    }
 
     //DOWN-ARROW NAVIGATION
     $("#arrowNavigation").on('keydown', function(e) {

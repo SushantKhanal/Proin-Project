@@ -1,8 +1,5 @@
 <div ng-controller="SearchResultCtrl as xxx">
 
-    <div>
-        <button style="font-size:16px" ng-click="xxx.goBack()"><i class="fa fa-arrow-left"></i> Go Back</button>
-    </div>
     <div class="container">
         <div class="row">
 
@@ -35,6 +32,10 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">
+                                <div>
+                                    <button style="font-size:16px" ng-click="xxx.goBack()"><i class="fa fa-arrow-left"></i> Go Back</button>
+                                </div>
+                                <div class="bot-border"></div>
 
                                 <div id="arrowNavigation">
                                     <input id="proSearch" class = "searchInput" type="text" ng-model="xxx.searchThis" ng-change="xxx.searchResults()" ng-model-options="{debounce: 500}"/>
