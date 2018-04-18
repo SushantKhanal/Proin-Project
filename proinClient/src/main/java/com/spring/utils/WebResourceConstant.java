@@ -15,7 +15,7 @@ public class WebResourceConstant {
         public static final String UPDATE_USER = "/{id}";
         public static final String POST_DOC = "/postDoc/";
         public static final String CHECK_FOR_UPLOADED_DOCS = "/checkForUploadedDocs/";
-        public static final String POST_PROFILE_PIC = "/postProfilePic/";
+        public static final String POST_PROFILE_PIC = "/profilePic/{username}/{fileType}";
         public static final String GET_PROFILE_PIC = "/getProfilePic/";
         public static final String GET_FAV_USERS = "/getFavUsers/";
         public static final String GET_USER_PROFILE = "/getUserProfile/";

@@ -26,7 +26,7 @@ function firstPageController(AdminSignInService, $location) {
                 vm.username = '';
                 vm.password = '';
                 if(r !== '') {
-                    vm.admin = 'r';
+                    vm.admin = r;
                     localStorage['adminInfo'] = JSON.stringify(vm.admin);
                 }
 

@@ -8,7 +8,7 @@ adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scop
 function adminAccountPageController($location, AdminAccountService, $scope, NgTableParams) {
 
     var vm = this;
-    vm.welcomeMessage = "Welcome to admin account Page";
+    vm.welcomeMessage = "Welcome Home Master Admin :)";
     vm.showAccountRequests = showAccountRequests;
     vm.fetchAdminRequests = fetchAdminRequests;
     vm.searchResults = searchResults;
@@ -44,6 +44,14 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     $scope.noOfItems;
     $scope.numPerPage = 3
         ,$scope.maxSize = 5;
+
+    var adminData = localStorage['adminInfo'];
+
+    if(adminData !== undefined) {
+        vm.admin = JSON.parse(adminData);
+        vm.welcomeMessage = "Welcome " + "Home " + vm.admin.username + " :)";
+        console.log(vm.admin);
+    }
 
     //DOWN-ARROW NAVIGATION
     $(document).on('keydown', function(e) {

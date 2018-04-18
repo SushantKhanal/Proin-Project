@@ -1,6 +1,5 @@
-<div ng-controller="AdminAccountPageCtrl as xxx">
-    <h1>{{xxx.welcomeMessage}}</h1>
-    &nbsp;
+<div id="adminAccountPage" ng-controller="AdminAccountPageCtrl as xxx">
+    <h1 style="color:green;">{{xxx.welcomeMessage}}</h1>
     <%--<button class="btn btn-primary" ng-click="xxx.sendEmail()">Send Email</button>--%>
 
     <div class="bot-border"></div>
@@ -37,9 +36,9 @@
     </div>
 
     <div class="bot-border"></div>
-    <button class="btn btn-primary" ng-click="xxx.showAccountRequests()">{{xxx.requestButton}}</button>
+    <button class="btn-warning" ng-click="xxx.showAccountRequests()">{{xxx.requestButton}}</button>
     &nbsp;
-    <button class="btn btn-primary" ng-click="xxx.fetchAdminRequests()">{{xxx.requestingAdminsButton}}</button>
+    <button class="btn-danger" ng-click="xxx.fetchAdminRequests()">{{xxx.requestingAdminsButton}}</button>
     <ol ng-show="xxx.requestingUsers !== '' && xxx.showClientRequests == true">
         <div ng-repeat="profile in xxx.requestingUsers">
             <br/>
