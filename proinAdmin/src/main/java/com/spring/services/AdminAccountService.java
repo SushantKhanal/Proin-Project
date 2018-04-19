@@ -33,4 +33,8 @@ public interface AdminAccountService {
     void rejectAdminRequest(String username);
 
     List<String> getAdminRequests();
+
+    AdminProfilePic getAdminPpByUsername(String username);
+
+    void addProfilePic(AdminProfilePic adminProfilePic1);
 }

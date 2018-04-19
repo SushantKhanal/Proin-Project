@@ -1,10 +1,7 @@
 package com.spring.services.Impl;
 
 import com.spring.model.*;
-import com.spring.repository.UserRepository;
-import com.spring.repository.UserSignUpRequestRepository;
-import com.spring.repository.UserSignUpRequestStatusRepository;
-import com.spring.repository.UserStatusRepository;
+import com.spring.repository.*;
 import com.spring.responseDTO.SearchResults;
 import com.spring.services.AdminAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +34,9 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
     @Autowired
     private UserSignUpRequestStatusRepository userSignUpRequestStatusRepository;
+
+    @Autowired
+    private AdminProfilePicRepository adminProfilePicRepository;
 
     @Override
     public SearchResults getResults(String searchTxt, Integer status, Pageable pageable) {
@@ -191,5 +191,28 @@ public class AdminAccountServiceImpl implements AdminAccountService {
         } catch (Exception e) {
             System.out.println("Exception " + e);
         }
+    }
+
+    @Override
+    public AdminProfilePic getAdminPpByUsername(String username) {
+        String sql = "SELECT * FROM admin_profile_pic_table ap"+
+                " WHERE ap.username = :username";
+        //fetch the matching admin
+
+        Query query = em.createNativeQuery(sql, AdminProfilePic.class);
+        query.setParameter("username", username);
+        AdminProfilePic adminProfilePic = new AdminProfilePic();
+        try{
+            adminProfilePic = (AdminProfilePic) query.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return adminProfilePic;
+    }
+
+    @Override
+    public void addProfilePic(AdminProfilePic adminProfilePic1) {
+        adminProfilePicRepository.saveAndFlush(adminProfilePic1);
     }
 }

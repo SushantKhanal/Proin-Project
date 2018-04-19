@@ -3,9 +3,9 @@ angular
     .module('myApp')
     .controller('AdminAccountPageCtrl', adminAccountPageController);
 
-adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scope', 'NgTableParams'];
+adminAccountPageController.$inject = ['$location', 'AdminAccountService', '$scope', 'NgTableParams', 'ModalFactory', 'ProfilePicService'];
 
-function adminAccountPageController($location, AdminAccountService, $scope, NgTableParams) {
+function adminAccountPageController($location, AdminAccountService, $scope, NgTableParams, ModalFactory, ProfilePicService) {
 
     var vm = this;
     vm.welcomeMessage = "Welcome Home Master Admin :)";
@@ -32,11 +32,12 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
     vm.rejectAdminRequest = rejectAdminRequest;
     vm.count = -1;
     vm.seekResults = seekResults;
+    vm.picPath1 = '';
+    vm.changePicModal = changePicModal;
     getCountries();
-
-//ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
-//ADMIN STATUS 1 == ACCEPTED
-//ADMIN STATUS 2 == REJECTED
+    //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
+    //ADMIN STATUS 1 == ACCEPTED
+    //ADMIN STATUS 2 == REJECTED
 
     $scope.filteredTodos = [];
     $scope.pagination = {
@@ -52,8 +53,36 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
         vm.admin = JSON.parse(adminData);
         vm.welcomeMessage = "Welcome " + "Home " + vm.admin.username + " :)";
         console.log(vm.admin);
+        getProfilePic(vm.admin.username);
     }
 
+    function changePicModal() {
+        if(adminData !== undefined & adminData !== "undefined") {
+            var modalInstance = ModalFactory.open('Pages/AdminAccountPage/templates/profilePic.html', 'ProfilePicController', 'md', '$ctrl');
+            modalInstance.result.then(
+                function(response){
+                    getProfilePic(vm.admin.username);
+                },function(errResponse){
+                    console.log("error")
+                }
+            )
+        } else {
+            alert("You are master admin, you don't need profile pictures")
+        }
+    }
+    function getProfilePic(username){
+            ProfilePicService.getProfilePic(username)
+                .then(
+                    function(d) {
+                        vm.userProfilePic =d;
+                        vm.picPath1 = '/adminProfilePic'+d.picPath+"?"+ new Date().getTime();
+                    },
+                    function(errResponse){
+                        console.error('Error while getting profilePic');
+                    }
+                );
+
+    }
     function seekResults() {
         if(vm.searchThis !== ''){
             vm.searchResults(vm.accountType);
@@ -113,7 +142,11 @@ function adminAccountPageController($location, AdminAccountService, $scope, NgTa
         if (vm.selectedCountry==null) {
             vm.selectedCountry = '';
         }
-        console.log(vm.searchThis, vm.selectedCountry, status);
+        console.log("accountType", vm.accountType);
+        if(status === '') {
+            alert("You must choose account type first");
+            return;
+        }
         AdminAccountService.getMatchedClients(vm.searchThis, vm.selectedCountry, status,
             $scope.pagination.currentPage, $scope.numPerPage)
             .then(

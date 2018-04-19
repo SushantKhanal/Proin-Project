@@ -48,6 +48,18 @@ function HttpService($http, $q, $location) {
                 );
         },
 
+        //FUNCTION THAT HANDLES THE IMAGE POST OPERATION
+        postProfilePic: function (resourceURI, username, fileType, image) {
+            return $http.post(resourceURI+username+'/'+fileType, image)
+                .then(
+                    function (resp) {
+                        return resp.data;
+                    },
+                    function (err) {
+                        return $q.reject(err);
+                    }
+                );
+        },
 
     }
 

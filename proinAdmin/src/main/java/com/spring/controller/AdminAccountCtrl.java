@@ -7,6 +7,7 @@ import com.spring.responseDTO.CountriesList;
 import com.spring.responseDTO.SearchResults;
 import com.spring.scheduler.EmailSenderScheduler;
 import com.spring.services.AdminAccountService;
+import com.spring.services.AdminSignInService;
 import com.spring.services.ClientAccountService;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -22,14 +27,66 @@ import java.util.List;
 public class AdminAccountCtrl {
 
     private final AdminAccountService adminAccountService;
+    private final AdminSignInService adminSignInService;
     private final ClientAccountService clientAccountService;
     private final EmailSenderScheduler emailSenderScheduler;
 
-    public AdminAccountCtrl(AdminAccountService adminAccountService, ClientAccountService clientAccountService,
-                            EmailSenderScheduler emailSenderScheduler) {
+    public AdminAccountCtrl(AdminAccountService adminAccountService, AdminSignInService adminSignInService,
+                            ClientAccountService clientAccountService, EmailSenderScheduler emailSenderScheduler) {
         this.adminAccountService = adminAccountService;
+        this.adminSignInService = adminSignInService;
         this.clientAccountService = clientAccountService;
         this.emailSenderScheduler = emailSenderScheduler;
+    }
+
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.GET_PROFILE_PIC)
+    public ResponseEntity<AdminProfilePic> getprofilePic(@RequestBody String username) {
+        AdminProfilePic returnedAdminProfilePic = adminAccountService.getAdminPpByUsername(username);
+        if(returnedAdminProfilePic.getId() != null) {
+            return new ResponseEntity<AdminProfilePic>(returnedAdminProfilePic, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+    }
+
+    @PostMapping(WebResourceConstant.AdminSetupCtrl.POST_PROFILE_PIC)
+    public ResponseEntity<AdminProfilePic> postProfilePic(@PathVariable("username") String username,
+                                               @PathVariable("fileType") String fileType,
+                                               @RequestBody String image)
+    throws IOException {
+        Admin returnedAdmin = adminSignInService.getAdminByUsername(username);
+        Long id = returnedAdmin.getId();
+
+        byte[] decodedImg = Base64.getDecoder().decode(image);
+        AdminProfilePic adminProfilePic1 = new AdminProfilePic();
+
+        String picPath = File.separator+"proinProjectAdminImages/"+username+"."+fileType;
+
+        FileOutputStream imageOutFile = new FileOutputStream(System.getProperty("catalina.home")+ picPath);
+
+        try {
+            imageOutFile.write(decodedImg);
+        }
+        catch(Exception e){
+            System.out.println("error");
+        }
+
+        //IF ISEXISTS == TRUE
+        AdminProfilePic adminProfilePic = adminAccountService.getAdminPpByUsername(username);
+        if(adminProfilePic.getId() != null) {
+            Long trueId = adminProfilePic.getId();
+            adminProfilePic1 = new AdminProfilePic(username, picPath, returnedAdmin);
+            adminProfilePic1.setId(trueId);
+        }else {
+            adminProfilePic1 = new AdminProfilePic(username, picPath, returnedAdmin);
+        }
+
+        adminAccountService.addProfilePic(adminProfilePic1);
+
+        AdminProfilePic adminProfilePic2 = adminAccountService.getAdminPpByUsername(username);
+
+
+        return new ResponseEntity<AdminProfilePic>(adminProfilePic2, HttpStatus.ACCEPTED);
+
     }
 
     @GetMapping(WebResourceConstant.AdminSetupCtrl.FETCH_COUNTRIES)

@@ -36,4 +36,16 @@ public class AdminSignInServiceImpl implements AdminSignInService {
 
         return admin;
     }
+    @Override
+    public Admin getAdminByUsername(String username) {
+        String sql = "SELECT * FROM admins_table at"+
+                " WHERE at.username = :username";
+        //fetch the matching admin
+
+        Query query = em.createNativeQuery(sql, Admin.class);
+        query.setParameter("username", username);
+        Admin admin = (Admin) query.getSingleResult();
+
+        return admin;
+    }
 }

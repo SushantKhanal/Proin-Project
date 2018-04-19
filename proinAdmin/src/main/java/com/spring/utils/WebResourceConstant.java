@@ -21,6 +21,11 @@ public class WebResourceConstant {
         public static final String FETCH_ADMIN_REQUESTS = "/fetchAdminRequests/";
         public static final String APPROVE_ADMIN_REQUEST = "/approveAdminRequest/";
         public static final String REJECT_ADMIN_REQUEST = "/rejectAdminRequest/";
+        public static final String POST_PROFILE_PIC = "/profilePic/{username}/{fileType}";
+
+        public static final String GET_PROFILE_PIC = "/getProfilePic/";
+       // http://localhost:8080/api/adminAccount/profilePic/miniAdmin/jpeg
+
     }
 
     public interface SignUpCtrl {

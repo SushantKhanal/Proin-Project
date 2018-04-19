@@ -10,4 +10,5 @@ import com.spring.requestDTO.SignInInfo;
 
 public interface AdminSignInService {
     Admin confirmAdminSignIn(SignInInfo signInInfo);
+    Admin getAdminByUsername(String username);
 }
