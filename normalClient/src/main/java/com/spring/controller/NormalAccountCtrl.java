@@ -10,6 +10,7 @@ import com.spring.responseDto.*;
 import com.spring.services.*;
 import com.spring.utils.WebResourceConstant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -128,15 +129,16 @@ public class NormalAccountCtrl {
     // ******************************************************* //
     //SEARCH FOR PRO CLIENTS BASED ON COUNTRY AND OTHER PARAMS
     @PostMapping(WebResourceConstant.NormalAccountCtrl.SEARCH_PRO_USERS)
-    public ResponseEntity<List<SearchResultUserInfo>> searchProUsers(@RequestBody SearchParamsDto searchParams) {
+    public ResponseEntity<SearchResults> searchProUsers(@RequestBody SearchParamsDto searchParams,
+                                                                     Pageable pageable) {
         String undefined = "undefined";
 
         if (searchParams.getCountry().equals(undefined)) {
-            List<SearchResultUserInfo> results = searchProClientsService.getResults(searchParams.getSearchThis());
+            SearchResults results = searchProClientsService.getResults(searchParams.getSearchThis(), pageable);
             return new ResponseEntity<>(results, HttpStatus.OK);
         }
-        List<SearchResultUserInfo> results = searchProClientsService.findResults(searchParams.getCountry(),
-                searchParams.getSearchThis());
+        SearchResults results = searchProClientsService.findResults(searchParams.getCountry(),
+                searchParams.getSearchThis(), pageable);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
     }

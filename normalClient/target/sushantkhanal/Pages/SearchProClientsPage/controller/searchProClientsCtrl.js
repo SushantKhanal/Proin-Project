@@ -2,9 +2,9 @@ angular
     .module('myApp')
     .controller('SearchProCleintsCtrl', searchProCleintsCtrl);
 
-searchProCleintsCtrl.$inject = ['SearchProClientsService', '$location', 'NormalAccountService'];
+searchProCleintsCtrl.$inject = ['SearchProClientsService', '$location', 'NormalAccountService', '$scope'];
 
-function searchProCleintsCtrl(SearchProClientsService, $location, NormalAccountService) {
+function searchProCleintsCtrl(SearchProClientsService, $location, NormalAccountService, $scope) {
 
     var vm = this;
     var returnedValue = [];
@@ -17,11 +17,19 @@ function searchProCleintsCtrl(SearchProClientsService, $location, NormalAccountS
     vm.displayProfile = displayProfile;
     vm.picPath1='';
 
-    vm.users = []; //make this persist on refresh
+    vm.users = ''; //make this persist on refresh
     vm.user;
     vm.searchThis;
     vm.selectedCountry;
     var userData = localStorage['NormalUserInfo'];
+
+    $scope.filteredTodos = [];
+    $scope.pagination = {
+        currentPage:  1
+    };
+    $scope.noOfItems;
+    $scope.numPerPage = 3
+        ,$scope.maxSize = 5;
 
     if(userData !== undefined) {
         vm.normalUser = JSON.parse(userData);
@@ -114,10 +122,12 @@ function searchProCleintsCtrl(SearchProClientsService, $location, NormalAccountS
     function searchResults() {
         console.log(vm.searchThis, vm.selectedCountry);
 
-        SearchProClientsService.getMatchedProUsers(vm.searchThis, vm.selectedCountry)
+        SearchProClientsService.getMatchedProUsers(vm.searchThis, vm.selectedCountry,
+            $scope.pagination.currentPage, $scope.numPerPage)
             .then(
                 function(u) {
-                    vm.users = u;
+                    vm.users = u.results;
+                    vm.noOfItems = u.noOfItems;
                     if (vm.users !== []) {
                         vm.showList = true;
                     }

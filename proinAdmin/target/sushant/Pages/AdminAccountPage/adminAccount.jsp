@@ -29,8 +29,6 @@
 
                                 <div class="col-sm-6">
                                     <h4 style="color:#00b1b1;">{{xxx.admin.firstName}} {{xxx.admin.lastName}} </h4></span>
-
-                                    <span><p>Admin</p></span>
                                 </div>
                                 <div class="clearfix"></div>
                                 <hr style="margin:5px 0 5px 0;">
@@ -52,7 +50,9 @@
                                     <div ng-if="xxx.users !== ''">
                                         <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
                                             <tr ng-repeat="user in xxx.users">
-                                                <td id="user{{$index}}" ng-click="xxx.displayProfile(user)">{{user}}</td>
+                                                <td id="user{{$index}}" ng-click="xxx.displayProfile(user.username)">
+                                                    {{user.username}} ({{user.tags}})
+                                                </td>
                                             </tr>
                                         </table>
                                         <uib-pagination

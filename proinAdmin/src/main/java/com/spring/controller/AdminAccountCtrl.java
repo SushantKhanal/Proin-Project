@@ -42,9 +42,7 @@ public class AdminAccountCtrl {
     @PostMapping(WebResourceConstant.AdminSetupCtrl.GET_PROFILE_PIC)
     public ResponseEntity<AdminProfilePic> getprofilePic(@RequestBody String username) {
         AdminProfilePic returnedAdminProfilePic = adminAccountService.getAdminPpByUsername(username);
-        if(returnedAdminProfilePic.getId() != null) {
-            return new ResponseEntity<AdminProfilePic>(returnedAdminProfilePic, HttpStatus.OK);
-        }
+
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
 
@@ -110,8 +108,12 @@ public class AdminAccountCtrl {
         Integer status = searchInfo.getStatus();
 
         if (country.equals(empty)) {
-            SearchResults results = adminAccountService.getResults(searchTxt, status, pageable);
-            return new ResponseEntity<>(results, HttpStatus.OK);
+            try {
+                SearchResults results = adminAccountService.getResults(searchTxt, status, pageable);
+                return new ResponseEntity<>(results, HttpStatus.OK);
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         SearchResults results = adminAccountService.findResults(country, searchTxt, status, pageable);

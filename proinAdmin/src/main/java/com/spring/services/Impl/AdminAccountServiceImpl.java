@@ -2,6 +2,7 @@ package com.spring.services.Impl;
 
 import com.spring.model.*;
 import com.spring.repository.*;
+import com.spring.responseDTO.SearchResultInfo;
 import com.spring.responseDTO.SearchResults;
 import com.spring.services.AdminAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     @Override
     public SearchResults getResults(String searchTxt, Integer status, Pageable pageable) {
 
-        String sql = "SELECT u.username FROM users_table u" +
+        String sql = "SELECT u.username, t.tags FROM users_table u" +
                 " LEFT JOIN users_tags_table t ON u.id = t.user_id" +
                 " LEFT JOIN user_status_table s ON u.id = s.user_id" +
                 " WHERE (u.username LIKE :searchTxtLike OR u.firstName LIKE :searchTxtLike " +
@@ -50,7 +51,8 @@ public class AdminAccountServiceImpl implements AdminAccountService {
 
         SearchResults searchResults = new SearchResults();
 
-        List<String> results = new ArrayList<>();
+        List<Object[]> results = new ArrayList<>();
+        List<SearchResultInfo> sR = new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("searchTxtLike", "%" + searchTxt + "%");
@@ -60,9 +62,15 @@ public class AdminAccountServiceImpl implements AdminAccountService {
             query.setFirstResult((pageable.getPageNumber() - 1) * pageable.getPageSize());
             query.setMaxResults(pageable.getPageSize());
             results = query.getResultList();
-
+            for(Object[] element : results) {
+                if(element[1] == null) {
+                    element[1] = "no tags to show";
+                }
+                SearchResultInfo searchResultInfo = new SearchResultInfo(element[0].toString(), element[1].toString());
+                sR.add(searchResultInfo);
+            }
             searchResults.setNoOfItems(noOfitems);
-            searchResults.setResults(results);
+            searchResults.setResults(sR);
 
         } catch (Exception e) {
             System.out.println("Exception " + e);
@@ -80,8 +88,8 @@ public class AdminAccountServiceImpl implements AdminAccountService {
                 " and s.status != :status";
 
         SearchResults searchResults = new SearchResults();
-        List<String> results = new ArrayList<>();
-
+        List<Object[]> results = new ArrayList<>();
+        List<SearchResultInfo> sR = new ArrayList<>();
         try {
             Query query = em.createNativeQuery(sql);
             query.setParameter("country", country);
@@ -93,8 +101,15 @@ public class AdminAccountServiceImpl implements AdminAccountService {
             query.setMaxResults(pageable.getPageSize());
 
             results = query.getResultList();
+            for(Object[] element: results) {
+                if(element[1] == null) {
+                    element[1] = "no tags to show";
+                }
+                SearchResultInfo searchResultInfo = new SearchResultInfo(element[0].toString(), element[1].toString());
+                sR.add(searchResultInfo);
+            }
             searchResults.setNoOfItems(noOfitems);
-            searchResults.setResults(results);
+            searchResults.setResults(sR);
 
         } catch (Exception e) {
             System.out.println("Exception " + e);
@@ -176,8 +191,8 @@ public class AdminAccountServiceImpl implements AdminAccountService {
     }
 
     //ADMIN STATUS 0 == NEITHER ACCEPTED NOR REJECTED
-//ADMIN STATUS 1 == ACCEPTED
-//ADMIN STATUS 2 == REJECTED
+    //ADMIN STATUS 1 == ACCEPTED
+    //ADMIN STATUS 2 == REJECTED
     @Override
     public void rejectAdminRequest(String username) {
         //change admin status

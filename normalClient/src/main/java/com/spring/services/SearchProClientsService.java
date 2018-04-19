@@ -2,6 +2,8 @@ package com.spring.services;
 
 import com.spring.model.User;
 import com.spring.responseDto.SearchResultUserInfo;
+import com.spring.responseDto.SearchResults;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  *         <suraj.gautam@f1soft.com>
  */
 public interface SearchProClientsService {
-    List<SearchResultUserInfo> findResults(String country, String searchTxt);
-    List<SearchResultUserInfo> getResults(String searchTxt);
+    SearchResults findResults(String country, String searchTxt, Pageable pageable);
+    SearchResults getResults(String searchTxt, Pageable pageable);
     User getProUserProfile(String username);
 }

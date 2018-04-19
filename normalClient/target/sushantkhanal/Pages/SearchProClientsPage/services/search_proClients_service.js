@@ -31,7 +31,7 @@ function searchProClientsService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
-    function getMatchedProUsers(searchThis, country) {
+    function getMatchedProUsers(searchThis, country, pageNumber, size) {
         if(country == undefined) {
             country = "undefined";
         }
@@ -39,7 +39,7 @@ function searchProClientsService(HttpService){
             searchThis: searchThis,
             country: country,
         };
-        return HttpService.post(REST_SERVICE_URI + "getMatchedProUsers/", searchParams);
+        return HttpService.post(REST_SERVICE_URI + "getMatchedProUsers?page="+pageNumber+"&size="+size, searchParams);
     }
 
 }
