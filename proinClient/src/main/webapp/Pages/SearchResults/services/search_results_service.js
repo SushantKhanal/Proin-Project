@@ -21,7 +21,7 @@ function searchResultsService(HttpService){
         return HttpService.get(REST_SERVICE_URI + "getCountries/");
     }
 
-    function getMatchedUsers(searchThis, country) {
+    function getMatchedUsers(searchThis, country, pageNumber, size) {
         if(country == undefined) {
             country = "undefined";
         }
@@ -29,7 +29,7 @@ function searchResultsService(HttpService){
             searchThis: searchThis,
             country: country,
         };
-        return HttpService.post('http://localhost:8080/normalClient/api/normalAccount/' + "getMatchedProUsers/", searchParams);
+        return HttpService.post('http://localhost:8080/normalClient/api/normalAccount/' + "getMatchedProUsers?page="+pageNumber+"&size="+size, searchParams);
     }
 
 }

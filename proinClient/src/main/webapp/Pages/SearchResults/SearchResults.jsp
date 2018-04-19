@@ -43,14 +43,30 @@
                                         <option value="">-- Select a Country --</option>
                                         <option ng-repeat="country in xxx.countries" value="{{country}}">{{country}}</option>
                                     </select>
-
-                                    <ol>
-                                        <div ng-show="xxx.showList" ng-repeat="profile in xxx.users">
-                                            <li id="user{{$index}}" style="cursor: pointer; color:blue;" class="listOfResult" ng-click="xxx.displayProfile(profile.username)">
-                                                {{profile.username}}: {{profile.tags}}
-                                            </li>
-                                        </div>
-                                    </ol>
+                                    <div ng-if="xxx.users !== ''">
+                                        <table ng-table="xxx.tableParams" style="cursor: pointer; color:blue;" class="listOfResult table">
+                                            <tr ng-repeat="profile in xxx.users">
+                                                <td id="user{{$index}}" ng-click="xxx.displayProfile(profile.username)">
+                                                    {{profile.username}} ({{profile.tags}})
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <uib-pagination
+                                                ng-model="pagination.currentPage"
+                                                items-per-page="3"
+                                                total-items="xxx.noOfItems"
+                                                max-size="5"
+                                                ng-change="xxx.searchResults(xxx.accountType)"
+                                                boundary-links="true">
+                                        </uib-pagination>
+                                    </div>
+                                    <%--<ol>--%>
+                                        <%--<div ng-show="xxx.showList" ng-repeat="profile in xxx.users">--%>
+                                            <%--<li id="user{{$index}}" style="cursor: pointer; color:blue;" class="listOfResult" ng-click="xxx.displayProfile(profile.username)">--%>
+                                                <%--{{profile.username}}: {{profile.tags}}--%>
+                                            <%--</li>--%>
+                                        <%--</div>--%>
+                                    <%--</ol>--%>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>

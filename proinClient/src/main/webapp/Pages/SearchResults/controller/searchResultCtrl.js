@@ -10,8 +10,6 @@ function searchResultController($location, SearchResultsService, FavouritesServi
     vm.goBack = goBack;
     vm.searchResults = searchResults;
     vm.displayProfile = displayProfile;
-
-
     vm.picPath1 = '';
     vm.users = []; //make this persist on refresh
     vm.user;
@@ -24,6 +22,13 @@ function searchResultController($location, SearchResultsService, FavouritesServi
     if(userData !== undefined) {
         vm.proUser = JSON.parse(userData);
     }
+    $scope.filteredTodos = [];
+    $scope.pagination = {
+        currentPage:  1
+    };
+    $scope.noOfItems;
+    $scope.numPerPage = 3
+        ,$scope.maxSize = 5;
 
     getCountries();
     getProfilePic(vm.proUser.username);
@@ -115,11 +120,12 @@ function searchResultController($location, SearchResultsService, FavouritesServi
     }
 
     function searchResults() {
-        console.log(vm.searchThis, $scope.country);
-        SearchResultsService.getMatchedUsers(vm.searchThis, $scope.country)
+        SearchResultsService.getMatchedUsers(vm.searchThis, $scope.country,
+            $scope.pagination.currentPage, $scope.numPerPage)
             .then(
                 function(u) {
-                    vm.users = u;
+                    vm.users = u.results;
+                    vm.noOfItems = u.noOfItems;
                     if (vm.users !== []) {
                         vm.showList = true;
                     }
